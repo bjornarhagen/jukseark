@@ -159,7 +159,8 @@ hr {
 .row h4,
 .row h5,
 .row h6,
-.row p {
+.row p,
+.row dl {
 	margin: 0 0 0.20em;
 	line-height: 1;
 	text-align: justify;
@@ -210,4 +211,19 @@ hr {
 	background-color: #eee;
 	padding: 0em;
 	line-height: 1;
+}
+
+.row dl dt:before {
+	content: " ";
+	display: table
+}
+
+.row dl dt {
+	font-weight: 700;
+	display: inline;
+}
+
+.row dl dd {
+	margin: 0 0 0 1em;
+	display: inline;
 }
