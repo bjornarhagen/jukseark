@@ -1385,11 +1385,20 @@
 					<dt>Unicast</dt>
 					
 					<dt>Anycast</dt>
+					<dd>Er støttet kun i IPv6 og ikke IPv4 (men IPv4 har en workaround)</dd>
 					<dd>Anycast er en nettverksadressering og rutemetode. En pakke med en anycast adresse blir sendt til en
 					destinasjon. Destinasjons velges ut fra om den er nærmest, lavest kostnad, sunnest, minst overbelastet
 					eller en annen type avstands måling. Anycast adresse kan brukes der det er (for) mye trafikk til et
 					nettsted, slik at datatrafikken må deles over flere maskiner. Der hvor en maskin ikke vil klare å
 					behandle all trafikk.</dd>
+
+					<dt>IPV4 anycast workaround</dt>
+					<dd>Kan i mange tilfeller gjøres vha. BGP. Flere verter (vanligvis i forskjellige
+					geografiske områder) får samme unicast IP-adresse, og forskjellige ruter til adressen blir annonsert
+					gjennom BGP. Rutere anser disse for å være alternative ruter til samme destinasjon, selv om de
+					faktisk er ruter til forskjellige destinasjoner med samme adresse. Som vanlig velger rutere en rute
+					basert på hvilken avstandsmål som er i bruk (minst kostnad, minst overbelastet, kortest). Å velge en
+					rute i dette oppsettet, vil være det samme som å velge en destinasjon.</dd>
 					
 					<dt>Multicast</dt>
 					<dt>Broadcast</dt>
