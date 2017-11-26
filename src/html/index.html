@@ -90,16 +90,16 @@
 				<h4>c) Hva blir broadcast-adressen?</h4>
 				<p>Broadcast-adressen er den adressen med bare 1’ere i host. Nå går grensen mellom nett
 				og host i den 3.byten. Nettadressen er oppgitt til 158.29.16.00/21. Dette skrevet på
-				binær form, hvor fet skrift angir nettdelen, og kursiv skrift angir hostdelen:
-				<code>10011110.00011101.00010000.00000000</code></p>
+				binær form, hvor fet skrift angir nettdelen, og <span class="blue">blå</span> skrift angir hostdelen:
+				<code><strong>10011110.00011101.00010</strong><span class="blue">000.00000000</span></code></p>
 				<p>Hvis vi setter alle bitene i hostdelen til 1, blir det:</p>
-				<p><code>10011110.00011101.00010111.11111111</code> Skrevet på desimal form gir: <code>158.29.23.255</code></p>
+				<p><code><strong>10011110.00011101.00010</strong><span class="blue">111.11111111</span></code> Skrevet på desimal form gir: <code>158.29.23.255</code></p>
 				<ul class="inline nostyle">
 					<li>Fordi</li>
 					<li><code><strong>10011110</strong> = 158</code></li>
 					<li><code><strong>00011101</strong> = 29</code></li>
-					<li><code><strong>00010</strong>111 = 23</code></li>
-					<li><code>11111111 = 255</code></li>
+					<li><code><strong>00010</strong><span class="blue">111</span> = 23</code></li>
+					<li><code><span class="blue">11111111</span> = 255</code></li>
 				</ul>
 			</div>
 		</section>
@@ -115,11 +115,11 @@
 				<h4>a) Hva blir nett-adressene på disse to nett?</h4>
 				<p>Hvis vi tillater bruk av «subnet zero» og «all 1 subnet», kan vi bruke en bit av
 				hostadressen for å lage to nett. De nye subnett-bitene får verdiene henholdsvis 0 og 1.
-				De er angitt med <span class="red">rød</span> farge. <strong>Fet</strong> skrift angir nettdelen, og <em>kursiv</em> angir hostdelen:</p>
+				De er angitt med <span class="red">rød</span> farge. <strong>Fet</strong> skrift angir nettdelen, og <span class="blue">blå</span> angir hostdelen:</p>
 				<p>Vi ser på de to siste bytene:</p>
-				<p>Nett 1: <code><strong>00010<span class="red">0</span></strong>00.00000000</code> -> 16.00</p>
+				<p>Nett 1: <code><strong>00010<span class="red">0</span></strong><span class="blue">00.00000000</span></code> -> 16.00</p>
 				<p class="i2">=> Nettadressen for nett 1 blir da: <code>158.29.16.00 / 22</code></p>
-				<p>Nett 2: <code><strong>00010<span class="red">1</span></strong>00.00000000</code> -> 20.00</p>
+				<p>Nett 2: <code><strong>00010<span class="red">1</span></strong><span class="blue">00.00000000</span></code> -> 20.00</p>
 				<p class="i2">=> Nettadressen for nett 2 blir da: <code>158.29.20.00 / 22</code></p>
 
 				<h4>b) Hva blir masken på disse to nett?</h4>
@@ -129,9 +129,9 @@
 				<h4>c) Hva blir broadcast-adressene?</h4>
 				<p>Broadcastadressene har bare 1’ere i hostdelen:</p>
 				<p>Vi ser på de to siste bytene, og setter 1’er i hostdelen:</p>
-				<p>Nett 1: <code><strong>00010<span class="red">0</span></strong>11.11111111</code> -> 19.255</p>
+				<p>Nett 1: <code><strong>00010<span class="red">0</span></strong><span class="blue">11.11111111</span></code> -> 19.255</p>
 				<p class="i2">=> Broadcastadressen for nett 1 blir da:158.29.19.255</p>
-				<p>Nett 2: <strong>00010<span class="red">1</span></strong>11.11111111 -> 23.255 </p>
+				<p>Nett 2: <strong>00010<span class="red">1</span></strong><span class="blue">11.11111111</span> -> 23.255 </p>
 				<p class="i2">=> Broadcastadressen for nett 2 blir da:158.29.23.255</p>
 
 				<h4>d) Hva blir høyeste og laveste IP-adresse på en host på hvert av disse nett?</h4>
@@ -156,19 +156,19 @@
 				<p>For å finne nett-adressene til disse 6 nett, ser vi nærmere på de to siste byte’ene i nettadressen
 				til hovednettet. Det er fordi delet mellom nettdel og hostdel går i den 3.byten. Ved
 				subnetting vil delet gå i den 4. byten.:</p>
-				<p><code>158.29.16.00 / 21</code> <strong>Fet skrift</strong> er bit som er i nettdelen, og kursiv er de som er i hostdelen</p>
-				<p>Før subnetting: <code><strong>00010</strong>000.00000000</code></p>
+				<p><code>158.29.16.00 / 21</code> <strong>Fet skrift</strong> er bit som er i nettdelen, og <span class="blue">blå</span> er de som er i hostdelen</p>
+				<p>Før subnetting: <code><strong>00010</strong><span class="blue">000.00000000</span></code></p>
 				<p>Biter med <span class="red">rød skrift</span> er nå brukt til subnetting, og går da over fra å være bit i hostdelen til biter i nettdelen.</p>
 				<p>Etter subnetting:</p>
 				<ul class="nostyle">
-					<li><code><strong>00010<span class="red">000</span></strong>.00000000</code> -> <code>158.29.16.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">001</span></strong>.00000000</code> -> <code>158.29.17.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">010</span></strong>.00000000</code> -> <code>158.29.18.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">011</span></strong>.00000000</code> -> <code>158.29.19.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">100</span></strong>.00000000</code> -> <code>158.29.20.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">101</span></strong>.00000000</code> -> <code>158.29.21.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">110</span></strong>.00000000</code> -> <code>158.29.22.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">111</span></strong>.00000000</code> -> <code>158.29.23.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">000</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.16.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">001</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.17.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">010</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.18.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">011</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.19.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">100</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.20.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">101</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.21.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">110</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.22.00 / 24</code></li>
+					<li><code><strong>00010<span class="red">111</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.23.00 / 24</code></li>
 				</ul>
 				<p>De 6 subnett kunne i utgangspunktet få hvilken som helst av disse 8 adresser. Det hadde da
 				blitt 2 adresser til overs.
@@ -185,12 +185,12 @@
 					</div>
 					<div class="fr w6">
 						<ul class="nostyle">
-							<li><code><strong>00010<span class="red">000</span></strong>.00000000</code> -> <code>158.29.16.00 / 24</code></li>
-							<li><code><strong>00010<span class="red">001</span></strong>.00000000</code> -> <code>158.29.17.00 / 24</code></li>
-							<li><code><strong>00010<span class="red">01</span></strong>0.00000000</code> -> <code>158.29.18.00 / 23</code></li>
-							<li><code><strong>00010<span class="red">10</span></strong>0.00000000</code> -> <code>158.29.20.00 / 23</code></li>
-							<li><code><strong>00010<span class="red">110</span></strong>.00000000</code> -> <code>158.29.22.00 / 24</code></li>
-							<li><code><strong>00010<span class="red">111</span></strong>.00000000</code> -> <code>158.29.23.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">000</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.16.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">001</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.17.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">01</span></strong><span class="blue">0.00000000</span></code> -> <code>158.29.18.00 / 23</code></li>
+							<li><code><strong>00010<span class="red">10</span></strong><span class="blue">0.00000000</span></code> -> <code>158.29.20.00 / 23</code></li>
+							<li><code><strong>00010<span class="red">110</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.22.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">111</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.23.00 / 24</code></li>
 						</ul>
 					</div>
 				</div>
@@ -226,13 +226,15 @@
 						<p>PC1 ligger på Ethernet1, som har nettnummer 139.26.154.64 / 27,
 						64=<strong>010</strong>00000 og masken /27 = 255.255.255.224 -> 224=.<strong>111</strong>00000
 						Første nummer: 139.26.154.65, blir ruterens nummer. PC1 kan da få et nummer
-						imellom 139.26.154.66 og 139.26.154.94 (66= <strong>010</strong>00010, 94= <strong>010</strong>11110)</p>
+						imellom 139.26.154.66 og 139.26.154.94 (66= <strong>010</strong><span class="blue">00010</span>,
+						94= <strong>010</strong><span class="blue">11110</span>)</p>
 					</div>
 					<div class="w5 fr sl">
 						<p>PC2 ligger på Ethernet2, som har nettnummer 139.26.154.32 / 27,
-						32=<strong>001</strong>00000 og masken /27 = 255.255.255.224. -> 224=.<strong>111</strong>00000
+						32=<strong>001</strong><span class="blue">00000</span> og masken /27 = 255.255.255.224. -> 224=.<strong>111</strong>00000
 						Første nummer: 139.26.154.33, blir ruterens nummer. PC1 kan da få et nummer
-						imellom 139.26.154.34 og 139.26.154.62 (34= <strong>001</strong>00010, 62= <strong>001</strong>11110)</p>
+						imellom 139.26.154.34 og 139.26.154.62 (34= <strong>001</strong><span class="blue">00010</span>,
+						62= <strong>001</strong><span class="blue">11110</span>)</p>
 					</div>
 				</div>
 
@@ -240,8 +242,8 @@
 				<div class="clear">
 					<div class="w5 fl sr">
 						<p>Laveste IP-adresse på Ethernet2 er en over nettadressen: Nettadresse er
-						139.26.154.32 (32= <strong>001</strong>00000) Dvs laveste IP-adresse på en host på Ethernet2 blir:
-						139.26.154.33 (33= <strong>001</strong>00001)</p>
+						139.26.154.32 (32= <strong>001</strong><span class="blue">00000</span>) Dvs laveste IP-adresse på en host på Ethernet2 blir:
+						139.26.154.33 (33= <strong>001</strong><span class="blue">00001</span>)</p>
 					</div>
 					<div class="w5 fr sl">
 						<p>Høyeste IP- adresse på Ethernet2 er en under broadcastadressen, som er :
@@ -251,11 +253,11 @@
 				</div>
 
 				<h4>d) Hva er broadcastadressen til Ethernet1? </h4>
-				<p>Ethernet1, har nettnummer 139.26.154.64 /27, 64=<strong>010</strong>00000
+				<p>Ethernet1, har nettnummer 139.26.154.64 /27, 64=<strong>010</strong><span class="blue">00000</span>
 				med maske 255.255.255.124. 224=.<strong>111</strong>00000
 				Broadcastadressen har bare 1’ere i host-delen av adressen. Masken viser at det er 5 bit i
 				hostdelen av adressen. Broadcastadressen blir da:
-				139.26.154.95 => <strong>010</strong>11111 =95</p>
+				139.26.154.95 => <strong>010</strong><span class="blue">11111</span> =95</p>
 
 
 				<h3>Nå skal kontoret i Fredrikstad tilknyttes kontoret i Halden. Bedriften setter opp en punkt-til—punkt forbindelse mellom de to kontorene. (Punkt A og B knyttes sammen).</h3>
@@ -267,7 +269,7 @@
 				brukt fra før. Det blir altså der hvor det er 0.00 eller 1.11 fra de andre subnettene. Vi
 				velger f.eks. 0.00-delen. Det gir</p>
 				<ul class="nostyle">
-					<li>Nettnummeret: 139.26.154.04 (154.04 = <strong>10011010</strong> . <strong>000 001</strong> 00) </li>
+					<li>Nettnummeret: 139.26.154.04 (154.04 = <strong>10011010</strong> . <strong>000 001</strong> <span class="blue">00</span>) </li>
 					<li>Nettmasken: /30 = 255.255.255.252 (252 = 11111100)</li>
 					<li>IP-nummer for hvert endepunkt: </li>
 					<li>139.26.154.05 ( 05 = <strong>000 001</strong> 01) og 139.26.154.06 ( 06 = <strong>000 001</strong> 10)</li>
@@ -280,14 +282,14 @@
 				Hvis <strong>Løsning 1</strong>:
 				alle subnett skal være like store, har vi disse valg: </p>
 				<ul class="nostyle">
-					<li><code>139.26.154.00 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">000</span></strong>00000</code> = 154.00) (subnet zero)</li>
-					<li><code>139.26.154.32 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">001</span></strong>00000</code> = 154.32) (Ethernet 2)</li>
-					<li><code>139.26.154.64 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">010</span></strong>00000</code> = 154.64) (Ethernet 1)</li>
-					<li><code>139.26.154.96 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">011</span></strong>00000</code> = 154.96)</li>
-					<li><code>139.26.154.128 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">100</span></strong>00000</code> = 154.128)</li>
-					<li><code>139.26.154.160 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">101</span></strong>00000</code> = 154.160)</li>
-					<li><code>139.26.154.192 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">110</span></strong>00000</code> = 154.192)</li>
-					<li><code>139.26.154.224 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">111</span></strong>00000</code> = 154.224) (all 1 subnet)</li>
+					<li><code>139.26.154.00 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">000</span></strong><span class="blue">00000</span></code> = 154.00) (subnet zero)</li>
+					<li><code>139.26.154.32 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">001</span></strong><span class="blue">00000</span></code> = 154.32) (Ethernet 2)</li>
+					<li><code>139.26.154.64 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">010</span></strong><span class="blue">00000</span></code> = 154.64) (Ethernet 1)</li>
+					<li><code>139.26.154.96 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">011</span></strong><span class="blue">00000</span></code> = 154.96)</li>
+					<li><code>139.26.154.128 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">100</span></strong><span class="blue">00000</span></code> = 154.128)</li>
+					<li><code>139.26.154.160 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">101</span></strong><span class="blue">00000</span></code> = 154.160)</li>
+					<li><code>139.26.154.192 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">110</span></strong><span class="blue">00000</span></code> = 154.192)</li>
+					<li><code>139.26.154.224 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">111</span></strong><span class="blue">00000</span></code> = 154.224) (all 1 subnet)</li>
 					<li>Ethernet1 har fått nettnummer: 139.26.154.64 / 27</li>
 					<li>Ethernet2 har fått nettnummer: 139.26.154.32 / 27</li>
 				</ul>
@@ -301,7 +303,7 @@
 				<p><strong>Løsning 2:</strong></p>
 				<ul class="nostyle">
 					<li><code>139.26.154.128 / 25</code> (Masken er da <code>255.255.255.128</code>, som er et større nett)</li>
-					<li><code>139.26.154.128 / 25</code> (siste to byte: <code><strong>10011010 . <span class="red">1</span></strong>0000000</code> = 154.128)</li>
+					<li><code>139.26.154.128 / 25</code> (siste to byte: <code><strong>10011010 . <span class="red">1</span></strong><span class="blue">0000000</span></code> = 154.128)</li>
 				</ul>
 
 				<h4>c) Hva blir nettmasken til de Ethernet3?</h4>
@@ -853,7 +855,7 @@
 				<img class="w5 fr" src="https://i.xdh.no/ab0bc54c7a25">
 				<hr>
 				<div class="w5 fl sr">
-					<p>Datamaskinene må bruke IP adresse, som er et nummer, for å finne fram til en annen maskin, for
+					<p>Datamaskinene må bruke IP adresse for å finne fram til en annen maskin, for
 					eksempel en web-server eller mail-server. For oss mennesker er det mer naturlig å bruke et navn enn et
 					nummer. DNS gjør at du kan skrive inn adressen som et ”domain name”, f.eks www.hiof.no, og DNS
 					finner da IP adressen til denne, som kan være 158.39.162.29. </p>
