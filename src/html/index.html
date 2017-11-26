@@ -331,6 +331,7 @@
 					frigjøre IP-adressen, som da kan deles ut til en annen maskin som forespør om en
 					IP-adresse. 
 				</p>
+				<p>DHCP bruker UDP (User Datagram Protocol) protokollen. DHCP serveren bruker port nummer 68.DHCP klienten bruker port nummer 67.</p>
 			</div>
 		</section>
 	</div>
@@ -1331,6 +1332,24 @@
 					<dt>IEEE 802.1Q tag</dt>
 					<dd>Et felt som hvis tilstede, indikerer det VLAN medlemskap og IEEE 802.1p prioritet.</dd>
 
+					<dt>VLAN</dt>
+					<dt>Gateway</dt>
+					<dt>Nettmaske</dt>
+					<dt>Switch</dt>
+					<dt>Ruter</dt>
+
+				</dl>
+				<h1>Ting & tang</h1>
+				<dl>
+					<dt>Ethernet frame & header</dt>
+					<dt>Frame</dt>
+					
+					<dd>En datapakke på en Ethernet-link kalles en Ethernet-pakke, som transporterer en Ethernet-frame
+					som payload. Hver frame starter med en Ethernet-header, midt delen inneholder payload data og inkluderer
+					eventuelle header for protokoller (eks: IP header). Framen slutter med en (FCS)</dd>
+					<dt>Header</dt>
+					<dd>Inneholder to MAC adresser (src, dest), EtherType feltet og et IEEE 802.1Q tag (valgfritt)</dd>
+					
 					<dt>ARP</dt>
 					<dd>ARP kartlegger (dynamisk) hvilken IP adresse (Lag 3 adressen) hver MAC adresse (Lag 2 adressen)
 					har, på et nett. En host, som skal sende data, trenger MAC adressen til (første/neste) mottager på
@@ -1338,16 +1357,28 @@
 					en kort stund. ARP er en request og reply protokoll. ARP kan bare brukes til å finne MAC adressen til en IP
 					adresse innenfor et nett. ARP virker på lag 2. ARP brukes også bare på IPv4, for di IPv6 bruker Neighbor
 					Discovery Protocol, som er en del av ICMPv6.</dd>
-				</dl>
-				<h1>Ting & tang</h1>
-				<dl>
-					<dt>Ethernet frame & header</dt>
-					<dt>Frame</dt>
-					<dd>En datapakke på en Ethernet-link kalles en Ethernet-pakke, som transporterer en Ethernet-frame
-					som payload. Hver frame starter med en Ethernet-header, midt delen inneholder payload data og inkluderer
-					eventuelle header for protokoller (eks: IP header). Framen slutter med en (FCS)</dd>
-					<dt>Header</dt>
-					<dd>Inneholder to MAC adresser (src, dest), EtherType feltet og et IEEE 802.1Q tag (valgfritt)</dd>
+
+					<dt>HTTP</dt>
+					<dd>HTTP er laget for kommunikasjon mellom en webserver og webklient (web browser), hvor mange forskjellige 
+					filtyper kan overføres. HTTP virker som en request-response protokoll mellom webklienten og webserveren. 
+					Webklienten sender en request pakke og webserveren svarer med en response pakke. Respons pakken inneholder status 
+					informasjon og kan også inneholde informasjonen request pakken spurte etter.
+					</dd>
+					<dd>
+						I HTTP requestet kan vi se at metoden GET brukes. HTTP versjonen er 1.1. 
+						Andre ting i request headeren er User-Agent (info om client), 
+						hva man skal akseptere som respons, samt info om respons kan være komprimert eller ikke.
+					</dd>
+					<dd>
+						I HTTP responsen vil man få status kode og tekst, her ser vi at status kode er 200 og tekst er OK. 
+						Responsen inneholder også hvilken web-server som er i bruk (Apache), serveren sin dato, når siden ble sist endret, samt hvor langt innholdet er. 
+						I Line-based text data: text/html ser vi selve innholdet som blir sendt.
+					</dd>
+					<dt>Unicast</dt>
+					<dt>Anycast</dt>
+					<dt>Multicast</dt>
+					<dt>Broadcast</dt>
+					<dt>NAT</dt>
 				</dl>
 			</div>
 		</section>
