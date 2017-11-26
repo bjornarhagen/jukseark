@@ -1,0 +1,26 @@
+{
+  "name": "hiof-datakom-eksamensark-2017",
+  "version": "1.0.0",
+  "description": "datakom",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bearhagen/hiof-datakom-eksamensark-2017.git"
+  },
+  "author": "Bjørnar Hagen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bearhagen/hiof-datakom-eksamensark-2017/issues"
+  },
+  "homepage": "https://github.com/bearhagen/hiof-datakom-eksamensark-2017#readme",
+  "dependencies": {
+    "katex": "^0.9.0-alpha1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.2.3",
+    "webpack": "^3.8.1"
+  }
+}
