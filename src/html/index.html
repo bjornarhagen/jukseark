@@ -1374,8 +1374,23 @@
 						Responsen inneholder også hvilken web-server som er i bruk (Apache), serveren sin dato, når siden ble sist endret, samt hvor langt innholdet er. 
 						I Line-based text data: text/html ser vi selve innholdet som blir sendt.
 					</dd>
+
+					<dt>IPv6 shorthand notation</dt>
+					<dd>Flere seksjoner med bare 0-ere kan gjøres om til <code>::</code> (brukes kun en gang, der hvor
+					den fjerner mest 0-ere)</dd>
+					<dd>Ledene 0-ere før andre tall kan også fjernes.</dd>
+					<dd>Hvis det er flere 0-er seksjoner indikeres det med <code>:0:</code> (en per seksjon)</dd>
+					<dd>Eks: <code>2607:F6D0:0000:005A:0000:0000:0000:07C0</code> blir <code>2607:F6D0:0:5A::7C0</code></dd>
+
 					<dt>Unicast</dt>
+					
 					<dt>Anycast</dt>
+					<dd>Anycast er en nettverksadressering og rutemetode. En pakke med en anycast adresse blir sendt til en
+					destinasjon. Destinasjons velges ut fra om den er nærmest, lavest kostnad, sunnest, minst overbelastet
+					eller en annen type avstands måling. Anycast adresse kan brukes der det er (for) mye trafikk til et
+					nettsted, slik at datatrafikken må deles over flere maskiner. Der hvor en maskin ikke vil klare å
+					behandle all trafikk.</dd>
+					
 					<dt>Multicast</dt>
 					<dt>Broadcast</dt>
 					<dt>NAT</dt>
