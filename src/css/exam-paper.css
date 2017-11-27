@@ -87,6 +87,9 @@ hr {
 .bb { border-bottom: 1px solid gray; padding-bottom: 1px; }
 .bl { border-left:   1px solid gray; padding-left:   1px; }
 
+/* Display styles */
+.inline { display: inline; }
+
 /* Ensure latex is rendering on print */
 .katex { font-size: 1.1em !important; }
 .katex .frac-line {
