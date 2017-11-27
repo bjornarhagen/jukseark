@@ -1,18 +1,12 @@
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
+/* Fix box-sizing */
+*, *:before, *:after { box-sizing: inherit;    }
+html                 { box-sizing: border-box; }
 
 html,
 body {
 	margin: 0;
 	padding: 0;
 	font-size: 8px;
-}
-
-html{
-	box-sizing: border-box;
 }
 
 body {
@@ -28,19 +22,21 @@ hr {
 	background-color: gray;
 }
 
+/* Clearfix */
 .clear:before,
 .clear:after {
 	content: " ";
 	display: table
 }
-
 .clear:after{
 	clear: both
 }
 
+/* Floats */
 .fl { float: left; }
 .fr { float: left; }
 
+/* Widths */
 .w1  { width: 10%  !important; }
 .w2  { width: 20%  !important; }
 .w3  { width: 30%  !important; }
@@ -52,6 +48,7 @@ hr {
 .w9  { width: 90%  !important; }
 .w10 { width: 100% !important; }
 
+/* Colors */
 .black  { color: black;  }
 .white  { color: white;  }
 .red    { color: red;    }
@@ -63,6 +60,7 @@ hr {
 .pink   { color: pink;   }
 .brown  { color: brown;  }
 
+/* Indentations */
 .i0 { padding-left: 0em !important; }
 .i1 { padding-left: 1em !important; }
 .i2 { padding-left: 2em !important; }
@@ -70,11 +68,14 @@ hr {
 .i4 { padding-left: 4em !important; }
 .i5 { padding-left: 5em !important; }
 
-.center { display: block; margin: 0 auto; }
+/* Center an element */
+.centered { display: block; margin: 0 auto; }
 
+/* Seperators */
 .sl { padding-left:  0.5em; border-left:  0.05em solid gray; }
 .sr { padding-right: 0.5em; border-right: 0.05em solid gray; }
 
+/* Alignments */
 .tl { text-align: left    !important; }
 .tr { text-align: right   !important; }
 .tj { text-align: justify !important; }
@@ -82,18 +83,17 @@ hr {
 
 /* Ensure latex is rendering on print */
 .katex { font-size: 1.1em !important; }
-
 .katex .frac-line {
 	min-height: 1px !important;
 	min-width: 1px !important;
 	border-bottom-width: 1px !important;
 }
-
 .katex .underline-line {
 	min-height: 1px !important;
 	border-bottom-width: 1px !important;
 }
 
+/* One A4 paper page (landscape) */
 .wrapper {
 	display: flex;
 	margin: 10em auto;
@@ -109,6 +109,7 @@ hr {
 	overflow: auto;
 }
 
+/* Make sure print behaves correctly */
 @media print {
 	.wrapper {
 		position: relative;
@@ -124,6 +125,7 @@ hr {
 	}
 }
 
+/* Split the page into 3 sections */
 .wrapper section {
 	display: flex;
 	flex-direction: column;
@@ -139,6 +141,7 @@ hr {
 	padding-right: 0;
 }
 
+/* Styling for all page elements */
 .row h1,
 .row h2,
 .row h3,
