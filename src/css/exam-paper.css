@@ -106,7 +106,7 @@ hr {
 .wrapper {
 	display: flex;
 	margin: 10em auto;
-	padding: 0.5em;
+	padding: 5mm;
 	flex-direction: row;
 	justify-content: space-between;
 	background-color: #fff;
@@ -138,7 +138,7 @@ hr {
 .wrapper section {
 	display: flex;
 	flex-direction: column;
-	padding: 0 1em;
+	padding: 0 1mm 0;
 	max-width: 33.33333333333333%
 }
 
