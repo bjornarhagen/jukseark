@@ -1195,17 +1195,15 @@
 				<p>Man bør velge en fiber med høyest mulig NA hvis man ønsker minst mulig innkoblingstap
 				i fiberen. NA er definert som sinus til den største vinkelen en lysstråle kan ha inn på
 				fiberen, for å bli ført videre i kjernen. Jo større NA, jo større vinkel.</p>
-			</div>
-		</section>
-		<section>
-			<div class="row">
 				<p>Hvis man bruker en LED som lyskilde, stråler den ut lys i alle retninger. Hvor mye av dette
 				som faktisk blir koblet inn i fiberen, er avhengig av (bl.a.) NA. Ved bruk av fiber med høy
 				NA vil også de lysstålene med stor vinkel bli koblet inn i fiberen. Med bruk av lav NA ville
 				disse lysstrålene bli tapt. Dette regnes da med i innkoblingstapet, slik at innkoblingstapet
 				blir da større.</p>
-
-
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å ha høyest
 				båndbredde på fiberen. Forklar hvorfor.</h3>
 				<p>Man bør velge en fiber med lavest mulig NA, hvis man ønsker fiber med høyest mulig
@@ -1253,12 +1251,12 @@
 				er montert på selve fiberkabelen. Hva blir systemmarginen?</h3>
 				<p>Systemmarginen kan man finne ved å sette opp effektbudsjettet.</p>
 				<div class="katex">
-					P_i - P_{fiber} - P_{skjøt} - P_{kon} - P_{sys}
-					= P_m - 10 - 5 - 0,2 - 2 - P_{sys}
+					P_i - P_{fiber} - P_{sk} - P_{kon} - P_{sy}
+					= P_m - 10 - 5 - 0,2 - 2 - P_{sy}
 					= -37
 				</div>
 				<div class="katex">
-					P_{sys} = 37 - 17,2 = 19,8 [dB]
+					P_{sy} = 37 - 17,2 = 19,8 [dB]
 				</div>
 
 
@@ -1279,7 +1277,7 @@
 				settes til 1,0 dB.
 				Vi får da:</p>
 				<div class="katex">
-					P_i - P_{fib} - P_{skjøt} - P_{nnk.m} - P_{sys}
+					P_i - P_{fi} - P_{sk} - P_{nnk.m} - P_{sy}
 					= P_m - 18 - 30 - 1,8 - 6 - 1 - 5
 					= P_m
 				</div>
@@ -1293,28 +1291,26 @@
 				<p>Hvis følsomheten til mottageren hadde vært på –50,0 dBm kunne vi hatt en fiberkabel
 				på maks X km:</p>
 				<div class="katex">
-					P_i - P_{fib} - P_{skjøt} - P_{kon} - P_{nnk.m} - P_{sys}
-				</div>
-				<div class="katex">
+					P_i - P_{fi} - P_{sk} - P_{kon} - P_{nnk.m} - P_{sy}
 					= P_m - 18 - 30 X - 0,2 X - 6 - 1 - 5
 					= -50
 				</div>
-				<div class="katex">
+				<div class="katex inline">
 					X \cdot 3,2 = 50 - 18 -12 = 20
 				</div>
-				<div class="katex">
+				<div class="katex inline i5">
 					X = 20 / 3,2 = 6,25
 				</div>
 				<p>Ved en lengde på 6,25 km får vi</p>
 				<div class="katex">
-					P_i - P_{fib} - P_{skjøt} - P_{kon} - P_{nnk.m} - P_{sys}
+					P_i - P_{fi} - P_{sk} - P_{kon} - P_{nnk.m} - P_{sy}
+					= P_m - 18 - 6,25 \cdot 30 - 6 \cdot 0,2 - 6 - 1 - P_{sy}
 				</div>
-				<div class="katex">
-					= P_m - 18 - 6,25 \cdot 30 - 6 \cdot 0,2 - 6 - 1 - P_{sys}
+				<div class="katex inline">
 					= -50
 				</div>
-				<div class="katex">
-					P_{sys} = 50 - 18 - 18,75 - 1,2 - 7
+				<div class="katex inline i5">
+					P_{sy} = 50 - 18 - 18,75 - 1,2 - 7
 					           = 5,05 [dB]\ i\ systemmargin
 				</div>
 				<p>Lengden på fiberkabelen kan være 6,25 km</p>
@@ -1327,8 +1323,6 @@
 				<p>Da fiberkabelen er 6,25Km blir maks datahastighet D, lik:
 				D = 2*B = (2*50 / 6,25) Mbit/s = 16 Mbit/s</p>
 			</div>
-		</section>
-		<section>
 			<div class="row">
 				<h1>Ord og utrykk</h1>
 				<dl>
@@ -1346,12 +1340,25 @@
 					<dd>Et felt som hvis tilstede, indikerer det VLAN medlemskap og IEEE 802.1p prioritet.</dd>
 
 					<dt>VLAN</dt>
+					<dd>VLANVLANVLANVLANVLANVLANVLAN</dd>
+
 					<dt>Gateway</dt>
+					<dd>GatewayGatewayGatewayGatewayGatewayGatewayGateway</dd>
+
 					<dt>Nettmaske</dt>
+					<dd>NettmaskeNettmaskeNettmaskeNettmaskeNettmaskeNettmaskeNettmaske</dd>
+
 					<dt>Switch</dt>
+					<dd>SwitchSwitchSwitchSwitchSwitchSwitchSwitch</dd>
+
 					<dt>Ruter</dt>
+					<dd>RuterRuterRuterRuterRuterRuterRuter</dd>
 
 				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h1>Ting & tang</h1>
 				<dl>
 					<dt>Ethernet frame & header</dt>
