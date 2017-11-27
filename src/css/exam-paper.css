@@ -173,13 +173,12 @@ hr {
 .row h6,
 .row p,
 .row dl {
-	margin: 0 0 0.20em;
+	margin: 0 0 0.75mm;
 	line-height: 1;
 	text-align: justify;
 }
 
 .row p {
-	margin: 0 0 0.5em;
 	font-size: 1em;
 }
 
