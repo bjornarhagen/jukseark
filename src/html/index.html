@@ -1286,8 +1286,8 @@
 					<dd>Benevning [dBm]</dd>
 
 					<dt><span class="katex">P_{f}\ (fiber)</span></dt>
-					<dd><span class="katex">\dfrac{demping\ [dB]\ per\ [km]}{kabellengde\ [km]} \cdot kabellengde\ [km] \qquad</span>
-					Benevning [dB]</dd>
+					<dd><span class="katex">\dfrac{demping\ [dB]\ per\ [km]}{lengde\ [km]} \cdot lengde\ [km]</span>
+					Benevning [dB]. Se attenuation i datablad</dd>
 
 					<dt><span class="katex">P_{s}\ (skjøt)</span></dt>
 					<dd><span class="katex">= antall\ skjøt \cdot \dfrac{[dB]}{skjøt} \qquad</span> Benevning [dB]</dd>
@@ -1312,6 +1312,20 @@
 					<dd>Manchester kode: 19 MHz x 1 = 19 Mbit/s</dd>
 					<dd>Ukodet: 19 MHz x 2 = 38 Mbit/s</dd>
 					<dd>Andre koder ligger mellom 1 og 2.</dd>
+
+					<dt>Effekt og båndbreddeberegning</dt>
+					<dd>Maksimal avstand er gitt av; enten effektbegrensning <strong>eller</strong> båndbreddebegrensning</dd>
+
+					<dt>Båndbreddeberegning (dimensjonering av fiber)</dt>
+					<dd>Fra [Gbit/s] til [GHz] -> <span class="katex">10 (Gbit/s) / 2 = 5GHz</span></dd>
+					<dd><p><span class="katex">\tau = \dfrac{0,44}{5 \cdot 10^9[s]} = spektralbåndbredde \cdot dispersjon \cdot kabellengde</span></p>
+					    <p><span class="katex">\tau = 1,5 [nm] \cdot 2,7[\dfrac{ps}{nm \cdot km}] \cdot x [km]</span></p>
+					    <p><span class="katex">\tau = 4,05 [nm] \cdot 10^{-12} \cdot x [km]</span></p>
+					    <p><span class="katex">\dfrac{\tau}{4,05 [nm] \cdot 10^{-12}} = \dfrac{4,05 [nm] \cdot 10^{-12}}{4,05 [nm] \cdot 10^{-12}} \cdot x</span></p>
+					    <p><span class="katex">x = \dfrac{\tau}{4,05 [nm] \cdot 10^{-12}}</span></p>
+					    <p><span class="katex">\underline{\underline{x = 21,7 [km]}}</span></p>
+					</dd>
+					<dd><p>Man finner dispersjonen i dataark</p></dd>
 				</dl>
 
 				<h1>Ord og utrykk</h1>
