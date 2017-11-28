@@ -173,7 +173,7 @@ hr {
 .row h6,
 .row p,
 .row dl {
-	margin: 0 0 0.75mm;
+	margin: 0;
 	line-height: 1;
 	text-align: justify;
 }
@@ -222,6 +222,8 @@ hr {
 	background-color: #eee;
 	padding: 0em;
 	line-height: 1;
+	font-size: 0.9em;
+	font-family: monospace;
 }
 
 .row dl dt:before {
