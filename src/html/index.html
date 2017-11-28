@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=2.5, width=device-width, height=device-height">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Datakom - eksamens ark</title>
+	<title>Datakom - eksamensark</title>
 	<link rel="stylesheet" href="css/exam-paper.css">
 	<link rel="stylesheet" href="css/katex.min.css">
 	<script src="js/app.js"></script>
@@ -104,10 +104,7 @@
 					<li><code><strong>00010</strong><span class="blue">111</span> = 23</code></li>
 					<li><code><span class="blue">11111111</span> = 255</code></li>
 				</ul>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
 				<h4>d) Hva blir høyeste og laveste IP-adresse på en host på dette nett?</h4>
 				<p>Høyeste IP-adresse er en under broadcast-adressen: <code>158.29.23.254</code></p>
 				<p>Laveste IP-adresse er en over nettadressen: <code>158.29.16.01</code></p>
@@ -128,7 +125,10 @@
 				<h4>b) Hva blir masken på disse to nett?</h4>
 				<p>Vi har tatt en bit av hostdelen for å lage disse to subnett. Den nye masken blir da:
 				<code>255.255.252.00. (252 = 11111100)</code>, eller skrevet slik: <code>/22</code></p>
-
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h4>c) Hva blir broadcast-adressene?</h4>
 				<p>Broadcastadressene har bare 1’ere i hostdelen:</p>
 				<p>Vi ser på de to siste bytene, og setter 1’er i hostdelen:</p>
@@ -163,21 +163,27 @@
 				<p>Før subnetting: <code><strong>00010</strong><span class="blue">000.00000000</span></code></p>
 				<p>Biter med <span class="red">rød skrift</span> er nå brukt til subnetting, og går da over fra å være bit i hostdelen til biter i nettdelen.</p>
 				<p>Etter subnetting:</p>
-				<ul class="nostyle">
-					<li><code><strong>00010<span class="red">000</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.16.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">001</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.17.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">010</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.18.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">011</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.19.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">100</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.20.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">101</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.21.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">110</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.22.00 / 24</code></li>
-					<li><code><strong>00010<span class="red">111</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.23.00 / 24</code></li>
-				</ul>
-				<p>De 6 subnett kunne i utgangspunktet få hvilken som helst av disse 8 adresser. Det hadde da
-				blitt 2 adresser til overs.
-				MEN, det er mer oversiktilig å ta de store nettene i mitten av nummer-området, og bruke
-				ytterkanten til mindre nett. Slik sett bruker vi ikke
-				<code>158.29.16.00 / 24</code> eller <code>158.29.23.00 / 24</code> til de store subnettene.</p>
+				<div class="clear">
+					<div class="fl w5">
+						<ul class="nostyle">
+							<li><code><strong>00010<span class="red">000</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.16.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">001</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.17.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">010</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.18.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">011</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.19.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">100</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.20.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">101</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.21.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">110</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.22.00 / 24</code></li>
+							<li><code><strong>00010<span class="red">111</span></strong>.<span class="blue">00000000</span></code> -> <code>158.29.23.00 / 24</code></li>
+						</ul>
+					</div>
+					<div class="fr w5">
+						<p>De 6 subnett kunne i utgangspunktet få hvilken som helst av disse 8 adresser. Det hadde da
+						blitt 2 adresser til overs.
+						MEN, det er mer oversiktilig å ta de store nettene i mitten av nummer-området, og bruke
+						ytterkanten til mindre nett. Slik sett bruker vi ikke
+						<code>158.29.16.00 / 24</code> eller <code>158.29.23.00 / 24</code> til de store subnettene.</p>
+					</div>
+				</div>
 				
 				<h4>b) Hva blir masken på disse nett?</h4>
 				<p>Slik som diskutert fram i forrige oppgave, blir masken <code>/24</code>. Skrevet på den andre måten blir det: <code>255.255.255.00</code></p>
@@ -219,10 +225,7 @@
 						Ethernet1.</p>
 					</div>
 				</div>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
 				<h4>b) PC1 og PC2 må få hver sin IP-adresse. Hvilke IP-adresser kan de få?</h4>
 				<div class="clear">
 					<div class="w5 fl sr">
@@ -277,7 +280,13 @@
 					<li>IP-nummer for hvert endepunkt: </li>
 					<li>139.26.154.05 ( 05 = <strong>000 001</strong> 01) og 139.26.154.06 ( 06 = <strong>000 001</strong> 10)</li>
 				</ul>
-
+			</div>
+			<div class="row bt br bl">
+				<br><br><br><br><br><br><br><br>
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h4>b) Hva blir nettadressen til Ethernet3? </h4>
 				<p>Vi kan fritt velge hvilke nettadresser vi gir Ethernet3 av de adressene vi har igjen.
 				139.26.154.00/24 er den originale nettadressen, som kan kalles hovednettet. Ethernet 1
@@ -320,11 +329,11 @@
 				<p>Hvis du har et stort nettverk vil det ta enormt mye tid å skrive inn IP adressen på hver host som er
 				på nettverket. Heldigvis kan man bruke DHCP i stedet. En maskin på nettverket kan settes opp som en DHCP
 				server. En DHCP server gir hver host på nettverket, som spør om det, IP adresse, subnett maske og default
-				gateway adresse.</p>
-				<p>DHCP står for Dynamic Host Configuration Protocol, og den brukes for å dele ut IPadresse til en maskin som forespør om en IP-adresse.</p>
-				<p>Det finnes en DHCP server som dekker et eller flere subnett. Denne har et sett med IPadresser som den kan dele ut fra, til maskiner som forespør om en IP-adresse. </p>
-				<p>Et eksempel på DHCP:</p>
-				<p class="i1">
+				gateway adresse. DHCP står for Dynamic Host Configuration Protocol, og den brukes for å dele ut IPadresse til en maskin som forespør om en IP-adresse.
+				Det finnes en DHCP server som dekker et eller flere subnett. Denne har et sett med IPadresser som den kan dele ut fra, til maskiner som forespør om en IP-adresse.
+				DHCP bruker UDP (User Datagram Protocol) protokollen. DHCP serveren bruker port nummer 68.DHCP klienten bruker port nummer 67.
+				<strong>Et eksempel på DHCP:</strong></p>
+				<p>
 					En maskin som blir slått på, og som er satt til å forespørre en DHCP-server om sin
 					IP-adresse, sender en DHCP DISCOVER pakke til DHCP-serveren. Når denne
 					kommer fram til DHCP-serveren, retunerer den IP-adresse i en DHCP-OFFER
@@ -336,15 +345,8 @@
 					frigjøre IP-adressen, som da kan deles ut til en annen maskin som forespør om en
 					IP-adresse. 
 				</p>
-				<p>DHCP bruker UDP (User Datagram Protocol) protokollen. DHCP serveren bruker port nummer 68.DHCP klienten bruker port nummer 67.</p>
-			</div>
-			<div class="row bl bt">
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
+
+
 				<h3>Hvordan er en MAC adresse bygd opp?</h3>
 				<p>MAC adressen kalles også ”den fysiske adressen” eller ”hardware adressen”. Det er
 				MAC adressen som en PC bruker for å bestemme om en datapakke skal tas imot.
@@ -392,121 +394,7 @@
 				LAN har samme nettdel av adressen.</p>
 
 
-				<h3>Forklar alle delene i et IPv4 hode.</h3>
-				<div class="clear">
-					<img class="w7 fl" src="https://i.xdh.no/727c8453b3a6">
-					<div class="w3 fr">
-						<ul class="nostyle">
-							<li>
-								<strong>Verson</strong>
-								<p>De 4 første bit er versjon nummer på IP. Her er det tallet 4.</p>
-							</li>
-							<li>
-								<strong>TOS</strong>
-								<p>Type of service. Vanligvis ikke i bruk, men kan brukes til angi spesielle tjenester IP pakka skal ha, eller krav pakka setter til nettverket.</p>
-							</li>
-
-							<li>
-								<strong>Source address</strong>
-								<p>En 4 byte lang adresse som sier fra hvilken IP adresse denne pakken kommer fra.</p>
-							</li>
-							<li>
-								<strong>Destination address</strong>
-								<p>En 4 byte lang adresse som sier hvilken IP adresse denne pakken skal til.</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<ul class="nostyle i0">
-					<li>
-						<strong>IHL</strong>
-						<p>De neste 4 bit er IHL (IP Header Length). Det er antall 32 bit «deler» i hodet.
-						Vanligvis er dette tallet 5, da en normal IPv4 hode består av 5 stk 32 bit «deler»,
-						totalt 5*32 bit = 160 bit, eller 20 byte.</p>
-					</li>
-					<li>
-						<strong>Total length</strong>
-						<p>Dette er et tall som angir totalt antall byte i denne IP pakka, både hode og data.
-						Identification: Et nummer som spesifikt identifiserer denne IP pakka. Brukes sammen med
-						Fragmentering.</p>
-					</li>
-					<li>
-						<strong>Flags</strong>
-						<p>3 bit som har med fragmentering å gjøre. To av bitene brukes. En bit (M) sier at det
-						er flere fragmenter eller ikke. En bit (D) sier om det er lov å fragmentere eller ikke.</p>
-					</li>
-					<li>
-						<strong>Fragment offset</strong>
-						<p>Når en større pakke er fragmentert (delt opp i flere deler), forteller dette
-						feltet hvor datadelen i denne IP pakka skal være. Det første fragmentet har offset 0.
-						Neste fragment sier hvor langt ut i den originale ufragmenterte pakka, denne
-						datadelen hører til</p>
-					</li>
-					<li>
-						<strong>Time to live</strong>
-						<p>Time To Live. Et 8 bit tall som minker med en for hver router. Hvis pakken har gått
-						igjennom så mange routere at den blir 0, vil pakken stoppe. Den routeren som
-						stoppet pakken, vil gi beskjed tilbake til senderen om at pakken ble stoppet.</p>
-					</li>
-					<li>
-						<strong>Protocol</strong>
-						<p>Et nummer som angir hvilken protokoll på transportlaget, som skal ha denne pakka.
-						For eksempel TCP har verdien 6, UDP har verdien 17.</p>
-					</li>
-					<li>
-						<strong>Header checksum</strong>
-						<p>Dette er et tall som er beregnet på bakgrunn av verdiene i bytene i hodet.
-						Dette brukes for å finne ut om det er blitt bitfeil i hodet</p>
-					</li>
-				</ul>
-			</div>
-			<div class="row bt br">
-				
-			</div>
-		</section>
-		<section>
-			<div class="row">
-				<h3>Forklar alle delene i et IPv6 hode.</h3>
-				<div class="clear">
-					<div class="w5 fl">
-						<ul class="nostyle i0">
-							<li>
-								<strong>Traffic class</strong>
-								<p>8 bit, som tilsvarer TOS i IPv4 hodet</p>
-							</li>
-							<li>
-								<strong>Flow label</strong>
-								<p>20 bit som identifiserer at en pakke tilhører en bestem «flow» av data. Alle som
-								er i samme «flow» krever samme «behandling» i nettet. Eksempel på pakker som
-								er en del av en flow, kan være audio eller video pakker</p>
-							</li>
-							<li>
-								<strong>Payload length</strong>
-								<p>Antall byte i datadelen av IPv6 pakka</p>
-							</li>
-						</ul>
-					</div>
-					<img class="w5 fr" src="https://i.xdh.no/281499706ff9">
-					<ul class="nostyle i0">
-						<li>
-							<strong>Next header</strong>
-							<p>Sier hva som er i neste hodet. IPv6 kan ha flere forskjellige tilleggshoder, som
-							kan oppfylle spesielle funksjoner. Hvis det ikke er et tillegshodet, vil next header
-							innholde info om hodet på transportlaget, f.eks om det er et TCP hode eller UDP
-							hode.</p>
-						</li>
-						<li>
-							<strong>Hop limit</strong>
-							<p>Tilsvarende som TTL i IPv4. Dette er et tall som minker med en for hvert hopp
-							(hver router). Hvis den kommer til 0, vil routeren stoppe pakka, og sende info
-							tilbake til sender med info om at pakka er stoppet</p>
-						</li>
-					</ul>
-				</div>
-
-
 				<h3>Hva er hovedforskjellene mellom IPv4 og IPv6?</h3>
-				<p>Det er flere hovedforskjeller</p>
 				<ol>
 					<li>
 						<p>Adressefeltet er mye større i IPv6. Det er det 128 bit, mens i IPv4 er det 32 bit. Det er
@@ -533,8 +421,108 @@
 				Hvis det brukes routere som både kan ta IPv4 og IPv6, kan det brukes «dual-stack». Da blir
 				IPv6 pakka sent igjennom nettet som en IPv6 pakke.</p>
 
-				<h3>På internet er det noe som heter AS. Hva er et AS, og hvorfor har vi det?</h3>
-				<p>Autonomous System (AS) er en del av internet, som består av flere routere. Internet er delt
+
+				<h3>Hva er VPN? Forklar litt om det.</h3>
+				<p>VPN står for Virtual Private Network. VPN lager en sikker(kryptert) kanal gjennom et usikret
+				internet. Du tilknytter deg til en VPN server, som er lokalisert i ditt private nettverk, eller på
+				intranettet på f.eks jobben/skolen. Du har også nødvendig programvare på din «host». All din
+				kommunikasjon på internet går via denne VPN serveren, slik at det ser ut som om du er innenfor
+				dette private nettverket, eller intranett. Du får da også tilgang til tjenester/dokumenter som bare
+				tilbys på dette intranettet.</p>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h3>Forklar alle delene i et IPv4 hode.</h3>
+				<div class="clear">
+					<img class="w7 fl" src="https://i.xdh.no/727c8453b3a6">
+					<div class="w3 fr">
+						<dl>
+							<dt>Verson</dt>
+							<dd>De 4 første bit er versjon nummer på IP. Her er det tallet 4.</dd>
+
+							<dt>TOS</dt>
+							<dd>Type of service. Vanligvis ikke i bruk, men kan brukes til angi spesielle tjenester IP pakka skal ha, eller krav pakka setter til nettverket.</dd>
+
+							<dt>Source address</dt>
+							<dd>En 4 byte lang adresse som sier fra hvilken IP adresse denne pakken kommer fra.</dd>
+
+							<dt>Destination address</dt>
+							<dd>En 4 byte lang adresse som sier hvilken IP adresse denne pakken skal til.</dd>
+
+							<dt>IHL</dt>
+							<dd>De neste 4 bit er IHL (IP Header Length). Det er antall 32 bit «deler» i hodet.
+							Vanligvis er dette tallet 5, da en normal IPv4 hode består av 5 stk 32 bit «deler»,
+							totalt 5*32 bit = 160 bit, eller 20 byte.</dd>
+						</dl>
+					</div>
+				</div>
+				<dl>
+					<dt>Total length</dt>
+					<dd>Dette er et tall som angir totalt antall byte i denne IP pakka, både hode og data.
+					Identification: Et nummer som spesifikt identifiserer denne IP pakka. Brukes sammen med
+					Fragmentering.</dd>
+
+					<dt>Flags</dt>
+					<dd>3 bit som har med fragmentering å gjøre. To av bitene brukes. En bit (M) sier at det
+					er flere fragmenter eller ikke. En bit (D) sier om det er lov å fragmentere eller ikke.</dd>
+
+					<dt>Fragment offset</dt>
+					<dd>Når en større pakke er fragmentert (delt opp i flere deler), forteller dette
+					feltet hvor datadelen i denne IP pakka skal være. Det første fragmentet har offset 0.
+					Neste fragment sier hvor langt ut i den originale ufragmenterte pakka, denne
+					datadelen hører til</dd>
+
+					<dt>Time to live</dt>
+					<dd>Time To Live. Et 8 bit tall som minker med en for hver router. Hvis pakken har gått
+					igjennom så mange routere at den blir 0, vil pakken stoppe. Den routeren som
+					stoppet pakken, vil gi beskjed tilbake til senderen om at pakken ble stoppet.</dd>
+
+					<dt>Protocol</dt>
+					<dd>Et nummer som angir hvilken protokoll på transportlaget, som skal ha denne pakka.
+					For eksempel TCP har verdien 6, UDP har verdien 17.</dd>
+
+					<dt>Header checksum</dt>
+					<dd>Dette er et tall som er beregnet på bakgrunn av verdiene i bytene i hodet.
+					Dette brukes for å finne ut om det er blitt bitfeil i hodet</dd>
+				</dl>
+
+
+				<h3>Forklar alle delene i et IPv6 hode.</h3>
+				<div class="clear">
+					<div class="w5 fl">
+						<dl>
+							<dt>Traffic class</dt>
+							<dd>8 bit, som tilsvarer TOS i IPv4 hodet</dd>
+
+							<dt>Flow label</dt>
+							<dd>20 bit som identifiserer at en pakke tilhører en bestem «flow» av data. Alle som
+							er i samme «flow» krever samme «behandling» i nettet. Eksempel på pakker som
+							er en del av en flow, kan være audio eller video pakker</dd>
+
+							<dt>Payload length</dt>
+							<dd>Antall byte i datadelen av IPv6 pakka</dd>
+
+							<dt>Next header</dt>
+							<dd>Sier hva som er i neste hodet. IPv6 kan ha flere forskjellige tilleggshoder, som
+							kan oppfylle spesielle funksjoner. Hvis det ikke er et tillegshodet, vil next header
+							innholde info om hodet på transportlaget, f.eks om det er et TCP hode eller UDP
+							hode.</dd>
+						</dl>
+					</div>
+					<img class="w5 fr" src="https://i.xdh.no/281499706ff9">
+				</div>
+				<dl>
+					<dt>Hop limit</dt>
+					<dd>Tilsvarende som TTL i IPv4. Dette er et tall som minker med en for hvert hopp
+					(hver router). Hvis den kommer til 0, vil routeren stoppe pakka, og sende info
+					tilbake til sender med info om at pakka er stoppet</dd>
+				</dl>
+
+				<h3>Hva er et AS? Hvorfor har vi det?</h3>
+				<p><strong>A</strong>utonomous <strong>S</strong>ystem er en del av internet, som består av flere routere. Internet er delt
 				opp i mange AS. Hver av disse AS indentifiseres med et nummer; AS &lt;nr&gt;. Routerne innen et
 				AS utveksler info, bla. routinginfo seg i mellom via bestemte protokoller. En stor bedrift,
 				eller institusjon, kan ha sitt eget AS &lt;nr&gt;.</p>
@@ -546,6 +534,7 @@
 				<p>Et AS kan i prinsippet velge hvilken routing algoritme, og dermed routing protokoll som skal
 				brukes i sitt AS. Vanlige routing protokoller innen et AS er RIP eller OSPF.</p>
 			</div>
+
 			<div class="row">
 				<h3>Hva er hovedoppgaven til en rutings algoritme, og hva heter de to (mest kjente)
 				prinsippene for rutings algoritmer, og hva er forskjellene på de? Gi en kort
@@ -598,21 +587,22 @@
 				<p>Inter-AS routing protokoll er routing protokoll som brukes mellom forskjellige AS. Routing
 				protokollen BGP er en vanlig inter-AS routing protokoll.</p>
 			</div>
-			<div class="row bt br bl">
-				
-			</div>
 		</section>
 		<section>
 			<div class="row">
-				<h3>Forklar litt om hvordan kryptering foregår og nøkler. Nevn også eksempler på
-				typer av nøkler og hvordan de brukes i en "sikker" datakommunikasjon.</h3>
-				<p>Kryptering foregår ved at ved sendersiden sendes «klartekst» inn i en krypterings algoritme,
-				som bruker info fra en «nøkkel» til å lage den krypterte datastrømmen (ciphertext)</p>
-				<img src="https://i.xdh.no/ad469c91008e">
-				<p class="tc w10">Public key cryptography</p>
+				<div class="clear">
+					<div class="w6 fl">
+						<img src="https://i.xdh.no/ad469c91008e">
+					</div>
+					<div class="w4 fr">
+						<h3>Forklar litt om hvordan kryptering foregår og nøkler. Nevn også eksempler på
+						typer av nøkler og hvordan de brukes i en "sikker" datakommunikasjon.</h3>
+						<p>Kryptering foregår ved at ved sendersiden sendes «klartekst» inn i en krypterings algoritme,
+						som bruker info fra en «nøkkel» til å lage den krypterte datastrømmen (ciphertext)</p>
+					</div>
+				</div>
 				<p>Denne krypterte datastrømmen er umulig å dekode tilbake til klartekst uten bruk av riktig
-				nøkkel og dekodings algoritme.</p>
-				<p>Det brukes to nøkler, en offentlig nøkkel og en privat nøkkel. Den offentlige brukes til
+				nøkkel og dekodings algoritme. Det brukes to nøkler, en offentlig nøkkel og en privat nøkkel. Den offentlige brukes til
 				krypteringen og den private brukes til å dekryptere. Den offentlige nøkkelen kan være kjent
 				av alle, men den private nøkkelen må være hemmelig. Disse to nøklene hører sammen.</p>
 
@@ -688,15 +678,7 @@
 					  = \dfrac{ 164 \cdot 10^{-6} }{ 9 \cdot 10^{-3} }
 					  = \underline{\underline{0,018}}
 				</div>
-			</div>
-			<div class="row bt bl">
-				
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
+
 				<h4>Regn ut effektiviteten til NTNU med bruk av idle-RQ protokoll, hvor BER=2ˑ10<sup>-5</sup></h4>
 				<p>Vi må første regne ut sannsynligheten for feil i en pakke, P<sub>f</sub>: </p>
 				<p><span class="katex">P_f = BER \cdot (antall\ bit\ i\ pakke) = BER \cdot L = 2 \cdot 10^{-5} \cdot (2048 \cdot 8) = 0,328</span></p>
@@ -713,18 +695,20 @@
 				<p>Flytkontroll er en metode for å kontrollere og styre flyten av data mellom sender
 				og mottager. Uten denne flytkontrollen ville mottageren kunne kommet i den
 				situasjonen at den ikke klarte å ta unna all data som kom fra senderen. Senderen
-				kunne da ha sent data for fort for mottageren, og data kunne blitt tapt.</p>
-				<p>Mottageren har et mottagerbuffer, der data legger seg før de sendes opp til applikasjonen.
+				kunne da ha sent data for fort for mottageren, og data kunne blitt tapt.
+				Mottageren har et mottagerbuffer, der data legger seg før de sendes opp til applikasjonen.
 				Det bufferet må være der fordi vi kan ikke anta at applikasjonen er klar til ta imot data da
 				data faktisk kommer. Applikasjonen kan være opptatt med andre oppgaver da data kommer. Så
-				lenge dette mottagerbufferet har plass nok, kan sender bare sende data til mottager.</p>
-				<p>Flytkontroll oppnås ved at mottageren sender info om hvor mye ledig plass den
+				lenge dette mottagerbufferet har plass nok, kan sender bare sende data til mottager.
+				Flytkontroll oppnås ved at mottageren sender info om hvor mye ledig plass den
 				har i mottagerbufferet, tilbake til senderen. Denne info legger seg i TCP hodet, i
 				”Receive window”, og sendes tilbake i en ACK pakke. Det kan også legges i en
 				datapakke som sendes fra mottager til sender, altså hvis det sendes data begge
 				veier samtidig.</p>
-
-
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h3>Hvordan løser TCP køkontroll? Hvordan virker køkontroll i TCP?</h3>
 				<p>Køkontroll er en metode for styre kø. Kø kan oppstå i et nettverk ved at flere
 				forbindelser går igjennom en nettverksenhet, f.eks en ruter. Summen av
@@ -800,68 +784,56 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
 				<div class="clear">
-					<ul class="nostyle i0 w5 fl sr">
-						<li>
-							<strong>Acknowldgement number</strong>
-							<p> nummeret på pakka som kom fra den andre siden. Dette blir
-							en OK melding (ACK) på data som kom fra den andre siden.
-							(Bytenummer her også)</p>
-						</li>
-						<li>
-							<strong>Header length</strong>
-							<p>forteller hvor mange 32 bits ord som er i hodet. Denne info brukes for å finne
-							ut om det sendes options i hodet, og da hvor stort det er.</p>
-						</li>
-						<li>
-							<strong>Kontroll bits</strong>
-							<p>URG: Urgent Pointer: Hvis denne bit er satt, er det data i Urgent data pointer</p>
-						</li>
-						<li>
-							<strong>ACK</strong>
-							<p>Hvis denne bit er satt, er acknowledgement number gyldig.</p>
-						</li>
-						<li>
-							<strong>PSH</strong>
-							<p>Push Function: Hvis denne bit er satt må mottageren levere dataene til
-							applikasjonen så raskt som mulig.</p>
-						</li>
-					</ul>
-					<ul class="nostyle i0 w5 fr sl">
-						<li>
-							<strong>RST</strong>
-							<p>Reset the Connection: Hvis denne bit er satt, betyr det at sender avbryter sendingen
-							og all data mottatt i denne TCP forbindelsen kan slettes.</p>
-						</li>
-						<li>
-							<strong>SYN</strong>
-							<p>Synchronize: Hvis denne bit er satt betyr det at sender forsøker å synkronisere
-							sekvens nummer. Dette signal kommer gjerne under initiering av en sending.</p>
-						</li>
-						<li>
-							<strong>FIN</strong>
-							<p>Det betyr at det ikke er noe mer data i denne TCP forbindelsen hos sender.</p>
-						</li>
-						<li>
-							<strong>Receive windows</strong>
-							<p>brukes som flyt kontroll. Her forteller mottageren hvor mange byte den har
-							plass til i mottagerbufferet sitt.</p>
-						</li>
-						<li>
-							<strong>Internet checksum</strong>
-							<p>brukes for å finne ut om det er bitfeil i pakka</p>
-						</li>
-						<li>
-							<strong>Urgent pointer</strong>
-							<p>En peker til data som mottageren må bearbeide så snart som mulig</p>
-						</li>
-					</ul>
+					<dl class="w5 fl sr">
+						<dt>Acknowldgement number</dt>
+						<dd> nummeret på pakka som kom fra den andre siden. Dette blir
+						en OK melding (ACK) på data som kom fra den andre siden.
+						(Bytenummer her også)</dd>
+
+						<dt>Header length</dt>
+						<dd>forteller hvor mange 32 bits ord som er i hodet. Denne info brukes for å finne
+						ut om det sendes options i hodet, og da hvor stort det er.</dd>
+
+						<dt>Kontroll bits</dt>
+						<dd>URG: Urgent Pointer: Hvis denne bit er satt, er det data i Urgent data pointer</dd>
+
+						<dt>ACK</dt>
+						<dd>Hvis denne bit er satt, er acknowledgement number gyldig.</dd>
+
+						<dt>PSH</dt>
+						<dd>Push Function: Hvis denne bit er satt må mottageren levere dataene til
+						applikasjonen så raskt som mulig.</dd>
+					</dl>
+					<dl class="w5 fr sl">
+						<dt>RST</dt>
+						<dd>Reset the Connection: Hvis denne bit er satt, betyr det at sender avbryter sendingen
+						og all data mottatt i denne TCP forbindelsen kan slettes.</dd>
+
+						<dt>SYN</dt>
+						<dd>Synchronize: Hvis denne bit er satt betyr det at sender forsøker å synkronisere
+						sekvens nummer. Dette signal kommer gjerne under initiering av en sending.</dd>
+
+						<dt>FIN</dt>
+						<dd>Det betyr at det ikke er noe mer data i denne TCP forbindelsen hos sender.</dd>
+
+						<dt>Receive windows</dt>
+						<dd>brukes som flyt kontroll. Her forteller mottageren hvor mange byte den har
+						plass til i mottagerbufferet sitt.</dd>
+
+						<dt>Internet checksum</dt>
+						<dd>brukes for å finne ut om det er bitfeil i pakka</dd>
+
+						<dt>Urgent pointer</dt>
+						<dd>En peker til data som mottageren må bearbeide så snart som mulig</dd>
+					</dl>
 				</div>
 			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
 			<div class="row">
 				<h3>Hva er DNS? Forklar litt om virkemåten.</h3>
 				<p>Hovedhensikten med DNS er å oversette et hostnavn til en IP adresse og vise versa. Den motsatte veien, å oversette en IP adresse til et domain navn, kalles "Reverse DNS".</p>
@@ -917,10 +889,8 @@
 						VALUE er det virkelige hostnavnet til mailserveren. </p>
 					</li>
 				</ul>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
+
 				<h3>SMTP har endel svakheter. Gi en kort beskrivelse av (en del av) disse.</h3>
 				<p>SMTP (Simple Mail Transfer Protocol) er en gammel protokoll for e-post. Den fungerer mellom mailservere.
 				RFC 733 for SMTP er fra 1977, men SMTP eksisterte også før det. Den gang ble e-post kun
@@ -938,8 +908,7 @@
 
 				<h3>Nevn de tre mest kjente protokollene som brukes mellom en epost server og en klient.
 				Forklar kort om forskjellene på de</h3>
-				<h4>POP3</h4>
-				<p>Denne protokollen var en av de første som ble brukt. Her ble eposten lastet ned på din PC,
+				<p><strong>POP3:</strong> Denne protokollen var en av de første som ble brukt. Her ble eposten lastet ned på din PC,
 				fra epost serveren. Vanligvis ble eposten slettet fra epost-serveren rett etter at den ble lastet
 				ned til din PC. Når du svarte på en epost (reply) så gjorde du det på din PC, som så lastet
 				opp denne epost til epost serveren, som så sendte den. – POP3 hadde ikke mulighet til å
@@ -947,29 +916,18 @@
 				flere forskjellige PC’er til til epost. POP3 var laget for at du kun brukte en PC til din epost
 				behandling. For å bruke denne må du ha et program som har mulighet til å bruke POP3,
 				som må settes opp med en del parametere, som f.eks epost-serverens adresse.</p>
-
-				<h4>IMAP</h4>
-				<p>Denne protokollen tok var laget for at du kunne bruke flere forskjellige PC’er til din epostbehandling.
+				<p><strong>IMAP:</strong> Denne protokollen tok var laget for at du kunne bruke flere forskjellige PC’er til din epostbehandling.
 				Her kunne all epost organiseres på selve epost-serveren, i f.eks mapper. Det lå
 				også flere funksjoner inne i denne protokollen. For å bruke denne må du ha et program
 				som har mulighet til å bruke IMAP, som må settes opp, tilsvarende POP3</p>
-
-				<h4>HTTP</h4>
-				<p>Hvis du bare har en web-browser tilgjengelig på din PC, kan du allikevel behandle din
+				<p><strong>HTTP:</strong> Hvis du bare har en web-browser tilgjengelig på din PC, kan du allikevel behandle din
 				epost på epost-serveren. Du trenger ikke sette opp denne først, det er nok å vite
 				webadressen. Denne er meget praktisk å bruke hvis du f.eks skal lese og behandle din
 				epost på en fremmeds PC, f.eks på en internet kafe ol.</p>
-
-
-				<h3>Hva er VPN? Forklar litt om det.</h3>
-				<p>VPN står for Virtual Private Network. VPN lager en sikker(kryptert) kanal gjennom et usikret
-				internet. Du tilknytter deg til en VPN server, som er lokalisert i ditt private nettverk, eller på
-				intranettet på f.eks jobben/skolen. Du har også nødvendig programvare på din «host». All din
-				kommunikasjon på internet går via denne VPN serveren, slik at det ser ut som om du er innenfor
-				dette private nettverket, eller intranett. Du får da også tilgang til tjenester/dokumenter som bare
-				tilbys på dette intranettet.</p>
-
-
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<h3>Forklar hvordan checksum på transportlaget virker. Angi hva bitverdien i checksum
 				feltet blir, hvis du sender 3 stk 16 bit data. Det som sendes er de 8 bit ASCII-verdiene:
 				'A8' , '3F' og 'fa'. Ta med hvordan du kom fram til checksummen.</h3>
@@ -1076,12 +1034,8 @@
 				<h3>Lag en tegning av det mottatte signalet, fra oppgave 1a), når det har gått
 				igjennom en kabel som akkurat oppfyller kravet til båndbredde</h3>
 				<img class="w5 centered" src="https://i.xdh.no/2e5cf4b388dc">
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
+
+
 				<h3>Anta at du bruker wireless til dataoverføring. I spesifikasjonen for wirelessnettet
 				du skal bruke, står ord som: Center frequency, channel width og
 				channel. Forklar hva de ordene betyr.</h3>
@@ -1097,7 +1051,7 @@
 				<p>I et ad-hoc nett vil alle host kunne ta initiativ til å sende til en annen host på adhoc
 				nettet. I et nett med infrastruktur er det et aksesspunkt (AP) som styrer all
 				kommunikasjon. En host kan ikke sende før et AP spør den om den har noe å
-				sende. </p>
+				sende.</p>
 
 
 				<h3>Anta at du har et WiFi nett. Forklar hvordan aksessmetodene virker.</h3>
@@ -1132,8 +1086,8 @@
 				å kommunisere. Da har PCF fortrinn. PCF kan starte sending etter tiden PIFS,
 				som er litt lenger enn SIFS. Når den kommunikasjonen er ferdig, kan neste DCF
 				kommunikasjon starte. De må vente DIFS tid, som er litt lenger enn PIFS tiden. </p>
-			</div>
-			<div class="row">
+
+
 				<h3>Beskriv virkemåten til CRC, og hvilke styrker / svakheter den har?</h3>
 				<p>Cyclic Redundancy Check (CRC) er en feilkontroll som brukes for å oppdage
 				bitfeil i datapakker. CRC utfører en beregning av det som er i datapakka. Resultatet
@@ -1152,6 +1106,12 @@
 				<p>CRC har få svakheter. CRC er ofte implementert i hardware, og det er da ikke
 				mulig å forandre polynomet. Hvis den implementeres i software, vil den kreve en
 				del prosessorkraft.</p>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+			</div>
+			<div class="row">
 
 
 				<h3>Hvor mange bit er det i FCS, når polynomet <span class="katex">G(x)= x^8+x^5+x^4+1</span>?</h3>
@@ -1202,10 +1162,8 @@
 				NA vil også de lysstålene med stor vinkel bli koblet inn i fiberen. Med bruk av lav NA ville
 				disse lysstrålene bli tapt. Dette regnes da med i innkoblingstapet, slik at innkoblingstapet
 				blir da større.</p>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
+
 				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å ha høyest
 				båndbredde på fiberen. Forklar hvorfor.</h3>
 				<p>Man bør velge en fiber med lavest mulig NA, hvis man ønsker fiber med høyest mulig
@@ -1230,10 +1188,6 @@
 				på fiberen er 10 [MHz·km] ?</h3>
 				<p>Båndbredden B på en 5 km fiberforbindelsen, ved bruk av en fiber med 10 MHz*km, er:
 				B = 10/5 MHz</p>
-
-
-				<h3>Forklar hva modedispersjon er.</h3>
-				<p>Se forklaring i løsningen til oppgave nr.2</p>
 
 
 				<h3>Du har en fiberoptisk forbindelse som er 35 km lang. Der brukes det en
@@ -1261,19 +1215,14 @@
 				</div>
 
 
-				<p>Du skal dimensjonere et fiberoptisk anlegg. Du skal bruke en 50/125 µm
-				fiberkabel, med en båndbredde på 50MHz*km. Dempningen i 1.vindu er på 3,0
-				dB/km. Fiberkabelen leveres i lengder på 1,0 km. Dvs. for hver kilometer må
-				kabelen skjøtes. Skjøtetapet er på 0,2 dB.- En kort fiberstump er limt inn ved
-				henholdsvis senderen og mottageren. Fra senderen og mottageren går det en
-				kort fiberstump til en kontakt. Du må bruke en kontakt i hver ende.
-				Kontaktapet er på 1,0 dB. Disse kontaktene kan bli "møkkete". - Kravet er at
-				anlegget skal kunne akseptere et tap på opp til 3,0 dB per kontakt.
-				Systemarginen bør være på 5 dB.</p>
+				<p><strong>Du skal dimensjonere et fiberoptisk anlegg. Fiberkabel: 50/125 µm, med 50MHz*km båndbredde.
+				Dempningen i 1.vindu 3,0 dB/km. Fiberkabelen kabelen skjøtes per 1 km (fordi den levers i lengder på 1 km).
+				Skjøtetapet: 0,2 dB. Fra senderen og mottageren går det en fiberstump til en kontakt. En kontakt i hver ende.
+				Kontaktapet på 1,0 dB. Kontaktene kan bli "møkkete". - Krav: anlegget skal kunne akseptere et tap på opp til
+				3,0 dB per kontakt. Systemarginen bør være 5 dB.</strong></p>
 
-				<h4>a) Hvilken følsomhet må mottageren ha, når senderen har en innkoblet effekt på
-				-18 dBm, og fiberkabelen er 10 km lang ?</h4>
-				<p>Hvilken følsomhet mottageren må ha kan finnes ved å sette opp effektbudsjettet.
+				<h4>a) Hvilken følsomhet må mottageren ha, når senderen har en innkoblet effekt på -18 dBm, og fiberkabelen er 10 km lang ?</h4>
+				<p>Dette kan finnes ved å sette opp effektbudsjet.
 				I oppsettet er det ikke gitt noe data for innkoblingstapet ved mottageren. Den kan
 				settes til 1,0 dB.
 				Vi får da:</p>
@@ -1315,7 +1264,12 @@
 					           = 5,05 [dB]\ i\ systemmargin
 				</div>
 				<p>Lengden på fiberkabelen kan være 6,25 km</p>
-
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
 				<h4>c) Hva er maksimal datahastighet på datasignalet i de to tilfellene ?</h4>
 				<p>Da ikke annet er oppgitt er maksimal datahastighet lik det dobbelte av båndbredden.
 				Vi tar utgangspunkt i fiberkabelens data på 50 MHz*km :</p>
@@ -1363,10 +1317,7 @@
 					<dt>Ruter</dt>
 					<dd>RuterRuterRuterRuterRuterRuterRuter</dd>
 				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
 				<h1>Ting & tang</h1>
 				<dl>
 					<dt>Ethernet frame & header</dt>
@@ -1438,8 +1389,13 @@
 					<dd><code>255.255.255.128</code> = <code>11111111.11111111.11111111.10000000</code> = <code>/25</code></dd>
 				</dl>
 			</div>
-			<div class="row bt bl">
-
+		</section>
+		<section>
+			<div class="row">
+			</div>
+		</section>
+		<section>
+			<div class="row">
 			</div>
 		</section>
 	</div>
