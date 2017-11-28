@@ -1424,8 +1424,13 @@
 					eller en annen type avstands måling. Anycast adresse kan brukes der det er (for) mye trafikk til et
 					nettsted, slik at datatrafikken må deles over flere maskiner. Der hvor en maskin ikke vil klare å
 					behandle all trafikk.</dd>
-
-					<dt>IPV4 anycast workaround</dt>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<dl>
+					<dt>IPv4 anycast workaround</dt>
 					<dd>Kan i mange tilfeller gjøres vha. BGP. Flere verter (vanligvis i forskjellige
 					geografiske områder) får samme unicast IP-adresse, og forskjellige ruter til adressen blir annonsert
 					gjennom BGP. Rutere anser disse for å være alternative ruter til samme destinasjon, selv om de
@@ -1451,12 +1456,7 @@
 					<dd>Man teller antall 1-ere i binærformen...<br></dd>
 					<dd><code>255.255.255.255</code> = <code>11111111.11111111.11111111.11111111</code> = <code>/32</code><br></dd>
 					<dd><code>255.255.255.128</code> = <code>11111111.11111111.11111111.10000000</code> = <code>/25</code></dd>
-				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-				<dl>
+
 					<dt>NAT</dt>
 					<dd>Network Address Translator (NAT) brukes for å oversette IP-adresser mellom forskjellige
 					nettverk. Den kan være implementert i en ruter eller firewall maskin, som gjør det mulig å
@@ -1591,6 +1591,17 @@
 				Translation). NAT oversetter fra en privat IP adresse til en IP adresse som er på internet.
 				<strong>Private IP Adresser</strong>: Klasse A: <code>10.0.0.0</code> - <code>10.255.255.255</code>,
 				B: <code>172.16.0.0</code> - <code>172.31.255.255</code>, C: <code>192.168.0.0</code> - <code>192.168.255.255</code></p>
+
+				<dl>
+					<dt>Portnummer (destination og source)</dt>
+					<dd>Portnummer er veien inn til en applikasjon på laget over. Hver applikasjon har sitt eget portnummer. Man kan
+					sammenligne det med nummeret som står på døra inn til applikasjonen. Når en host (klient) f.eks. skal hente en
+					webside fra en webserver, vil den sette Dest Port 80 på pakken som forespør om websiden. Da vil webserver
+					applikasjonen ta i mot datapakka. Dest port # betyr altså at det er portnummeret på applikasjonen som pakken
+					skal til. Klienten vil også si ifra hvilken port nummer den vil ha svaret på. Det blir Source Port nummer.
+					Klienten velger blant de ledige portnumrene. Når webserveren sender websiden tilbake til klienten, vil den sette
+					Dest Port nummer på den pakka, til det Source Port nummeret som klienten ville ha svaret på.</dd>
+				</dl>
 			</div>
 		</section>
 		<section>
