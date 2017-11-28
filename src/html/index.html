@@ -1304,7 +1304,7 @@
 					<dt><span class="katex">P_{n} (nnk.m)</span></dt>
 					<dd>Innkoblingstap ved mottaker. Benevning [dB]</dd>
 
-					<dt> Maksimal datahastighet: </dt>
+					<dt>Maksimal datahastighet: </dt>
 					<dd>Om det ikke står noe ang. koding, ganger man med 2 (ukodet). Når man har Manchester kode ganger man med 1.  
 					Regner først ut båndbredde, får et svar i Hz og deretter finner man bithastighet ved å gange.
 					</dd>
@@ -1491,15 +1491,92 @@
 						</dd>
 					</div>
 
-					<dt>Multipleksing</dt>
-					<dd>Multipleksing betyr at flere blir mikset sammen til en. I demultipleksing blir disse flere
-					skilt ut fra denne ene. Det finnes mange type multipleksing. På lag 4 brukes det i
-					forbindelse med at data fra forskjellige applikasjoner blandes sammen til en datastrøm ned
-					til IP laget, altså lag 3. Dette gjøres ved hjelp av portnummer. Hver applikasjon har sine
-					portnummer. Dette portnummeret følger med dataene fra applikasjonen. Portnummer
-					legges i lag 4 hodet på datapakka. 
+					<dt>Multipleksing/demultipleksing</dt>
+					<dd>Multipleksing betyr at flere blir mikset sammen til en. I demultipleksing blir disse flere skilt ut fra
+					denne ene. Det finnes mange type multipleksing. På lag 4 brukes det i forbindelse med at data fra forskjellige
+					applikasjoner blandes sammen til en datastrøm ned til IP laget, altså lag 3. Dette gjøres ved hjelp av
+					portnummer. Hver applikasjon har sine portnummer. Dette portnummeret følger med dataene fra applikasjonen.
+					Portnummer legges i lag 4 hodet på datapakka. 
 					</dd>
+
+					<dt>IPv4 adresse klasser</dt>
+					<dd>Andressene i IPv4 ble fra starten av (Internet) delt inn i klasser. Klasse A, B og C ble brukt til å kunne
+					gi en adresse til en host. Klasse D ble avsatt til multicast adresser.</dd>
 				</dl>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Class</th>
+							<th class="w2">1st Ocet Decimal Range</th>
+							<th>1st Ocet High order bits</th>
+							<th class="w1">Network / Host ID</th>
+							<th class="w1">Default subnet mask</th>
+							<th class="w3">Number of networks</th>
+							<th class="w3">Hosts per network</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>A</td>
+							<td>1-126*</td>
+							<td>0</td>
+							<td>N.H.H.H</td>
+							<td>255.0.0.0</td>
+							<td>126 (2<sup>7</sup>-2)</td>
+							<td>16,777,214 (2<sup>24</sup>-2)</td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td>128-191</td>
+							<td>10</td>
+							<td>N.N.H.H</td>
+							<td>255.255.0.0</td>
+							<td>16,382 (2<sup>14</sup>-2)</td>
+							<td>65,534 (2<sup>16</sup>-2)</td>
+						</tr>
+						<tr>
+							<td>C</td>
+							<td>192-223</td>
+							<td>110</td>
+							<td>N.N.N.H</td>
+							<td>255.255.255.0</td>
+							<td>2,097,150(2<sup>21</sup>-2)</td>
+							<td>254 (2<sup>8</sup>-2)</td>
+						</tr>
+							<td>D</td>
+							<td>224-239</td>
+							<td>1110</td>
+							<td></td>
+							<td>Reserved</td>
+							<td>for</td>
+							<td>Multicasting</td>
+						</tr>
+							<td>E</td>
+							<td>240-254</td>
+							<td>1111</td>
+							<td></td>
+							<td>Used</td>
+							<td>for</td>
+							<td>research</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>Hovedforskjellen mellom klasse A, B og C er hvor grensen mellom nattdel og hostdel er. Nå ble det
+				vanlig å dele et LAN (nett) opp i flere subnett. Da kunne men ikke vite hvor grensen mellom nettdel
+				og hostdel gikk, basert på klassen. Det var nettmasken som fortalte hvor grensen mellom nett og
+				host gikk. Derfor gikk man mer bort fra klasse-begrepet, og gikk over til CIDR (Classless Inter-Domain
+				Routing). Her ble det også innført den andre måten å angi masken på. Rett og slett skrive antall 1’ere
+				i masken som et tall. F.eks /24, i stedet for <code>255.255.255.00</code></p>
+				<p><strong>Loopback adresse</strong>: <code>127.0.0.1</code> vil peke tilbake på «deg selv». Hvis du f.eks har
+				både en webbrowser og webserver på samme PC, og ønsker å teste webserveren vha browseren, uten at du har fått
+				tildelt en eget IP adresse, kan du bruke loopback adressen.</p>
+				<p><strong>Private IP adresser</strong> er ikke synlige på internet, de er bare synlig på det LAN hvor de brukes.
+				Du kan fritt bruke disse på ditt private LAN. Du kan da ha veldig mange host på ditt LAN. For å komme ut på
+				internet, fra en slik privat IP adresse, må det brukes en router med NAT (Network Address
+				Translation). NAT oversetter fra en privat IP adresse til en IP adresse som er på internet.
+				<strong>Private IP Adresser</strong>: Klasse A: <code>10.0.0.0</code> - <code>10.255.255.255</code>,
+				B: <code>172.16.0.0</code> - <code>172.31.255.255</code>, C: <code>192.168.0.0</code> - <code>192.168.255.255</code></p>
 			</div>
 		</section>
 		<section>
