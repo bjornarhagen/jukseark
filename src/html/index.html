@@ -1051,7 +1051,7 @@
 				<p>I et ad-hoc nett vil alle host kunne ta initiativ til å sende til en annen host på adhoc
 				nettet. I et nett med infrastruktur er det et aksesspunkt (AP) som styrer all
 				kommunikasjon. En host kan ikke sende før et AP spør den om den har noe å
-				sende.</p>
+				sende. Både ad-hoc og infrastruktur kan fungere samtidig. Det er akessmetoden som styrer dette.</p>
 
 
 				<h3>Anta at du har et WiFi nett. Forklar hvordan aksessmetodene virker.</h3>
@@ -1303,6 +1303,15 @@
 
 					<dt><span class="katex">P_{n} (nnk.m)</span></dt>
 					<dd>Innkoblingstap ved mottaker. Benevning [dB]</dd>
+
+					<dt> Maksimal datahastighet: </dt>
+					<dd>Om det ikke står noe ang. koding, ganger man med 2 (ukodet). Når man har Manchester kode ganger man med 1.  
+					Regner først ut båndbredde, får et svar i Hz og deretter finner man bithastighet ved å gange.
+					</dd>
+					<dd>Eks: 19 MHz</dd>
+					<dd>Manchester kode: 19 MHz x 1 = 19 Mbit/s</dd>
+					<dd>Ukodet: 19 MHz x 2 = 38 Mbit/s</dd>
+					<dd>Andre koder ligger mellom 1 og 2.</dd>
 				</dl>
 
 				<h1>Ord og utrykk</h1>
@@ -1338,10 +1347,10 @@
 					tilgjengelige hosts</dd>
 
 					<dt>Switch</dt>
-					<dd>SwitchSwitchSwitchSwitchSwitchSwitchSwitch</dd>
+					<dd>En switch sender data videre til neste node, basert på MAC adressen. </dd>
 
 					<dt>Ruter</dt>
-					<dd>RuterRuterRuterRuterRuterRuterRuter</dd>
+					<dd>En router sender data videre basert på IP adressen.</dd>
 				</dl>
 
 				<h1>Ting & tang</h1>
@@ -1388,6 +1397,11 @@
 					<dd>Eks: <code>2607:F6D0:0000:005A:0000:0000:0000:07C0</code> blir <code>2607:F6D0:0:5A::7C0</code></dd>
 
 					<dt>Unicast</dt>
+					<dd>er kommunikasjon mellom en enkelt avsender og en enkelt mottaker over et nettverk (en-til-en forbindelse). 
+					Hvis noen enheter må sende en melding til flere enheter, må den sende flere unicast-meldinger, 
+					hver melding adressert til en bestemt enhet. Så må avsenderen sende en egen melding til hver destinasjonsenhet, 
+					og for å gjøre det må den eksakte IP-adressen til hver destinasjonsenhet vite.
+					</dd>
 					
 					<dt>Anycast</dt>
 					<dd>Er støttet kun i IPv6 og ikke IPv4 (men IPv4 har en workaround)</dd>
@@ -1406,8 +1420,18 @@
 					rute i dette oppsettet, vil være det samme som å velge en destinasjon.</dd>
 					
 					<dt>Multicast</dt>
+					<dd>Ved multicast gir man jobben med å sende til flere mottagere, til routerne. Selve kilden sender 
+					bare en datastrøm, til en multicast en gruppe IP-adresse. Alle som vil motta denne datastrømmen, 
+					melder seg på denne multicast gruppen. Alle routere som er med, som har en host i enden, som skal ha 
+					denne datastrømmen, vil dele pakkene, og sende like pakker ut i alle retninger hvor det er en host som 
+					skal ha datastrømmen.</dd>
+
 					<dt>Broadcast</dt>
-					<dt>NAT</dt>
+					<dd>går ut på at en pakke sendes til alle enheter på et bestemt nettverk. 
+					Destinasjonsadressen i pakken er den spesielle sendingsadressen. Hvis pakken har en broadcastadresse, 
+					vil alle enheter som mottar denne meldingen behandle den. Så alle enhetene i samme nettverkssegment 
+					vil se samme melding. En annen ting å huske er at ruterne ikke videresender broadcastmeldinger. 
+					Ruteren vil motta sendetrafikken, men den vil ikke videresende den via ruteren.</dd>
 
 					<dt>Netmask kalkulasjon</dt>
 					<dd>Man teller antall 1-ere i binærformen...<br></dd>
@@ -1418,10 +1442,69 @@
 		</section>
 		<section>
 			<div class="row">
+				<dl>
+					<dt>NAT</dt>
+					<dd>Network Address Translator (NAT) brukes for å oversette IP-adresser mellom forskjellige
+					nettverk. Den kan være implementert i en ruter eller firewall maskin, som gjør det mulig å
+					ha mange PC’er med hver sin «private» IP-adresse på den ene siden, og kun en IPadresse
+					på den siden som er ut mot Internet. På den måten kan man ha mange host på
+					et LAN, med hver sin «private» IP adresse. Alle PC’ene på dette LAN kan være på
+					Internet samtidig, mens Internet ser bare en IP adresse fra alle sammen. Det er NAT som
+					oversetter adressene fra hjemme nettverket (LAN) til Internet.</dd>
+					<dd> Virkemåten: Hvis for eksempel en PC som er på hjemme nettverket sender en forespørsel om en webside
+					ut på nettet, vil forespørselen gå først til enheten som har NAT, som sitter imellom
+					hjemmenettet og Internet. NAT-enheten bytter ut PC’ens «private» IP adresse med
+					adressen som er på Internetsiden. Pakka får også et nytt fra-portnummer. NAT-enheten
+					lagrer alt i en NAT tabell, IP-adressen og portnummeret fra PC’en, og portnummeret på
+					sendingen ut. Når websiden kommer inn fra Internet, ser NAT hvor den skal sendes på
+					hjemmenettet ved å se i NAT-tabellen. Bla. ser den på postnummeret som kommer inn,
+					og hvilken portnummer den pakka skal ha når den går inn på hjemmenettet, og hvilken IPnummer
+					den skal til..
+					Den bytter altså også ut IP-adressen på den innkomne pakka til IP adressen til PC’en på hjemmenettet.
+					«Private» IP adresser er adresser som ikke synes ut på internett. De er kun bakenfor en NAT.
+					</dd>
+
+					<dt>IdleRQ</dt>
+					<dd>Stopp-og-vent overføring. Sender en pakke ad gangen. Venter på svar (ACK/NACK), før neste pakke sendes. 
+					Om den får ACK sender den neste pakke, om den får NACK eller intet svar sender den pakken på nytt. 
+					</dd>
+
+					<dt>Continuous/Pipline RQ</dt>
+					<dd>Kontinuerlig overføring. Flere pakker sendes av gangen. Sendevindu må kunne inneholde alle pakker som er send, uten at svar er kommet. 
+					Ved feil i en pakke vil den sendes på nytt. To måter denne retransmisjonen kan foregå på:
+					</dd>
+
+					<div class="i1">
+						<dt>1 SR:</dt>
+						<dd>Selektiv Retransmisjon: Bare den pakken det er feil i sendes på nytt. Medfører at 
+						pakkene ikke kommer i riktig nummerrekkefølge. Da må mottaker ordne pakkene i riktig rekkefølge 
+						før de sendes til laget over.
+						</dd>
+
+						<dt>2 Go-back-N (GBN):</dt>
+						<dd>Alle pakker kommer alltid i riktig nummerrekkefølge. Ved feil i en pakke vil den sendes på nytt, 
+						samt alle etterfølgende pakker, selv om de var overført riktig forrige gang. Mottaker trenger 
+						dermed ikke å ordne pakkene i riktig rekkefølge.  Effektiviteten blir dårligere med bruk av GBN ift SR.
+						</dd>
+
+						<dd>Om GBN eller SR skal brukes avtales det mellom sender og mottaker i oppkoblingssekvensen før dataene sendes. 
+						</dd>
+					</div>
+
+					<dt>Multipleksing</dt>
+					<dd>Multipleksing betyr at flere blir mikset sammen til en. I demultipleksing blir disse flere
+					skilt ut fra denne ene. Det finnes mange type multipleksing. På lag 4 brukes det i
+					forbindelse med at data fra forskjellige applikasjoner blandes sammen til en datastrøm ned
+					til IP laget, altså lag 3. Dette gjøres ved hjelp av portnummer. Hver applikasjon har sine
+					portnummer. Dette portnummeret følger med dataene fra applikasjonen. Portnummer
+					legges i lag 4 hodet på datapakka. 
+					</dd>
+				</dl>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 			</div>
 		</section>
 	</div>
