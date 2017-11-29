@@ -13,7 +13,7 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h3>Hva heter de forskjellige lagene i ”Internet Protocol Stack”?</h3>
+				<h3>s1. <span class="i2">Hva heter de forskjellige lagene i ”Internet Protocol Stack”?</span></h3>
 				<ol class="inline">
 					<li>Det fysiske laget</li>
 					<li>Datalink laget</li>
@@ -56,12 +56,6 @@
 				For eksempel i beskrivelsen av oppbyggingen av datapakker, vil bare de delene, som har
 				med de lagene som protokollen dekker, tas med. De andre delene vil ofte bare kalles
 				”datadel”.</p>
-
-
-				<h3>Hva er forskjellene på en bit, en byte og en datapakke?</h3>
-				<p>En bit har en, av to mulige tilstander: 0 eller 1.
-				En byte består av 8 bit. En byte kan da ha en av 2<sup>8</sup>=256 mulige «verdier», eller forskjellige kombinasjoner av 0 og 1.
-				En datapakke består av mange byte som kommer rett etter hverandre. </p>
 
 
 				<h3>Beskriv en typisk datapakke.</h3>
@@ -115,12 +109,17 @@
 				<h4>a) Hva blir nett-adressene på disse to nett?</h4>
 				<p>Hvis vi tillater bruk av «subnet zero» og «all 1 subnet», kan vi bruke en bit av
 				hostadressen for å lage to nett. De nye subnett-bitene får verdiene henholdsvis 0 og 1.
-				De er angitt med <span class="red">rød</span> farge. <strong>Fet</strong> skrift angir nettdelen, og <span class="blue">blå</span> angir hostdelen:</p>
-				<p>Vi ser på de to siste bytene:</p>
-				<p>Nett 1: <code><strong>00010<span class="red">0</span></strong><span class="blue">00.00000000</span></code> -> 16.00</p>
-				<p class="i2">=> Nettadressen for nett 1 blir da: <code>158.29.16.00 / 22</code></p>
-				<p>Nett 2: <code><strong>00010<span class="red">1</span></strong><span class="blue">00.00000000</span></code> -> 20.00</p>
-				<p class="i2">=> Nettadressen for nett 2 blir da: <code>158.29.20.00 / 22</code></p>
+				De er angitt med <span class="red">rød</span> farge. <strong>Fet</strong> skrift angir nettdelen, og <span class="blue">blå</span> angir hostdelen (Vi ser på de to siste bytene):</p>
+				<div class="clear">
+					<div class="w5 fl">
+						<p>Nett 1: <code><strong>00010<span class="red">0</span></strong><span class="blue">00.00000000</span></code> -> 16.00</p>
+						<p class="i1">=> Nettadressen: <code>158.29.16.00 / 22</code></p>
+					</div>
+					<div class="w5 fr">
+						<p>Nett 2: <code><strong>00010<span class="red">1</span></strong><span class="blue">00.00000000</span></code> -> 20.00</p>
+						<p class="i1">=> Nettadressen: <code>158.29.20.00 / 22</code></p>
+					</div>
+				</div>
 
 				<h4>b) Hva blir masken på disse to nett?</h4>
 				<p>Vi har tatt en bit av hostdelen for å lage disse to subnett. Den nye masken blir da:
@@ -155,10 +154,9 @@
 				blitt 2<sup>3</sup>-2= 6 subnett. Vi måtte da trekke ifra 2 i antall subnett, fordi da hadde kun nettadressen
 				uten maskeinfo, blitt brukt for å indentifisere nette. To nett kan jo ikke ha samme
 				nettadresse, eller samme broadcastadresse. De 2 som må trekkes fra er de hvor
-				subnettbitene bare er 0’ere, eller bare 1’ere</p>
-				<p>For å finne nett-adressene til disse 6 nett, ser vi nærmere på de to siste byte’ene i nettadressen
-				til hovednettet. Det er fordi delet mellom nettdel og hostdel går i den 3.byten. Ved
-				subnetting vil delet gå i den 4. byten.:</p>
+				subnettbitene bare er 0’ere, eller bare 1’ere. For å finne nett-adressene til disse 6 nett, ser vi nærmere på de
+				to siste byte’ene i nettadressen til hovednettet. Det er fordi delet mellom nettdel og hostdel går i den 3.byten.
+				Ved subnetting vil delet gå i den 4. byten.:</p>
 				<p><code>158.29.16.00 / 21</code> <strong>Fet skrift</strong> er bit som er i nettdelen, og <span class="blue">blå</span> er de som er i hostdelen</p>
 				<p>Før subnetting: <code><strong>00010</strong><span class="blue">000.00000000</span></code></p>
 				<p>Biter med <span class="red">rød skrift</span> er nå brukt til subnetting, og går da over fra å være bit i hostdelen til biter i nettdelen.</p>
@@ -280,9 +278,15 @@
 					<li>IP-nummer for hvert endepunkt: </li>
 					<li>139.26.154.05 ( 05 = <strong>000 001</strong> 01) og 139.26.154.06 ( 06 = <strong>000 001</strong> 10)</li>
 				</ul>
-			</div>
-			<div class="row bt br bl">
-				<br><br><br><br><br><br><br><br>
+
+
+				<h3>Hva er VPN? Forklar litt om det.</h3>
+				<p>VPN står for Virtual Private Network. VPN lager en sikker(kryptert) kanal gjennom et usikret
+				internet. Du tilknytter deg til en VPN server, som er lokalisert i ditt private nettverk, eller på
+				intranettet på f.eks jobben/skolen. Du har også nødvendig programvare på din «host». All din
+				kommunikasjon på internet går via denne VPN serveren, slik at det ser ut som om du er innenfor
+				dette private nettverket, eller intranett. Du får da også tilgang til tjenester/dokumenter som bare
+				tilbys på dette intranettet.</p>
 			</div>
 		</section>
 		<section>
@@ -302,8 +306,7 @@
 					<li><code>139.26.154.160 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">101</span></strong><span class="blue">00000</span></code> = 154.160)</li>
 					<li><code>139.26.154.192 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">110</span></strong><span class="blue">00000</span></code> = 154.192)</li>
 					<li><code>139.26.154.224 / 27</code> (siste to byte: <code><strong>10011010 . <span class="red">111</span></strong><span class="blue">00000</span></code> = 154.224) (all 1 subnet)</li>
-					<li>Ethernet1 har fått nettnummer: 139.26.154.64 / 27</li>
-					<li>Ethernet2 har fått nettnummer: 139.26.154.32 / 27</li>
+					<li>Ethernet1 nettnummer: <code>139.26.154.64 / 27</code> Ethernet2 nettnummer: <code>139.26.154.32 / 27</code></li>
 				</ul>
 				<p>Her kan vi velge en av 6 nettadresser til Ethernet 3.
 				<code>139.26.154.00 / 27</code>, eller <code>139.26.154.96 / 27</code> eller <code>139.26.154.128 / 27</code> ...
@@ -384,11 +387,9 @@
 				<h3>Hva er forskjellene på en MAC adresse og IPv4 adresse? </h3>
 				<p>En MAC adresse virker på lag 2 i TCP/IP modellen. Det er ikke mulig å finne ut hvor en host
 				med en bestem MAC adresse befinner seg på internet, før datapakken er på dette samme
-				lokalnettet hvor denne MAC adressen befinner seg.</p>
-				<p>En IPv4 adresse virker på lag 3 i TCP/IP modellen. Det er et system på disse
+				lokalnettet hvor denne MAC adressen befinner seg. En IPv4 adresse virker på lag 3 i TCP/IP modellen. Det er et system på disse
 				adressene slik at det er mulig å finne ut hvor en IPv4 adressen befinner seg på
-				internet.</p>
-				<p>En MAC adresse består av 6 byte, slik som forklart i oppgave nr.1. En IPv4
+				internet. En MAC adresse består av 6 byte, slik som forklart i oppgave nr.1. En IPv4
 				adresse består av totalt 4 byte. Adressen består av en nettdel og en hostdel. En host
 				vil få en ny IPv4 adresse når den blir koblet til et annet nett (LAN). Alle host på et
 				LAN har samme nettdel av adressen.</p>
@@ -411,6 +412,7 @@
 						”option” i hodet. I stedet legger IPv6 opp til å bruke flere etterfølgende hoder. Denne
 						metode gjør prosesseringen på et standardhode raskere.</p>
 					</li>
+					<li>Se tabell på side 4 (spalte 1)</li>
 				</ol>
 
 
@@ -422,20 +424,17 @@
 				IPv6 pakka sent igjennom nettet som en IPv6 pakke.</p>
 
 
-				<h3>Hva er VPN? Forklar litt om det.</h3>
-				<p>VPN står for Virtual Private Network. VPN lager en sikker(kryptert) kanal gjennom et usikret
-				internet. Du tilknytter deg til en VPN server, som er lokalisert i ditt private nettverk, eller på
-				intranettet på f.eks jobben/skolen. Du har også nødvendig programvare på din «host». All din
-				kommunikasjon på internet går via denne VPN serveren, slik at det ser ut som om du er innenfor
-				dette private nettverket, eller intranett. Du får da også tilgang til tjenester/dokumenter som bare
-				tilbys på dette intranettet.</p>
+				<h3>Hva er forskjellene på en bit, en byte og en datapakke?</h3>
+				<p>En bit har en, av to mulige tilstander: 0 eller 1.
+				En byte består av 8 bit. En byte kan da ha en av 2<sup>8</sup>=256 mulige «verdier», eller forskjellige kombinasjoner av 0 og 1.
+				En datapakke består av mange byte som kommer rett etter hverandre. </p>
 			</div>
 		</section>
 	</div>
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h3>Forklar alle delene i et IPv4 hode.</h3>
+				<h3>s2. <span class="i2">Forklar alle delene i et IPv4 hode.</span></h3>
 				<div class="clear">
 					<img class="w7 fl" src="https://i.xdh.no/727c8453b3a6">
 					<div class="w3 fr">
@@ -583,9 +582,8 @@
 
 				<h3>Hva er forskjellene på intra-AS rutings protokoll og inter-AS rutings protokoll?</h3>
 				<p>Intra-AS routing protokoll er routing protokoll som brukes innen et AS. Routings
-				protokollene RIP eller OSPF er vanlige intra-AS routings protokoller.</p>
-				<p>Inter-AS routing protokoll er routing protokoll som brukes mellom forskjellige AS. Routing
-				protokollen BGP er en vanlig inter-AS routing protokoll.</p>
+				protokollene RIP eller OSPF er vanlige intra-AS routings protokoller. Inter-AS routing protokoll er routing
+				protokoll som brukes mellom forskjellige AS. Routing protokollen BGP er en vanlig inter-AS routing protokoll.</p>
 			</div>
 		</section>
 		<section>
@@ -653,7 +651,7 @@
 			</div>
 			<div class="row">
 				<p>Du skal finne ut hvor mye en BER (Bit Error Rate) påvirker effektiviteten.
-				Pakkestørrelsen er på 2048 byte og datahastigheten er på 100 Mbit/s (100·106
+				Pakkestørrelsen er på 2048 byte og datahastigheten er på 100 Mbit/s (100*106
 				bit/s)</p>
 				<p>Forsinkelsen til NTNU kan du lese ut av en ping:</p>
 				<ul class="nostyle i0">
@@ -835,7 +833,7 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h3>Hva er DNS? Forklar litt om virkemåten.</h3>
+				<h3>s3. <span class="i2">Hva er DNS? Forklar litt om virkemåten.</span></h3>
 				<p>Hovedhensikten med DNS er å oversette et hostnavn til en IP adresse og vise versa. Den motsatte veien, å oversette en IP adresse til et domain navn, kalles "Reverse DNS".</p>
 				<img class="w5 fl" src="https://i.xdh.no/4b41b98ff468">
 				<img class="w5 fr" src="https://i.xdh.no/ab0bc54c7a25">
@@ -897,17 +895,15 @@
 				brukt til å sende tekst, som benyttet ASCII-tegnene for bokstaver og tegn. I ASCII-tabellen ligger
 				bokstaver, talltegn og andre tegn i den første del av ASCII-tabellen. Dvs at det kun var nødvendig å
 				sende 7 bit per tegn. I den første del av ASCII-tabellen er den 8.ende bit’en, DB7 = ’0’. Den biten
-				trengte da ikke å bli sendt. </p>
-				<p>SMTP er basert på 7 bit dataoverføring. Nå er det jo stort sett bare 8 bit dataoverføring som brukes.
-				Disse må nå først gjøres om til 7 bit, før de kan sendes via SMTP. Dette får man til ved å bruke MIME.
-				Hadde SMTP vært laget for 8 bit overføring, kunne man i prinsippet sluppet MIME. Det kan man da si
-				er en svakhet for SMTP. </p>
-				<p>En annen svakhet ved SMTP er at det er relativt enkelt å lage en ”falsk” avsender for e-post. All info
-				ligger i klartekst.</p>
+				trengte da ikke å bli sendt. SMTP er basert på 7 bit dataoverføring. Nå er det jo stort sett bare 8 bit
+				dataoverføring som brukes. Disse må nå først gjøres om til 7 bit, før de kan sendes via SMTP. Dette får man til
+				ved å bruke MIME. Hadde SMTP vært laget for 8 bit overføring, kunne man i prinsippet sluppet MIME. Det kan man
+				da si er en svakhet for SMTP. En annen svakhet ved SMTP er at det er relativt enkelt å lage en ”falsk” avsender
+				for e-post. All info ligger i klartekst.</p>
 
 
 				<h3>Nevn de tre mest kjente protokollene som brukes mellom en epost server og en klient.
-				Forklar kort om forskjellene på de</h3>
+				Forklar kort om forskjellene på de (IMAP, POP, HTTP)</h3>
 				<p><strong>POP3:</strong> Denne protokollen var en av de første som ble brukt. Her ble eposten lastet ned på din PC,
 				fra epost serveren. Vanligvis ble eposten slettet fra epost-serveren rett etter at den ble lastet
 				ned til din PC. Når du svarte på en epost (reply) så gjorde du det på din PC, som så lastet
@@ -919,15 +915,16 @@
 				<p><strong>IMAP:</strong> Denne protokollen tok var laget for at du kunne bruke flere forskjellige PC’er til din epostbehandling.
 				Her kunne all epost organiseres på selve epost-serveren, i f.eks mapper. Det lå
 				også flere funksjoner inne i denne protokollen. For å bruke denne må du ha et program
-				som har mulighet til å bruke IMAP, som må settes opp, tilsvarende POP3</p>
-				<p><strong>HTTP:</strong> Hvis du bare har en web-browser tilgjengelig på din PC, kan du allikevel behandle din
-				epost på epost-serveren. Du trenger ikke sette opp denne først, det er nok å vite
-				webadressen. Denne er meget praktisk å bruke hvis du f.eks skal lese og behandle din
-				epost på en fremmeds PC, f.eks på en internet kafe ol.</p>
+				som har mulighet til å bruke IMAP, som må settes opp, tilsvarende POP3. (Mer på neste spalte)</p>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<p><strong>HTTP:</strong> Hvis du bare har en web-browser tilgjengelig på din PC, kan du allikevel behandle din
+				epost på epost-serveren. Du trenger ikke sette opp denne først, det er nok å vite
+				webadressen. Denne er meget praktisk å bruke hvis du f.eks skal lese og behandle din
+				epost på en fremmeds PC, f.eks på en internet kafe ol.</p>
+
 				<h3>Forklar hvordan checksum på transportlaget virker. Angi hva bitverdien i checksum
 				feltet blir, hvis du sender 3 stk 16 bit data. Det som sendes er de 8 bit ASCII-verdiene:
 				'A8' , '3F' og 'fa'. Ta med hvordan du kom fram til checksummen.</h3>
@@ -1007,7 +1004,7 @@
 				<p>Ut fra dette sinussignalet er det mulig å gjenskape bitmønsteret som sendes. Vi må sette
 				som krav til båndbredden for kabelen at det sinus-signalet kan overføres. Frekvensen på
 				dette sinus-signalet er gitt av ”en delt på perioden av signalet”. Perioden er gitt av
-				avstanden i tid mellom to punkter på kurven som er like. I figuren over er den tiden 2·t.
+				avstanden i tid mellom to punkter på kurven som er like. I figuren over er den tiden 2*t.
 				Det gir en frekvens på:</p>
 				<div class="katex">
 					  1/2 \cdot t
@@ -1093,12 +1090,15 @@
 				bitfeil i datapakker. CRC utfører en beregning av det som er i datapakka. Resultatet
 				av denne beregningen legges i gjerne i slutten av datapakka som sendes over, i
 				CRC feltet (eller FCS feltet). Mottageren utfører tilsvarende beregning, og vil da
-				kunne oppdage bitfeil i datapakka.</p>
-				<p>CRC bruker et polynom (G) i sin beregning. Hvis polynomet G består av r+1 bit,
-				legges det til r stk 0’ere i slutten av datapakka. Denne utvidede datapakka blir
-				«modula 2 dividert» på G. Resten etter denne «divisjonen» blir lagt inn i CRC
-				feltet. Når så mottager utfører samme «divisjon», på datapakka som tas imot, vil
-				resten bli null, hvis det ikke er bitfeil. </p>
+				kunne oppdage bitfeil i datapakka. CRC bruker et polynom (G) i sin beregning.
+				Hvis polynomet G består av r+1 bit, legges det til r stk 0’ere i slutten av datapakka.
+				Denne utvidede datapakka blir «modula 2 dividert» på G. Resten etter denne «divisjonen»
+				blir lagt inn i CRC feltet. Når så mottager utfører samme «divisjon», på datapakka som
+				tas imot, vil resten bli null, hvis det ikke er bitfeil... (fortsetter på neste spalte) </p>
+			</div>
+		</section>
+		<section>
+			<div class="row">
 				<p>Styrken er at denne type feilkontroll vil oppdage alle typer feil, unntatt der hvor
 				feilmønsteret (E) i den mottatte pakka er lik polynomet. Hvis f.eks G = 1011, så vil
 				ikke en pakke som har E=1011 oppdages. Dvs feil i en bit, og neste bit er feilfri og
@@ -1106,227 +1106,7 @@
 				<p>CRC har få svakheter. CRC er ofte implementert i hardware, og det er da ikke
 				mulig å forandre polynomet. Hvis den implementeres i software, vil den kreve en
 				del prosessorkraft.</p>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-			</div>
-			<div class="row">
 
-
-				<h3>Hvor mange bit er det i FCS, når polynomet <span class="katex">G(x)= x^8+x^5+x^4+1</span>?</h3>
-				<p>Dette polynomet brukes til å regne ut hva som skal være i FCS i datapakka. Se
-				ellers beskrivelsen i oppgave 1.</p>
-
-
-				<h3>Hva vil det si at en protokoll bruker polynomet <span class="katex">G(x)= x^8+x^5+x^4+1</span>?</h3>
-				<p>Antall bit i FCS bestemmes av den høyeste potensen i polynoment. Her er det 8, dvs det er 8 bit FCS</p>
-
-
-				<h3>Beskriv kort de forskjellige typer fiber. Ta med oppbyggingen, lysgangen og
-				(de mest sentrale) spesifikasjonene.</h3>
-				<p>Det finnes to hovedtyper fiber kabel: Multimodus (MM) og Singlemodus (SM). MM
-				fiber finnes også i to typer, det er Gradert indeks (GI) og Step indeks (SI) fiber. Du finner
-				ofte ikke info i databladet om MM-fiberen er SI eller GI. Det er fordi det (nesten) bare
-				produseres GI fiber, av disse MM fibrene. GI fiber har nemlig mye større båndbredde enn
-				en SI fiber. Det er fordi dispersjonen er litt mindre i en GI fiber i forhold til en SI fiber</p>
-				<p>Størrelsen på kjernediameteren, altså kjernen i fiberkabelen, der lyset går, bestemmer om
-				det er en SM fiber eller MM fiber. Kjernediameteren må være liten, i størrelsesorden
-				9 µm, for at den skal kunne være SM. I en SM fiber er det bare plass til en lysstråle, noe
-				som medfører at det ikke er modedispersjon i en SM fiber. Det er kun kromatisk
-				dispersjon, som i hovedsak skyldes at brytningsindeksen er litt forskjellig for de
-				forskjellige bølgelengdene på lyset. Lyshastigheten er gitt av brytningsindeksen, og da vil
-				lyshastigheten være litt forskjellig for de forskjellige bølgelengdene.</p>
-				<p>I en MM fiber er det dispersjon pga de forskjellige lysstrålene går forskjellig
-				veistrekning. Det kalles modedispersjon. De som går lengst vei, kommer senest fram. I en
-				GI fiber er lyshastigheten på de lysstrålene som går lengst vei litt større, som medfører at
-				dispersjonen er litt mindre enn i en SI fiber, hvor lyshastigheten er lik for alle lysstrålene.</p>
-				<p>En fiberkabel har også en Numerisk Aperture (NA), som er sinus til den største vinkelen
-				lyset inn på kjernen kan ha, for at lyset skal kunne sendes videre i kjernen. Dvs at det blir
-				totalrefleksjon mellom kjerne og kappe.</p>
-
-
-				<h3>Hva er båndbredden på en fiberoptisk forbindelse på 5 km, når
-				båndbredden på fiberen er 10 [MHz·km] ?</h3>
-				<p>Båndbredden B på en 5 km fiberforbindelsen, ved bruk av en fiber med 10
-				MHz*km, er: B = 10/5 MHz = 2 MHz</p>
-			</div>
-			<div class="row">
-				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å få mest mulig lys
-				inn i fiberen, altså ha minst mulig innkoblingstap. Forklar hvorfor.</h3>
-				<p>Man bør velge en fiber med høyest mulig NA hvis man ønsker minst mulig innkoblingstap
-				i fiberen. NA er definert som sinus til den største vinkelen en lysstråle kan ha inn på
-				fiberen, for å bli ført videre i kjernen. Jo større NA, jo større vinkel.</p>
-				<p>Hvis man bruker en LED som lyskilde, stråler den ut lys i alle retninger. Hvor mye av dette
-				som faktisk blir koblet inn i fiberen, er avhengig av (bl.a.) NA. Ved bruk av fiber med høy
-				NA vil også de lysstålene med stor vinkel bli koblet inn i fiberen. Med bruk av lav NA ville
-				disse lysstrålene bli tapt. Dette regnes da med i innkoblingstapet, slik at innkoblingstapet
-				blir da større.</p>
-
-
-				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å ha høyest
-				båndbredde på fiberen. Forklar hvorfor.</h3>
-				<p>Man bør velge en fiber med lavest mulig NA, hvis man ønsker fiber med høyest mulig
-				båndbredde.
-				Båndbredden på en multimodus fiber er gitt av modedispersjonen. Modedispersjonen
-				skyldes at de forskjellige lysstrålene (modene) går forskjellig vei (og lengde) i fiberen, og
-				kommer dermed fram til forskjellige tidspunkt. Maksimal forskjell i lengde er det mellom
-				den strålen som går rett fram, og den som har maksimal vinkel i forhold til retningen fram i
-				fiberen. Den prosentvise forskjellen i lengde er større i en fiber med høy NA, enn en med
-				lav NA. Jo større prosentvis forskjell det er i lengde, desto større tidsforskjell, dvs større
-				modedispersjon, som igjen gir mindre båndbredde.</p>
-
-
-				<h3>NHva blir båndbredden på en fiberoptisk forbindelse, når den totale
-				dispersjonen er på 10 [ns] ?</h3>
-				<p>Forholdet mellom dispersjon <span class="katex">\tau</span>, og båndbredde B er gitt av formelen: B = 0,44/<span class="katex">\tau</span></p>
-				<p>Ved en dispersjon på <span class="katex">10[ns] (= 10 \cdot 10^{-9}[s] = 10^{-8}[s]</span>, får vi en båndbredde på:</p>
-				<p class="katex">B=0,44/10^{-8} = 0,44 \cdot 10^8 Hz = 44 MHz</p>
-
-
-				<h3>Hva er båndbredden på en fiberoptisk forbindelse på 5 km, når båndbredden
-				på fiberen er 10 [MHz·km] ?</h3>
-				<p>Båndbredden B på en 5 km fiberforbindelsen, ved bruk av en fiber med 10 MHz*km, er:
-				B = 10/5 MHz</p>
-
-
-				<h3>Du har en fiberoptisk forbindelse som er 35 km lang. Der brukes det en
-				singlemode fiber (SM) med en dispersjon på 5 [ps/(nm·km)], og en laser med
-				en spektral båndbredde på 2 [nm]. Hva blir båndbredden på den
-				forbindelsen?</h3>
-				<p>Båndbredden er gitt av den kromatiske dispersjonen i SM-fiberen, lengden på fiberen og
-				den spektrale båndbredde på lyskilden:</p>
-				<p class="katex">B = 0,44/\tau = 0,44/ (35 \cdot 2 \cdot 5)ps = 0,44/0,35 ns = 1,26 GHz</p>
-
-
-				<h3>Du har et fiberoptisk anlegg der senderen har en innkoblet effekt på -10,0 dBm,
-				mottageren har en følsomhet på -37,0 dBm, fiberen har en dempning på 2,5
-				dB/km, lengden er på 2,0 km hvor det er to skjøter med en dempning på 0,1 dB
-				(hver), og det er to kontakter med en dempning på 1,0 dB (hver). Kontaktene
-				er montert på selve fiberkabelen. Hva blir systemmarginen?</h3>
-				<p>Systemmarginen kan man finne ved å sette opp effektbudsjettet.</p>
-				<div class="katex">
-					P_i - P_{f} - P_{s} - P_{k} - P_{sy}
-					= P_m - 10 - 5 - 0,2 - 2 - P_{sy}
-					= -37
-				</div>
-				<div class="katex">
-					P_{sy} = 37 - 17,2 = 19,8 [dB]
-				</div>
-
-
-				<p><strong>Du skal dimensjonere et fiberoptisk anlegg. Fiberkabel: 50/125 µm, med 50MHz*km båndbredde.
-				Dempningen i 1.vindu 3,0 dB/km. Fiberkabelen kabelen skjøtes per 1 km (fordi den levers i lengder på 1 km).
-				Skjøtetapet: 0,2 dB. Fra senderen og mottageren går det en fiberstump til en kontakt. En kontakt i hver ende.
-				Kontaktapet på 1,0 dB. Kontaktene kan bli "møkkete". - Krav: anlegget skal kunne akseptere et tap på opp til
-				3,0 dB per kontakt. Systemarginen bør være 5 dB.</strong></p>
-
-				<h4>a) Hvilken følsomhet må mottageren ha, når senderen har en innkoblet effekt på -18 dBm, og fiberkabelen er 10 km lang ?</h4>
-				<p>Dette kan finnes ved å sette opp effektbudsjet.
-				I oppsettet er det ikke gitt noe data for innkoblingstapet ved mottageren. Den kan
-				settes til 1,0 dB.
-				Vi får da:</p>
-				<div class="katex">
-					P_i - P_{f} - P_{s} - P_{n} - P_{sy}
-					= P_m - 18 - 30 - 1,8 - 6 - 1 - 5
-					= P_m
-				</div>
-				<div class="katex">
-					P_m = - 61,8 [dBm]
-				</div>
-				<p>Mottageren må ha en følsomhet på bedre enn –61,8 dBm.</p>
-
-				<h4>b) Hvis du har en sender på -18 dBm og en mottager med følsomhet på -50,0
-				dBm, - hvor lang fiberkabel kan du da ha ?</h4>
-				<p>Hvis følsomheten til mottageren hadde vært på –50,0 dBm kunne vi hatt en fiberkabel
-				på maks X km:</p>
-				<div class="katex">
-					P_i - P_{f} - P_{s} - P_{k} - P_{n} - P_{sy}
-					= P_m - 18 - 30 X - 0,2 X - 6 - 1 - 5
-					= -50
-				</div>
-				<div class="katex inline">
-					X \cdot 3,2 = 50 - 18 -12 = 20
-				</div>
-				<div class="katex inline i5">
-					X = 20 / 3,2 = 6,25
-				</div>
-				<p>Ved en lengde på 6,25 km får vi</p>
-				<div class="katex">
-					P_i - P_{f} - P_{s} - P_{k} - P_{n} - P_{sy}
-					= P_m - 18 - 6,25 \cdot 30 - 6 \cdot 0,2 - 6 - 1 - P_{sy}
-				</div>
-				<div class="katex inline">
-					= -50
-				</div>
-				<div class="katex inline i5">
-					P_{sy} = 50 - 18 - 18,75 - 1,2 - 7
-					           = 5,05 [dB]
-				</div>
-				<span class="inline">i systemmargin</span>
-				<p>Lengden på fiberkabelen kan være 6,25 km</p>
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
-				<h4>c) Hva er maksimal datahastighet på datasignalet i de to tilfellene ?</h4>
-				<p>Da ikke annet er oppgitt er maksimal datahastighet lik det dobbelte av båndbredden.
-				Vi tar utgangspunkt i fiberkabelens data på 50 MHz*km :</p>
-				<p>Da fiberkabelen er 10Km blir maks datahastighet D, lik:
-				D = 2*B = (2*50 / 10) Mbit/s = 10 Mbit/s</p>
-				<p>Da fiberkabelen er 6,25Km blir maks datahastighet D, lik:
-				D = 2*B = (2*50 / 6,25) Mbit/s = 16 Mbit/s</p>
-			</div>
-			<div class="row">
-				<h1>Utregnings greier</h1>
-				<dl>
-					<dt><span class="katex">P_i\ (innkoblet\ effekt)</span></dt>
-					<dd>Benevning [dBm]</dd>
-
-					<dt><span class="katex">P_{f}\ (fiber)</span></dt>
-					<dd><span class="katex">\dfrac{demping\ [dB]\ per\ [km]}{lengde\ [km]} \cdot lengde\ [km]</span>
-					Benevning [dB]. Se attenuation i datablad</dd>
-
-					<dt><span class="katex">P_{s}\ (skjøt)</span></dt>
-					<dd><span class="katex">= antall\ skjøt \cdot \dfrac{[dB]}{skjøt} \qquad</span> Benevning [dB]</dd>
-
-					<dt><span class="katex">P_{k}\ (kontakt)</span></dt>
-					<dd><span class="katex">= antall\ kontakter \cdot \dfrac{[dB]}{kontakt} \qquad</span> Benevning [dB]</dd>
-
-					<dt><span class="katex">P_{sy}\ (system)</span></dt>
-					<dd>Systemmargin. Benevning [dB] Om ikke oppgitt: er det mellom 3-7. Regn ut med begge.</dd>
-
-					<dt><span class="katex">P_{m}</span></dt>
-					<dd>Demping (eller følsomhet) til mottaker. Benevning [dBm]</dd>
-
-					<dt><span class="katex">P_{n} (nnk.m)</span></dt>
-					<dd>Innkoblingstap ved mottaker. Benevning [dB]</dd>
-
-					<dt>Maksimal datahastighet: </dt>
-					<dd>Om det ikke står noe ang. koding, ganger man med 2 (ukodet). Når man har Manchester kode ganger man med 1.  
-					Regner først ut båndbredde, får et svar i Hz og deretter finner man bithastighet ved å gange.
-					</dd>
-					<dd>Eks: 19 MHz</dd>
-					<dd>Manchester kode: 19 MHz x 1 = 19 Mbit/s</dd>
-					<dd>Ukodet: 19 MHz x 2 = 38 Mbit/s</dd>
-					<dd>Andre koder ligger mellom 1 og 2.</dd>
-
-					<dt>Effekt og båndbreddeberegning</dt>
-					<dd>Maksimal avstand er gitt av; enten effektbegrensning <strong>eller</strong> båndbreddebegrensning</dd>
-
-					<dt>Båndbreddeberegning (dimensjonering av fiber)</dt>
-					<dd>Fra [Gbit/s] til [GHz] -> <span class="katex">10 (Gbit/s) / 2 = 5GHz</span></dd>
-					<dd><p><span class="katex">\tau = \dfrac{0,44}{5 \cdot 10^9[s]} = spektralbåndbredde \cdot dispersjon \cdot kabellengde</span></p>
-					    <p><span class="katex">\tau = 1,5 [nm] \cdot 2,7[\dfrac{ps}{nm \cdot km}] \cdot x [km]</span></p>
-					    <p><span class="katex">\tau = 4,05 [nm] \cdot 10^{-12} \cdot x [km]</span></p>
-					    <p><span class="katex">\dfrac{\tau}{4,05 [nm] \cdot 10^{-12}} = \dfrac{4,05 [nm] \cdot 10^{-12}}{4,05 [nm] \cdot 10^{-12}} \cdot x</span></p>
-					    <p><span class="katex">x = \dfrac{\tau}{4,05 [nm] \cdot 10^{-12}}</span></p>
-					    <p><span class="katex">\underline{\underline{x = 21,7 [km]}}</span></p>
-					</dd>
-					<dd><p>Man finner dispersjonen i dataark</p></dd>
-				</dl>
 
 				<h1>Ord og utrykk</h1>
 				<dl>
@@ -1425,10 +1205,6 @@
 					nettsted, slik at datatrafikken må deles over flere maskiner. Der hvor en maskin ikke vil klare å
 					behandle all trafikk.</dd>
 				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
 				<dl>
 					<dt>IPv4 anycast workaround</dt>
 					<dd>Kan i mange tilfeller gjøres vha. BGP. Flere verter (vanligvis i forskjellige
@@ -1477,8 +1253,15 @@
 					Den bytter altså også ut IP-adressen på den innkomne pakka til IP adressen til PC’en på hjemmenettet.
 					«Private» IP adresser er adresser som ikke synes ut på internett. De er kun bakenfor en NAT.
 					</dd>
-
-					<dt>IdleRQ</dt>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dt>s4. <span class="i2">IdleRQ</span></dt>
 					<dd>Stopp-og-vent overføring. Sender en pakke ad gangen. Venter på svar (ACK/NACK), før neste pakke sendes. 
 					Om den får ACK sender den neste pakke, om den får NACK eller intet svar sender den pakken på nytt. 
 					</dd>
@@ -1593,6 +1376,86 @@
 				B: <code>172.16.0.0</code> - <code>172.31.255.255</code>, C: <code>192.168.0.0</code> - <code>192.168.255.255</code></p>
 
 				<dl>
+					<dt>IPv6</dt>
+					<dd>Form: 128 bits, 32 hex, 16 bytes. Full størrelse er 8 blokker (på 2 byte / 4 hex hver).
+					Tabell under. Ops: utilstrekkelig definisjon av <em>site-local adresser</em> førte til forvirring og rot.
+					Denne blokken med adresser ble derfor foreldet og erstattet av <em>ULA</em>.</dd>
+				</dl>
+
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>IPv4</th>
+							<th>IPv6</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Adresse lengde</td>
+							<td>32 bits</td>
+							<td>128 bits</td>
+						</tr>
+						<tr>
+							<td>Header lengde</td>
+							<td>20 bytes</td>
+							<td>40 bytes</td>
+						</tr>
+						<tr>
+							<td>Bytes for hver adresse i header</td>
+							<td>4 bytes</td>
+							<td>16 bytes</td>
+						</tr>
+						<tr>
+							<td>Adresse presentasjon</td>
+							<td>Desimal</td>
+							<td>Hexadesimal</td>
+						</tr>
+						<tr>
+							<td>Internet adresse klasser</td>
+							<td>A, B, C, D, E</td>
+							<td>Ingen ekvivalent, men har tre typer. (uni, multi, anycast)</td>
+						</tr>
+						<tr>
+							<td>Multicast adresse</td>
+							<td><code>224.0.0.0/4</code></td>
+							<td>FF00::/8</td>
+						</tr>
+						<tr>
+							<td>Broadcast adresser</td>
+							<td>Se IPv4 info</td>
+							<td>Brukes ikke</td>
+						</tr>
+						<tr>
+							<td>Uspesifisert adresse</td>
+							<td><code>0.0.0.0</code></td>
+							<td><code>::</code></td>
+						</tr>
+						<tr>
+							<td>Loopback adresse</td>
+							<td><code>127.0.0.1</code></td>
+							<td><code>::1</code></td>
+						</tr>
+						<tr>
+							<td>Public IPer</td>
+							<td><code>Se IPv4 info</code></td>
+							<td><code>Global unicast adresser</code></td>
+						</tr>
+						<tr>
+							<td>Private IP adresser</td>
+							<td><code>Se IPv4 info</code></td>
+							<td>Site-local: <code>FEC0::/10</code>,
+							unique local <code>FC00::/7</code></td>
+						</tr>
+						<tr>
+							<td>Autoconfigurasjons adresser</td>
+							<td><code>169.254.0.0/16</code></td>
+							<td>Link-local <code>FE80::/64</code></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<dl>
 					<dt>Portnummer (destination og source)</dt>
 					<dd>Portnummer er veien inn til en applikasjon på laget over. Hver applikasjon har sitt eget portnummer. Man kan
 					sammenligne det med nummeret som står på døra inn til applikasjonen. Når en host (klient) f.eks. skal hente en
@@ -1601,12 +1464,375 @@
 					skal til. Klienten vil også si ifra hvilken port nummer den vil ha svaret på. Det blir Source Port nummer.
 					Klienten velger blant de ledige portnumrene. Når webserveren sender websiden tilbake til klienten, vil den sette
 					Dest Port nummer på den pakka, til det Source Port nummeret som klienten ville ha svaret på.</dd>
+
+					<dt>Baud</dt>
+					<dd>er bestemt av tiden mellom hver skifting, eller transisjon på linjesignalet. F.eks tiden mellom hvert
+					faseskift, ved PSK. Hvis vi sier denne tiden er tb, er Baud = 1/tb Hvis det er flere forskjellige faser som
+					det skiftes mellom, kan hver skift overføre flere bit. Hvis f.eks det er 8 faser, vil det gi 3 bit per
+					faseskift. Da blir datahastigheten 3 ganger større enn Baud.</dd>
+
+					<dt>Forskjellen på asynkron og synkron dataoverføring</dt>
+					<dd>Synkronisering betyr at sender og mottager synkroniserer seg slik at databitene tas imot riktig, dvs at
+					for eksempel databit 0 blir tatt imot som databit 0, og databit 1 som databit 1 osv..</dd>
+
+					<dt>Asynkron</dt>
+					<dd>Her foregår synkroniseringen for hver byte. Det sendes en startbit før databitene sendes. En forbindelse
+					hvor det ikke går data, er på logisk 1. Startbiten er logisk 0, og det er den som mottageren synkroniserer seg
+					på. Det gjøres ved at mottageren punktprøver det mottatte signal med en høyere (16x eller 64x) frekvens enn
+					dataene. Med en gang det oppdages en logisk 0, starter mottageren. En ny punktprøve blir tatt en halv bitlengde
+					senere, slik at midten i av 13 startbiten blir prøvet. Hvis det (fortsatt) er logisk 0, er mottageren sikker
+					på at det er startbiten. De kommende 7 eller 8 bit blir punktprøvet mitt i biten, og plassert i riktig
+					bitposisjon i mottageren (USART). Når siste bit er lest, forventer mottageren en (eller 2) stoppbit, som er
+					logisk 1. Når stoppbiten er mottatt, begynner mottageren å lete etter neste startbit, slik at den kan
+					synkronisere seg på den neste byten. En ulempe er at man må sende 2 bit ekstra per byte, som påvirker
+					hastigheten</dd>
+
+					<dt>Synkron</dt>
+					<dd>Ved synkron dataoverføring foregår synkroniseringen i starten av hver blokk. Når synkronisering først er
+					oppnådd, er det ingen synkronisering igjen før neste blokk. Det er da viktig at senderklokka og mottagerklokka
+					er eksakt like, derfor overføres senderklokka i sammen med dataene. Det gjøres ved å kode inn klokkesignalet i
+					datastrømmen. På mottagersiden blir dette klokkesignalet dekodet ut av datastrømmen, og brukes til å klokke
+					inn dataene. På den måten blir mottagerklokka og senderklokka eksakt like. Synkroniseringen kan foregå på to
+					måter: bytesynkronisering og bitsynkronisering.</dd>
 				</dl>
 			</div>
 		</section>
 		<section>
 			<div class="row">
-				aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+				<h1>Utregnings greier</h1>
+				<dl>
+					<dt><span class="katex">P_i\ (innkoblet\ effekt)</span></dt>
+					<dd>Benevning [dBm]</dd>
+
+					<dt><span class="katex">P_{f}\ (fiber)</span></dt>
+					<dd><span class="katex">\dfrac{demping\ [dB]\ per\ [km]}{lengde\ [km]} \cdot lengde\ [km]</span>
+					Benevning [dB]. Se attenuation i datablad</dd>
+
+					<dt><span class="katex">P_{s}\ (skjøt)</span></dt>
+					<dd><span class="katex">= antall\ skjøt \cdot \dfrac{[dB]}{skjøt} \qquad</span> Benevning [dB]</dd>
+
+					<dt><span class="katex">P_{k}\ (kontakt)</span></dt>
+					<dd><span class="katex">= antall\ kontakter \cdot \dfrac{[dB]}{kontakt} \qquad</span> Benevning [dB]</dd>
+
+					<dt><span class="katex">P_{sy}\ (system)</span></dt>
+					<dd>Systemmargin. Benevning [dB] Om ikke oppgitt: er det mellom 3-7. Regn ut med begge.</dd>
+
+					<dt><span class="katex">P_{m}</span></dt>
+					<dd>Demping (eller følsomhet) til mottaker. Benevning [dBm]</dd>
+
+					<dt><span class="katex">P_{n} (nnk.m)</span></dt>
+					<dd>Innkoblingstap ved mottaker. Benevning [dB]</dd>
+
+					<dt>Maksimal datahastighet: </dt>
+					<dd>Om det ikke står noe ang. koding, ganger man med 2 (ukodet). Når man har Manchester kode ganger man med 1.  
+					Regner først ut båndbredde, får et svar i Hz og deretter finner man bithastighet ved å gange.
+					</dd>
+					<dd>Eks: 19 MHz</dd>
+					<dd>Manchester kode: 19 MHz x 1 = 19 Mbit/s</dd>
+					<dd>Ukodet: 19 MHz x 2 = 38 Mbit/s</dd>
+					<dd>Andre koder ligger mellom 1 og 2. (har man Mbit deler man i steden)</dd>
+
+					<dt>Effekt og båndbreddeberegning</dt>
+					<dd>Maksimal avstand er gitt av; enten effektbegrensning <strong>eller</strong> båndbreddebegrensning</dd>
+
+					<dt>Båndbreddeberegning (dimensjonering av fiber)</dt>
+					<dd>Fra [Gbit/s] til [GHz] -> <span class="katex">10 (Gbit/s) / 2 = 5GHz</span></dd>
+					<dd><p><span class="katex">\tau = \dfrac{0,44}{5 \cdot 10^9[s]} = spektralbåndbredde \cdot dispersjon \cdot kabellengde</span></p>
+							<div class="clear">
+					    	<p class="w5 fl"><span class="katex">\tau = 1,5 [nm] \cdot 2,7[\dfrac{ps}{nm \cdot km}] \cdot x [km]</span></p>
+					    	<p class="w5 fr"><span class="katex">\tau = 4,05 [nm] \cdot 10^{-12} \cdot x [km]</span></p>
+							</div>
+							<div class="clear">
+					    	<p class="w5 fl"><span class="katex">\dfrac{\tau}{4,05 [nm] \cdot 10^{-12}} = \dfrac{4,05 [nm] \cdot 10^{-12}}{4,05 [nm] \cdot 10^{-12}} \cdot x</span></p>
+					    	<p class="w3 fl"><span class="katex">x = \dfrac{\tau}{4,05 [nm] \cdot 10^{-12}}</span></p>
+					    	<p class="w2 fr"><span class="katex">\underline{\underline{x = 21,7 [km]}}</span></p>
+							</div>
+					</dd>
+					<dd><p>Man finner dispersjonen i dataark</p></dd>
+				</dl>
+
+				<h3>Hvor mange bit er det i FCS, når polynomet <span class="katex">G(x)= x^8+x^5+x^4+1</span>?</h3>
+				<p>Dette polynomet brukes til å regne ut hva som skal være i FCS i datapakka. Se
+				ellers beskrivelsen i oppgave 1.</p>
+
+
+				<h3>Hva vil det si at en protokoll bruker polynomet <span class="katex">G(x)= x^8+x^5+x^4+1</span>?</h3>
+				<p>Antall bit i FCS bestemmes av den høyeste potensen i polynoment. Her er det 8, dvs det er 8 bit FCS</p>
+
+
+				<h3>Beskriv kort de forskjellige typer fiber. Ta med oppbyggingen, lysgangen og
+				(de mest sentrale) spesifikasjonene.</h3>
+				<p>Det finnes to hovedtyper fiber kabel: Multimodus (MM) og Singlemodus (SM). MM
+				fiber finnes også i to typer, det er Gradert indeks (GI) og Step indeks (SI) fiber. Du finner
+				ofte ikke info i databladet om MM-fiberen er SI eller GI. Det er fordi det (nesten) bare
+				produseres GI fiber, av disse MM fibrene. GI fiber har nemlig mye større båndbredde enn
+				en SI fiber. Det er fordi dispersjonen er litt mindre i en GI fiber i forhold til en SI fiber</p>
+				<p>Størrelsen på kjernediameteren, altså kjernen i fiberkabelen, der lyset går, bestemmer om
+				det er en SM fiber eller MM fiber. Kjernediameteren må være liten, i størrelsesorden
+				9 µm, for at den skal kunne være SM. I en SM fiber er det bare plass til en lysstråle, noe
+				som medfører at det ikke er modedispersjon i en SM fiber. Det er kun kromatisk
+				dispersjon, som i hovedsak skyldes at brytningsindeksen er litt forskjellig for de
+				forskjellige bølgelengdene på lyset. Lyshastigheten er gitt av brytningsindeksen, og da vil
+				lyshastigheten være litt forskjellig for de forskjellige bølgelengdene.</p>
+				<p>I en MM fiber er det dispersjon pga de forskjellige lysstrålene går forskjellig
+				veistrekning. Det kalles modedispersjon. De som går lengst vei, kommer senest fram. I en
+				GI fiber er lyshastigheten på de lysstrålene som går lengst vei litt større, som medfører at
+				dispersjonen er litt mindre enn i en SI fiber, hvor lyshastigheten er lik for alle lysstrålene.</p>
+				<p>En fiberkabel har også en Numerisk Aperture (NA), som er sinus til den største vinkelen
+				lyset inn på kjernen kan ha, for at lyset skal kunne sendes videre i kjernen. Dvs at det blir
+				totalrefleksjon mellom kjerne og kappe.</p>
+
+
+				<h3>Hva er båndbredden på en fiberoptisk forbindelse på 5 km, når
+				båndbredden på fiberen er 10 [MHz*km] ?</h3>
+				<p>Båndbredden B på en 5 km fiberforbindelsen, ved bruk av en fiber med 10
+				MHz*km, er: B = 10/5 MHz = 2 MHz</p>
+			</div>
+			<div class="row">
+				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å få mest mulig lys
+				inn i fiberen, altså ha minst mulig innkoblingstap. Forklar hvorfor.</h3>
+				<p>Man bør velge en fiber med høyest mulig NA hvis man ønsker minst mulig innkoblingstap
+				i fiberen. NA er definert som sinus til den største vinkelen en lysstråle kan ha inn på
+				fiberen, for å bli ført videre i kjernen. Jo større NA, jo større vinkel.</p>
+				<p>Hvis man bruker en LED som lyskilde, stråler den ut lys i alle retninger. Hvor mye av dette
+				som faktisk blir koblet inn i fiberen, er avhengig av (bl.a.) NA. Ved bruk av fiber med høy
+				NA vil også de lysstålene med stor vinkel bli koblet inn i fiberen. Med bruk av lav NA ville
+				disse lysstrålene bli tapt. Dette regnes da med i innkoblingstapet, slik at innkoblingstapet
+				blir da større.</p>
+
+
+				<h3>Bør du velge en fiber med høy eller lav NA, hvis du ønsker å ha høyest
+				båndbredde på fiberen. Forklar hvorfor.</h3>
+				<p>Man bør velge en fiber med lavest mulig NA, hvis man ønsker fiber med høyest mulig
+				båndbredde.
+				Båndbredden på en multimodus fiber er gitt av modedispersjonen. Modedispersjonen
+				skyldes at de forskjellige lysstrålene (modene) går forskjellig vei (og lengde) i fiberen, og
+				kommer dermed fram til forskjellige tidspunkt. Maksimal forskjell i lengde er det mellom
+				den strålen som går rett fram, og den som har maksimal vinkel i forhold til retningen fram i
+				fiberen. Den prosentvise forskjellen i lengde er større i en fiber med høy NA, enn en med
+				lav NA. Jo større prosentvis forskjell det er i lengde, desto større tidsforskjell, dvs større
+				modedispersjon, som igjen gir mindre båndbredde.</p>
+
+
+				<h3>Hva er båndbredden på en fiberoptisk forbindelse på 5 km, når båndbredden
+				på fiberen er 10 [MHz*km] ?</h3>
+				<p>Båndbredden B på en 5 km fiberforbindelsen, ved bruk av en fiber med 10 MHz*km, er:
+				B = 10/5 MHz</p>
+
+
+				<h3>Hva blir båndbredden på en fiberoptisk forbindelse, når den totale
+				dispersjonen er på 10 [ns] ?</h3>
+				<p>Forholdet mellom dispersjon <span class="katex">\tau</span>, og båndbredde B er gitt av formelen: B = 0,44/<span class="katex">\tau</span></p>
+				<p>Ved en dispersjon på <span class="katex">10[ns] (= 10 \cdot 10^{-9}[s] = 10^{-8}[s]</span>, får vi en båndbredde på:</p>
+				<p class="katex">B=0,44/10^{-8} = 0,44 \cdot 10^8 Hz = 44 MHz</p>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<h3>Du har en fiberoptisk forbindelse som er 35 km lang. Der brukes det en
+				singlemode fiber (SM) med en dispersjon på 5 [ps/(nm·km)], og en laser med
+				en spektral båndbredde på 2 [nm]. Hva blir båndbredden på den
+				forbindelsen?</h3>
+				<p>Båndbredden er gitt av den kromatiske dispersjonen i SM-fiberen, lengden på fiberen og
+				den spektrale båndbredde på lyskilden:</p>
+				<p class="katex">B = 0,44/\tau = 0,44/ (35 \cdot 2 \cdot 5)ps = 0,44/0,35 ns = 1,26 GHz</p>
+
+
+				<h3>Du har et fiberoptisk anlegg der senderen har en innkoblet effekt på -10,0 dBm,
+				mottageren har en følsomhet på -37,0 dBm, fiberen har en dempning på 2,5
+				dB/km, lengden er på 2,0 km hvor det er to skjøter med en dempning på 0,1 dB
+				(hver), og det er to kontakter med en dempning på 1,0 dB (hver). Kontaktene
+				er montert på selve fiberkabelen. Hva blir systemmarginen?</h3>
+				<p>Systemmarginen kan man finne ved å sette opp effektbudsjettet.</p>
+				<div class="katex">
+					P_i - P_{f} - P_{s} - P_{k} - P_{sy}
+					= P_m - 10 - 5 - 0,2 - 2 - P_{sy}
+					= -37
+				</div>
+				<div class="katex">
+					P_{sy} = 37 - 17,2 = 19,8 [dB]
+				</div>
+
+
+				<p><strong>Du skal dimensjonere et fiberoptisk anlegg. Fiberkabel: 50/125 µm, med 50MHz*km båndbredde.
+				Dempningen i 1.vindu 3,0 dB/km. Fiberkabelen kabelen skjøtes per 1 km (fordi den levers i lengder på 1 km).
+				Skjøtetapet: 0,2 dB. Fra senderen og mottageren går det en fiberstump til en kontakt. En kontakt i hver ende.
+				Kontaktapet på 1,0 dB. Kontaktene kan bli "møkkete". - Krav: anlegget skal kunne akseptere et tap på opp til
+				3,0 dB per kontakt. Systemarginen bør være 5 dB.</strong></p>
+
+				<h4>a) Hvilken følsomhet må mottageren ha, når senderen har en innkoblet effekt på -18 dBm, og fiberkabelen er 10 km lang ?</h4>
+				<p>Dette kan finnes ved å sette opp effektbudsjet.
+				I oppsettet er det ikke gitt noe data for innkoblingstapet ved mottageren. Den kan
+				settes til 1,0 dB.
+				Vi får da:</p>
+				<div class="katex">
+					P_i - P_{f} - P_{s} - P_{n} - P_{sy}
+					= P_m - 18 - 30 - 1,8 - 6 - 1 - 5
+					= P_m
+				</div>
+				<div class="katex">
+					P_m = - 61,8 [dBm]
+				</div>
+				<p>Mottageren må ha en følsomhet på bedre enn –61,8 dBm.</p>
+
+				<h4>b) Hvis du har en sender på -18 dBm og en mottager med følsomhet på -50,0
+				dBm, - hvor lang fiberkabel kan du da ha ?</h4>
+				<p>Hvis følsomheten til mottageren hadde vært på –50,0 dBm kunne vi hatt en fiberkabel
+				på maks X km:</p>
+				<div class="katex">
+					P_i - P_{f} - P_{s} - P_{k} - P_{n} - P_{sy}
+					= P_m - 18 - 30 X - 0,2 X - 6 - 1 - 5
+					= -50
+				</div>
+				<div class="katex inline">
+					X \cdot 3,2 = 50 - 18 -12 = 20
+				</div>
+				<div class="katex inline i5">
+					X = 20 / 3,2 = 6,25
+				</div>
+				<p>Ved en lengde på 6,25 km får vi</p>
+				<div class="katex">
+					P_i - P_{f} - P_{s} - P_{k} - P_{n} - P_{sy}
+					= P_m - 18 - 6,25 \cdot 30 - 6 \cdot 0,2 - 6 - 1 - P_{sy}
+				</div>
+				<div class="katex inline">
+					= -50
+				</div>
+				<div class="katex inline i5">
+					P_{sy} = 50 - 18 - 18,75 - 1,2 - 7
+					           = 5,05 [dB]
+				</div>
+				<span class="inline">i systemmargin</span>
+				<p>Lengden på fiberkabelen kan være 6,25 km</p>
+
+				<h4>c) Hva er maksimal datahastighet på datasignalet i de to tilfellene ?</h4>
+				<p>Da ikke annet er oppgitt er maksimal datahastighet lik det dobbelte av båndbredden.
+				Vi tar utgangspunkt i fiberkabelens data på 50 MHz*km :</p>
+				<p>Da fiberkabelen er 10Km blir maks datahastighet D, lik:
+				D = 2*B = (2*50 / 10) Mbit/s = 10 Mbit/s</p>
+				<p>Da fiberkabelen er 6,25Km blir maks datahastighet D, lik:
+				D = 2*B = (2*50 / 6,25) Mbit/s = 16 Mbit/s</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th><span class="katex">10^n</span></th>
+							<th>Prefiks</th>
+							<th>Symbol</th>
+							<th>Navn</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span class="katex">10^{15}</span></td>
+							<td>peta</td>
+							<td>P</td>
+							<td>billiard</td>
+							<td><code>1 000 000 000 000 000</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{12}</span></td>
+							<td>tera</td>
+							<td>T</td>
+							<td>billion</td>
+							<td><code>1 000 000 000 000</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{9}</span></td>
+							<td>giga</td>
+							<td>G</td>
+							<td>milliard</td>
+							<td><code>1 000 000 000</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{6}</span></td>
+							<td>mega</td>
+							<td>M</td>
+							<td>million</td>
+							<td><code>1 000 000</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{3}</span></td>
+							<td>kilo</td>
+							<td>k</td>
+							<td>tusen</td>
+							<td><code>1 000</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{2}</span></td>
+							<td>hekto</td>
+							<td>h</td>
+							<td>hundre</td>
+							<td><code>100</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{1}</span></td>
+							<td>deka</td>
+							<td>da</td>
+							<td>ti</td>
+							<td><code>10</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-1}</span></td>
+							<td>desi</td>
+							<td>d</td>
+							<td>tidel</td>
+							<td><code>0,1</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-2}</span></td>
+							<td>centi</td>
+							<td>c</td>
+							<td>hundredel</td>
+							<td><code>0,01</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-3}</span></td>
+							<td>milli</td>
+							<td>m</td>
+							<td>tusendel</td>
+							<td><code>0,001</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-6}</span></td>
+							<td>mikro</td>
+							<td><span class="katex">\mu</span></td>
+							<td>milliondel</td>
+							<td><code>0,000 001</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-9}</span></td>
+							<td>nano</td>
+							<td>n</td>
+							<td>milliarddel</td>
+							<td><code>0,000 000 001</code></td>
+						</tr>
+						<tr>
+							<td><span class="katex">10^{-12}</span></td>
+							<td>pico</td>
+							<td>p</td>
+							<td>billionddel</td>
+							<td><code>0,000 000 000 001</code></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<dl>
+					<dt>FSM (Finite-state machine)</dt>
+					<dd>er en standardisert metode som brukes for å forklare "virkemåten" til en protokoll. "Virkemåten": selve
+					oveføringen; retransmisjon, timeout, NACK, ACK, data som skal sendes. </dd>
+
+					<dt>RDT X (X er et nummer)</dt>
+					<dd>Reliable Data Transfer: Inneholder en beskrivelse av "hvor dårlig kanalen er", hvilke feilsituasjoner kan
+					oppstå som protokollen kan løse. F.eks. feilfri(overføring), bitfeil i enkelte pakker, bitfeil der hele pakker
+					blir borte.</dd>
+
+					<dt>QAM</dt>
+					<dd>Fase og amplitude forandres. Hvis man f.eks. har 16 punkter, kan man overføre 4 bit per faseskift.
+					Bithastigheten blir større jo flere x antall QAM punkter det er u polardiagrammet ift. Baud. Støy begrenser
+					antall punkt. Mye støy medfører lavere bithastighet. </dd>
+				</dl>
 			</div>
 		</section>
 	</div>
