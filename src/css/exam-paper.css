@@ -107,6 +107,8 @@ hr {
 	display: flex;
 	margin: 10em auto;
 	padding: 5mm;
+	/*padding: 0;*/
+	/*border: 5mm solid red;*/
 	flex-direction: row;
 	justify-content: space-between;
 	background-color: #fff;
@@ -125,7 +127,9 @@ hr {
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 0.5em;
+		padding: 5mm;
+		/*padding: 0;*/
+		/*border: 5mm solid red;*/
 		margin: 0;
 		transform: none;
 		max-width: 100vw;
