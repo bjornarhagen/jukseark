@@ -1138,13 +1138,16 @@
 
 					<dt>Nettmaske</dt>
 					<dd>En nettmaske er en 32-bit maske som brukes til å dele en IP-adresse opp i subnet og angi subnettverkets
-					tilgjengelige hosts</dd>
+					tilgjengelige hosts. Forteller hvor grensen mellom nettdelen og hostdelen går</dd>
 
 					<dt>Switch</dt>
-					<dd>En switch sender data videre til neste node, basert på MAC adressen. </dd>
+					<dd>En switch sender data videre til neste node basert på MAC. En switch virker på lag 2. Dvs. at den leser
+					MAC adressen på en pakke som kommer inn, og sender den ut på kun den porten hvor den MAC adressen befinner seg.</dd>
 
 					<dt>Ruter</dt>
-					<dd>En router sender data videre basert på IP adressen.</dd>
+					<dd>En router sender data videre basert på IP adressen. En router virker på lag 3 (i tillegg). Dvs. at den også
+					leser IP adressen, og ruter pakken ut på riktig port. Når pakken sendes ut på porten, setter den også på riktig
+					MAC adresse til nærmeste mottager.</dd>
 				</dl>
 
 				<h1>Ting & tang</h1>
@@ -1288,14 +1291,6 @@
 						</dd>
 					</div>
 
-					<dt>Multipleksing/demultipleksing</dt>
-					<dd>Multipleksing betyr at flere blir mikset sammen til en. I demultipleksing blir disse flere skilt ut fra
-					denne ene. Det finnes mange type multipleksing. På lag 4 brukes det i forbindelse med at data fra forskjellige
-					applikasjoner blandes sammen til en datastrøm ned til IP laget, altså lag 3. Dette gjøres ved hjelp av
-					portnummer. Hver applikasjon har sine portnummer. Dette portnummeret følger med dataene fra applikasjonen.
-					Portnummer legges i lag 4 hodet på datapakka. 
-					</dd>
-
 					<dt>IPv4 adresse klasser</dt>
 					<dd>Andressene i IPv4 ble fra starten av (Internet) delt inn i klasser. Klasse A, B og C ble brukt til å kunne
 					gi en adresse til en host. Klasse D ble avsatt til multicast adresser.</dd>
@@ -1376,6 +1371,13 @@
 				B: <code>172.16.0.0</code> - <code>172.31.255.255</code>, C: <code>192.168.0.0</code> - <code>192.168.255.255</code></p>
 
 				<dl>
+					<dt>IPv4</dt>
+					<dd>IP adressene er herakisk oppbyggd, slik at det er mulig å finne veien til en PC/host som er tilkoblet
+					Internet. Det er kun en host på Internet som til enhver tid har denne IPv4 adressen. IPv4 adressen er totalt
+					32 bit lang, dvs 4 byte. Den er delt i en nettdel og hostdel. Hvert LAN har en egen IPv4 nettadresse. IP-adressen til et LAN har bare 0'ere i
+					host. Broadcastadressen til et LAN har bare 1'ere  i  host og går ut til alle på LANet. To LAN kan ikke ha
+					samme IP eller broadcast.</dd>
+
 					<dt>IPv6</dt>
 					<dd>Form: 128 bits, 32 hex, 16 bytes. Full størrelse er 8 blokker (på 2 byte / 4 hex hver).
 					Tabell under. Ops: utilstrekkelig definisjon av <em>site-local adresser</em> førte til forvirring og rot.
@@ -1465,12 +1467,6 @@
 					Klienten velger blant de ledige portnumrene. Når webserveren sender websiden tilbake til klienten, vil den sette
 					Dest Port nummer på den pakka, til det Source Port nummeret som klienten ville ha svaret på.</dd>
 
-					<dt>Baud</dt>
-					<dd>er bestemt av tiden mellom hver skifting, eller transisjon på linjesignalet. F.eks tiden mellom hvert
-					faseskift, ved PSK. Hvis vi sier denne tiden er tb, er Baud = 1/tb Hvis det er flere forskjellige faser som
-					det skiftes mellom, kan hver skift overføre flere bit. Hvis f.eks det er 8 faser, vil det gi 3 bit per
-					faseskift. Da blir datahastigheten 3 ganger større enn Baud.</dd>
-
 					<dt>Forskjellen på asynkron og synkron dataoverføring</dt>
 					<dd>Synkronisering betyr at sender og mottager synkroniserer seg slik at databitene tas imot riktig, dvs at
 					for eksempel databit 0 blir tatt imot som databit 0, og databit 1 som databit 1 osv..</dd>
@@ -1533,7 +1529,9 @@
 					<dd>Andre koder ligger mellom 1 og 2. (har man Mbit deler man i steden)</dd>
 
 					<dt>Effekt og båndbreddeberegning</dt>
-					<dd>Maksimal avstand er gitt av; enten effektbegrensning <strong>eller</strong> båndbreddebegrensning</dd>
+					<dd>Maksimal avstand er gitt av; enten effektbegrensning <strong>eller</strong> båndbreddebegrensning. Hvis
+					det er utstrålt effekt som er oppgitt for sender, og ikke innkoblet effekt, må man ha med innkoblingstapet for
+					senderen</dd>
 
 					<dt>Båndbreddeberegning (dimensjonering av fiber)</dt>
 					<dd>Fra [Gbit/s] til [GHz] -> <span class="katex">10 (Gbit/s) / 2 = 5GHz</span></dd>
@@ -1577,8 +1575,8 @@
 				<p>I en MM fiber er det dispersjon pga de forskjellige lysstrålene går forskjellig
 				veistrekning. Det kalles modedispersjon. De som går lengst vei, kommer senest fram. I en
 				GI fiber er lyshastigheten på de lysstrålene som går lengst vei litt større, som medfører at
-				dispersjonen er litt mindre enn i en SI fiber, hvor lyshastigheten er lik for alle lysstrålene.</p>
-				<p>En fiberkabel har også en Numerisk Aperture (NA), som er sinus til den største vinkelen
+				dispersjonen er litt mindre enn i en SI fiber, hvor lyshastigheten er lik for alle lysstrålene.
+				En fiberkabel har også en Numerisk Aperture (NA), som er sinus til den største vinkelen
 				lyset inn på kjernen kan ha, for at lyset skal kunne sendes videre i kjernen. Dvs at det blir
 				totalrefleksjon mellom kjerne og kappe.</p>
 
@@ -1713,6 +1711,46 @@
 				<p>Da fiberkabelen er 6,25Km blir maks datahastighet D, lik:
 				D = 2*B = (2*50 / 6,25) Mbit/s = 16 Mbit/s</p>
 
+				<dl>
+					<dt>Multipleksing/demultipleksing</dt>
+					<dd>Multipleksing betyr at flere blir mikset sammen til en. I demultipleksing blir disse flere skilt ut fra
+					denne ene. Det finnes mange type multipleksing. På lag 4 brukes det i forbindelse med at data fra forskjellige
+					applikasjoner blandes sammen til en datastrøm ned til IP laget, altså lag 3. Dette gjøres ved hjelp av
+					portnummer. Hver applikasjon har sine portnummer. Dette portnummeret følger med dataene fra applikasjonen.
+					Portnummer legges i lag 4 hodet på datapakka. 
+					</dd>
+
+					<dt>Baud</dt>
+					<dd>Er bestemt av tiden mellom hver skifting, eller transisjon på linjesignalet. F.eks tiden mellom hvert
+					faseskift, ved PSK. Hvis vi sier denne tiden er tb, er Baud = 1/tb Hvis det er flere forskjellige faser som
+					det skiftes mellom, kan hver skift overføre flere bit. Hvis f.eks det er 8 faser, vil det gi 3 bit per
+					faseskift. Da blir datahastigheten 3 ganger større enn Baud.</dd>
+
+					<dt>FSM (Finite-state machine)</dt>
+					<dd>er en standardisert metode som brukes for å forklare "virkemåten" til en protokoll. "Virkemåten": selve
+					oveføringen; retransmisjon, timeout, NACK, ACK, data som skal sendes. </dd>
+
+					<dt>RDT X (X er et nummer)</dt>
+					<dd>Reliable Data Transfer: Inneholder en beskrivelse av "hvor dårlig kanalen er", hvilke feilsituasjoner kan
+					oppstå som protokollen kan løse. F.eks. feilfri(overføring), bitfeil i enkelte pakker, bitfeil der hele pakker
+					blir borte.</dd>
+
+					<dt>QAM</dt>
+					<dd>Fase og amplitude forandres. Hvis man f.eks. har 16 punkter, kan man overføre 4 bit per faseskift.
+					Bithastigheten blir større jo flere x antall QAM punkter det er u polardiagrammet ift. Baud. Støy begrenser
+					antall punkt. Mye støy medfører lavere bithastighet. </dd>
+
+					<dt>Tracert</dt>
+					<dd>Sender ut en serie med ICMP pakker, hvor TTL feltet i IP hodet blir satt til en bestemt verdi. I hvert
+					hopp, altså i hver ruter på veien, blir TTL minsket med 1. Den ruteren som gjør at TTL=0, vil ikke sende ICMP
+					pakken videre, men i stedet sende en ICMP pakke tilbake til avsender, med info om hvor TTL=0, dvs hvor pakken
+					stoppet. Denne info er altså IP adressen til ruteren. Tracert setter først TTL = 1. Da vil den første ruteren
+					gjøre at TTL=0, og den vil sende ICMP-pakke med IP nummeret til der hvor pakken stoppet, som nå er i den
+					første ruteren. Neste gang sendes en ICMP pakke med TTL=2, Da vil den andre ruteren på veien stoppe pakken,
+					og sende info tilbake til senderen. Slik fortsetter det helt til siste hopp er til mottageren. – Så tracert
+					får tak i denne info ved å sende pakker hvor TTL starter på 1 og øker med 1 for hver gang.</dd>
+				</dl>
+
 				<table>
 					<thead>
 						<tr>
@@ -1817,22 +1855,6 @@
 						</tr>
 					</tbody>
 				</table>
-
-				<dl>
-					<dt>FSM (Finite-state machine)</dt>
-					<dd>er en standardisert metode som brukes for å forklare "virkemåten" til en protokoll. "Virkemåten": selve
-					oveføringen; retransmisjon, timeout, NACK, ACK, data som skal sendes. </dd>
-
-					<dt>RDT X (X er et nummer)</dt>
-					<dd>Reliable Data Transfer: Inneholder en beskrivelse av "hvor dårlig kanalen er", hvilke feilsituasjoner kan
-					oppstå som protokollen kan løse. F.eks. feilfri(overføring), bitfeil i enkelte pakker, bitfeil der hele pakker
-					blir borte.</dd>
-
-					<dt>QAM</dt>
-					<dd>Fase og amplitude forandres. Hvis man f.eks. har 16 punkter, kan man overføre 4 bit per faseskift.
-					Bithastigheten blir større jo flere x antall QAM punkter det er u polardiagrammet ift. Baud. Støy begrenser
-					antall punkt. Mye støy medfører lavere bithastighet. </dd>
-				</dl>
 			</div>
 		</section>
 	</div>
