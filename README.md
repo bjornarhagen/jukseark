@@ -1,3 +1,5 @@
+Live version is available at [bjornarhagen.no](https://bjornarhagen.no/_/skole/hio/datakom/2017/eksamensark/dist/)
+
 ## Setup
 
 1. Run `npm install`
