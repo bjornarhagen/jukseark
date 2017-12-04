@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=2.5, width=device-width, height=device-height">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Linux - eksamensark</title>
+	<link rel="stylesheet" href="css/exam-paper.css">
+	<link rel="stylesheet" href="css/exam-paper-linux.css">
+	<link rel="stylesheet" href="css/katex.min.css">
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h1>Operativsystem & annet</h1>
+				<dl>
+					<dt>Viktige oppgaver</dt>
+					<dd>Kommunisere med bruker og styre hardware. Fordele delte ressurser som RAM, nettverksporter, disk og printere.
+					Starte og kontrollere programmer. Sikre filer og data. Tilby filsystem.</dd>
+
+					<dt>Standard innenhet og standard utenhet</dt>
+					<dd><strong>stdin</strong>: Default kilde (fil) som data leses fra. Stdin er i utgangspunktet tastaturet, eller
+					egentlig den vicefilen som representerer tastaturet.</dd>
+					<dd><strong>stdout</strong>: Default medium (fil) som data skrives til. Stdout er i utgangspunktet skjermen.</dd>
+
+					<dt>Filterprogram</dt>
+					<dd>Program som leser tekstlige data linje for linje fra stdin, og skriver tekstlig output linjevis til stdout.</dd>
+
+					<dt>Redirigering av I/O.</dt>
+					<dd>Tegnene '<' og '>' brukes til å redefinere hhv. stdin og stdout til å være en fil i stedet for skjermen.
+					'>>' (append) gjør at utskrift til stdout legges til på slutten av en eksisterende fil.</dd>
+
+					<dt>Piping (eller "rørlegging")</dt>
+					<dd>Brukes for interprosesskommunikasjon mellom to filterprogrammer. angis med tegnet '|' mellom navnene på
+					programmene. Gjør at stdout fra et filter leses som stdin fra neste filter.</dd>
+
+					<dt>Hva er søkestien (search path) for et skall?</dt>
+					<dd>En søkesti er en liste med kataloger der skallet vil lete for å finne en kommando</dd>
+
+					<dt>Hva er navnet på skallvariabelen der søkestien lagres i Bourne-again shell?</dt>
+					<dd>Søkestien ligger i systemvariabelen PATH, som inneholder en tekststreng med katalognavn adskilt med ':' (kolon).</dd>
+
+					<dt>Nevn en fordel og en ulempe ved å bruke et GUI (grafisk grensesnitt)</dt>
+					<dd>
+						<dl>
+							<dt>Fordeler ved GUI:</dt>
+							<dd>Gjør det enklere og mer intuitivt å bruke datamaskinen. Mange brukere er vant til GUI'er (Nintendo,
+							Windows, web) og arbeider lettere med pek-og-klikk verktøy.</dd>
+
+							<dt>Ulemper ved GUI:</dt>
+							<dd>Gir et "ferdigsydd" oppsett med mindre muligheter til å "skreddersy" arbeidsomgivelsene. En GUI er et
+							ekstra lag med software mellom bruker og oppgavene som skal gjøres på maskinen, noe som gjør at oppgavene utføres saktere.</dd>
+						</dl>
+					</dd>
+
+					<dt>Nevn en fordel og en ulempe ved å bruke et CLI (kommandolinjen)</dt>
+					<dd>
+						<dl>
+							<dt>Fordeler ved CLI:</dt>
+							<dd>Gir bedre mulighet til å kontrollere systemet og kjøre applikasjonene slik man selv ønsker. Raskt, med
+							et minimalt ekstra lag med software mellom bruker og kjernen.</dd>
+
+							<dt>Ulemper ved CLI:</dt>
+							<dd>Kryptisk syntaks. Høyere inngangsterskel for nybegynnere og GUI-brukere.</dd>
+						</dl>
+					</dd>
+
+					<dt>Forklar forskjellen mellom opsjoner og argumenter til en Linux-kommando.</dt>
+					<dd>Opsjoner er parametre som bestemmer hvordan kommandoen skal virke. Argumenter er parametre som angir
+					hvilke data kommandoen skal arbeide med, f.eks. filnavn, tall og tekststrenger.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>cat < fil_1 >> fil_2</code>?</dt>
+					<dd><code>fil_1</code> legges til på slutten av <code>fil_2</code></dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>alias harakiri 'rm -r'</code>?</dt>
+					<dd>Definerer et kommandoalias med navn <code>harakiri</code>, som skal fjerne alle filer i stående katalog og
+					alle underkataloger av stående katalog.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>rm -rf firefox/cache/*</code>?</dt>
+					<dd>Fjerner alle filer som brukeren er eier av (uansett filbeskyttelse) i hele katalogtreet med rot i
+					underkatalogen <code>./firefox/cache/</code>.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>ls ~cathrineb</code>?</dt>
+					<dd>Skriver ut innholdet i hjemmekatalogen til brukeren cathrineb (hvis du har lesetilgang til denne katalogen).</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>ls -ld h*</code>?</dt>
+					<dd>Skriver ut, i langt format (opsjonen <code>-l</code>), informasjon om alle katalogfiler/underkataloger
+					(opsjonen <code>-d</code>) i stående katalog med navn som begynner på <code>h</code>. Innholdet i katalogene skrives ikke ut.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>man man > man.txt</code>?</dt>
+					<dd>Manualsidene til kommandoen man (manual pages) skrives til filen <code>man.txt.</code></dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>echo a*</code>?</dt>
+					<dd>Navnet på alle filer i stående katalog, hvis navn begynner med en <code>a</code>, skrives ut til standard
+					utenhet. Hvis det ikke finnes noen filer med navn som begynner med en <code>a</code>, skrives strengen
+					<code>a*</code> ut.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>cat < kapittel_1.txt | tee kapittel_1.txt.backup | lpr</code>?</dt>
+					<dd>En kopi av filen <code>kapittel_1.txt</code> lagres på filen <code>kapittel_1.txt.backup</code>.
+					<code>kapittel_1.txt</code> sendes også til utskrift på default printer.</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<h1>laosdlasd</h1>
+				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
+				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
+				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
