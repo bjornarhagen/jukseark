@@ -105,10 +105,75 @@
 		</section>
 		<section>
 			<div class="row">
-				<h1>laosdlasd</h1>
-				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
-				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
-				<p>lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet lorem ipsum dolro sit amet </p>
+				<h2>Innlesning av verdier for skallvariable fra bruker</h2>
+				<p>Kommandoen <code>read</code> kan brukes for å lese inn verdier fra tastaturet og lagre dem i en variabel.
+				Merk at <code>read</code> er en kommando som er "innebygget" i Bash, på samme måte som <code>history</code>. For
+				å se dokumentasjonen på <code>read</code>, kan du bruke kommandoen <code>help read | more</code>. Les
+				dokumentasjonen for <code>read</code>, og finn ut hvordan den virker (hva skjer hvis du prøver med
+				<code>man read</code>?). Skriv en Linux-kommando som spør bruker om fornavn og etternavn (bruk opsjonen
+				<code>-p</code> til <code>read</code>), og leser navnene inn i to variable. Skriv deretter en Linux-kommando som,
+				hvis f.eks. brukers navn er Per Hansen, skriver ut på skjermen "Hællæ, Per Hansen".<br>
+				<code>read -p "Tast inn fornavn og etternavn: " fornavn etternavn</code><br>
+				<code>echo "Hællæ, $fornavn $etternavn"</code></p>
+
+				<h2>En forsmak på shellprogrammering</h2>
+				<p>Opprett en ny fil med navn <code>testprogram</code> med en teksteditor. Legg inn de to kommandoene du skrev i
+				forrige oppgave på hver sin linje i denne filen. Lagre filen og gå tilbake til shellet. Gi kommandoen:
+				<code>bash testprogram</code>. Hva skjer? Det startes et nytt subshell som leser og utfører de to kommandoene
+				som er lagret på filen (som er et skallprogram/shellscript). Deretter terminerer subshellet og kontrollen går
+				tilbake til innloggings-shellet.</p>
+			</div>
+			<div class="row">
+				<dl>
+					<dt>Hvilke filtyper har vi i Linux?</dt>
+					<dd>
+						<ul class="nostyle inline">
+							<li>Regulære filer (regular/ordinary files)</li>
+							<li>Kataloger (directory files)</li>
+							<li>Spesialfiler (links, devices, pipes,...)</li>
+						</ul>
+					</dd>
+
+					<dt>Hva er et inode-nummer i filsystemet til Linux?</dt>
+					<dd>Inoden er en datastruktur i et Unix-stil-filsystem som beskriver et filsystemobjekt som en fil eller en
+					katalog. Hver inode lagrer attributter og diskblokkposisjon(er) til objektets data. Attributter for
+					filsystemsobjekter kan inneholde metadata som tider for siste endring og tilgang, samt eier- og tillatelsesdata.
+					Kataloger er lister over navn som er tilordnet inoder. En katalog inneholder en oppføring for seg selv, sin
+					forelder og hver av sine barn.</dd>
+
+					<dt>Hva inneholder egentlig en katalogfil?</dt>
+					<dd>En katalogfil inneholder en liste med ett element for hver fil (inkludert katalogfiler) i katalogen. Et
+					element i en katalogfil kalles for en <em>hard link</em> og består av filens inode-nummer og filnavn.</dd>
+
+					<dt>Hvordan kan vi skille en ordinær fil fra en katalogfil ved hjelp av kommandoen <code>ls</code>?</dt>
+					<dd>Bruk <code>ls -l</code>, første tegn på linjen for hver fil angir da filtype, <code>d</code> for
+					katalogfil, <code>-</code> for ordinær fil. Evt. kan <code>ls -F</code> brukes, da angis filtypene med et
+					spesialtegn (og fargekoding i noen versjoner av <code>ls</code>) etter filnavnene.</dd>
+
+					<dt>Skriv en Linux-kommando som skriver ut innholdet av alle filer i stående katalog som har et filnavn som
+					slutter med <code>.txt</code>.</dt>
+					<dd><code>cat *.txt</code></dd>
+
+					<dt>Forklar hva følgende kommandoer gjør:</dt>
+					<dd>Alle kommandoene nedenfor bruker opsjonen <code>-f</code> (aka force) til <code>rm</code>. <code>rm</code>
+					vil da fjerne filer uten å spørre bruker først, og vil heller ikke stoppe eller gi noen feilmeldinger hvis det
+					angis fjerning av filnavn som ikke eksisterer. Alle kommandoene jobber på kataloger som ligger under brukerens
+					hjemmeområde, fordi søkestien som angis til <code>rm</code> starter med tegnet <code>~</code>.
+						<dl>
+							<dt><code>rm -f ~/personal/memo*.doc</code></dt>
+							<dd>Fjerner alle filer som ligger i katalogen personal med filnavn som starter med <code>memo</code> og
+							slutter med <code>.doc</code></dd>
+
+							<dt><code>rm -f ~/linuxbook/final/ch??.prn</code></dt>
+							<dd>Fjerner alle filer som ligger i katalogen final, som er en underkatalog av linuxbook, med filnavn på
+							åtte tegn som starter med ch, etterfulgt av to vilkårlige tegn, og deretter slutter med <code>.prn</code></dd>
+
+							<dt><code>rm -f ~/courses/ece446/lab[1-6].[cC]</code></dt>
+							<dd>Fjerner alle filer som ligger i katalogen ece446, som er en underkatalog av courses, med filnavn på 6
+							tegn som starter med lab, etterfulgt av ett av sifrene 1-6, og deretter slutter med .c eller .C</dd>
+						</dl>
+					</dd>
+				</dl>
 			</div>
 		</section>
 	</div>
