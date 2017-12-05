@@ -14,7 +14,6 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h1>Operativsystem & annet</h1>
 				<dl>
 					<dt>Viktige oppgaver</dt>
 					<dd>Kommunisere med bruker og styre hardware. Fordele delte ressurser som RAM, nettverksporter, disk og printere.
@@ -71,9 +70,6 @@
 					<dd>Opsjoner er parametre som bestemmer hvordan kommandoen skal virke. Argumenter er parametre som angir
 					hvilke data kommandoen skal arbeide med, f.eks. filnavn, tall og tekststrenger.</dd>
 
-					<dt>Hva utføres ved eksekvering av: <code>cat < fil_1 >> fil_2</code>?</dt>
-					<dd><code>fil_1</code> legges til på slutten av <code>fil_2</code></dd>
-
 					<dt>Hva utføres ved eksekvering av: <code>alias harakiri 'rm -r'</code>?</dt>
 					<dd>Definerer et kommandoalias med navn <code>harakiri</code>, som skal fjerne alle filer i stående katalog og
 					alle underkataloger av stående katalog.</dd>
@@ -105,7 +101,6 @@
 		</section>
 		<section>
 			<div class="row">
-				<h2>Innlesning av verdier for skallvariable fra bruker</h2>
 				<p>Kommandoen <code>read</code> kan brukes for å lese inn verdier fra tastaturet og lagre dem i en variabel.
 				Merk at <code>read</code> er en kommando som er "innebygget" i Bash, på samme måte som <code>history</code>. For
 				å se dokumentasjonen på <code>read</code>, kan du bruke kommandoen <code>help read | more</code>. Les
@@ -116,7 +111,7 @@
 				<code>read -p "Tast inn fornavn og etternavn: " fornavn etternavn</code><br>
 				<code>echo "Hællæ, $fornavn $etternavn"</code></p>
 
-				<h2>En forsmak på shellprogrammering</h2>
+				<hr>
 				<p>Opprett en ny fil med navn <code>testprogram</code> med en teksteditor. Legg inn de to kommandoene du skrev i
 				forrige oppgave på hver sin linje i denne filen. Lagre filen og gå tilbake til shellet. Gi kommandoen:
 				<code>bash testprogram</code>. Hva skjer? Det startes et nytt subshell som leser og utfører de to kommandoene
@@ -141,7 +136,7 @@
 					Kataloger er lister over navn som er tilordnet inoder. En katalog inneholder en oppføring for seg selv, sin
 					forelder og hver av sine barn.</dd>
 
-					<dt>Hva inneholder egentlig en katalogfil?</dt>
+					<dt>Hva inneholder <em>egentlig</em> en katalogfil?</dt>
 					<dd>En katalogfil inneholder en liste med ett element for hver fil (inkludert katalogfiler) i katalogen. Et
 					element i en katalogfil kalles for en <em>hard link</em> og består av filens inode-nummer og filnavn.</dd>
 
@@ -173,6 +168,36 @@
 							tegn som starter med lab, etterfulgt av ett av sifrene 1-6, og deretter slutter med .c eller .C</dd>
 						</dl>
 					</dd>
+
+					<dt>(Symbolic links) For å se i praksis hvordan lenker virker, gjør følgende:</dt>
+					<dd>
+						<dl>
+							<dt>Opprett en fil med navn abcd.txt som inneholder et par linjer med tekst.</dt>
+							<dd><code>nano/emacs/vim abcd.txt</code></dd>
+
+							<dt>Bruk <code>ln</code> til å lage en hard lenke med navn <code>abcd_hard.txt</code> og en symbolsk lenke
+							med navn <code>abcd_soft.txt</code>, som begge peker til filen <code>abcd.txt</code>.</dt>
+							<dd><code>ln abcd.txt abcd_hard.txt</code><span class="i5"><code>ln -s abcd.txt abcd_soft.txt</code></span></dd>
+
+							<dt>Skriv ut innholdet av tekstfilen og av begge lenkene med <code>cat</code>, for å verifisere at de
+							refererer til samme datafil.</dt>
+							<dd><code>cat abcd.txt</code>, <code>cat abcd_soft.txt</code>, <code>cat abcd_hard.txt</code>, </dd>
+
+							<dt>Skriv ut inodenummerne til tekstfilen og til de to lenkene, med <code>ls -i</code>. Hva ser du?</dt>
+							<dd>Hvis det er flere hard-links til samme fil, vil de ha samme inode-nummer. Filen lagres bare ett sted,
+							men det kan være flere katalogfiler med hard-links som peker til samme fil.</dd>
+
+							<dt>Skriv ut informasjon om bl.a. filtype, størrelse og antall (harde) lenker for tekstfilen og de to
+							lenkene, med <code>ls -l</code>. Hva ser du?</dt>
+							<dd>Det to hard-linkene har samme filinformasjon, og viser at det er to hard-links til filen. Soft-linken
+							er en egen fil med eget inode-nummer og størrelse lik antall bytes i den symbolske linken.</dd>
+
+							<dt>Fjern tekstfilen <code>abcd.txt</code>. Prøv deretter å skrive ut innholdet av både den harde og den
+							symbolske lenken. Hva skjer, og hvorfor?</dt>
+							<dd>Den symbolske lenken virker ikke lenger, fordi filnavnet den lenker til er fjernet. Filen i seg selv
+							fjernes ikke, fordi det fortsatt finnes en hard-link til den.</dd>
+						</dl>
+					</dd>
 				</dl>
 			</div>
 		</section>
@@ -183,74 +208,87 @@
 				<h1>Kommandoer</h1>
 				<dl>
 					<dt>cd</dt>
+					<dd>Brukes for å bytte <em>working directory</em></dd>
 					<dd><code>cd [option] [directory]</code></dd>
-					<dd>Brukes for å bytte <em>working directory</em></dd>
 
-					<dt>cd</dt>
-					<dd><code>ls [options] [file|dir]</code></dd>
+					<dt>ls</dt>
 					<dd>Brukes for å bytte <em>working directory</em></dd>
+					<dd><code>ls [options] [file|dir]</code></dd>
 					<dd>
-						<table>
+						<table class="table-code">
 							<tbody>
 								<tr>
-									<td><code>ls -a</code></td>
+									<td>ls -a</td>
 									<td>list all files including hidden file starting with '.'</td>
 								</tr>
 								<tr>
-									<td><code>ls --color</code></td>
+									<td>ls --color</td>
 									<td>colored list [=always/never/auto]</td>
 								</tr>
 								<tr>
-									<td><code>ls -d</code></td>
+									<td>ls -d</td>
 									<td>list directories - with ' */'</td>
 								</tr>
 								<tr>
-									<td><code>ls -F</code></td>
+									<td>ls -F</td>
 									<td>add one char of */=&gt;@| to enteries</td>
 								</tr>
 								<tr>
-									<td><code>ls -i</code></td>
+									<td>ls -i</td>
 									<td>list file's inode index number</td>
 								</tr>
 								<tr>
-									<td><code>ls -l</code></td>
+									<td>ls -l</td>
 									<td>list with long format - show permissions</td>
 								</tr>
 								<tr>
-									<td><code>ls -la</code></td>
+									<td>ls -la</td>
 									<td>list long format including hidden files</td>
 								</tr>
 								<tr>
-									<td><code>ls -lh</code></td>
+									<td>ls -lh</td>
 									<td>list long format with readable file size</td>
 								</tr>
 								<tr>
-									<td><code>ls -ls</code></td>
+									<td>ls -ls</td>
 									<td>list with long format with file size</td>
 								</tr>
 								<tr>
-									<td><code>ls -r</code></td>
+									<td>ls -r</td>
 									<td>list in reverse order</td>
 								</tr>
 								<tr>
-									<td><code>ls -R</code></td>
+									<td>ls -R</td>
 									<td>list recursively directory tree</td>
 								</tr>
 								<tr>
-									<td><code>ls -s</code></td>
+									<td>ls -s</td>
 									<td>list file size</td>
 								</tr>
 								<tr>
-									<td><code>ls -S</code></td>
+									<td>ls -S</td>
 									<td>sort by file size</td>
 								</tr>
 								<tr>
-									<td><code>ls -t</code></td>
+									<td>ls -t</td>
 									<td>sort by time & date</td>
 								</tr>
 								<tr>
-									<td><code>ls -X</code></td>
+									<td>ls -X</td>
 									<td>sort by extension name</td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>ls ~cathrineb</td>
+									<td>Skriver ut innholdet i hjemmekatalogen til brukeren cathrineb (hvis du har lesetilgang til denne katalogen).</td>
+								</tr>
+								<tr>
+									<td>ls -ld h*</td>
+									<td>Skriver ut, i langt format (opsjonen '-l), informasjon om alle katalogfiler/underkataloger
+									(opsjonen '-d) i stående katalog med navn som begynner på 'h'. Innholdet i katalogene skrives ikke ut.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -260,27 +298,40 @@
 					<dd>Brukes for å vise innholdet i en fil</dd>
 					<dd><code>cat [options] file1 [file2...]</code></dd>
 					<dd>
-						<table>
+						<table class="table-code">
 							<tbody>
 								<tr>
-									<td><code>cat -b</code></td>
+									<td>cat -b</td>
 									<td>add line numbers to non blank lines</td>
 								</tr>
 								<tr>
-									<td><code>cat -n</code></td>
+									<td>cat -n</td>
 									<td>add line numbers to all lines</td>
 								</tr>
 								<tr>
-									<td><code>cat -s</code></td>
+									<td>cat -s</td>
 									<td>squeeze blank lines to one line</td>
 								</tr>
 								<tr>
-									<td><code>cat -E</code></td>
+									<td>cat -E</td>
 									<td>show $ at the end of line</td>
 								</tr>
 								<tr>
-									<td><code>cat -T</code></td>
+									<td>cat -T</td>
 									<td>show ^I instead of tabs</td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>cat < fil_1 >> fil_2</td>
+									<td>fil_1 legges til på slutten av fil_2</td>
+								</tr>
+								<tr>
+									<td class="wrap">cat < kapittel_1.txt | tee kapittel_1.txt.backup | lpr</td>
+									<td>En kopi av filen kapittel_1.txt lagres på filen kapittel_1.txt.backup. kapittel_1.txt sendes også
+									til utskrift på default printer.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -290,22 +341,22 @@
 					<dd>Brukes for å flytte filer og/eller kataloger</dd>
 					<dd><code>mv [options] source dest</code></dd>
 					<dd>
-						<table>
+						<table class="table-code">
 							<tbody>
 								<tr>
-									<td><code>mv -f</code></td>
+									<td>mv -f</td>
 									<td>force move by overwriting destination file without prompt</td>
 								</tr>
 								<tr>
-									<td><code>mv -i</code></td>
+									<td>mv -i</td>
 									<td>interactive prompt before overwrite</td>
 								</tr>
 								<tr>
-									<td><code>mv -u</code></td>
+									<td>mv -u</td>
 									<td>update - move when source is newer than destination</td>
 								</tr>
 								<tr>
-									<td><code>mv -v</code></td>
+									<td>mv -v</td>
 									<td>verbose - print source and destination files</td>
 								</tr>
 							</tbody>
@@ -313,12 +364,19 @@
 					</dd>
 
 					<dt>cp</dt>
-					<dd><code>cp [options] source dest</code></dd>
 					<dd>Brukes for å kopiere filer og/eller kataloger</dd>
+					<dd><code>cp [options] source dest</code></dd>
 					<dd>
-						<table>
+						<table class="table-code">
 							<tbody>
-								
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>		
 							</tbody>
 						</table>
 					</dd>
@@ -327,10 +385,320 @@
 		</section>
 		<section>
 			<div class="row">
+				<dl>
+					<dt>alias</dt>
+					<dd>Brukes for å lage aliaser til kommandoer</dd>
+					<dd><code>alias [-p] [name[=value] ... ]</code></dd>
+					<dd>
+						<table class="table-code">
+							<tbody>
+								<tr>
+									<td>alias -p [name[=value] ...]</td>
+									<td>print all defined aliases in a reusable format</td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>alias harakiri 'rm -r'</td>
+									<td>Definerer et kommandoalias med navn harakiri, som skal fjerne alle filer i stående katalog og alle
+									underkataloger av stående katalog.</td>
+								</tr>	
+							</tbody>
+						</table>
+					</dd>
+
+					<dt>rm</dt>
+					<dd>Brukes for å slette filer og/eller kataloger</dd>
+					<dd><code>rm [OPTION]... FILE...</code></dd>
+					<dd>
+						<table class="table-code">
+							<tbody>
+								<tr>
+									<td>-f, --force</td>
+									<td>Ignore nonexistant files, and never prompt before removing.</td>
+								</tr>
+								<tr>
+									<td>-i</td>
+									<td>Prompt before every removal.</td>
+								</tr>
+								<tr>
+									<td>-I</td>
+									<td>Prompt once before removing more than three files, or when removing recursively. Less intrusive than -i, while still giving protection against most mistakes.</td>
+								</tr>
+								<tr>
+									<td>--interactive[=<em>WHEN</em>]</td>
+									<td>Prompt according to <em>WHEN</em>: never, once (-I), or always (-i). If <em>WHEN</em> is not specified, then prompt always.</td>
+								</tr>
+								<tr>
+									<td>--one-file-system</td>
+									<td>When removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument</td>
+								</tr>
+								<tr>
+									<td>--no-preserve-root</td>
+									<td>Do not treat "/" (the root directory) in any special way.</td>
+								</tr>
+								<tr>
+									<td>--preserve-root</td>
+									<td>Do not remove "/" (the root directory), which is the default behavior.</td>
+								</tr>
+								<tr>
+									<td>-r, -R, --recursive</td>
+									<td>Remove directories and their contents recursively.</td>
+								</tr>
+								<tr>
+									<td>-v, --verbose</td>
+									<td>Verbose mode; explain at all times what is being done.</td>
+								</tr>
+								<tr>
+									<td>--help</td>
+									<td>Display a help message, and exit.</td>
+								</tr>
+								<tr>
+									<td>--version</td>
+									<td>Display version information, and exit.</td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>rm -rf firefox/cache/*</td>
+									<td>Fjerner alle filer som brukeren er eier av (uansett filbeskyttelse) i hele katalogtreet med rot i
+									underkatalogen ./firefox/cache/ .</td>
+								</tr>
+								<tr>
+									<td>rm -f ~/personal/memo*.doc</td>
+									<td>Fjerner alle filer som ligger i katalogen personal med filnavn som starter med memo og slutter med
+									.doc</td>
+								</tr>
+								<tr>
+									<td>rm -f ~/linuxbook/final/ch??.prn</td>
+									<td>Fjerner alle filer som ligger i katalogen final, som er en underkatalog av linuxbook, med filnavn
+									på åtte tegn som starter med ch, etterfulgt av to vilkårlige tegn, og deretter slutter med .prn</td>
+								</tr>
+								<tr>
+									<td>rm -f ~/linuxbook/final/*.o</td>
+									<td>Fjerner alle filer som ligger i katalogen final, som er en underkatalog av linuxbook, med filnavn
+									som slutter med .o</td>
+								</tr>
+								<tr>
+									<td>rm -f ~/courses/ece446/lab[1-6].[cC]</td>
+									<td>Fjerner alle filer som ligger i katalogen ece446, som er en underkatalog av courses, med filnavn
+									på 6 tegn som starter med lab, etterfulgt av ett av sifrene 1-6, og deretter slutter med .c eller .C</td>
+								</tr>
+							</tbody>
+						</table>
+					</dd>
+				</dl>
 				<h1>Ord og utrykk</h1>
 				<dl>
 					<dt>Working directory</dt>
 					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dt>if</dt>
+					<dd>Brukes for å starte en if check</dd>
+					<dd><code>if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else COMMANDS; ] fi</code></dd>
+					<dd>
+						<table class="table-code">
+							<tbody>
+								<tr>
+									<td>[ -a FILE ]	</td>
+									<td>True if FILE exists.</td>
+								</tr>
+								<tr>
+									<td>[ -b FILE ]	</td>
+									<td>True if FILE exists and is a block-special file.</td>
+								</tr>
+								<tr>
+									<td>[ -c FILE ]	</td>
+									<td>True if FILE exists and is a character-special file.</td>
+								</tr>
+								<tr>
+									<td>[ -d FILE ]	</td>
+									<td>True if FILE exists and is a directory.</td>
+								</tr>
+								<tr>
+									<td>[ -e FILE ]	</td>
+									<td>True if FILE exists.</td>
+								</tr>
+								<tr>
+									<td>[ -f FILE ]	</td>
+									<td>True if FILE exists and is a regular file.</td>
+								</tr>
+								<tr>
+									<td>[ -g FILE ]	</td>
+									<td>True if FILE exists and its SGID bit is set.</td>
+								</tr>
+								<tr>
+									<td>[ -h FILE ]	</td>
+									<td>True if FILE exists and is a symbolic link.</td>
+								</tr>
+								<tr>
+									<td>[ -k FILE ]	</td>
+									<td>True if FILE exists and its sticky bit is set.</td>
+								</tr>
+								<tr>
+									<td>[ -p FILE ]	</td>
+									<td>True if FILE exists and is a named pipe (FIFO).</td>
+								</tr>
+								<tr>
+									<td>[ -r FILE ]	</td>
+									<td>True if FILE exists and is readable.</td>
+								</tr>
+								<tr>
+									<td>[ -s FILE ]	</td>
+									<td>True if FILE exists and has a size greater than zero.</td>
+								</tr>
+								<tr>
+									<td>[ -t FD ]	</td>
+									<td>True if file descriptor FD is open and refers to a terminal.</td>
+								</tr>
+								<tr>
+									<td>[ -u FILE ]	</td>
+									<td>True if FILE exists and its SUID (set user ID) bit is set.</td>
+								</tr>
+								<tr>
+									<td>[ -w FILE ]	</td>
+									<td>True if FILE exists and is writable.</td>
+								</tr>
+								<tr>
+									<td>[ -x FILE ]	</td>
+									<td>True if FILE exists and is executable.</td>
+								</tr>
+								<tr>
+									<td>[ -O FILE ]	</td>
+									<td>True if FILE exists and is owned by the effective user ID.</td>
+								</tr>
+								<tr>
+									<td>[ -G FILE ]	</td>
+									<td>True if FILE exists and is owned by the effective group ID.</td>
+								</tr>
+								<tr>
+									<td>[ -L FILE ]	</td>
+									<td>True if FILE exists and is a symbolic link.</td>
+								</tr>
+								<tr>
+									<td>[ -N FILE ]	</td>
+									<td>True if FILE exists and has been modified since it was last read.</td>
+								</tr>
+								<tr>
+									<td>[ -S FILE ]	</td>
+									<td>True if FILE exists and is a socket.</td>
+								</tr>
+								<tr>
+									<td>[ FILE1 -nt FILE2 ]	</td>
+									<td>True if FILE1 has been changed more recently than FILE2, or if FILE1 exists and FILE2 does not.</td>
+								</tr>
+								<tr>
+									<td>[ FILE1 -ot FILE2 ]	</td>
+									<td>True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not.</td>
+								</tr>
+								<tr>
+									<td>[ FILE1 -ef FILE2 ]	</td>
+									<td>True if FILE1 and FILE2 refer to the same device and inode numbers.</td>
+								</tr>
+								<tr>
+									<td>[ -o OPTIONNAME ]</td>
+									<td>True if shell option "OPTIONNAME" is enabled.</td>
+								</tr>
+								<tr>
+									<td>[ -z STRING ]</td>
+									<td>True of the length if "STRING" is zero.</td>
+								</tr>
+								<tr>
+									<td>[ -n STRING ] or [ STRING ]</td>
+									<td>True if the length of "STRING" is non-zero.</td>
+								</tr>
+								<tr>
+									<td>[ STRING1 == STRING2 ]</td>
+									<td>True if the strings are equal. "=" may be used instead of "==" for strict POSIX compliance.</td>
+								</tr>
+								<tr>
+									<td>[ STRING1 != STRING2 ]</td>
+									<td>True if the strings are not equal.</td>
+								</tr>
+								<tr>
+									<td>[ STRING1 < STRING2 ]</td>
+									<td>True if "STRING1" sorts before "STRING2" lexicographically in the current locale.</td>
+								</tr>
+								<tr>
+									<td>[ STRING1 > STRING2 ]</td>
+									<td>True if "STRING1" sorts after "STRING2" lexicographically in the current locale.</td>
+								</tr>
+								<tr>
+									<td>[ ARG1 OP ARG2 ]</td>
+									<td>"OP" is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if "ARG1" is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to "ARG2", respectively. "ARG1" and "ARG2" are integers.</td>
+								</tr>
+								<tr>
+									<td><strong>Kombinering</strong></td>
+									<td>Expressions may be combined using the following operators, listed in decreasing order of precedence (viktighet):</td>
+								</tr>
+								<tr>
+									<td>[ ! EXPR ]	</td>
+									<td>True if EXPR is false.</td>
+								</tr>
+								<tr>
+									<td>[ ( EXPR ) ]	</td>
+									<td>Returns the value of EXPR. This may be used to override the normal precedence of operators.</td>
+								</tr>
+								<tr>
+									<td>[ EXPR1 -a EXPR2 ]	</td>
+									<td>True if both EXPR1 and EXPR2 are true.</td>
+								</tr>
+								<tr>
+									<td>[ EXPR1 -o EXPR2 ]	</td>
+									<td>True if either EXPR1 or EXPR2 is true.</td>
+								</tr>
+								<tr>
+									<td><strong>Eks</strong></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</dd>
+					<dd class="clear">
+						<div class="fl w5">
+							<strong>Sjekk om en fil finnes</strong>
+							<pre class="fss">
+#!/bin/bash
+if [ -f /tmp/messages.txt ]; then
+	# file exists
+else
+	# file does not exists
+fi
+							</pre>
+						</div>
+						<div class="fl w5">
+							<strong>Sjekk om en bash option er satt (set -o [OPTIONNAME])</strong>
+							<pre class="fss">
+#!/bin/bash
+if [ -o noclobber ]; then
+	# noclobber is set.
+else
+	# noclobber is not set.
+fi
+							</pre>
+						</div>
+						<div class="fl w5">
+							<strong>numeriske sammenligninger</strong>
+							<pre class="fss">
+if [ "$num" -gt "150" ]; then
+	# $num er større enn 150
+else 
+	# $num er mindre enn 150
+fi
+							</pre>
+						</div>
+					</dd>
 				</dl>
 			</div>
 		</section>
