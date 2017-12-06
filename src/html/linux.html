@@ -1586,12 +1586,6 @@ for i in {1..10}; do
 		</section>
 		<section>
 			<div class="row">
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
 				<h1>Kode eksempler</h1>
 				<dl>
 					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil.</dt>
@@ -1671,10 +1665,6 @@ sed -i 's/'$word'/*'$word'*/g' $filename
 </pre>
 					</dd>
 				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
 			</div>
 		</section>
 	</div>
@@ -2200,6 +2190,262 @@ exit 0
 </pre>
 					</dd>
 				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<h3>Oppgave 1: Bruk av Linux shellkommandoer fra C-program</h3>
+				<p>Dokumentasjon av C-bibliotekene på et Linux-system ligger integrert i manualsystemet som kan leses med kommandoen man.
+				For f.eks. å se hvorledes C-funksjonen system virker, kan du skrive man system fra kommandolinjen i Linux. Du vil da se
+				at system er en C-funksjon som ligger i stdlib og brukes for å utføre en shell-kommando på maskinen fra et C-program.
+				F.eks. vil programlinjen: <code>system("ls");</code> i et C-program føre til at det skrives ut en liste over filene i
+				stående katalog. Programmet må inneholde preprosessordirektivet #include &lt;stdlib.h&gt; i starten av koden. Skriv et
+				C-program som bruker Linux-kommandoer til å skrive ut i rekkefølge: Nåværende dato og tid. En liste med info. om alle
+				brukere som er logget på Linux-systemet.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+main()
+{
+  system("date");
+  system("who");
+}
+</pre>
+
+				<h3>Oppgave 2: Enkel utskrift og innlesning av variable</h3>
+				<p>a) Skriv et C-program som skriver ut fem linjer med fem stjerner på hver linje.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+
+main()
+{
+  printf("*****\n");
+  printf("*****\n");
+  printf("*****\n");
+  printf("*****\n");
+  printf("*****\n");
+}
+</pre>
+
+				<p>b) Skriv et C-program som deklarerer to heltallsvariable og en flyttallsvariabel, initialiserer disse variablene til å ha verdiene 10, 15 og 12.6, og deretter skriver dem ut.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+
+main()
+{
+  int i=10, j=15;
+  float f=12.6;
+
+  printf("i=%d\tj=%d\tf=%.1f\n", i, j, f);
+}
+</pre>
+
+				<p>Skriv et C-program som leser brukerens alder, og deretter skriver ut hvor gammel brukeren er i antall år, måneder, dager, timer, minutter og sekunder. Du kan anta at brukerens alder alltid er et helt antall år, og at alle år består av 365 dager.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+
+main()
+{
+  int alder;
+  printf("Hvor gammel er du (i antall Ã¥r)? ");
+  scanf("%d", &alder);
+  printf("Din alder i: Ã¥r=%d, mÃ¥neder=%d, dager=%d, timer=%d, minutter=%d, sekunder=%d\n",
+	 alder, alder*12, alder*365, alder*365*24, alder*365*24*60, alder*365*24*60*60);
+}
+</pre>
+
+				<p>Skriv et C-program som leser tre enkle tegn fra bruker, ikke adskilt med space, og deretter skriver ut alle de seks mulige ulike permutasjonene (omstokkingene) av de tre tegnene.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+
+main()
+{
+  char c1, c2, c3;
+  printf("? ");
+  scanf("%c%c%c", &c1, &c2, &c3);
+  printf("%c%c%c ", c1, c2, c3);
+  printf("%c%c%c ", c1, c3, c2);
+  printf("%c%c%c ", c2, c1, c3);
+  printf("%c%c%c ", c2, c3, c1);
+  printf("%c%c%c ", c3, c1, c2);
+  printf("%c%c%c ", c3, c2, c1);
+  printf("\n");
+}
+</pre>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h3>Oppgave 3: Aritmetiske operatorer</h3>
+				<p>C inneholder også aritmetiske tilordningsoperatorer som fungerer på samme måte som i Java: +=, -=, *=, /= og %=. Skriv et C-program som leser inn tre heltallsverdier a, b og c, og beregner og skriver ut verdien til a etter hver av de fem operasjonene:</p>
+				<p><code>  a+=(b+=c)   a-=(b-=c)   a*=(b*=c)   a/=(b/=c)  a%=(b%=c)</code></p>
+				<p>Før hver operasjon skal de tre variablene i utgangspunktet ha samme verdier som ved innlesning.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+ 	
+main()	
+{
+  int A, a, B, b, C, c;
+  printf("Warning: Certain input values may cause floating point exception\n");
+  printf("a? b? c? ");
+  scanf("%d %d %d", &A, &B, &C);
+  a=A, b=B, c=C;
+  a+=(b+=c);
+  printf("a+=(b+=c): a=%d\n", a);
+
+  a=A, b=B, c=C;
+  a-=(b-=c);
+  printf("a-=(b-=c): a=%d\n", a);
+
+  a=A, b=B, c=C;
+  a*=(b*=c);
+  printf("a*=(b*=c): a=%d\n", a);
+
+  a=A, b=B, c=C;
+  a/=(b/=c);
+  printf("a/=(b/=c): a=%d\n", a);
+
+  a=A, b=B, c=C;
+  a%=(b%=c);
+  printf("a%%=(b%%=c): a=%d\n", a);
+}
+</pre>
+
+				<h3>Oppgave 4: Seleksjon</h3>
+				<p>a) Skriv et program som beregner en students karakter. Programmet skal lese prosentvis uttelling (et tall T, der 0≤T≤100) for tre oppgaver, beregne gjennomsnittet G av disse, og skrive ut karakter etter følgende regler:</p>
+				<ul class="nostyle inline">
+					<li>A: G≥95</li>
+					<li>B: 80≤G&lt;95</li>
+					<li>C: 60≤G&lt;80</li>
+					<li>D: 40≤G&lt;60</li>
+					<li>E: 20≤G&lt;40</li>
+					<li>F: G&lt;20</li>
+				</ul>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+
+main()
+{
+  float T_1, T_2, T_3;
+  float G;
+  
+  printf("Skriv 3 prosentvise uttellinger, skilt med mellomrom: ");
+  scanf("%f %f %f", &T_1, &T_2, &T_3);
+  G = (T_1 + T_2 + T_3) / 3;
+       
+  if ( (G >= 95) && (G <= 100) )
+    printf("A");
+  else if ( (G >= 80) && (G < 95) )
+    printf("B");
+  else if ( (G >= 60) && (G < 80) ) 
+    printf("C");
+  else if ( (G >= 40) && (G < 60) ) 
+    printf("D");
+  else if ( (G >= 20) && (G < 40) ) 
+    printf("E");
+  else if ( (G < 20) && (G >= 0) )
+     printf("F");
+   else
+     printf("Uhm...");
+  printf("\n");
+}
+</pre>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<p>b) Skriv et C-program som beregner løsningen til andregradsligninger av formen: <code>ax2 + bx + c = 0, a ≠ 0</code></p>
+				<p>Programmet skal lese inn verdiene for a, b og c og deretter beregne verdien: <code>D = b2 - 4ac</code></p>
+				<p>Hvis D&lt;0 har ligningen ingen (reell) løsning, hvis D=0 har ligningen bare én løsning, og hvis D&gt;0 har ligningen to forskjellige løsninger.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+ 
+main()
+{
+  float a, b, c, D;
+
+  printf("a b c ? ");
+  scanf("%f %f %f", &a, &b, &c);
+
+  if (a == 0)
+    printf("a mÃ¥ vÃ¦re forskjellig fra null\n");
+  else
+  {
+    D = b*b - 4*a*c;
+    if (D < 0)
+      printf("Ingen lÃ¸sning\n");
+    else if (D == 0)
+      printf("LÃ¸sning: x=%f\n", -b/(2*a));
+    else
+      printf("LÃ¸sninger: x=%f og x=%f\n",
+	     (-b - sqrt(D))/(2*a), 
+	     (-b + sqrt(D))/(2*a)); 
+  }
+}
+</pre>
+
+				<h3>Oppgave 5: Iterasjon</h3>
+				<p>Skriv et C-program som leser et positivt heltall n, og deretter skriver ut et mønster som f.eks. ser slik ut for n=7:</p>
+				<div class="clear">
+<pre class="fss fl br">
+*******
+******
+*****
+****
+***
+**
+*
+</pre>
+<pre class="fss fl">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+main()
+{
+  int n, i, j;
+ 
+  printf("n? ");
+  scanf("%d", &n);
+
+  if (n <= 0)
+    exit(1);
+  
+  for(i = 0; i < n; i++)
+  {
+    for(j = n - i; j > 0; j--)
+      printf("*");
+    printf("\n");
+  }
+}
+</pre>
+				</div>
+
+				<p>d) Skriv et program som leser heltall fra bruker inntil det angis et tall som er mindre enn null.</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+ 
+int main()
+{
+  int n;
+  do
+    {
+      printf("n? ");            
+      scanf("%d", &n);
+    } while (n > 0);
+}
+</pre>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h3>Forklar kort hvordan et operativsystem på en datamaskin med én enkel CPU (med bare én kjerne) tilsynelatende klarer å kjøre flere prosesser samtidig.</h3>
+				<p>Et OS deler tiden inn i små deler, typisk et hundredels sekund, og fordeler slike korte timeslices til alle prossene som ønsker å bruke CPU. Siden størrelsen på disse timeslicene er så liten, virker det som om flere prosesser kjører samtidig, selvom det til enhver tid kun er en eneste prosess som kjører. Ved hjelp av et interrupt fra en hardwaretimer sørges det for at OS systematisk kan dele ut CPU­tiden på denne måten.</p>
 			</div>
 		</section>
 		<section>
