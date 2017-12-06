@@ -12,158 +12,6 @@
 </head>
 <body>
 	<div class="wrapper">
-		<section>
-			<div class="row">
-				<dl>
-					<dt><strong class="fsl">1</strong> Viktige oppgaver</dt>
-					<dd>Kommunisere med bruker og styre hardware. Fordele delte ressurser som RAM, nettverksporter, disk og printere.
-					Starte og kontrollere programmer. Sikre filer og data. Tilby filsystem.</dd>
-
-					<dt>Standard innenhet og standard utenhet</dt>
-					<dd><strong>stdin</strong>: Default kilde (fil) som data leses fra. Stdin er i utgangspunktet tastaturet, eller
-					egentlig den vicefilen som representerer tastaturet.</dd>
-					<dd><strong>stdout</strong>: Default medium (fil) som data skrives til. Stdout er i utgangspunktet skjermen.</dd>
-
-					<dt>Filterprogram</dt>
-					<dd>Program som leser tekstlige data linje for linje fra stdin, og skriver tekstlig output linjevis til stdout.</dd>
-
-					<dt>Redirigering av I/O.</dt>
-					<dd>Tegnene '<' og '>' brukes til å redefinere hhv. stdin og stdout til å være en fil i stedet for skjermen.
-					'>>' (append) gjør at utskrift til stdout legges til på slutten av en eksisterende fil.</dd>
-
-					<dt>Piping (eller "rørlegging")</dt>
-					<dd>Brukes for interprosesskommunikasjon mellom to filterprogrammer. angis med tegnet '|' mellom navnene på
-					programmene. Gjør at stdout fra et filter leses som stdin fra neste filter.</dd>
-
-					<dt>Hva er søkestien (search path) for et skall?</dt>
-					<dd>En søkesti er en liste med kataloger der skallet vil lete for å finne en kommando</dd>
-
-					<dt>Hva er navnet på skallvariabelen der søkestien lagres i Bourne-again shell?</dt>
-					<dd>Søkestien ligger i systemvariabelen PATH, som inneholder en tekststreng med katalognavn adskilt med ':' (kolon).</dd>
-
-					<dt>Nevn en fordel og en ulempe ved å bruke et GUI (grafisk grensesnitt)</dt>
-					<dd>
-						<dl>
-							<dt>Fordeler ved GUI:</dt>
-							<dd>Gjør det enklere og mer intuitivt å bruke datamaskinen. Mange brukere er vant til GUI'er (Nintendo,
-							Windows, web) og arbeider lettere med pek-og-klikk verktøy.</dd>
-
-							<dt>Ulemper ved GUI:</dt>
-							<dd>Gir et "ferdigsydd" oppsett med mindre muligheter til å "skreddersy" arbeidsomgivelsene. En GUI er et
-							ekstra lag med software mellom bruker og oppgavene som skal gjøres på maskinen, noe som gjør at oppgavene utføres saktere.</dd>
-						</dl>
-					</dd>
-
-					<dt>Nevn en fordel og en ulempe ved å bruke et CLI (kommandolinjen)</dt>
-					<dd>
-						<dl>
-							<dt>Fordeler ved CLI:</dt>
-							<dd>Gir bedre mulighet til å kontrollere systemet og kjøre applikasjonene slik man selv ønsker. Raskt, med
-							et minimalt ekstra lag med software mellom bruker og kjernen.</dd>
-
-							<dt>Ulemper ved CLI:</dt>
-							<dd>Kryptisk syntaks. Høyere inngangsterskel for nybegynnere og GUI-brukere.</dd>
-						</dl>
-					</dd>
-
-					<dt>Forklar forskjellen mellom opsjoner og argumenter til en Linux-kommando.</dt>
-					<dd>Opsjoner er parametre som bestemmer hvordan kommandoen skal virke. Argumenter er parametre som angir
-					hvilke data kommandoen skal arbeide med, f.eks. filnavn, tall og tekststrenger.</dd>
-
-					<dt>Hva utføres ved eksekvering av: <code>man man > man.txt</code>?</dt>
-					<dd>Manualsidene til kommandoen man (manual pages) skrives til filen <code>man.txt.</code></dd>
-
-					<dt>Hva utføres ved eksekvering av: <code>echo a*</code>?</dt>
-					<dd>Navnet på alle filer i stående katalog, hvis navn begynner med en <code>a</code>, skrives ut til standard
-					utenhet. Hvis det ikke finnes noen filer med navn som begynner med en <code>a</code>, skrives strengen
-					<code>a*</code> ut.</dd>
-				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-				<p>Kommandoen <code>read</code> kan brukes for å lese inn verdier fra tastaturet og lagre dem i en variabel.
-				Merk at <code>read</code> er en kommando som er "innebygget" i Bash, på samme måte som <code>history</code>. For
-				å se dokumentasjonen på <code>read</code>, kan du bruke kommandoen <code>help read | more</code>. Les
-				dokumentasjonen for <code>read</code>, og finn ut hvordan den virker (hva skjer hvis du prøver med
-				<code>man read</code>?). Skriv en Linux-kommando som spør bruker om fornavn og etternavn (bruk opsjonen
-				<code>-p</code> til <code>read</code>), og leser navnene inn i to variable. Skriv deretter en Linux-kommando som,
-				hvis f.eks. brukers navn er Per Hansen, skriver ut på skjermen "Hællæ, Per Hansen".<br>
-				<code>read -p "Tast inn fornavn og etternavn: " fornavn etternavn</code><br>
-				<code>echo "Hællæ, $fornavn $etternavn"</code></p>
-
-				<hr>
-				<p>Opprett en ny fil med navn <code>testprogram</code> med en teksteditor. Legg inn de to kommandoene du skrev i
-				forrige oppgave på hver sin linje i denne filen. Lagre filen og gå tilbake til shellet. Gi kommandoen:
-				<code>bash testprogram</code>. Hva skjer? Det startes et nytt subshell som leser og utfører de to kommandoene
-				som er lagret på filen (som er et skallprogram/shellscript). Deretter terminerer subshellet og kontrollen går
-				tilbake til innloggings-shellet.</p>
-			</div>
-			<div class="row">
-				<dl>
-					<dt>Hvilke filtyper har vi i Linux?</dt>
-					<dd>
-						<ul class="nostyle inline">
-							<li>Regulære filer (regular/ordinary files)</li>
-							<li>Kataloger (directory files)</li>
-							<li>Spesialfiler (links, devices, pipes,...)</li>
-						</ul>
-					</dd>
-
-					<dt>Hva er et inode-nummer i filsystemet til Linux?</dt>
-					<dd>Inoden er en datastruktur i et Unix-stil-filsystem som beskriver et filsystemobjekt som en fil eller en
-					katalog. Hver inode lagrer attributter og diskblokkposisjon(er) til objektets data. Attributter for
-					filsystemsobjekter kan inneholde metadata som tider for siste endring og tilgang, samt eier- og tillatelsesdata.
-					Kataloger er lister over navn som er tilordnet inoder. En katalog inneholder en oppføring for seg selv, sin
-					forelder og hver av sine barn.</dd>
-
-					<dt>Hva inneholder <em>egentlig</em> en katalogfil?</dt>
-					<dd>En katalogfil inneholder en liste med ett element for hver fil (inkludert katalogfiler) i katalogen. Et
-					element i en katalogfil kalles for en <em>hard link</em> og består av filens inode-nummer og filnavn.</dd>
-
-					<dt>Hvordan kan vi skille en ordinær fil fra en katalogfil ved hjelp av kommandoen <code>ls</code>?</dt>
-					<dd>Bruk <code>ls -l</code>, første tegn på linjen for hver fil angir da filtype, <code>d</code> for
-					katalogfil, <code>-</code> for ordinær fil. Evt. kan <code>ls -F</code> brukes, da angis filtypene med et
-					spesialtegn (og fargekoding i noen versjoner av <code>ls</code>) etter filnavnene.</dd>
-
-					<dt>Skriv en Linux-kommando som skriver ut innholdet av alle filer i stående katalog som har et filnavn som
-					slutter med <code>.txt</code>.</dt>
-					<dd><code>cat *.txt</code></dd>
-
-					<dt>(Symbolic links) For å se i praksis hvordan lenker virker, gjør følgende:</dt>
-					<dd>
-						<dl>
-							<dt>Opprett en fil med navn abcd.txt som inneholder et par linjer med tekst.</dt>
-							<dd><code>nano/emacs/vim abcd.txt</code></dd>
-
-							<dt>Bruk <code>ln</code> til å lage en hard lenke med navn <code>abcd_hard.txt</code> og en symbolsk lenke
-							med navn <code>abcd_soft.txt</code>, som begge peker til filen <code>abcd.txt</code>.</dt>
-							<dd><code>ln abcd.txt abcd_hard.txt</code><span class="i5"><code>ln -s abcd.txt abcd_soft.txt</code></span></dd>
-
-							<dt>Skriv ut innholdet av tekstfilen og av begge lenkene med <code>cat</code>, for å verifisere at de
-							refererer til samme datafil.</dt>
-							<dd><code>cat abcd.txt</code>, <code>cat abcd_soft.txt</code>, <code>cat abcd_hard.txt</code>, </dd>
-
-							<dt>Skriv ut inodenummerne til tekstfilen og til de to lenkene, med <code>ls -i</code>. Hva ser du?</dt>
-							<dd>Hvis det er flere hard-links til samme fil, vil de ha samme inode-nummer. Filen lagres bare ett sted,
-							men det kan være flere katalogfiler med hard-links som peker til samme fil.</dd>
-
-							<dt>Skriv ut informasjon om bl.a. filtype, størrelse og antall (harde) lenker for tekstfilen og de to
-							lenkene, med <code>ls -l</code>. Hva ser du?</dt>
-							<dd>Det to hard-linkene har samme filinformasjon, og viser at det er to hard-links til filen. Soft-linken
-							er en egen fil med eget inode-nummer og størrelse lik antall bytes i den symbolske linken.</dd>
-
-							<dt>Fjern tekstfilen <code>abcd.txt</code>. Prøv deretter å skrive ut innholdet av både den harde og den
-							symbolske lenken. Hva skjer, og hvorfor?</dt>
-							<dd>Den symbolske lenken virker ikke lenger, fordi filnavnet den lenker til er fjernet. Filen i seg selv
-							fjernes ikke, fordi det fortsatt finnes en hard-link til den.</dd>
-						</dl>
-					</dd>
-				</dl>
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
 		<section class="w4">
 			<div class="row">
 				<h1><strong class="fsl">2</strong> Kommandoer</h1>
@@ -370,7 +218,6 @@
 		<section class="w6">
 			<div class="row">
 				<h1>Forklaring</h1>
-				<h2>Elementær navigering:</h2>
 				<dl>
 					<dt><h2>ls</h2></dt>
 					<dd>Brukes for å bytte <em>working directory</em></dd>
@@ -723,11 +570,12 @@ tmpfs           783M   11M  773M   2% /run
 
 					<dt>find / whereis</dt>
 					<dd>Den første kommandoen, find, leter gjennom de kataloger som er eksportert til bash. Den andre kommandoen, whereis, er leter mer omfattende. Se også kommandoen, locate for mer avansert filsøking.</dd>
+					<dd><code>[bruker@pc testmappe]$ find . -name '*.java' -exec basename {} \; | sort</code></dd>
+					<dd>Kommandoen over skriver ut en sortert liste med navnene på alle filer i hele katalogtreet med rot i stående katalog, som har et filnavn som slutter med .java (se manualsidene for find og basename).</dd>
 
 					<dt>ln</dt>
 					<dd>Filer kan ha flere navn i UNIX/Linux. Dette gjøres ved kommandoen ln. Du oppretter da en snarvei til den faktiske filen.</dd>
 					<dd><code>[bruker@pc testmappe]$ ln /mappe/undermappe/filen /home/bruker/snarvei</code></dd>
-					<dt></dt>
 					<dd>Oppretter her en snarvei, kalt "snarvei", som peker på filen "/mappe/undermappe/filen"</dd>
 
 					<dt>gzip / bzip2</dt>
@@ -770,8 +618,6 @@ tmpfs           783M   11M  773M   2% /run
 		<section>
 			<div class="row">
 				<dl>
-					<h2><strong class="fsl">4</strong> Bruker-relaterte kommandoer:</h2>
-
 					<dt>chmod</dt>
 					<dd>Linux/Unix har et innfløkt (men logisk) system for filtildeling. Filtildeinger gis ved kommadoen chmod.</dd>
 					<dd>
@@ -838,22 +684,38 @@ lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 
 								<dt><code>[bruker@pc ~]$ chmod go-x lars/</code></dt>
 								<dd>Gjør at jeg sperrer katalogen lars/ for både min gruppe (group) og alle andre (other). Som bruker har jeg fremdeles mine tilganger inntakt (user).</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod go= fil1</code></dt>
+								<dd>Fjerner alle tilgangsrettigheter til fil1 for alle brukere untatt eier av filen (user).</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod a=rwx fil2</code></dt>
+								<dd>Gir alle brukere lese-, skrive- og kjøretilgang til fil2.</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod -R 644 *.html</code></dt>
+								<dd>Gir eier lese- og skrivetilgang og alle andre lesetilgang, til alle filer som har et navn som slutter på .html, rekursivt i hele katalogtreet med rot i stående i katalog.</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod 777 fil3</code></dt>
+								<dd>Gir alle brukere lese-, skrive- og kjøretilgang til fil3.</dd>
+
+								<dt><code>[bruker@pc ~]$ find . -name \*.html -exec chmod 644 {} \;</code></dt>
+								<dd>Gjør nøyaktig det samme som kommandoen i punkt 3 ovenfor.</dd>
 							</dl>
 						</dl>
 					</dd>
 
-					<dt>chown < bruker:gruppe > < fil/katalog ></dt>
-					<dd>Selv om rettighetene er i orden, så forutsetter det at bruker eier filen/katalogen. Merk! Det er kun root som kan skifte eierskap av filer/kataloger. Eks:</dd>
-					<dd><code>[bruker@pc ~]$ chown brev.txt liuns</code></dd>
-					<dd>Jeg gir bruker "linus" eierskap til filen "brev.txt".</dd>
-					<dd><code>chown root:mygroup /usr/local/folder -R</code></dd>
-					<dd>Alle filer og undermapper i /usr/local/folder blir nå eid av bruker root og gruppen mygroup</dd>
 				</dl>
 			</div>
 		</section>
 		<section>
 			<div class="row">
 				<dl>
+					<dt>chown < bruker:gruppe > < fil/katalog ></dt>
+					<dd>Selv om rettighetene er i orden, så forutsetter det at bruker eier filen/katalogen. Merk! Det er kun root som kan skifte eierskap av filer/kataloger. Eks:</dd>
+					<dd><code>[bruker@pc ~]$ chown brev.txt liuns</code></dd>
+					<dd>Jeg gir bruker "linus" eierskap til filen "brev.txt".</dd>
+					<dd><code>chown root:mygroup /usr/local/folder -R</code></dd>
+					<dd>Alle filer og undermapper i /usr/local/folder blir nå eid av bruker root og gruppen mygroup</dd>
+
 					<dt>finger < en_bruker ></dt>
 					<dd>Er en kommando som kan brukes til å få opp informasjon om en bruker på systemet. Hvis brukeren har en .plan og/eller .project med utfyllende beskrivelse, kan en annen bruker få opp denne informasjonen ved å bruker finger < bruker >. NB! Denne tjenesten kan være utilgjengelig på enkelte systemer, dette fordi system-administratoren har gjort dette av sikkerhetshensyn. Prøv å skriv:</dd>
 					<dd><code>[bruker@pc ~]$ finger volkerdi@slackware.com</code></dd>
@@ -877,13 +739,11 @@ lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 					<dt>chsh</dt>
 					<dd>Hvis brukeren har lyst til å endre sitt shell, gjøres det med denne kommandoen. Ulike shell kan dekke ulike behov. Sjekk først hvilke shell som er tilgjenglig i filen "/etc/shells". Les mer om shell under ordliste.</dd>
 
-					<h2>Enkle nettverkskommandoer:</h2>
-
 					<dt>ping</dt>
 					<dd>Dette er noe av den enkleste nettverkskommandoen. Det denne kommandoen gjør, er å se om en annen burk på er på nettverket. Denne kommandoen kan også brukes for å se om du har nettverks-trafikk overhode. Prøve f.eks.</dd>
 					<dd><code>[bruker@pc ~]$ ping www.online.no</code></dd>
 
-					<dt>ifconfig </dt>
+					<dt>ifconfig</dt>
 					<dd>Denne kommandoen konfigurerer ett nettverks-"interface". Eks:</dd>
 					<dd><code>[bruker@pc ~]$ ifconfig eth0 10.1.1.2 broadcast 10.1.1.255 netmask 255.255.255.0</code></dd>
 					<dd>Denne setter opp eth0, som er vårt første nettverkskort (og eneste, hvis vi kun har ett kort i boksen), til å bruke IP-adresse 10.1.1.2. Videre broadcaster den til hele 10.1.1 subnettet. Du kan nesten alltid bruke netmaske 255.255.255.0. Hvis du vil bruke andre instillinger, vet du nok allerede nok om denne slags konfigurasjonen :) Sjekk man sidene for mer informasjon.</dd>
@@ -901,11 +761,9 @@ lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 		</section>
 	</div>
 	<div class="wrapper">
-		<section>
+		<section class="w6">
 			<div class="row">
 				<dl>
-					<h2><strong class="fsl">5</strong> Mer avanserte kommandoer:</h2>
-
 					<dt>mount</dt>
 					<dd>Avgjør hva som kan aksesseres. Alle harddisker blir mountet til filer (kataloger) under Linux. Faktisk så er alle enhetene i maskinen filer under Linux. Les mer om dette her. En harddisk, cd-rom, diskettstasjon, må "mountes" før de kan aksesseres. Det er to måter å mounte filsystemer på: vanskelig og enkel.
 					Vanskelig: Når en enhet mountes, må vi vite all relevant informasjon om filsystemet, som vi så plotter inn til en kommando. 
@@ -962,14 +820,42 @@ PID TTY   STAT   TIME   COMMAND
 9499 ?     S     0:00   /opt/apache/bin/httpd
 </pre>
 					</dd>
-					<dt>kill < pid ></dt>
-					<dd>Hvis du vil avslutte ett program på en litt mindre human måte, kan det drepes ("killes"). For å kille ett program, må vi vite hva slags PID (Prosess ID) det har. Dette finner du v.h.a. kommandoen ps. Hvis ett program har sluttet å oppføre seg skikkelig (hengt seg el.l.) kan det drepes rått og brutalt: "kill -9 < pid >"</dd>
+					<dd>
+						<strong>Eksempler</strong>
+						<dl class="clear">
+							<div class="fl w5">
+								<dt><code>ps v -u dittbrukernavn</code></dt>
+								<dd>Skriver ut info. for alle prosessene som tilhører det angitte brukernavnet, i "virtual memory format" (hvor mye virtuelt minne prosessen har tilgjengelig og faktisk bruker).</dd>
+
+								<dt><code>ps -ef</code></dt>
+								<dd>Viser alle prosesser på systemet (opsjonen -e), i "full format" (opsjonen -f).</dd>
+							</div>
+							<div class="fl w5">
+								<dt><code>ps -eo euser,ruser,suser,fuser,f,comm,label</code></dt>
+								<dd>Viser alle prosesser på systemet (opsjonen -e), bruker opsjonen -o til å angi eksplisitt hvilken informasjon (kolonner med utskrift) vi ønsker å se for prosessene.</dd>
+
+								<dt><code>ps aux | cut -c1-8 | sort | uniq -c | sort -nrb | head -10</code></dt>
+								<dd>Viser, i sortert rekkefølge, de 10 brukerne med flest prosesser på systemet.</dd>
+							</div>
+							<dt><code>ps -ely</code></dt>
+							<dd>Viser alle prosesser på systemet (opsjonen -e), i "long format" (opsjonen -l), uten F-feltet (process flag), med angivelse av hvor mye minne (RSS-feltet) prosessen bruker i stedet for minneadressen (ADDR-feltet) til prosessen (opsjonen -y).</dd>
+						</dl>
+					</dd>
+
 				</dl>
 			</div>
 		</section>
-		<section>
+		<section class="w4">
 			<div class="row">
 				<dl>
+					<dt>nice</dt>
+					<dd>Lar deg kjøre prosesser som tar hensyn til systemressuser.</dd>
+					<dd><code>nice -15 ./mittprogram &</code></dd>
+					<dd>Starter mittprogram som en bakgrunnsprosess, med redusert prioritet (nice-verdi 15).</dd>
+
+					<dt>kill < pid ></dt>
+					<dd>Avslutter programmer. For å kille ett program, må vi vite hva slags PID det har. "kill -9 < pid >"</dd>
+
 					<dt>shutdown</dt>
 					<dd>Ett vanlig Linux-system skal aldrig bare slåes rett av. Den må "kjøres ned". Dette gjøres ved bruk av kommandoen shutdown. For å reboot en Linux maskin brukes kommandoen:</dd>
 					<dd>
@@ -986,10 +872,6 @@ PID TTY   STAT   TIME   COMMAND
 					<dt>fdisk < enhet ></dt>
 					<dd>Brukes til å partitionere om harddisk. Se "man fdisk" for mer om bruken av fdisk.</dd>
 
-					<dt>dmesg</dt>
-					<dd>Viser all informasjon som kernelen spyttet ut under oppstart. Prøve å skriv:</dd>
-					<dd><code>[bruker@pc ~]$ dmesg > oppstart</code></dd>
-					<dd>Vi har nå en fil kalt "oppstart", med all oppstarts-data som kernelen viste.</dd>
 
 					<dt>pwconv</dt>
 					<dd>Hvis shadow ikke er aktivert, er passordet (kryptert), lesbart for alle. Dette er som oftest ingen god idé. Ved å skjule passordet i den restriktige filen shadow, har vi sikret oss mot det. For å deaktivere shadow, bruker vi pwunconv.</dd>
@@ -1050,9 +932,9 @@ Output control:
 		</section>
 	</div>
 	<div class="wrapper">
-		<section>
+		<section class="w4">
 			<div class="row">
-				<h2><strong class="fll">6</strong> sed</h2>
+				<h2>sed</h2>
 <pre class="fss">
 Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 
@@ -1071,13 +953,16 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
   --posix
                  disable all GNU extensions.
   -E, -r, --regexp-extended
-                 use extended regular expressions in the script (for portability use POSIX -E).
+                 use extended regular expressions in the script (for
+                 portability use POSIX -E).
   -s, --separate
-                 consider files as separate rather than as a single, continuous long stream.
+                 consider files as separate rather than as a single, continuous
+                 long stream.
       --sandbox
                  operate in sandbox mode.
   -u, --unbuffered
-                 load minimal amounts of data from the input files and flush the output buffers more often
+                 load minimal amounts of data from the input files andflush the
+                 output buffers more often
   -z, --null-data
                  separate lines by NUL characters
       --help     display this help and exit
@@ -1095,18 +980,20 @@ Mandatory arguments to long options are mandatory for short options too.
   -c, --characters=LIST   select only these characters
   -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
   -f, --fields=LIST       select only these fields; 
-                          also print any line that contains no delimiter character, unless the -s is specified
+                          also print any line that contains no delimiter character,
+                          unless the -s is specified
   -n                      (ignored)
       --complement        complement the set of selected bytes, characters or fields
   -s, --only-delimited    do not print lines not containing delimiters
-      --output-delimiter=STRING  use STRING as the output delimiter the default is to use the input delimiter
+      --output-delimiter=STRING  use STRING as the output delimiter the default is to
+                                 use the input delimiter
   -z, --zero-terminated    line delimiter is NUL, not newline
       --help     display this help and exit
       --version  output version information and exit
 </pre>
 			</div>
 		</section>
-		<section>
+		<section class="w6">
 			<div class="row">
 				<h2>sort</h2>
 <pre class="fss">
@@ -1136,16 +1023,12 @@ Ordering options:
   -V, --version-sort          natural sort of (version) numbers within text
 
 Other options:
-      --batch-size=NMERGE   merge at most NMERGE inputs at once;
-                            for more use temp files
+      --batch-size=NMERGE   merge at most NMERGE inputs at once; for more use temp files
   -c, --check, --check=diagnose-first  check for sorted input; do not sort
   -C, --check=quiet, --check=silent  like -c, but do not report first bad line
-      --compress-program=PROG  compress temporaries with PROG;
-                              decompress them with PROG -d
-      --debug               annotate the part of the line used to sort,
-                              and warn about questionable usage to stderr
-      --files0-from=F       read input from the files specified by
-                            NUL-terminated names in file F;
+      --compress-program=PROG  compress temporaries with PROG; decompress them with PROG -d
+      --debug               annotate the part of the line used to sort, and warn about questionable usage to stderr
+      --files0-from=F       read input from the files specified by NUL-terminated names in file F;
                             If F is - then read names from standard input
   -k, --key=KEYDEF          sort via a key; KEYDEF gives location and type
   -m, --merge               merge already sorted files; do not sort
@@ -1153,15 +1036,51 @@ Other options:
   -s, --stable              stabilize sort by disabling last-resort comparison
   -S, --buffer-size=SIZE    use SIZE for main memory buffer
   -t, --field-separator=SEP  use SEP instead of non-blank to blank transition
-  -T, --temporary-directory=DIR  use DIR for temporaries, not $TMPDIR or /tmp;
-                              multiple options specify multiple directories
+  -T, --temporary-directory=DIR  use DIR for temporaries, not $TMPDIR or /tmp; multiple options specify multiple directories
       --parallel=N          change the number of sorts run concurrently to N
-  -u, --unique              with -c, check for strict ordering;
-                              without -c, output only the first of an equal run
+  -u, --unique              with -c, check for strict ordering; without -c, output only the first of an equal run
   -z, --zero-terminated     line delimiter is NUL, not newline
       --help     display this help and exit
       --version  output version information and exit
 </pre>
+				<h4>Eksempler</h4>
+				<dl>
+					<dt><code>sort foo -o foo</code></dt>
+					<dd>Sorterer filen foo, overskriver filen med "seg selv".</dd>
+
+					<dt><code>sort < foo | tee foo.sort | lpr</code></dt>
+					<dd>Sorterer filen foo, skriver sorterte linjer til filen foo.sort og til printer (se manualsidene for tee og lpr).</dd>
+
+					<dt><code>cat | sort >> foo.bar</code></dt>
+					<dd>Sorterer standard input og legger sorterte linjer på slutten av filen foo.bar.</dd>
+
+					<dt><code>ls -R | grep .*\.java$ | sort</code></dt>
+					<dd>ls -R lister navnene på alle filer i hele katalogtreet, grep-kommandoen filtrerer ut bare linjer som slutter med .java, før linjene til slutt sender til sortering.</dd>
+
+					<dt>Oppgaver</dt>
+					<dd>Fil inneholder linjer med: <code>Registreringsnr:Bilmerke:Modell:Årsmodell:Eier:Kilometerstand:Verdi</code>. Eks på linje: <code>AA63187:Volkswagen:Karmann-Ghia:1969:Høiberg,Jan:61338:250000</code></dd>
+					<dd>
+						<dl>
+							<dt>Sorter filen på bilenes verdi, slik at bilen med høyest verdi kommer først. Den sorterte filen skal skrives over den opprinnelige filen.</dt>
+							<dd><code>sort -t: -nr -k7 -o bildata bildata</code></dd>
+
+							<dt>Som i punkt 1., men i tillegg skal biler med lik verdi ligge sortert stigende på årsmodell.</dt>
+							<dd><code>sort -t: -k7nr -k4n -o bildata bildata</code></dd>
+
+							<dt>Sorter filen alfabetisk etter navn på eier. Sorteringen skal være riktig også hvis noen av navnene er skrevet med bare små eller bare store bokstaver.</dt>
+							<dd><code>sort -i -t: -k5d bildata</code></dd>
+
+							<dt>Skriv ut reg.nr. og verdi for de 20 bilene som har lavest verdi.</dt>
+							<dd><code>cut -d: -f1,7 bildata | sort -t: -k2n | head -20</code></dd>
+
+							<dt>Finn og skriv ut i sortert rekkefølge (sortert etter antall biler), navnet på de 10 personene som eier flest biler.</dt>
+							<dd><code>cut -d: -f5 bildata | sort | uniq -c | sort -nr | head -10</code></dd>
+
+							<dt>Lag en sortert fil med navn tilsalgs. Filen skal være sortert på verdi, og skal kun inneholde bilmerke, årsmodell, kilometerstand og verdi.</dt>
+							<dd><code>cut -d: -f2,4,6,7 bildata | sort -t: -k4n > tilsalgs</code></dd>
+						</dl>
+					</dd>
+				</dl>
 			</div>
 		</section>
 	</div>
@@ -1212,99 +1131,68 @@ Interpreted sequences are:
   [:xdigit:]      all hexadecimal digits
   [=CHAR=]        all characters which are equivalent to CHAR
 </pre>
-				<h2>Kode eksempler</h2>
+
 				<dl>
-					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil.</dt>
-					<dd class="fss"><code>tr -sc a-zA-Z "\n" < churchill.txt | tr A-Z a-z | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
-					
-					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil, skal også funke for ord med æøå i seg.</dt>
-					<dd class="fss"><code>tr -sc a-zA-ZæøåÆØÅ "\n" < kongen_2008.txt | tr A-ZÆØÅ a-zæøå | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
-
-					<dt>Lag script som:</dt>
-					<dd>Ber bruker om navnet på en tekstfil, leser et filnavn F fra tastaturet og lagrer dette i en skallvariabel.</dd>
-					<dd>Ber bruker om et positivt heltall N, leser og lagrer også dette tallet.</dd>
-					<dd>Skriver ut de N mest brukte ordene på filen F.</dd>
-					<dd>
-<pre class="fss">read -p "Filnavn: " F
-read -p "Positivt heltakk: " N
-
-tr -sc a-zA-Z "\n" < $F | tr A-Z a-z | sort | uniq -c
-| sort - | tr -s ' ' ' ' | head -$N
-</pre>
-					</dd>
-					<dd>
-
-					<dt>Sorterer teksten (persondata.txt) slik at linjene blir liggende sortert i omvendt (avtagende) rekkefølge
-					på personenes alder. Personer med samme alder skal ligge sortert i stigende rekkefølge på postnummer. Den
-					sorterte utskriften fra kommandoen skal lagres på en fil med navn persondata_sortert.txt.</dt>
+					<hr>
+					<dt><h2>Switch case</h2></dt>
+					<dd class="clear">
+						<div class="fl w4">
 <pre class="fss">
-29:Jan:HÃ¸iberg:Darres gate 22:0175:Oslo:69215348
-62:Mette:Myhrvold:Sandakerveien 10G:0743:Oslo:99106353
-29:Ottar:Fjernvalg:Gata 13:2222:Rena:22232425
-39:Rick:Danko:Tinker Street 10:1121:Bearsville:20102010
-...
+case $1 in
+    hello)
+        # $i is "hello"
+        ;;
+    9[1-3]) # <--- Regex
+        # $i is 91, 92 or 93
+        ;;
+    *)
+        # $i is non of the above
+        ;;
+esac
+</pre>
+						</div>
+						<div class="fl w6">
+							<strong>Gjør om fra timer til sec/min ved: bashfil -s/-m < timer ></strong>
+<pre class="fss">
+error() { exit 1; }
+
+while getopts ":s:m:" o; do
+    case "${o}" in
+        s)
+            tid=$((${OPTARG}*60*60))
+            ;;
+        m)
+            tid=$((${OPTARG}*60))
+            ;;
+        *)
+            error
+            ;;
+    esac
+done
+</pre>
+						</div>
+						<hr>
+					</dd>
+
+					<dt><h2>Until loop</h2></dt>
+					<dd></dd>
+					<dd>
+						<strong>Tell fra 20 til 10</strong><br>
+<pre class="fss">
+i=20
+until [  $i -lt 10 ]; do
+	echo i $i
+	((i--))
+done
 </pre>
 					</dd>
-					<dd><code>sort -t : -k1nr -k5n < persondata.txt -o persondata-sortert.txt</code></dd>
 				</dl>
 			</div>
 		</section>
 		<section class="w6">
 			<div class="row">
 				<dl>
-					<dt>Lag en ny fil med navn telefonliste.txt. Den nye filen skal ha like mange linjer som den opprinnelige filen.
-					Hver linje på den nye filen skal inneholde (i rekkefølge) en persons fornavn, etternavn og telefonnummer, med
-					tegnet : (kolon) mellom hvert datafelt. En linje på filen telefonliste.txt kan se slik ut: Jan:Høiberg:69215348
-					Filen telefonliste.txt skal være alfabetisk sortert på etternavnet.</dt>
-					<dd><code>cut -d: -f2,3,7 persondata.txt | sort -t: -k2 -o telefonliste.txt</code></dd>
-
-					<dt>Les persondata.txt og bare skriv ut fornavn og etternavn (med tegnet : i mellom), for alle personer som
-					har et postnummer som begynner med sifrene 11, 12 eller 13. Du kan anta at et postnummer alltid inneholder
-					fire siffer</dt>
-					<dd><code>egrep '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt | cut -d: -f2,3</code></dd>
-
-					<dt>Les persondata.txt og lag en ny fil med navn persondata_2.txt. Den nye filen skal inneholde samme
-					informasjon som persondata.txt, med unntak av at informasjon om alle personer som har et postnummer som begynner
-					med sifrene 11, 12 eller 13 ikke skal være med på filen.</dt>
-					<dd><code>egrep -v '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt > persondata_2.txt</code></dd>
-
-					<dt>Skriv ut bare de tegnene fra /dev/urandom som er "printable". Output skal splittes opp i linjer, slik at
-					det er 16 tegn på hver linje som skrives ut (se man fold). Det skal skrives ut 20 linjer med output.</dt>
-					<dd><code>tr -cd '[:print:]' < /dev/urandom | fold -w 16 | head -20</code></dd>
-
-					<dt>Generer 20 tilfeldige tall. Hvert tall skal ha nøyaktig 16 sifre. Tallene skal inneholde sifrene 0-9, men
-					kan ikke begynne med sifferet 0 (null). Kommandoen skal skrive ut hvert tall på en egen linje.</dt>
-					<dd><code>tr -cd '[:digit:]' < /dev/urandom | fold -w 16 | egrep '^[^0][0-9]{15}' | head -n20</code></dd>
-
-					<dt>Skriv ut antall hop, enten helt frem til en gitt server, eller frem til første ruter på veien som kjører
-					en brannvegg som "kaster" data fra traceroute.</dt>
-					<dd><code>traceroute xdh.no | egrep '[[:digit:]]{1,2}[[:space:]]{2}(\* \* \*)' | head -n1 | egrep -o '[[:digit:]]{1,2}</code></dd>
-
-					<dt>lag shellscript som leser følgende data interaktivt fra bruker: en URL, et ord og et filnavn</dt>
-					<dd>Marker alle forekomster i teksten av ordet som bruker har angitt, med en * (stjerne) foran og bak ordet.</dd>
-					<dd>Lagre hele teksten (med det angitte ordet markert med stjerner) på en ny fil med det angitte filnavnet.</dd>
-					<dd>
-<pre class="fss">
-#!/bin/bash
-
-read -p "URL: " url
-read -p "Ord: " word
-read -p "Filnavn: " filename
-
-wget -O $filename $url
-
-sed -i 's/'$word'/*'$word'*/g' $filename
-</pre>
-					</dd>
-				</dl>
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
-				<dl>					
-					<dt><h2><strong class="fsl">7</strong> if</h2></dt>
+					<dt><h2>if</h2></dt>
 					<dd>Brukes for å starte en if check</dd>
 					<dd><code>if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else COMMANDS; ] fi</code></dd>
 					<dd>
@@ -1467,7 +1355,7 @@ sed -i 's/'$word'/*'$word'*/g' $filename
 					</dd>
 					<dd class="clear">
 						<div class="fl w5">
-							<strong>Sjekk om en fil finnes</strong>
+							<strong>Sjekk om en fil finnes</strong><br>
 <pre class="fss">
 #!/bin/bash
 if [ -f /tmp/messages.txt ]; then
@@ -1478,7 +1366,7 @@ fi
 </pre>
 						</div>
 						<div class="fl w5">
-							<strong>Sjekk om en bash option er satt (set -o [OPTIONNAME])</strong>
+							<strong>Sjekk om en bash option er satt (set -o [OPTIONNAME])</strong><br>
 <pre class="fss">
 #!/bin/bash
 if [ $USER == 'bob' ] || [ $USER == 'andy' ]
@@ -1492,54 +1380,15 @@ fi
 				</dl>
 			</div>
 		</section>
+	</div>
+	<div class="wrapper">
 		<section>
 			<div class="row">
 				<dl>
-					<dt><h2>Case</h2></dt>
-					<dd><code>case EXPRESSION in CASE1) COMMAND-LIST;; CASE2) COMMAND-LIST;; ... CASEN) COMMAND-LIST;; esac</code></dd>
-					<dd class="clear">
-						<div class="fl w5">
-<pre class="fss">
-case $1 in
-    hello)
-        # $i is "hello"
-        ;;
-    9[1-3]) # <--- Regex
-        # $i is 91, 92 or 93
-        ;;
-    *)
-        # $i is non of the above
-        ;;
-esac
-</pre>
-						</div>
-						<div class="fl w5">
-							<strong>Gjør om fra timer til sec/min ved: bashfil -s/-m < timer ></strong>
-<pre class="fss">
-error() { exit 1; }
-
-while getopts ":s:m:" o; do
-    case "${o}" in
-        s)
-            tid=$((${OPTARG}*60*60))
-            ;;
-        m)
-            tid=$((${OPTARG}*60))
-            ;;
-        *)
-            error
-            ;;
-    esac
-done
-</pre>
-						</div>
-					</dd>
-
 					<dt><h2>While loop</h2></dt>
-					<dd><code>while CONTROL-COMMAND; do CONSEQUENT-COMMANDS; done</code></dd>
 					<dd class="clear">
 						<div class="fl w5">
-							<strong>Echo hello 4 ganger</strong>
+							<strong>Echo hello 4 ganger</strong><br>
 <pre class="fss">
 i="0"
 while [ $i -lt 4 ]; do
@@ -1553,7 +1402,7 @@ while [[ i++ -lt 4 ]];
 </pre>
 						</div>
 						<div class="fl w5">
-							<strong>Lag en ny fil hvert 5. min</strong>
+							<strong>Lag en ny fil hvert 5. min</strong><br>
 <pre class="fss">
 while true; do
 	touch filename-'date +%s'.txt
@@ -1568,7 +1417,7 @@ done
 					<dd></dd>
 					<dd class="clear">
 						<div class="fl w5">
-							<strong>Output alle filer & kataloger</strong>
+							<strong>Output alle filer & kataloger</strong><br>
 <pre class="fss">
 for i in $( ls -a ); do
 	echo $i
@@ -1576,7 +1425,7 @@ done
 </pre>
 						</div>
 						<div class="fl w5">
-							<strong>Loop fra 1 til 10</strong>
+							<strong>Loop fra 1 til 10</strong><br>
 <pre class="fss">
 for i in $(seq 1 10); do
 	echo $i;
@@ -1589,52 +1438,10 @@ for i in {1..10}; do
 						</div>
 						<hr>
 					</dd>
+				</dl>
 
-					<div class="clear">
-						<div class="fl w5 br">
-							<dt><h2>Until loop</h2></dt>
-							<dd></dd>
-							<dd>
-								<strong>Tell fra 20 til 10</strong>
-<pre class="fss">
-i=20
-until [  $i -lt 10 ]; do
-	echo i $i
-	((i--))
-done
-</pre>
-								<hr>
-							</dd>
-						</div>
-					</div>
-				</dl>
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
-				<h1><strong class="fsl">8</strong> Ord og utrykk</h1>
-				<dl>
-					<dt>Working directory</dt>
-					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
-				</dl>
-				<p>TODO</p>
-				<p><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></p>
-				<p><a href="https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash">https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash</a></p>
-				<p><a href="https://stackoverflow.com/questions/14447406/bash-shell-script-check-for-a-flag-and-grab-its-value">https://stackoverflow.com/questions/14447406/bash-shell-script-check-for-a-flag-and-grab-its-value</a></p>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
-				<h1><strong class="fsl">...</strong>Regex</h1>
-				<table class="table-code">
+				<h1>Regex</h1>
+				<table>
 					<thead>
 						<tr>
 							<th>Character</th>
@@ -1780,6 +1587,623 @@ done
 		<section>
 			<div class="row">
 			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h1>Kode eksempler</h1>
+				<dl>
+					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil.</dt>
+					<dd class="fss"><code>tr -sc a-zA-Z "\n" < churchill.txt | tr A-Z a-z | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
+					
+					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil, skal også funke for ord med æøå i seg.</dt>
+					<dd class="fss"><code>tr -sc a-zA-ZæøåÆØÅ "\n" < kongen_2008.txt | tr A-ZÆØÅ a-zæøå | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
+
+					<dt>Lag script som:</dt>
+					<dd>Ber bruker om navnet på en tekstfil, leser et filnavn F fra tastaturet og lagrer dette i en skallvariabel.</dd>
+					<dd>Ber bruker om et positivt heltall N, leser og lagrer også dette tallet.</dd>
+					<dd>Skriver ut de N mest brukte ordene på filen F.</dd>
+					<dd>
+<pre class="fss">read -p "Filnavn: " F
+read -p "Positivt heltakk: " N
+
+tr -sc a-zA-Z "\n" < $F | tr A-Z a-z | sort | uniq -c
+| sort - | tr -s ' ' ' ' | head -$N
+</pre>
+					</dd>
+					<dd>
+
+					<dt>Sorterer teksten (persondata.txt) slik at linjene blir liggende sortert i omvendt (avtagende) rekkefølge
+					på personenes alder. Personer med samme alder skal ligge sortert i stigende rekkefølge på postnummer. Den
+					sorterte utskriften fra kommandoen skal lagres på en fil med navn persondata_sortert.txt.</dt>
+<pre class="fss">
+29:Jan:HÃ¸iberg:Darres gate 22:0175:Oslo:69215348
+62:Mette:Myhrvold:Sandakerveien 10G:0743:Oslo:99106353
+29:Ottar:Fjernvalg:Gata 13:2222:Rena:22232425
+39:Rick:Danko:Tinker Street 10:1121:Bearsville:20102010
+...
+</pre>
+					</dd>
+					<dd><code>sort -t : -k1nr -k5n < persondata.txt -o persondata-sortert.txt</code></dd>
+					<dt>Lag en ny fil med navn telefonliste.txt. Den nye filen skal ha like mange linjer som den opprinnelige filen.
+					Hver linje på den nye filen skal inneholde (i rekkefølge) en persons fornavn, etternavn og telefonnummer, med
+					tegnet : (kolon) mellom hvert datafelt. En linje på filen telefonliste.txt kan se slik ut: Jan:Høiberg:69215348
+					Filen telefonliste.txt skal være alfabetisk sortert på etternavnet.</dt>
+					<dd><code>cut -d: -f2,3,7 persondata.txt | sort -t: -k2 -o telefonliste.txt</code></dd>
+
+					<dt>Les persondata.txt og bare skriv ut fornavn og etternavn (med tegnet : i mellom), for alle personer som
+					har et postnummer som begynner med sifrene 11, 12 eller 13. Du kan anta at et postnummer alltid inneholder
+					fire siffer</dt>
+					<dd><code>egrep '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt | cut -d: -f2,3</code></dd>
+
+					<dt>Les persondata.txt og lag en ny fil med navn persondata_2.txt. Den nye filen skal inneholde samme
+					informasjon som persondata.txt, med unntak av at informasjon om alle personer som har et postnummer som begynner
+					med sifrene 11, 12 eller 13 ikke skal være med på filen.</dt>
+					<dd><code>egrep -v '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt > persondata_2.txt</code></dd>
+
+					<dt>Skriv ut bare de tegnene fra /dev/urandom som er "printable". Output skal splittes opp i linjer, slik at
+					det er 16 tegn på hver linje som skrives ut (se man fold). Det skal skrives ut 20 linjer med output.</dt>
+					<dd><code>tr -cd '[:print:]' < /dev/urandom | fold -w 16 | head -20</code></dd>
+
+					<dt>Generer 20 tilfeldige tall. Hvert tall skal ha nøyaktig 16 sifre. Tallene skal inneholde sifrene 0-9, men
+					kan ikke begynne med sifferet 0 (null). Kommandoen skal skrive ut hvert tall på en egen linje.</dt>
+					<dd><code>tr -cd '[:digit:]' < /dev/urandom | fold -w 16 | egrep '^[^0][0-9]{15}' | head -n20</code></dd>
+
+					<dt>Skriv ut antall hop, enten helt frem til en gitt server, eller frem til første ruter på veien som kjører
+					en brannvegg som "kaster" data fra traceroute.</dt>
+					<dd><code>traceroute xdh.no | egrep '[[:digit:]]{1,2}[[:space:]]{2}(\* \* \*)' | head -n1 | egrep -o '[[:digit:]]{1,2}</code></dd>
+
+					<dt>lag shellscript som leser følgende data interaktivt fra bruker: en URL, et ord og et filnavn</dt>
+					<dd>Marker alle forekomster i teksten av ordet som bruker har angitt, med en * (stjerne) foran og bak ordet.</dd>
+					<dd>Lagre hele teksten (med det angitte ordet markert med stjerner) på en ny fil med det angitte filnavnet.</dd>
+					<dd>
+<pre class="fss">
+#!/bin/bash
+
+read -p "URL: " url
+read -p "Ord: " word
+read -p "Filnavn: " filename
+
+wget -O $filename $url
+
+sed -i 's/'$word'/*'$word'*/g' $filename
+</pre>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h1>Ord og utrykk</h1>
+				<dl>
+					<dt>Working directory</dt>
+					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
+
+					<dt>Standard innenhet og standard utenhet</dt>
+					<dd><strong>stdin</strong>: Default kilde (fil) som data leses fra. Stdin er i utgangspunktet tastaturet, eller
+					egentlig den vicefilen som representerer tastaturet.</dd>
+					<dd><strong>stdout</strong>: Default medium (fil) som data skrives til. Stdout er i utgangspunktet skjermen.</dd>
+
+					<dt>Filterprogram</dt>
+					<dd>Program som leser tekstlige data linje for linje fra stdin, og skriver tekstlig output linjevis til stdout.</dd>
+
+					<dt>Redirigering av I/O.</dt>
+					<dd>Tegnene '<' og '>' brukes til å redefinere hhv. stdin og stdout til å være en fil i stedet for skjermen.
+					'>>' (append) gjør at utskrift til stdout legges til på slutten av en eksisterende fil.</dd>
+
+					<dt>Piping (eller "rørlegging")</dt>
+					<dd>Brukes for interprosesskommunikasjon mellom to filterprogrammer. angis med tegnet '|' mellom navnene på
+					programmene. Gjør at stdout fra et filter leses som stdin fra neste filter.</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dt>Hva er de viktigste oppgavene til et operativsystem?</dt>
+					<dd>Kommunisere med bruker og styre hardware. Fordele delte ressurser som RAM, nettverksporter, disk og printere.
+					Starte og kontrollere programmer. Sikre filer og data. Tilby filsystem.</dd>
+
+					<dt>Hva er søkestien (search path) for et skall?</dt>
+					<dd>En søkesti er en liste med kataloger der skallet vil lete for å finne en kommando</dd>
+
+					<dt>Hva er navnet på skallvariabelen der søkestien lagres i Bourne-again shell?</dt>
+					<dd>Søkestien ligger i systemvariabelen PATH, som inneholder en tekststreng med katalognavn adskilt med ':' (kolon).</dd>
+
+					<dt>Nevn en fordel og en ulempe ved å bruke et GUI (grafisk grensesnitt)</dt>
+					<dd>
+						<dl>
+							<dt>Fordeler ved GUI:</dt>
+							<dd>Gjør det enklere og mer intuitivt å bruke datamaskinen. Mange brukere er vant til GUI'er (Nintendo,
+							Windows, web) og arbeider lettere med pek-og-klikk verktøy.</dd>
+
+							<dt>Ulemper ved GUI:</dt>
+							<dd>Gir et "ferdigsydd" oppsett med mindre muligheter til å "skreddersy" arbeidsomgivelsene. En GUI er et
+							ekstra lag med software mellom bruker og oppgavene som skal gjøres på maskinen, noe som gjør at oppgavene utføres saktere.</dd>
+						</dl>
+					</dd>
+
+					<dt>Nevn en fordel og en ulempe ved å bruke et CLI (kommandolinjen)</dt>
+					<dd>
+						<dl>
+							<dt>Fordeler ved CLI:</dt>
+							<dd>Gir bedre mulighet til å kontrollere systemet og kjøre applikasjonene slik man selv ønsker. Raskt, med
+							et minimalt ekstra lag med software mellom bruker og kjernen.</dd>
+
+							<dt>Ulemper ved CLI:</dt>
+							<dd>Kryptisk syntaks. Høyere inngangsterskel for nybegynnere og GUI-brukere.</dd>
+						</dl>
+					</dd>
+
+					<dt>Forklar forskjellen mellom opsjoner og argumenter til en Linux-kommando.</dt>
+					<dd>Opsjoner er parametre som bestemmer hvordan kommandoen skal virke. Argumenter er parametre som angir
+					hvilke data kommandoen skal arbeide med, f.eks. filnavn, tall og tekststrenger.</dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>man man > man.txt</code>?</dt>
+					<dd>Manualsidene til kommandoen man (manual pages) skrives til filen <code>man.txt.</code></dd>
+
+					<dt>Hva utføres ved eksekvering av: <code>echo a*</code>?</dt>
+					<dd>Navnet på alle filer i stående katalog, hvis navn begynner med en <code>a</code>, skrives ut til standard
+					utenhet. Hvis det ikke finnes noen filer med navn som begynner med en <code>a</code>, skrives strengen
+					<code>a*</code> ut.</dd>
+				</dl>
+
+				<p>Kommandoen <code>read</code> kan brukes for å lese inn verdier fra tastaturet og lagre dem i en variabel.
+				Merk at <code>read</code> er en kommando som er "innebygget" i Bash, på samme måte som <code>history</code>. For
+				å se dokumentasjonen på <code>read</code>, kan du bruke kommandoen <code>help read | more</code>. Les
+				dokumentasjonen for <code>read</code>, og finn ut hvordan den virker (hva skjer hvis du prøver med
+				<code>man read</code>?). Skriv en Linux-kommando som spør bruker om fornavn og etternavn (bruk opsjonen
+				<code>-p</code> til <code>read</code>), og leser navnene inn i to variable. Skriv deretter en Linux-kommando som,
+				hvis f.eks. brukers navn er Per Hansen, skriver ut på skjermen "Hællæ, Per Hansen".<br>
+				<code>read -p "Tast inn fornavn og etternavn: " fornavn etternavn</code><br>
+				<code>echo "Hællæ, $fornavn $etternavn"</code></p>
+
+				<hr>
+				<p>Opprett en ny fil med navn <code>testprogram</code> med en teksteditor. Legg inn de to kommandoene du skrev i
+				forrige oppgave på hver sin linje i denne filen. Lagre filen og gå tilbake til shellet. Gi kommandoen:
+				<code>bash testprogram</code>. Hva skjer? Det startes et nytt subshell som leser og utfører de to kommandoene
+				som er lagret på filen (som er et skallprogram/shellscript). Deretter terminerer subshellet og kontrollen går
+				tilbake til innloggings-shellet.</p>
+
+				<dl>
+					<dt>Hvilke filtyper har vi i Linux?</dt>
+					<dd>
+						<ul class="nostyle inline">
+							<li>Regulære filer (regular/ordinary files)</li>
+							<li>Kataloger (directory files)</li>
+							<li>Spesialfiler (links, devices, pipes,...)</li>
+						</ul>
+					</dd>
+
+					<dt>Hva er et inode-nummer i filsystemet til Linux?</dt>
+					<dd>Inoden er en datastruktur i et Unix-stil-filsystem som beskriver et filsystemobjekt som en fil eller en
+					katalog. Hver inode lagrer attributter og diskblokkposisjon(er) til objektets data. Attributter for
+					filsystemsobjekter kan inneholde metadata som tider for siste endring og tilgang, samt eier- og tillatelsesdata.
+					Kataloger er lister over navn som er tilordnet inoder. En katalog inneholder en oppføring for seg selv, sin
+					forelder og hver av sine barn.</dd>
+
+					<dt>Hva inneholder <em>egentlig</em> en katalogfil?</dt>
+					<dd>En katalogfil inneholder en liste med ett element for hver fil (inkludert katalogfiler) i katalogen. Et
+					element i en katalogfil kalles for en <em>hard link</em> og består av filens inode-nummer og filnavn.</dd>
+
+					<dt>Hvordan kan vi skille en ordinær fil fra en katalogfil ved hjelp av kommandoen <code>ls</code>?</dt>
+					<dd>Bruk <code>ls -l</code>, første tegn på linjen for hver fil angir da filtype, <code>d</code> for
+					katalogfil, <code>-</code> for ordinær fil. Evt. kan <code>ls -F</code> brukes, da angis filtypene med et
+					spesialtegn (og fargekoding i noen versjoner av <code>ls</code>) etter filnavnene.</dd>
+
+					<dt>Skriv en Linux-kommando som skriver ut innholdet av alle filer i stående katalog som har et filnavn som
+					slutter med <code>.txt</code>.</dt>
+					<dd><code>cat *.txt</code></dd>
+
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<dl>
+					<dt>(Symbolic links) For å se i praksis hvordan lenker virker, gjør følgende:</dt>
+					<dd>
+						<dl>
+							<dt>Opprett en fil med navn abcd.txt som inneholder et par linjer med tekst.</dt>
+							<dd><code>nano/emacs/vim abcd.txt</code></dd>
+
+							<dt>Bruk <code>ln</code> til å lage en hard lenke med navn <code>abcd_hard.txt</code> og en symbolsk lenke
+							med navn <code>abcd_soft.txt</code>, som begge peker til filen <code>abcd.txt</code>.</dt>
+							<dd><code>ln abcd.txt abcd_hard.txt</code><span class="i5"><code>ln -s abcd.txt abcd_soft.txt</code></span></dd>
+
+							<dt>Skriv ut innholdet av tekstfilen og av begge lenkene med <code>cat</code>, for å verifisere at de
+							refererer til samme datafil.</dt>
+							<dd><code>cat abcd.txt</code>, <code>cat abcd_soft.txt</code>, <code>cat abcd_hard.txt</code>, </dd>
+
+							<dt>Skriv ut inodenummerne til tekstfilen og til de to lenkene, med <code>ls -i</code>. Hva ser du?</dt>
+							<dd>Hvis det er flere hard-links til samme fil, vil de ha samme inode-nummer. Filen lagres bare ett sted,
+							men det kan være flere katalogfiler med hard-links som peker til samme fil.</dd>
+
+							<dt>Skriv ut informasjon om bl.a. filtype, størrelse og antall (harde) lenker for tekstfilen og de to
+							lenkene, med <code>ls -l</code>. Hva ser du?</dt>
+							<dd>Det to hard-linkene har samme filinformasjon, og viser at det er to hard-links til filen. Soft-linken
+							er en egen fil med eget inode-nummer og størrelse lik antall bytes i den symbolske linken.</dd>
+
+							<dt>Fjern tekstfilen <code>abcd.txt</code>. Prøv deretter å skrive ut innholdet av både den harde og den
+							symbolske lenken. Hva skjer, og hvorfor?</dt>
+							<dd>Den symbolske lenken virker ikke lenger, fordi filnavnet den lenker til er fjernet. Filen i seg selv
+							fjernes ikke, fordi det fortsatt finnes en hard-link til den.</dd>
+						</dl>
+					</dd>
+
+					<dt>Opprett en tom fil med touch. Gjør om tilgangsrettighetene til denne filen slik at det bare er du selv som har full tilgang, mens de som er medlem i gruppen din bare kan lese filen, og alle andre verken kan lese endre eller eksekvere den.</dt>
+					<dd>
+<pre class="fss">
+touch tom-fil
+chmod 740 tom-fil
+</pre>
+					</dd>
+					<dd>Alternativt kan det brukes tre kommandoer med symbolske tilgangsrettigheter i stedet for en tre-sifret file mode:</dd>
+					<code>chmod u=rwx tom-fil; chmod g=r tom-fil; chmod o= tom-fil</code>
+
+					<dt>Forklar hva kommandoene gjør:</dt>
+					<dd>
+						<dl>
+							<dt><code>kill -9 1212 1313 1414</code></dt>
+							<dd>Sender signalet SIGKILL til tre prosesser med angitte PID-numre. Prosessene vil terminere hvis brukeren som gir kill-kommandoen er prosesseier.</dd>
+
+							<dt><code>pkill mysqld</code></dt>
+							<dd>Sender signalet SIGTERM til alle brukerens prosesser som er startet med kommandoen mysqld.</dd>
+
+							<dt><code>killall mysqld</code></dt>
+							<dd>Vil her gjøre det samme som kommandoen i forrige deloppgave. Se manualsidene for en beskrivelse av forskjellene i virkemåte for pkill og killall.</dd>
+
+							<dt><code>ps aux --sort -rss | more</code></dt>
+							<dd>Skriver ut (en "side" om gangen med more) alle prosesser på systemet, sortert etter hvor mye fysisk minne som er satt av til prosessene.</dd>
+						</dl>
+					</dd>
+
+					<dt>Skriv en sammensatt Linux-kommando som, for et gitt brukernavn, skriver ut informasjon om de 5 prosessene som brukeren har på systemet som bruker mest minneressurser. Hint: Ta utgangspunkt i ps-varianten i siste deloppgave ovenfor, utvid denne og kombiner med head.</dt>
+					<dd>Her er det ingen "fasit", siden det ikke er angitt hvilke data som skal skrives ut for prosessene. En mulig løsning er:</dd>
+					<dd><code>ps ux -u janh --sort -rss | head -6</code></dd>
+
+					<dt>En gammel eksamensoppgave om prosesshåndtering</dt>
+					<dd>Du skal sortere linjene i en meget stor tekstfil. Sorteringen krever mye ressurser og kjøretid på Linux-systemet.</dd>
+					<dd>
+						<dl>
+							<dt>a) Sorteringen skal helst være ferdig før du logger deg ut, men du vil gjerne kunne gjøre andre ting på maskinen mens sorteringen pågår. Du er også en snill bruker som ikke vil stjele for mye prosessorkraft fra de andre brukerne som er logget på. Skriv en Linux-kommando som løser dette problemet for deg.</dt>
+							<dd><code>nice sort tekstfil &</code></dd>
+
+							<dt>b) Du blir lei av å vente på at sorteringsjobben fra oppgave a) skal bli ferdig, og bestemmer deg for å terminere den. Hvordan vil du gjøre dette?</dt>
+							<dd>Finn PID for prosessen med bruk av ps. Bruk deretter f.eks. kill -9 PID.</dd>
+
+							<dt>c) Etter å ha stoppet sorteringsjobben, finner du ut at du vil starte den en gang til. Problemet nå er at polet stenger om 5 minutter og du må derfor straks logge deg ut. Skriv en kommando som starter sorteringen på nytt, og sikrer at den fortsetter etter utlogging. Hint: Se man nohup på f.eks. ask.hiof.no.</dt>
+							<dd><code>nohup sort tekstfil &</code></dd>
+						</dl>
+					</dd>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dd>
+						<dl>
+							<dt>d) I punkt c) glemte du (sier vi) å sette ned prioriteten på sorteringen. Når du kommer tilbake etter en vellykket handel, får du forferdelig mye kjeft av av sys.adm. for å ha gjort systemet tregt i en hektisk periode. Sys.adm. har i tillegg terminert sorteringsjobben din før den var ferdig, og truer med å stenge deg ute fra systemet hvis noe lignende skjer igjen. Som en siste utvei, vil du nå prøve å kjøre sorteringen slik at den bare utføres når belastningen på maskinen er lav og det er mye ledig kapasitet i CPU, f.eks. om natten. Hvordan kan du få til dette? Hint: Se man batch og man at på f.eks. ask.hiof.no.</dt>
+							<dd>Legg kommandolinjen med sorteringskommandoen som skal utføres på en fil med (f.eks.) navnet sort_job. Bruk deretter en av disse kommandoene:</dd>
+							<dd><code>batch sort_job      (starter sortering når belastning er lav)</code></dd>
+							<dd><code>at 3am sort_job     (starter sortering kl 3 om natten)</code></dd>
+
+							<dt>e) Når du kommer tilbake neste morgen, får du beskjed om at sys.adm. tok ned maskinen kvelden før for uanmeldt "vedlikehold". Sorteringsjobben din er ennå ikke utført. I et anfall av raseri torturerer du sys.adm. inntil han gir deg rotpassordet, og logger deretter på systemet som superbruker/root. Forklar hvordan du nå enkelt kan kjøre sorteringen din hensynsløst og mye raskere enn tidligere.</dt>
+							<dd>Superbruker/root kan starte programmer med negative nice-verdier, som gir raskere eksekvering. "Verste" mulighet er:</dd>
+							<dd><code>nice --20 sort tekstfil</code></dd>
+						</dl>
+					</dd>
+
+					<dt>Hva utføres av hver av disse Linux-kommandoene?</dt>
+					<dd>
+						<dl>
+							<dt>a) <code>grep 'laks' < meny >> dagens</code></dt>
+							<dd>Legger linjene i filen meny som inneholder strengen laks, på slutten av filen dagens.</dd>
+
+							<dt>b) <code>grep 'laks' < meny | tee -a dagens | wc -l</code></dt>
+							<dd>Programmet tee skriver standard input både til en angitt fil og til standard output. Kommandoen her legger linjene i filen meny som inneholder strengen laks på slutten av filen dagens, og skriver deretter ut antall linjer som ble lagt til.</dd>
+
+							<dt>c) <code>ls | fgrep meny | wc -l</code></dt>
+							<dd>Skriver ut antall filer i stående katalog som har et filnavn som inneholder strengen meny.</dd>
+
+							<dt>d) <code>ls -al | egrep -v '^-'</code></dt>
+							<dd>ls skriver ut "lang" filinformasjon (opsjonen -l) for alle filer i stående katalog, også "skjulte filer" som har et navn som begynner med tegnet '.' (opsjonen -a). egrep-kommandoen sørger for at bare filer som ikke er ordinære diskfiler (filtypen er noe annet enn '-') skrives ut.</dd>
+
+							<dt>e) <code>egrep '^[.*]+$' foo</code></dt>
+							<dd>Skriver ut linjer på filen foo som bare består av null eller flere forekomster av tegnene '.' (punktum) og '*' (stjerne) . '.' og '*' er ikke et spesialtegn i regulæruttykk når de forekommer mellom '[' og ']'.</dd>
+
+							<dt>f) <code>egrep -vc '^$' foo</code></dt>
+							<dd>Skriver ut antall linjer (opsjonen -c) på filen foo som ikke er tomme. "^$" angir en tom linje uten andre tegn enn en NEWLINE. Opsjonen -v betyr at grep skal skrive ut alle linjene som ikke matcher søkemønsteret.</dd>
+
+							<dt>g) <code>ps aux | egrep "^$USER" | tr -s ' ' ' ' | cut -d' ' -f2,11- | sort -n</code></dt>
+							<dd>Skriver ut PID og kommandoen som startet prosessen, for alle dine egne prosesser, sortert på PID.</dd>
+						</dl>
+					</dd>
+
+					<dt>Fil inneholder linjer med: Registreringsnr:Bilmerke:Modell:Årsmodell:Eier:Kilometerstand:Verdi. Eksempel på linje: AA63187:Mitsubishi:Outlander:Høiberg,Jan:61338:210000. Skriv Linux-kommandoer (med piping og redirigering av I/O) som løser følgende oppgaver:</dt>
+					<dd>
+						<dl>
+							<dt>a) Skriv ut en liste, sortert stigende på kilometerstand, med dataene for alle biler som eies av personer med etternavn lik Hansen.</dt>
+							<dd><code>grep ':Hansen,' bildata | sort -t: -rn -k5</code></dd>
+
+							<dt>b) Skriv ut antall biler med merke lik VW og modell lik Karmann Ghia.</dt>
+							<dd><code>egrep -c '^[A-Z]{2}[0-9]{5}:VW:Karmann Ghia:' bildata</code></dd>
+
+							<dt>c) Lag en ny fil med navn bildata-2 som inneholder det samme som filen bildata, med unntak av at alle forekomster av bilmerket Kia skal byttes ut med ordet Riskoker.</dt>
+							<dd><code>sed 's/:Kia:/:Riskoker:/' bildata > bildata-2</code></dd>
+
+							<dt>d) Lag en ny fil med navn bildata-3 som inneholder det samme som filen bildata, med unntak av at alle biler som har en verdi som er større eller lik 100000 skal markeres med tegnet * ('stjerne') på slutten av linjen.</dt>
+							<dd><code>sed -r 's/:[1-9][0-9]{5,}$/&*/' bildata > bildata-3</code></dd>
+						</dl>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<dl>
+					<dt>"Review question" 59, side 311 i læreboken-- script som sjekker om parameter er et palindrom:</dt>
+					<dd>
+						<dl>
+							<div class="clear">
+								<div class="fl w5">
+									<dt>Løsning som bruker expr til strenghåndteringen</dt>
+									<dd>
+<pre class="fss">
+# Palindrome checker, expr string handling version
+[ $# -ne 1 ] && { echo "usage: $0 string"; exit 1; }
+start=1
+end=$(expr length $1)
+while [ $start -lt $end ]
+do
+  a=$(expr substr $1 $start 1)
+  b=$(expr substr $1 $end 1)
+  if [ $a = $b ]
+  then
+    ((start++))
+    ((end--))
+  else
+    echo "\"$1\" is not a palindrome"
+    exit 1
+  fi
+done
+echo "\"$1\" is a palindrome"
+exit 0
+</pre>
+									</dd>
+								</div>
+								<div class="fl w5">
+									<dt>Løsning som bruker Bash-syntaks til strenghåndteringen</dt>
+									<dd>
+<pre class="fss">
+# Palindrome checker, Bash string handling version
+[ $# -ne 1 ] && { echo "usage: $0 string"; exit 1; }
+S=$1
+start=0
+end=$((${#S}-1))
+while [ $start -lt $end ]
+do
+  if [ ${S:$start:1} = ${S:$end:1} ]
+  then
+    ((start++))
+    ((end--))
+  else
+    echo "\"$1\" is not a palindrome"
+    exit 1
+  fi
+done
+echo "\"$1\" is a palindrome"
+exit 0
+</pre>
+									</dd>
+								</div>
+							</div>
+							<dt>One-liner :-)</dt>
+							<dd>
+<pre class="fss">
+[ $(echo $1 | rev) = $1 ] && echo "\"$1\" er et palindrom" || echo "\"$1\" er ikke et palindrom"
+</pre>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt>Skriv en if-then-else-setning som tester om første parameter til et shellprogram er en katalog.</dt>
+					<dd>
+<pre class="fss">
+if [ -d $1 ]
+then
+  echo "$1 er en katalog"
+else
+  echo "$1 er ikke en katalog"
+fi
+</pre>
+					</dd>
+
+					<dt>Skriv en if-then-else-setning som tester om første parameter til et shellprogram er en vanlig fil som kan leses og eksekveres.</dt>
+					<dd>
+<pre class="fss">
+if [ -f $1 -a -r $1 -a -x $1 ]
+then
+  echo "$1 er en vanlig fil som kan leses og eksekveres."
+else
+  echo "$1 er ikke en vanlig fil som kan leses og eksekveres."
+fi
+</pre>
+					</dd>
+					
+					<div class="clear">
+						<div class="fl w4">
+							<dt>Skriv en case setning som tester om første parameter til et shellprogram har en av verdiene "data", "source" eller "comments". Hvis parameteren ikke har noen av disse tre verdiene, skal det skrives ut en feilmelding.</dt>
+							<dd>
+<pre class="fss">
+case $1 in
+  data)
+     echo "Verdi: data"
+     ;;
+  source)
+     echo "Verdi: source"
+     ;;   
+  comments)
+     echo "Verdi: comments"
+     ;;
+  *)
+     echo "Ukjent verdi"
+     ;;
+esac
+</pre>
+							</dd>
+						</div>
+						<div class="fr w6 i2">
+							<dt>Skriv en for løkke som leter etter linjer med ordet "Unix" i alle regulære, lesbare filer i stående katalog. Alle linjer som finnes skal lagres i en fil med navn Unix_linjer.</dt>
+							<dd>
+<pre class="fss">
+for filnavn in *
+do
+  if [ -f $filnavn -a -r $filnavn ] 
+  then
+    grep UNIX $filnavn >> UNIX_linjer
+  fi
+done
+</pre>
+							</dd>
+						</div>
+					</div>
+
+					<dt>Skriv et script med en uendelig løkke, som i hvert gjennomløp spør bruker etter et filnavn som skal fjernes, og fjerner filen hvis den finnes. Bruk break til å avslutte programmet når bruker taster inn filnavnet slutt.</dt>
+					<dd>
+<pre class="fss">
+while [ true ]
+do
+  read -p "Tast inn filnavn: " filnavn
+  if [ "$filnavn" = slutt ]
+  then
+    break
+  elif [ -e "$filnavn" ]
+  then
+    rm "$filnavn"
+    echo "$filnavn slettet"
+  else
+    echo "$filnavn finnes ikke"
+  fi
+done
+</pre>
+					</dd>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dt>Skriv et shellprogram med en uendelig løkke, som i hvert gjennomløp sjekker om det finnes filer i katalogen /tmp som (antagelig) er tekstfiler. Hvis det finnes noen slike tekstfiler, skal de skrives ut til default printer før filene slettes. Programmet skal deretter vente i 15 minutter (se man sleep) før neste gjennomløp av løkken. Kommandoen file kan brukes til å finne ut om en fil (antagelig) er en tekstfil.</dt>
+					<dd class="clear">
+<pre class="fss fl w4">
+cd /tmp
+while [ true ]
+do
+  for filnavn in *
+  do
+    if file "$filnavn" | grep -q text
+    then 
+      lpr $filnavn
+      rm  $filnavn
+    fi
+  done
+  sleep 900
+done
+</pre>
+						<div class="fl w6 i2">
+							<strong>Skriv et skallprogram som går gjennom alle parametrene som er gitt til programmet. Hvis en parameter er en regulær fil der vi har lese- og skrivetilgang, skal alle dupliserte linjer på filen (identiske linjer som kommer rett etter hverandre) fjernes, slik at filen bare har unike påfølgende linjer. Resultatet av denne fjerningen av duplikater skal overskrive (lagres på samme filnavn som) den opprinnelige filen.</strong>
+<pre class="fss">
+#!/bin/bash
+for file in $@
+do
+  if [ -f "$file" -a -r "$file" -a -w "$file" ]
+  then
+    uniq "$file" "${file}_without_duplicates"
+    mv "${file}_without_duplicates" "$file"
+  fi
+done
+</pre>
+						</div>
+					</dd>
+
+					<dt>Skriv et shellprogram med navn omform som håndterer én opsjon (som kan utelates) og ett argument, på formen: <code>omform [-s|-m] t</code> Argumentet t er et tidsrom oppgitt i hele timer. omform skal regne om tiden enten til sekunder (opsjonen -s, som skal være default) eller til minutter (opsjonen -m). Resultatet skal skrives til stdout. Programmet skal sjekke at opsjoner og argumenter er riktige bl.a. med bruk av case, og skal gi fornuftige feilmeldinger</dt>
+					<dd>
+<pre class="fss">
+#!/bin/bash
+
+# Sjekker om antall parametre er riktig (1 eller 2)
+if [ $# -lt 1 -o $# -gt 2 ]
+then
+   echo "usage: $0 [-s|-m] number"
+   exit 1
+fi
+
+factor=3600
+
+# Hvis to parametre, skal den fÃ¸rste vÃ¦re en opsjon
+if [ $# -eq 2 ]
+then
+
+  # Tar vare pÃ¥ opsjonen, gjÃ¸r deretter en shift slik at argumentet
+  # (timeantallet) alltid ligger i $1
+  opt=$1
+  shift
+
+  # Sjekker at gitt opsjon er korrekt
+  case $opt in
+  -s)
+     factor=3600
+     ;;
+  -m)
+     factor=60
+     ;;
+   *)
+     echo "$0: invalid option '$opt'"
+     exit 1
+     ;;
+  esac
+fi
+
+# Tester om argumentet faktisk er et positivt heltall, selv om dette
+# ikke kreves i oppgaven.En slik test pÃ¥ datatype kan gjÃ¸res pÃ¥ mange
+# mÃ¥ter. Her sender vi verdien av argumentet til grep, som sjekker om
+# det inneholder noen andre tegn enn sifre
+
+if echo $1 | egrep -qv [0-9] 
+then
+  echo "usage: $0 [-s|-m] number"
+  exit 1
+fi
+  
+# Alt OK, skriver ut svaret og terminerer
+echo $(( $factor * $1 )) 
+exit 0
+</pre>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="row"></div>
 		</section>
 	</div>
 </body>
