@@ -372,9 +372,6 @@
 				<h1>Forklaring</h1>
 				<h2>Elementær navigering:</h2>
 				<dl>
-					<dt>man < kommando > </dt>
-					<dd>En kommando som er godt å ha! Ved bruk av man, får du opp en mer utførlig beskrivelse om bruken av denne kommandoen. Eks: "man chmod", "man ls".</dd>
-
 					<dt><h2>ls</h2></dt>
 					<dd>Brukes for å bytte <em>working directory</em></dd>
 					<dd><code>ls [options] [file|dir]</code></dd>
@@ -468,11 +465,11 @@
 						<dl>
 							<dt>Eksempel</dt>
 							<dd>
-								<pre class="fss">
+<pre class="fss">
 [bruker@pc /]$ cd ~
 [bruker@pc ~]$ pwd
 /home/bruker
-								</pre>
+</pre>
 							</dd>
 						</dl>
 					</dd>
@@ -688,27 +685,27 @@
 						</table>
 					</dd>
 
-					<dt>df -h</dt>
-					<dd>Viser hvor mye ledig diskplass som er ledig. Ved bruk av df -h gir det en litt mer leslig format (megabyte, kilobyte etc.). Eks:</dd>
-					<dd>
-						<pre class="fss">
-[bruker@pc ~]$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            3,8G     0  3,8G   0% /dev
-tmpfs           783M   11M  773M   2% /run
-/dev/nvme0n1p2  234G   56G  167G  25% /
-						</pre>
-					</dd>
 				</dl>
 			</div>
 		</section>
 		<section>
 			<div class="row">
 				<dl>
+					<dt>df -h</dt>
+					<dd>Viser hvor mye ledig diskplass som er ledig. Ved bruk av df -h gir det en litt mer leslig format (megabyte, kilobyte etc.). Eks:</dd>
+					<dd>
+<pre class="fss">
+[bruker@pc ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3,8G     0  3,8G   0% /dev
+tmpfs           783M   11M  773M   2% /run
+/dev/nvme0n1p2  234G   56G  167G  25% /
+</pre>
+					</dd>
 					<dt>du -sh</dt>
 					<dd>Viser hvor mye plass stående katalogen (med underkataloger) tar av diskplass. Eks:</dd>
 					<dd>
-						<pre class="fss">
+<pre class="fss">
 [bruker@pc ~]$ pwd
 /home/bruker
 [bruker@pc ~]$ dh -sh
@@ -718,7 +715,7 @@ tmpfs           783M   11M  773M   2% /run
 /home/bruker/testmappe
 [bruker@pc testmappe]$ dh -sh
 2.1M     .
-						</pre>
+</pre>
 					</dd>
 
 					<dt>free</dt>
@@ -729,12 +726,7 @@ tmpfs           783M   11M  773M   2% /run
 
 					<dt>ln</dt>
 					<dd>Filer kan ha flere navn i UNIX/Linux. Dette gjøres ved kommandoen ln. Du oppretter da en snarvei til den faktiske filen.</dd>
-					<dd>
-						<dt>Eksempel</dt>
-						<pre class="fss">
-[bruker@pc testmappe]$ ln /mappe/undermappe/filen /home/bruker/snarvei
-						</pre>
-					</dd>
+					<dd><code>[bruker@pc testmappe]$ ln /mappe/undermappe/filen /home/bruker/snarvei</code></dd>
 					<dt></dt>
 					<dd>Oppretter her en snarvei, kalt "snarvei", som peker på filen "/mappe/undermappe/filen"</dd>
 
@@ -787,7 +779,7 @@ tmpfs           783M   11M  773M   2% /run
 							<dt>Først litt teori:</dt>
 							<dd>Eks: Ved å skrive ls -l kommer følgende opp:</dd>
 							<dd>
-								<pre class="fss">
+<pre class="fss">
 [bruker@pc ~]$ ls -l
 -rw-rw-r-- 1 bjornar bjornar     0 nov.   8 15:13 a.out
 lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 bin -> .dotfiles/common/bin
@@ -802,7 +794,7 @@ drwxr-xr-x 2 bjornar bjornar  4096 okt.  27 01:31 Templates
 drwxr-xr-x 3 bjornar bjornar  4096 okt.  27 17:04 Videos
 lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 -rw-r--r-- 1 bjornar users     165 okt.  30 11:10 .wget-hsts
-								</pre>
+</pre>
 							</dd>
 							<dd>La oss se på den første kolonnen til den siste filen her... (.wget-hsts)</dd>
 							<dd class="fsm"><strong><span class="purple">-</span><span class="blue">rw-</span><span class="red">r--</span><span class="green">r--</span></strong> bjornar users 165 okt...</dd>
@@ -922,7 +914,7 @@ lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 					<dd>Det å måtte tast inn dette hver gang vi skal ha tilgang til cdrom'en blir fort kjedelig, derfor ser vi nærmere på den enkle måten..</dd>
 					<dd>Enkel: En enkelt måte å slippe å gjøre dette hver gang vi skal få tilgang til cd-romen er å legge all denne informasjonen inn i /etc/fstab. Som det meste annet i Linux, er også denne filen en ren tekst fil. Slik kan en /etc/fstab fil se ut:</dd>
 					<dd>
-						<pre class="fss">
+<pre class="fss">
 [bruker@pc ~]$ cat /etc/fstab
 /dev/sda1   /            ext2     defaults           1   1
 /dev/sda2   /usr/local   ext2     defaults           1   2
@@ -932,7 +924,7 @@ none        /dev/pts     devpts   gid=5,mode=620     0   0
 none        /proc        proc     defaults           0   0
 /dev/fd0    /mnt/floppy  vfat     defaults           0   0
 /dev/cdrom  /cdrom       iso9660  user, ro, noauto   0   0
-						</pre>
+</pre>
 					</dd>
 					<dd>Den første kolonnen viser hvilken "enhet" (device fil) det er snakk om. Neste kolonne viser hvilken katalog denne enheten skal mountes til. Det neste er hvilket filsystem som denne enheten har, i vårt tilfelle er det standard cdrom-format (iso9660). Så kommer kolonnen som viser diverse spesifikasjoner som kan brukes under mounting; "user" vil si at andre brukere enn root kan mounte denne enheten, den er kun lesbar "ro", og den skal ikke mountes under oppstart "noauto".</dd>
 					<dd>De to siste kolonnen er av mindre interesse, men det kan være greit å vite hva de står for: Den nest siste kolonnen, kalt "dump flag", sier om denne enheten skal det bli tatt backup av. Den siste kolonnen, "check sequence", avgjør hvordan systemet skal sjekke filsystemene under oppstart. Root disken skal alltid ha verdi 1, andre disker skal ha verdi 2. Swap og andre disker skal ha verdi 0.</dd>
@@ -951,10 +943,9 @@ none        /proc        proc     defaults           0   0
 					<dt>ps</dt>
 					<dd>Viser en liste over alle prosesser som kjører. "ps ax | less" gir den komplette listen over prosesser som kjøres. For å finne ett spesifikt programs PID kan det f.eks. skrives: "ps -ax | grep netscape". Her er ett lite utdrag fra en "ps -ax" kommando:</dd>
 					<dd>
-						<pre class="fss">
+<pre class="fss">
 [bruker@pc ~]$ ps -ax
 PID TTY   STAT   TIME   COMMAND 
-[.....]
  609 ?     S     0:00   /usr/X11R6/bin/xdm -nodaemon
  622 ?     S     0:44   /etc/X11/X -auth /usr/X11R6/lib/X11/xdm/authdir/authf
  873 ?     S     0:00   -:0                                                 
@@ -969,10 +960,8 @@ PID TTY   STAT   TIME   COMMAND
 9497 ?     S     0:00   /opt/apache/bin/httpd
 9498 ?     S     0:00   /opt/apache/bin/httpd
 9499 ?     S     0:00   /opt/apache/bin/httpd
-						</pre>
+</pre>
 					</dd>
-					[......] 
-
 					<dt>kill < pid ></dt>
 					<dd>Hvis du vil avslutte ett program på en litt mindre human måte, kan det drepes ("killes"). For å kille ett program, må vi vite hva slags PID (Prosess ID) det har. Dette finner du v.h.a. kommandoen ps. Hvis ett program har sluttet å oppføre seg skikkelig (hengt seg el.l.) kan det drepes rått og brutalt: "kill -9 < pid >"</dd>
 				</dl>
@@ -1005,9 +994,308 @@ PID TTY   STAT   TIME   COMMAND
 					<dt>pwconv</dt>
 					<dd>Hvis shadow ikke er aktivert, er passordet (kryptert), lesbart for alle. Dette er som oftest ingen god idé. Ved å skjule passordet i den restriktige filen shadow, har vi sikret oss mot det. For å deaktivere shadow, bruker vi pwunconv.</dd>
 				</dl>
-				<h1>Andre kommandoer</h1>
+				<h2>grep</h2>
+<pre class="fss">
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE.
+Example: grep -i 'hello world' menu.h main.c
+
+Pattern selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression
+  -F, --fixed-strings       PATTERN is a set of newline-separated strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (default)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+Miscellaneous:
+  -s, --no-messages         suppress error messages
+  -v, --invert-match        select non-matching lines
+  -V, --version             display version information and exit
+      --help                display this help text and exit
+Output control:
+  -m, --max-count=NUM       stop after NUM selected lines
+  -b, --byte-offset         print the byte offset with output lines
+  -n, --line-number         print line number with output lines
+      --line-buffered       flush output on every line
+  -H, --with-filename       print file name with output lines
+  -h, --no-filename         suppress the file name prefix on output
+      --label=LABEL         use LABEL as the standard input file name prefix
+  -o, --only-matching       show only the part of a line matching PATTERN
+  -q, --quiet, --silent     suppress all normal output
+      --binary-files=TYPE   assume that binary files are TYPE;
+                            TYPE is 'binary', 'text', or 'without-match'
+  -a, --text                equivalent to --binary-files=text
+  -I                        equivalent to --binary-files=without-match
+  -d, --directories=ACTION  how to handle directories;
+                            ACTION is 'read', 'recurse', or 'skip'
+  -D, --devices=ACTION      how to handle devices, FIFOs and sockets;
+                            ACTION is 'read' or 'skip'
+  -r, --recursive           like --directories=recurse
+  -R, --dereference-recursive likewise, but follow all symlinks
+      --include=FILE_PATTERN  search only files that match FILE_PATTERN
+      --exclude=FILE_PATTERN  skip files and directories matching FILE_PATTERN
+      --exclude-from=FILE     skip files matching any file pattern from FILE
+      --exclude-dir=PATTERN   directories that match PATTERN will be skipped.
+  -L, --files-without-match  print only names of FILEs with no selected lines
+  -l, --files-with-matches  print only names of FILEs with selected lines
+  -c, --count               print only a count of selected lines per FILE
+  -T, --initial-tab         make tabs line up (if needed)
+  -Z, --null                print 0 byte after FILE name
+</pre>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h2><strong class="fll">6</strong> sed</h2>
+<pre class="fss">
+Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+
+  -n, --quiet, --silent
+                 suppress automatic printing of pattern space
+  -e script, --expression=script
+                 add the script to the commands to be executed
+  -f script-file, --file=script-file
+                 add the contents of script-file to the commands to be executed
+  --follow-symlinks
+                 follow symlinks when processing in place
+  -i[SUFFIX], --in-place[=SUFFIX]
+                 edit files in place (makes backup if SUFFIX supplied)
+  -l N, --line-length=N
+                 specify the desired line-wrap length for the `l' command
+  --posix
+                 disable all GNU extensions.
+  -E, -r, --regexp-extended
+                 use extended regular expressions in the script (for portability use POSIX -E).
+  -s, --separate
+                 consider files as separate rather than as a single, continuous long stream.
+      --sandbox
+                 operate in sandbox mode.
+  -u, --unbuffered
+                 load minimal amounts of data from the input files and flush the output buffers more often
+  -z, --null-data
+                 separate lines by NUL characters
+      --help     display this help and exit
+      --version  output version information and exit
+</pre>
+				<h2>cut</h2>
+<pre class="fss">
+Usage: cut OPTION... [FILE]...
+Print selected parts of lines from each FILE to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -b, --bytes=LIST        select only these bytes
+  -c, --characters=LIST   select only these characters
+  -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
+  -f, --fields=LIST       select only these fields; 
+                          also print any line that contains no delimiter character, unless the -s is specified
+  -n                      (ignored)
+      --complement        complement the set of selected bytes, characters or fields
+  -s, --only-delimited    do not print lines not containing delimiters
+      --output-delimiter=STRING  use STRING as the output delimiter the default is to use the input delimiter
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help     display this help and exit
+      --version  output version information and exit
+</pre>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<h2>sort</h2>
+<pre class="fss">
+Usage: sort [OPTION]... [FILE]...
+  or:  sort [OPTION]... --files0-from=F
+Write sorted concatenation of all FILE(s) to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+Ordering options:
+
+  -b, --ignore-leading-blanks  ignore leading blanks
+  -d, --dictionary-order      consider only blanks and alphanumeric characters
+  -f, --ignore-case           fold lower case to upper case characters
+  -g, --general-numeric-sort  compare according to general numerical value
+  -i, --ignore-nonprinting    consider only printable characters
+  -M, --month-sort            compare (unknown) < 'JAN' < ... < 'DEC'
+  -h, --human-numeric-sort    compare human readable numbers (e.g., 2K 1G)
+  -n, --numeric-sort          compare according to string numerical value
+  -R, --random-sort           shuffle, but group identical keys.  See shuf(1)
+      --random-source=FILE    get random bytes from FILE
+  -r, --reverse               reverse the result of comparisons
+      --sort=WORD             sort according to WORD:
+                                general-numeric -g, human-numeric -h, month -M,
+                                numeric -n, random -R, version -V
+  -V, --version-sort          natural sort of (version) numbers within text
+
+Other options:
+      --batch-size=NMERGE   merge at most NMERGE inputs at once;
+                            for more use temp files
+  -c, --check, --check=diagnose-first  check for sorted input; do not sort
+  -C, --check=quiet, --check=silent  like -c, but do not report first bad line
+      --compress-program=PROG  compress temporaries with PROG;
+                              decompress them with PROG -d
+      --debug               annotate the part of the line used to sort,
+                              and warn about questionable usage to stderr
+      --files0-from=F       read input from the files specified by
+                            NUL-terminated names in file F;
+                            If F is - then read names from standard input
+  -k, --key=KEYDEF          sort via a key; KEYDEF gives location and type
+  -m, --merge               merge already sorted files; do not sort
+  -o, --output=FILE         write result to FILE instead of standard output
+  -s, --stable              stabilize sort by disabling last-resort comparison
+  -S, --buffer-size=SIZE    use SIZE for main memory buffer
+  -t, --field-separator=SEP  use SEP instead of non-blank to blank transition
+  -T, --temporary-directory=DIR  use DIR for temporaries, not $TMPDIR or /tmp;
+                              multiple options specify multiple directories
+      --parallel=N          change the number of sorts run concurrently to N
+  -u, --unique              with -c, check for strict ordering;
+                              without -c, output only the first of an equal run
+  -z, --zero-terminated     line delimiter is NUL, not newline
+      --help     display this help and exit
+      --version  output version information and exit
+</pre>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section class="w4">
+			<div class="row">
+				<h2>tr</h2>
+<pre class="fss">
+Usage: tr [OPTION]... SET1 [SET2]
+Translate, squeeze, and/or delete characters from standard input,
+writing to standard output.
+
+  -c, -C, --complement    use the complement of SET1
+  -d, --delete            delete characters in SET1, do not translate
+  -s, --squeeze-repeats   replace each sequence of a repeated character
+                            that is listed in the last specified SET,
+                            with a single occurrence of that character
+  -t, --truncate-set1     first truncate SET1 to length of SET2
+      --help     display this help and exit
+      --version  output version information and exit
+
+SETs are specified as strings of characters.  Most represent themselves.
+Interpreted sequences are:
+
+  \NNN            character with octal value NNN (1 to 3 octal digits)
+  \\              backslash
+  \a              audible BEL
+  \b              backspace
+  \f              form feed
+  \n              new line
+  \r              return
+  \t              horizontal tab
+  \v              vertical tab
+  CHAR1-CHAR2     all characters from CHAR1 to CHAR2 in ascending order
+  [CHAR*]         in SET2, copies of CHAR until length of SET1
+  [CHAR*REPEAT]   REPEAT copies of CHAR, REPEAT octal if starting with 0
+  [:alnum:]       all letters and digits
+  [:alpha:]       all letters
+  [:blank:]       all horizontal whitespace
+  [:cntrl:]       all control characters
+  [:digit:]       all digits
+  [:graph:]       all printable characters, not including space
+  [:lower:]       all lower case letters
+  [:print:]       all printable characters, including space
+  [:punct:]       all punctuation characters
+  [:space:]       all horizontal or vertical whitespace
+  [:upper:]       all upper case letters
+  [:xdigit:]      all hexadecimal digits
+  [=CHAR=]        all characters which are equivalent to CHAR
+</pre>
+				<h2>Kode eksempler</h2>
 				<dl>
+					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil.</dt>
+					<dd class="fss"><code>tr -sc a-zA-Z "\n" < churchill.txt | tr A-Z a-z | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
 					
+					<dt>Finn de 20 ordene som forekommer færrest antall ganger i en tekstfil, skal også funke for ord med æøå i seg.</dt>
+					<dd class="fss"><code>tr -sc a-zA-ZæøåÆØÅ "\n" < kongen_2008.txt | tr A-ZÆØÅ a-zæøå | sort | uniq -c | sort -n | tr -s ' ' ' ' | head -20</code></dd>
+
+					<dt>Lag script som:</dt>
+					<dd>Ber bruker om navnet på en tekstfil, leser et filnavn F fra tastaturet og lagrer dette i en skallvariabel.</dd>
+					<dd>Ber bruker om et positivt heltall N, leser og lagrer også dette tallet.</dd>
+					<dd>Skriver ut de N mest brukte ordene på filen F.</dd>
+					<dd>
+<pre class="fss">read -p "Filnavn: " F
+read -p "Positivt heltakk: " N
+
+tr -sc a-zA-Z "\n" < $F | tr A-Z a-z | sort | uniq -c
+| sort - | tr -s ' ' ' ' | head -$N
+</pre>
+					</dd>
+					<dd>
+
+					<dt>Sorterer teksten (persondata.txt) slik at linjene blir liggende sortert i omvendt (avtagende) rekkefølge
+					på personenes alder. Personer med samme alder skal ligge sortert i stigende rekkefølge på postnummer. Den
+					sorterte utskriften fra kommandoen skal lagres på en fil med navn persondata_sortert.txt.</dt>
+<pre class="fss">
+29:Jan:HÃ¸iberg:Darres gate 22:0175:Oslo:69215348
+62:Mette:Myhrvold:Sandakerveien 10G:0743:Oslo:99106353
+29:Ottar:Fjernvalg:Gata 13:2222:Rena:22232425
+39:Rick:Danko:Tinker Street 10:1121:Bearsville:20102010
+...
+</pre>
+					</dd>
+					<dd><code>sort -t : -k1nr -k5n < persondata.txt -o persondata-sortert.txt</code></dd>
+				</dl>
+			</div>
+		</section>
+		<section class="w6">
+			<div class="row">
+				<dl>
+					<dt>Lag en ny fil med navn telefonliste.txt. Den nye filen skal ha like mange linjer som den opprinnelige filen.
+					Hver linje på den nye filen skal inneholde (i rekkefølge) en persons fornavn, etternavn og telefonnummer, med
+					tegnet : (kolon) mellom hvert datafelt. En linje på filen telefonliste.txt kan se slik ut: Jan:Høiberg:69215348
+					Filen telefonliste.txt skal være alfabetisk sortert på etternavnet.</dt>
+					<dd><code>cut -d: -f2,3,7 persondata.txt | sort -t: -k2 -o telefonliste.txt</code></dd>
+
+					<dt>Les persondata.txt og bare skriv ut fornavn og etternavn (med tegnet : i mellom), for alle personer som
+					har et postnummer som begynner med sifrene 11, 12 eller 13. Du kan anta at et postnummer alltid inneholder
+					fire siffer</dt>
+					<dd><code>egrep '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt | cut -d: -f2,3</code></dd>
+
+					<dt>Les persondata.txt og lag en ny fil med navn persondata_2.txt. Den nye filen skal inneholde samme
+					informasjon som persondata.txt, med unntak av at informasjon om alle personer som har et postnummer som begynner
+					med sifrene 11, 12 eller 13 ikke skal være med på filen.</dt>
+					<dd><code>egrep -v '\&lt;1[1-3][0-9]{2}\&gt;' persondata.txt > persondata_2.txt</code></dd>
+
+					<dt>Skriv ut bare de tegnene fra /dev/urandom som er "printable". Output skal splittes opp i linjer, slik at
+					det er 16 tegn på hver linje som skrives ut (se man fold). Det skal skrives ut 20 linjer med output.</dt>
+					<dd><code>tr -cd '[:print:]' < /dev/urandom | fold -w 16 | head -20</code></dd>
+
+					<dt>Generer 20 tilfeldige tall. Hvert tall skal ha nøyaktig 16 sifre. Tallene skal inneholde sifrene 0-9, men
+					kan ikke begynne med sifferet 0 (null). Kommandoen skal skrive ut hvert tall på en egen linje.</dt>
+					<dd><code>tr -cd '[:digit:]' < /dev/urandom | fold -w 16 | egrep '^[^0][0-9]{15}' | head -n20</code></dd>
+
+					<dt>Skriv ut antall hop, enten helt frem til en gitt server, eller frem til første ruter på veien som kjører
+					en brannvegg som "kaster" data fra traceroute.</dt>
+					<dd><code>traceroute xdh.no | egrep '[[:digit:]]{1,2}[[:space:]]{2}(\* \* \*)' | head -n1 | egrep -o '[[:digit:]]{1,2}</code></dd>
+
+					<dt>lag shellscript som leser følgende data interaktivt fra bruker: en URL, et ord og et filnavn</dt>
+					<dd>Marker alle forekomster i teksten av ordet som bruker har angitt, med en * (stjerne) foran og bak ordet.</dd>
+					<dd>Lagre hele teksten (med det angitte ordet markert med stjerner) på en ny fil med det angitte filnavnet.</dd>
+					<dd>
+<pre class="fss">
+#!/bin/bash
+
+read -p "URL: " url
+read -p "Ord: " word
+read -p "Filnavn: " filename
+
+wget -O $filename $url
+
+sed -i 's/'$word'/*'$word'*/g' $filename
+</pre>
+					</dd>
 				</dl>
 			</div>
 		</section>
@@ -1016,7 +1304,7 @@ PID TTY   STAT   TIME   COMMAND
 		<section>
 			<div class="row">
 				<dl>					
-					<dt><h2><strong class="fsl">5</strong> if</h2></dt>
+					<dt><h2><strong class="fsl">7</strong> if</h2></dt>
 					<dd>Brukes for å starte en if check</dd>
 					<dd><code>if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else COMMANDS; ] fi</code></dd>
 					<dd>
@@ -1180,25 +1468,25 @@ PID TTY   STAT   TIME   COMMAND
 					<dd class="clear">
 						<div class="fl w5">
 							<strong>Sjekk om en fil finnes</strong>
-							<pre class="fss">
+<pre class="fss">
 #!/bin/bash
 if [ -f /tmp/messages.txt ]; then
 	# file exists
 else
 	# file does not exists
 fi
-							</pre>
+</pre>
 						</div>
 						<div class="fl w5">
 							<strong>Sjekk om en bash option er satt (set -o [OPTIONNAME])</strong>
-							<pre class="fss">
+<pre class="fss">
 #!/bin/bash
 if [ $USER == 'bob' ] || [ $USER == 'andy' ]
 	# user is bob or andy
 else
 	# user is neither bob nor andy
 fi
-							</pre>
+</pre>
 						</div>
 					</dd>
 				</dl>
@@ -1211,7 +1499,7 @@ fi
 					<dd><code>case EXPRESSION in CASE1) COMMAND-LIST;; CASE2) COMMAND-LIST;; ... CASEN) COMMAND-LIST;; esac</code></dd>
 					<dd class="clear">
 						<div class="fl w5">
-							<pre class="fss">
+<pre class="fss">
 case $1 in
     hello)
         # $i is "hello"
@@ -1223,11 +1511,11 @@ case $1 in
         # $i is non of the above
         ;;
 esac
-							</pre>
+</pre>
 						</div>
 						<div class="fl w5">
 							<strong>Gjør om fra timer til sec/min ved: bashfil -s/-m < timer ></strong>
-							<pre class="fss">
+<pre class="fss">
 error() { exit 1; }
 
 while getopts ":s:m:" o; do
@@ -1243,7 +1531,7 @@ while getopts ":s:m:" o; do
             ;;
     esac
 done
-							</pre>
+</pre>
 						</div>
 					</dd>
 
@@ -1252,26 +1540,26 @@ done
 					<dd class="clear">
 						<div class="fl w5">
 							<strong>Echo hello 4 ganger</strong>
-							<pre class="fss">
+<pre class="fss">
 i="0"
 while [ $i -lt 4 ]; do
 	echo "hello"
 	((i++))
 done
-							</pre>
-							<pre class="fss">
+</pre>
+<pre class="fss">
 Kan også skrives uten ((i++)) inni loopen:
 while [[ i++ -lt 4 ]];
-							</pre>
+</pre>
 						</div>
 						<div class="fl w5">
 							<strong>Lag en ny fil hvert 5. min</strong>
-							<pre class="fss">
+<pre class="fss">
 while true; do
 	touch filename-'date +%s'.txt
 	sleep 300
 done
-							</pre>
+</pre>
 						</div>
 						<hr>
 					</dd>
@@ -1281,23 +1569,23 @@ done
 					<dd class="clear">
 						<div class="fl w5">
 							<strong>Output alle filer & kataloger</strong>
-							<pre class="fss">
+<pre class="fss">
 for i in $( ls -a ); do
 	echo $i
 done
-							</pre>
+</pre>
 						</div>
 						<div class="fl w5">
 							<strong>Loop fra 1 til 10</strong>
-							<pre class="fss">
+<pre class="fss">
 for i in $(seq 1 10); do
 	echo $i;
 done
-							</pre>
-							<pre class="fss">
+</pre>
+<pre class="fss">
 Alternativt kan man skrive:
 for i in {1..10}; do
-							</pre>
+</pre>
 						</div>
 						<hr>
 					</dd>
@@ -1308,13 +1596,13 @@ for i in {1..10}; do
 							<dd></dd>
 							<dd>
 								<strong>Tell fra 20 til 10</strong>
-								<pre class="fss">
+<pre class="fss">
 i=20
 until [  $i -lt 10 ]; do
 	echo i $i
 	((i--))
 done
-								</pre>
+</pre>
 								<hr>
 							</dd>
 						</div>
@@ -1326,7 +1614,7 @@ done
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h1><strong class="fsl">6</strong> Ord og utrykk</h1>
+				<h1><strong class="fsl">8</strong> Ord og utrykk</h1>
 				<dl>
 					<dt>Working directory</dt>
 					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
@@ -1335,6 +1623,158 @@ done
 				<p><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></p>
 				<p><a href="https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash">https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash</a></p>
 				<p><a href="https://stackoverflow.com/questions/14447406/bash-shell-script-check-for-a-flag-and-grab-its-value">https://stackoverflow.com/questions/14447406/bash-shell-script-check-for-a-flag-and-grab-its-value</a></p>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h1><strong class="fsl">...</strong>Regex</h1>
+				<table class="table-code">
+					<thead>
+						<tr>
+							<th>Character</th>
+							<th>Meaning</th>
+							<th>Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>*</td>
+							<td>Match <strong>zero, one or more</strong> of the previous</td>
+							<td><code>Ah*</code> matches "<code>Ahhhhh</code>" or "<code>A</code>"</td>
+						</tr>
+						<tr>
+							<td>?</td>
+							<td>Match <strong>zero or one</strong> of the previous</td>
+							<td><code>Ah?</code> matches "<code>Al</code>" or "<code>Ah</code>"
+						</tr>
+						<tr>
+							<td>+</td>
+							<td>Match <strong>one or more</strong> of the previous</td>
+							<td><code>Ah+</code> matches "<code>Ah</code>" or "<code>Ahhh</code>" but not "<code>A</code>"</td>
+						</tr>
+						<tr>
+							<td>\</td>
+							<td>Used to <strong>escape</strong> a special character</td>
+							<td><code>Hungry\?</code> matches "<code>Hungry?</code>"</td>
+						</tr>
+						<tr>
+							<td>.</td>
+							<td>Wildcard character, matches <strong>any</strong> character</td>
+							<td><code>do.*</code> matches "<code>dog</code>", "<code>door</code>", "<code>dot</code>", etc.</td>
+						</tr>
+						<tr>
+							<td>( )</td>
+							<td><strong>Group</strong> characters</td>
+							<td>See example for <code>|</code></td>
+						</tr>
+						<tr>
+							<td>[ ]</td>
+							<td>Matches a <strong>range</strong> of characters</td>
+							<td>
+								<code>[cbf]ar</code> matches "car", "bar", or "far"<br />
+								<code>[0-9]+</code> matches any positive integer</br />
+								<code>[a-zA-Z]</code> matches ascii letters a-z (uppercase and lower case)<br />
+								<code>[^0-9]</code> matches any character not 0-9.
+							</tr>
+						</tr>
+						<tr>
+							<td>|</td>
+							<td>Matche previous <strong>OR</strong> next character/group</td>
+							<td><code>(Mon)|(Tues)day</code> matches "Monday" or "Tuesday"</td>
+						</tr>
+						<tr>
+							<td>{  }</td>
+							<td>Matches a specified <strong>number of occurrences</strong> of the previous</td>
+							<td>
+								<code>[0-9]{3}</code> matches "315" but not "31"<br />
+								<code>[0-9]{2,4}</code> matches "12", "123", and "1234"<br />
+								<code>[0-9]{2,}</code> matches "1234567..."
+							</td>
+						</tr>
+						<tr>
+							<td>^</td>
+							<td><strong>Beginning</strong> of a string. Or within a character range <code>[]</code> negation.</td>
+							<td><code>^http</code> matches strings that begin with http, such as a url.<br /><code>[^0-9]</code> matches any character not 0-9.</td>
+						</tr>
+						<tr>
+							<td>$</td>
+							<td><strong>End</strong> of a string.</td>
+							<td><code>ing$</code> matches "exciting" but not "ingenious"</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table-code">
+					<thead>
+						<tr>
+							<th>Character Class</th>
+							<th>Meaning</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>[:alpha:]</td>
+							<td>Any letter, <code>[A-Za-z]</code></td>
+						</tr>
+						<tr>
+							<td>[:upper:]</td>
+							<td>Any uppercase letter, <code>[A-Z]</code></td>
+						</tr>
+						<tr>
+							<td>[:lower:]</td>
+							<td>Any lowercase letter, <code>[a-z]</code></td>
+						</tr>
+						<tr>
+							<td>[:digit:]</td>
+							<td>Any digit, <code>[0-9]</code></td>
+						</tr>
+						<tr>
+							<td>[:alnum:]</td>
+							<td>Any alphanumeric character, <code>[A-Za-z0-9]</code></td>
+						</tr>
+						<tr>
+							<td>[:xdigit:]</td>
+							<td>Any hexadecimal digit, <code>[0-9A-Fa-f]</code></td>
+						</tr>
+						<tr>
+							<td>[:space:]</td>
+							<td>A tab, new line, vertical tab, form feed, carriage return, or space</td>
+						</tr>
+						<tr>
+							<td>[:blank:]</td>
+							<td>A space or a tab.</td>
+						</tr>
+						<tr>
+							<td>[:print:]</td>
+							<td>Any printable character</td>
+						</tr>
+						<tr>
+							<td>[:punct:]</td>
+							<td>Any punctuation character: <code>! ' # S % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ / ] ^ _ { | } ~</code></td>
+						</tr>
+						<tr>
+							<td>[:graph:]</td>
+							<td>Any character defined as a printable character except those defined as part of the space character class</td>
+						</tr>
+						<tr>
+							<td>[:word:]</td>
+							<td>Continuous string of alphanumeric characters and underscores.</td>
+						</tr>
+						<tr>
+							<td>[:ascii:]</td>
+							<td>ASCII characters, in the range: 0-127</td>
+						</tr>
+						<tr>
+							<td>[:cntrl:]</td>
+							<td>Any character not part of the character classes: <code>[:upper:], [:lower:], [:alpha:], [:digit:], [:punct:], [:graph:], [:print:], [:xdigit:]</code></td>
+						</tr> 
+					</tbody> 
+				</table>
 			</div>
 		</section>
 		<section>
