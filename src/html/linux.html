@@ -203,15 +203,579 @@
 		</section>
 	</div>
 	<div class="wrapper">
-		<section>
+		<section class="w3">
 			<div class="row">
 				<h1>Kommandoer</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>Hvordan...</th>
+							<th>Kommando</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><b>Elementær navigering</b></td>
+						</tr>
+						<tr>
+							<td>får jeg mer info om en kommando?</td>
+							<td>man &lt;kommando&gt;<br>&lt;kommando&gt; --help</td>
+						</tr>
+						<tr>
+							<td>lister jeg filer i en katalog?</td>
+							<td>ls</td>
+						</tr>
+						<tr>
+							<td>skifter jeg katalog?</td>
+							<td>cd &lt;katalog&gt; </td>
+						</tr>
+						<tr>
+							<td>vet jeg i hvilken katalog jeg er?</td>
+							<td>pwd</td>
+						</tr>
+						<tr>
+							<td>oppretter/fjerner jeg en katalog?</td>
+							<td>mkdir/rmdir &lt;katalog&gt; </td>
+						</tr>
+						<tr>
+							<td>kopierer jeg en fil?</td>
+							<td>cp </td>
+						</tr>
+						<tr>
+							<td>sletter jeg en fil?</td>
+							<td>rm</td>
+						</tr>
+						<tr>
+							<td>lager jeg en (tom) fil?</td>
+							<td>touch</td>
+						</tr>
+						<tr>
+							<td>flytter jeg en fil/endrer navn på fil</td>
+							<td>mv</td>
+						</tr>
+						<tr>
+							<td>lister jeg innholdet i en fil?</td>
+							<td>cat / more / less</td>
+						</tr>
+						<tr>
+							<td>får jeg opp informasjon om diskbruk?</td>
+							<td>df</td>
+						</tr>
+						<tr>
+							<td>sjekker jeg hvor mye diskplass brukt?</td>
+							<td>du -sh</td>
+						</tr>
+						<tr>
+							<td>sjekker jeg ledig minne?</td>
+							<td>free</td>
+						</tr>
+						<tr>
+							<td>finner jeg en spesifikk fil?</td>
+							<td>find / whereis &lt;fil&gt;</td>
+						</tr>
+						<tr>
+							<td>lager jeg en snarvei?</td>
+							<td>ln -s &lt;faktisk_fil&gt; &lt;snarvei&gt;</td>
+						</tr>
+						<tr>
+							<td>pakker jeg inn/ut filer?</td>
+							<td>gzip/bunzip / tar</td>
+						</tr>
+						<tr>
+							<td><b>Bruker-relaterte kommandoer</b></td>
+						</tr>
+						<tr>
+							<td>vet jeg hvem jeg er?</td>
+							<td>whoami</td>
+						</tr>
+						<tr>
+							<td>logger jeg meg inn som root?</td>
+							<td>su</td>
+						</tr>
+						<tr>
+							<td>endrer jeg passord?</td>
+							<td>passwd</td>
+						</tr>
+						<tr>
+							<td>får jeg opp diverse info om systemet?</td>
+							<td>w</td>
+						</tr>
+						<tr>
+							<td>finner jeg ut mer om en bruker?</td>
+							<td>finger</td>
+						</tr>
+						<tr>
+							<td>endrer jeg rettigheter på filer?</td>
+							<td>chmod</td>
+						</tr>
+						<tr>
+							<td>endrer jeg eierskap på filer?</td>
+							<td>chown</td>
+						</tr>
+						<tr>
+							<td>legger jeg til bruker?</td>
+							<td>useradd</td>
+						</tr>
+						<tr>
+							<td>endrer jeg mitt shell?</td>
+							<td>chsh</td>
+						</tr>
+						<tr>
+							<td><b>Enkle nettverkskommandoer</b></td>
+						</tr>
+						<tr>
+							<td>sjekker jeg om en boks er på nett?</td>
+							<td>ping</td>
+						</tr>
+						<tr>
+							<td>konfigurerer jeg nettverket?</td>
+							<td>ifconfig</td>
+						</tr>
+						<tr>
+							<td>bruker jeg traceroute?</td>
+							<td>traceroute</td>
+						</tr>
+						<tr>
+							<td>snakker jeg med andre som er innlogget?</td>
+							<td>talk</td>
+						</tr>
+						<tr>
+							<td><b>Mer avanserte kommandoer</b></td>
+						</tr>
+						<tr>
+							<td>finner jeg ut hvilken linux-ver jeg har?</td>
+							<td>uname<br>
+								cat /proc/version</td>
+						</tr>
+						<tr>
+							<td>får jeg tilgang til andre disker?</td>
+							<td>mount</td>
+						</tr>
+						<tr>
+							<td>formaterer jeg en disk?</td>
+							<td>mkfs</td>
+						</tr>
+						<tr>
+							<td>sjekker jeg om en disk er skadet?</td>
+							<td>fsck</td>
+						</tr>
+						<tr>
+							<td>lister jeg alle prosesser?</td>
+							<td>ps</td>
+						</tr>
+						<tr>
+							<td>lister jeg alle prosesser i en fin tabell?</td>
+							<td>top</td>
+						</tr>
+						<tr>
+							<td>avslutter (dreper) jeg en prosess?</td>
+							<td>kill</td>
+						</tr>
+						<tr>
+							<td>slår jeg av boksen?</td>
+							<td>shutdown</td>
+						</tr>
+						<tr>
+							<td>partitionerer jeg en disk?</td>
+							<td>fdisk</td>
+						</tr>
+						<tr>
+							<td>viser jeg all oppstarts-info?</td>
+							<td>dmesg</td>
+						</tr>
+						<tr>
+							<td>aktiverer jeg shadow passord?</td>
+							<td>pwconv</td>
+						</tr>
+						<tr>
+							<td>lister hvilke moduler som er lastet?</td>
+							<td>lsmod</td>
+						</tr>
+						<tr>
+							<td><b>Annet</b></td>
+						</tr>
+						<tr>
+							<td>sjekker jeg hvilket skjermkort jeg har?</td>
+							<td>SuperProbe</td>
+						</tr>
+						<tr>
+							<td>konfigurerer jeg X?</td>
+							<td>xf86config</td>
+						</tbody>
+						</tr>
+				</table>
+			</div>
+		</section>
+		<section class="w7">
+			<div class="row">
+				<h1>Forklaring</h1>
+				<h2>Elementær navigering:</h2>
 				<dl>
+					<dt>man < kommando > </dt>
+					<dd>En kommando som er godt å ha! Ved bruk av man, får du opp en mer utførlig beskrivelse om bruken av denne kommandoen. Eks: "man chmod", "man ls".</dd>
+
+					<dt>ls</dt>
+					<dd>Ved å skrive "ls" (list) får du en oversikt over filene i gjeldene mappe. Samme som "dir" kommandoen i DOS.</dd>
+					<dd>Ved å skrive "ls -l", får du opp mer informasjon om hver enkelt fil. </dd>
+					<dd>Ved å skrive "ls -a" vises alle skjulte filer. (Alle skjulte filer har en punktum først i filnavnet - eks. .bash_history eller .skjult_fil)</dd>
+
 					<dt>cd</dt>
+					<dd>Skifter til en annen katalog. Eks: cd test-katalog/</dd>
+
+					<dt>pwd</dt>
+					<dd>Viser i hvilken katalog som bruker befinner seg i.</dd>
+					<dd>
+						<dl>
+							<dt>Eksempel</dt>
+							<dd>
+								<pre class="fss">
+[bruker@pc /]$ cd ~
+[bruker@pc ~]$ pwd
+/home/bruker
+								</pre>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt>mkdir/rmdir</dt>
+					<dd>Disse kommandoene oppretter/fjerner kataloger. NB! Katalogen må være tom før du får slettet den med denne kommandoen. Bruk "rm -r < katalog >" for å fjerne kataloger med innhold.</dd>
+
+					<dt>cp</dt>
+					<dd>Kopierer filer. "cp -r" kopierer hele kataloger.</dd>
+
+					<dt>rm</dt>
+					<dd>Sletter en fil. "rm -r" fjerner en hel katalog, med alt innhold.</dd>
+
+					<dt>mv</dt>
+					<dd>Denne kommandoen flytter og endrer navn på filer.</dd>
+					<dd>
+						<dl>
+							<dt><code>[bruker@pc ~]$ mv testfil katalog1/</code></dt>
+							<dd>Vi flytter filen testfil1 til katalog1/</dd>
+
+							<dt><code>[bruker@pc ~]$  mv testfil nyttnavn</code></dt>
+							<dd>Vi "flytter" filen til ett annet navn.</dd>
+						</dl>
+					</dd>
+
+
+					<dt>cat</dt>
+					<dd>Cat kommandoen er meget nyttig. Cat har flere funksjoner, men elementært, så leser den en fil og viser den til "standard output". Kort (og grovt) fortalt, kan vi si at kommadoen henter ett filformat og "kaster" den til riktig utgang. F.eks. kan vi "kaste" en musikk-fil til lydkortet (og dermed få lyd), eller en fil til printerporten (og printe ut noe).</dd>
+
+					<dt>df -h</dt>
+					<dd>Viser hvor mye ledig diskplass som er ledig. Ved bruk av df -h gir det en litt mer leslig format (megabyte, kilobyte etc.). Eks:</dd>
+					<dd>
+						<pre class="fss">
+[bruker@pc ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3,8G     0  3,8G   0% /dev
+tmpfs           783M   11M  773M   2% /run
+/dev/nvme0n1p2  234G   56G  167G  25% /
+/dev/nvme0n1p1  511M   16M  496M   4% /boot/efi
+						</pre>
+					</dd>
+
+					<dt>du -sh</dt>
+					<dd>Viser hvor mye plass stående katalogen (med underkataloger) tar av diskplass. Eks:</dd>
+					<dd>
+						<pre class="fss">
+[bruker@pc ~]$ pwd
+/home/bruker
+[bruker@pc ~]$ dh -sh
+35.6G    .
+[bruker@pc ~]$ cd testmappe
+[bruker@pc testmappe]$ pwd
+/home/bruker/testmappe
+[bruker@pc testmappe]$ dh -sh
+2.1M     .
+						</pre>
+					</dd>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<dl>
+					<dt>free</dt>
+					<dd>Viser hvor systemets bruk av minne. "free -m" viser minnebruken i megabytes.</dd>
+
+					<dt>find / whereis</dt>
+					<dd>Den første kommandoen, find, leter gjennom de kataloger som er eksportert til bash. Den andre kommandoen, whereis, er leter mer omfattende. Se også kommandoen, locate for mer avansert filsøking.</dd>
+
+					<dt>ln</dt>
+					<dd>Filer kan ha flere navn i UNIX/Linux. Dette gjøres ved kommandoen ln. Du oppretter da en snarvei til den faktiske filen.</dd>
+					<dd>
+						<dt>Eksempel</dt>
+						<pre class="fss">
+[bruker@pc testmappe]$ ln /mappe/undermappe/filen /home/bruker/snarvei
+						</pre>
+					</dd>
+					<dt></dt>
+					<dd>Oppretter her en snarvei, kalt "snarvei", som peker på filen "/mappe/undermappe/filen"</dd>
+
+					<dt>gzip / bzip2</dt>
+					<dd>For å pakke ned en fil, brukes kommandoen:</dd>
+					<dd>
+						<dl>
+							<dt><code>[bruker@pc ~]$ gzip en_fil</code></dt>
+							<dd>"en_fil" vil da bli pakket ned, og den pakkede filen får navn "en_fil.gz". Merk! "en_fil.gz" erstatter "en_fil"! Du får dermed kun en kopi av den pakkede filen!</dd>
+
+							<dt><code>[bruker@pc ~]$ gzip -9 en_fil</code></dt>
+							<dd>Ved å bruke -9, vil det si at vi bruker maksimal kompresjon. Ved å bruke lavere tall, vil det ta kortere tid å pakke ned, men den pakkede filen vil bli større.</dd>
+						</dl>
+						<dd>For å pakke ut en fil brukes følgende kommando:</dd>
+						<dl>
+							<dt><code>[bruker@pc ~]$ gunzip en_fil.gz</code></dt>
+							<dd>bzip2 er en forbedret utgave av gzip. Den bruker en litt annen komprimerings-algoritme, og får pakket ned filer bedre. Den bruke på samme måte som gzip/gunzip, bare at det er bzip2/bunzip2. De pakkede filene vil få navn som "en_fil.bz2". Se man sidene for mer avansert bruk av gzip/bzip2.</dd>
+						</dl>
+					</dd>
+
+					<dt>tar</dt>
+					<dd>Tar ble opprinnlig brukt til backup. Legger alle filer og kataloger i en stor fil, som det igjen ble tatt backup av. Det fine med tar, er at du kan pakke ned hele katalogstrukturer, noe som ikke går med gzip/bzip2. Ofte er tar brukt til først å pakke ned i en stor fil, også pakket med gzip. Dissse filene har ending .tar.gz, også kalt "tarball". Eldre slike filer kan også ha ending .tar.Z. Det er også .tar.gz2 filer, som pakket med tar og pakket ned med gzip. Kernelkildekoden er pakket på denne måten. Pakker ut en tarball med følgende kommando:</dd>
+					<dd>
+						<dl>
+							<dt><code>[bruker@pc ~]$ tar zxfv backupavfil.tar.gz</code></dt>
+							<dd>Igjen, for mer (masse) informasjon om bruk, se man sidene.</dd>
+						</dl>
+					</dd>
+
+					<h2>Bruker-relaterte kommandoer:</h2>
+					<dt>passwd</dt>
+					<dd>Gjør at du skifter passord. Denne kommandoen skifter kun passord på din lokale maskin. Merk! Hvis det er et nettverk, er det mest sannsynlig "yppasswd" ("yp on lan" eller "Yellow Pages on Local Area Network"). Root kan selvfølgelig skifte passord på hvem han selv måtte ønske ("passwd lars").</dd>
+					<dd>Root kan også stenge en konto ved å bruke følgende kommando:</dd>
+					<dd><code>[bruker@pc ~]$ passwd -l lars</code></dd>
+					<dd>Passordet for denne kontoen settes da til noe ugjettbart :) For å låse opp denne kontoen bruker vi kommandoen:</dd>
+					<dd><code>[bruker@pc ~]$ passwd -u lars</code></dd>
+
+					<dt>finger < en_bruker ></dt>
+					<dd>Er en kommando som kan brukes til å få opp informasjon om en bruker på systemet. Hvis brukeren har en .plan og/eller .project med utfyllende beskrivelse, kan en annen bruker få opp denne informasjonen ved å bruker finger < bruker >. NB! Denne tjenesten kan være utilgjengelig på enkelte systemer, dette fordi system-administratoren har gjort dette av sikkerhetshensyn. Prøv å skriv:</dd>
+					<dd><code>[bruker@pc ~]$ finger volkerdi@slackware.com</code></dd>
+					<dd>Som gjør at du får opp finger kommandoer om Patrick Volkerding; mannen bak Slackware.</dd>
+					<dd>eller</dd>
+					<dd><code>[bruker@pc ~]$ finger johnc@idsoftware.com</code></dd>
+					<dd>Med denne kommandoen får du opp informasjon om John Carmack - mannen bak alle grafikk-motorene til ID Software. Carmack pleier å ha mye oppdatert informasjon om grafikk-kort og fremtdige prosjekter til ID Software.</dd>
+					<dd>eller</dd>
+					<dd><code>[bruker@pc ~]$ finger larstra@ifi.uio.no</code></dd>
+
+					<dt>chmod</dt>
+					<dd>Linux/Unix har et innfløkt (men logisk) system for filtildeling. Filtildeinger gis ved kommadoen chmod.</dd>
+					<dd>
+						<dl>
+							<dt>Først litt teori:</dt>
+							<dd>Eks: Ved å skrive ls -l kommer følgende opp:</dd>
+							<dd>
+								<pre class="fss">
+[bruker@pc ~]$ ls -l
+-rw-rw-r-- 1 bjornar bjornar     0 nov.   8 15:13 a.out
+lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 bin -> .dotfiles/common/bin
+lrwxrwxrwx 1 bjornar bjornar    22 okt.  27 01:37 crontab -> .dotfiles/cron/crontab
+drwxr-xr-x 2 bjornar bjornar  4096 nov.  15 13:54 Desktop
+drwxr-xr-x 5 bjornar bjornar  4096 nov.  29 12:09 Documents
+drwxr-xr-x 2 bjornar bjornar  4096 des.   4 11:52 Downloads
+drwx------ 9 bjornar bjornar  4096 des.   5 10:36 Drive
+drwxr-xr-x 2 bjornar bjornar  4096 okt.  27 01:31 Music
+drwxr-xr-x 3 bjornar bjornar  4096 nov.   7 13:58 Pictures
+drwxr-xr-x 2 bjornar bjornar  4096 okt.  27 01:31 Templates
+drwxr-xr-x 3 bjornar bjornar  4096 okt.  27 17:04 Videos
+lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
+-rw-r--r-- 1 bjornar users     165 okt.  30 11:10 .wget-hsts
+								</pre>
+							</dd>
+							<dd>La oss se på den første kolonnen til den siste filen her... (.wget-hsts)</dd>
+							<dd class="fsm"><strong><span class="purple">-</span><span class="blue">rw-</span><span class="red">r--</span><span class="green">r--</span></strong> bjornar users 165 okt...</dd>
+							<dd>Det første tegnet er <span class="purple">-</span>, sier hva slags fil dette er (<code>d</code> for kataloger,
+							<code>c</code> for enheter osv.). Videre er det 3 tegn <span class="blue">rw-</span> + 3 tegn <span class="red">r--</span>
+							+ 3 tegn <span class="green">r--</span> = 3 x 3. Tilsammen 10 tegn. La oss forklare hvert segment (hver farge).</dd>
+							<dd>
+								<dl>
+									<dt>Blå</dt>
+									<dd>De første tre symbolene er filtildelingene for de som eier filene (i dette tilfelle ser vi at der et bjornar). Dette første segmentet kalles "u" for "user".</dd>
+
+									<dt>Rød</dt>
+									<dd>De neste tre symbolene er tilganger for gruppe (i dette tilfellet "users" - Hvis jeg hadde vært i f.eks. gruppen "frisurf", så kunne jeg gitt tilganger til andre som var i min gruppe (dvs. "frisurf"). Andre grupper, f.eks. "total" ville ikke ha hatt de samme tilganger.). Kalt segment "g" for "group".</dd>
+
+									<dt>Grønn</dt>
+									<dd>De tre siste symbolene er tilganger for alle andre (dvs. hvemsomhelst). Kalles semgent "o" for "other".</dd>
+								</dl>
+							</dd>
+						</dl>
+					</dd>
+					<dd>
+						<dl>
+							<dt>Rettigheter</dt>
+							<dd>r = read</dd>
+							<dd>w = write</dd>
+							<dd>x = execute (NB! For å få tilgang til kataloger, må de ha tilgang til å bli eksekverbare)</dd>
+
+							<dt>Hvordan endre rettigheter?</dt>
+							<dd>1, Du angir først hvem endringen skal gjelde for (enten user, group eller other). </dd>
+							<dd>2. Deretter + eller - </dd>
+							<dd>3. Tilslutt hva slags rettigheter som skal settes (som er read, write eller execute)</dd>
+
+							<dt>Eksempeler</dt>
+
+							<dl>
+								<dt><code>[bruker@pc ~]$ chmod o+rw test.txt</code></dt>
+								<dd>Denne kommandoen vil gi lese (r) og skrive (w) til alle andre (other) for filen test.txt</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod o-rw test.txt </code></dt>
+								<dd>Dette gjør det motsatte, nemlig å fjerne lese og skrive rettigheter for filen test.txt for alle andre (other).</dd>
+
+								<dt><code>[bruker@pc ~]$ chmod go-x lars/</code></dt>
+								<dd>Gjør at jeg sperrer katalogen lars/ for både min gruppe (group) og alle andre (other). Som bruker har jeg fremdeles mine tilganger inntakt (user).</dd>
+							</dl>
+						</dl>
+					</dd>
+
+					<dt>chown < bruker:gruppe > < fil/katalog ></dt>
+					<dd>Selv om rettighetene er i orden, så forutsetter det at bruker eier filen/katalogen. Merk! Det er kun root som kan skifte eierskap av filer/kataloger. Eks:</dd>
+					<dd><code>[bruker@pc ~]$ chown brev.txt liuns</code></dd>
+					<dd>Jeg gir bruker "linus" eierskap til filen "brev.txt".</dd>
+					<dd><code>chown root:mygroup /usr/local/folder -R</code></dd>
+					<dd>Alle filer og undermapper i /usr/local/folder blir nå eid av bruker root og gruppen mygroup</dd>
+
+					<dt>useradd </dt>
+					<dd>Kommando for å legge til brukere.</dd>
+					<dd><code>[bruker@pc ~]$ useradd ola -p ola42 -d /home/ola -m</code></dd>
+					<dd>Legger til ola-bruker med passord "ola42", og med hjemmekatalog under /home/ola. Se man useradd for mer info. Ofte følger det med egne "useradd"-script for hver distribusjon; "adduser" i Slackware, "YaSt" i Suse osv. KDE har også ett eget grafisk bruker administrasjons program.</dd>
+
+					<dt>userdel</dt>
+					<dd>Fjerner bruker fra systemet.</dd>
+					<dd><code>[bruker@pc ~]$ userdel -r ola</code></dd>
+					<dd>Fjerner brukeren ola fra systemet. Sletter samtidig hjemmekatalogen.</dd>
+
+					<dt>chsh</dt>
+					<dd>Hvis brukeren har lyst til å endre sitt shell, gjøres det med denne kommandoen. Ulike shell kan dekke ulike behov. Sjekk først hvilke shell som er tilgjenglig i filen "/etc/shells". Les mer om shell under ordliste.</dd>
+
+					<h2>Enkle nettverkskommandoer:</h2>
+
+					<dt>ping</dt>
+					<dd>Dette er noe av den enkleste nettverkskommandoen. Det denne kommandoen gjør, er å se om en annen burk på er på nettverket. Denne kommandoen kan også brukes for å se om du har nettverks-trafikk overhode. Prøve f.eks.</dd>
+					<dd><code>[bruker@pc ~]$ ping www.online.no</code></dd>
+
+					<dt>ifconfig </dt>
+					<dd>Denne kommandoen konfigurerer ett nettverks-"interface". Eks:</dd>
+					<dd><code>[bruker@pc ~]$ ifconfig eth0 10.1.1.2 broadcast 10.1.1.255 netmask 255.255.255.0</code></dd>
+					<dd>Denne setter opp eth0, som er vårt første nettverkskort (og eneste, hvis vi kun har ett kort i boksen), til å bruke IP-adresse 10.1.1.2. Videre broadcaster den til hele 10.1.1 subnettet. Du kan nesten alltid bruke netmaske 255.255.255.0. Hvis du vil bruke andre instillinger, vet du nok allerede nok om denne slags konfigurasjonen :) Sjekk man sidene for mer informasjon.</dd>
+					<dd>Denne kommandoen kan også få opp generell informasjon om interfacet ved kun å skrive "ifconfig".</dd>
+
+					<dt>traceroute</dt>
+					<dd>Viser veien nettverks-pakkene må gå for å komme frem til en destinasjonen. Prøv f.eks.</dd>
+					<dd><code>[bruker@pc ~]$ traceroute www.uio.no</code></dd>
+
+					<dt>talk</dt>
+					<dd>talk < bruker >, åpen er en enkel snakke-kanal med en annne bruker. Den du prøver å snakke med må også skrive talk < bruker > for at forbindelsen skal oppnås.</dd>
+
+					<h2>Mer avanserte kommandoer:</h2>
+
+					<dt>mount</dt>
+					<dd>Avgjør hva som kan aksesseres. Alle harddisker blir mountet til filer (kataloger) under Linux. Faktisk så er alle enhetene i maskinen filer under Linux. Les mer om dette her. En harddisk, cd-rom, diskettstasjon, må "mountes" før de kan aksesseres. Det er to måter å mounte filsystemer på: vanskelig og enkel.
+					Vanskelig: Når en enhet mountes, må vi vite all relevant informasjon om filsystemet, som vi så plotter inn til en kommando. 
+					Kommandoen blir noe slikt: mount < option > enhet < katalog >. La oss belyse med ett eksempel; mounting av en CD-ROM:</dd>
+					<dd><code>[bruker@pc ~]$ mount -t iso9660 -o ro /dev/hdc /cdrom</code></dd>
+					<dd>Det å måtte tast inn dette hver gang vi skal ha tilgang til cdrom'en blir fort kjedelig, derfor ser vi nærmere på den enkle måten..</dd>
+					<dd>Enkel: En enkelt måte å slippe å gjøre dette hver gang vi skal få tilgang til cd-romen er å legge all denne informasjonen inn i /etc/fstab. Som det meste annet i Linux, er også denne filen en ren tekst fil. Slik kan en /etc/fstab fil se ut:</dd>
+					<dd>
+						<pre class="fss">
+[bruker@pc ~]$ cat /etc/fstab
+/dev/sda1   /            ext2     defaults           1   1
+/dev/sda2   /usr/local   ext2     defaults           1   2
+/dev/sda3   /home        ext2     defaults           1   2
+/dev/sda4   swap         swap     defaults           0   0
+none        /dev/pts     devpts   gid=5,mode=620     0   0
+none        /proc        proc     defaults           0   0
+/dev/fd0    /mnt/floppy  vfat     defaults           0   0
+/dev/cdrom  /cdrom       iso9660  user, ro, noauto   0   0
+						</pre>
+					</dd>
+					<dd>Den første kolonnen viser hvilken "enhet" (device fil) det er snakk om. Neste kolonne viser hvilken katalog denne enheten skal mountes til. Det neste er hvilket filsystem som denne enheten har, i vårt tilfelle er det standard cdrom-format (iso9660). Så kommer kolonnen som viser diverse spesifikasjoner som kan brukes under mounting; "user" vil si at andre brukere enn root kan mounte denne enheten, den er kun lesbar "ro", og den skal ikke mountes under oppstart "noauto".</dd>
+					<dd>De to siste kolonnen er av mindre interesse, men det kan være greit å vite hva de står for: Den nest siste kolonnen, kalt "dump flag", sier om denne enheten skal det bli tatt backup av. Den siste kolonnen, "check sequence", avgjør hvordan systemet skal sjekke filsystemene under oppstart. Root disken skal alltid ha verdi 1, andre disker skal ha verdi 2. Swap og andre disker skal ha verdi 0.</dd>
+					<dd>På denne måten trenger vi bare å skrive:</dd>
+					<dd><code>[bruker@pc ~]$ mount /cdrom</code></dd>
+
+					<dt>mkfs -t < filsystem > < enhet ></dt>
+					<dd>Brukes til å formatere en harddisk eller diskett. Eks. på formatering av diskett (1.4"):</dd>
+					<dd><code>[bruker@pc ~]$ mkfs -t ext2 /dev/fd0 1440</code></dd>
+
+					<dt>fsck < disk ></dt>
+					<dd>Sjekker om en disk inneholder feil. Kan minne veldig om chkdsk eller scandisk i DOS. NB! Ikke kjør denne kommandoen på en disk som allerede er mountet! Hvis du trenger å sjekke en disk som mountes under oppstart (root "/" f.eks.), bør du startet opp Linux fra en oppstartdiskett og kjøre fsck fra den.</dd>
+					<dd><code>[bruker@pc ~]$ fsck /dev/hdb1</code></dd>
+
+					<dt>ps</dt>
+					<dd>Viser en liste over alle prosesser som kjører. "ps ax | less" gir den komplette listen over prosesser som kjøres. For å finne ett spesifikt programs PID kan det f.eks. skrives: "ps -ax | grep netscape". Her er ett lite utdrag fra en "ps -ax" kommando:</dd>
+					<dd>
+						<pre class="fss">
+[bruker@pc ~]$ ps -ax
+PID TTY   STAT   TIME   COMMAND 
+[.....]
+ 609 ?     S     0:00   /usr/X11R6/bin/xdm -nodaemon
+ 622 ?     S     0:44   /etc/X11/X -auth /usr/X11R6/lib/X11/xdm/authdir/authf
+ 873 ?     S     0:00   -:0                                                 
+8099 ?     S     0:08   /local/ssh/sbin/sshd
+8123 ?     S     0:00   /local/X11R6/bin/xdm -config /local/X11R6/lib/X11/xdm
+8201 ?     S<    0:16   /local/sbin/xntpd -p /etc/xntpd.pid
+9237 ?     S     0:00   su
+9241 ?     S     0:00   bash 
+9439 ?     S     0:00   mysqld
+9440 ?     S     0:02   mysqld
+9441 ?     S     0:00   mysqld
+9497 ?     S     0:00   /opt/apache/bin/httpd
+9498 ?     S     0:00   /opt/apache/bin/httpd
+9499 ?     S     0:00   /opt/apache/bin/httpd
+						</pre>
+					</dd>
+					[......] 
+
+					<dt>kill < pid ></dt>
+					<dd>Hvis du vil avslutte ett program på en litt mindre human måte, kan det drepes ("killes"). For å kille ett program, må vi vite hva slags PID (Prosess ID) det har. Dette finner du v.h.a. kommandoen ps. Hvis ett program har sluttet å oppføre seg skikkelig (hengt seg el.l.) kan det drepes rått og brutalt: "kill -9 < pid >"</dd>
+
+					<dt>shutdown</dt>
+					<dd>Ett vanlig Linux-system skal aldrig bare slåes rett av. Den må "kjøres ned". Dette gjøres ved bruk av kommandoen shutdown. For å reboot en Linux maskin brukes kommandoen:</dd>
+					<dd>
+						<dl>
+							<dt>For å slå av en Linux maskin brukes kommandoen:</dt>
+							<dd><code>[bruker@pc ~]$ shutdown -r now</code></dd>
+
+							<dt>På en vanlig flerbruker server kan vi gi brukerene litt tid til å logge av maskinen:</dt>
+							<dd><code>[bruker@pc ~]$ shutdown -h +60</code></dd>
+						</dl>
+					</dd>
+					<dd>På større systemer med mange brukere er det vanlig at melding om nedkjøring av en server gis flere dager i forveien. Du kan også legge melding om det i filen /etc/motd, på denne måten vil alle som logger seg inn få beskjed. Denne kommandoen har flere bruksmåter, se man sidene for mer informasjon.</dd>
+
+					<dt>fdisk < enhet ></dt>
+					<dd>Brukes til å partitionere om harddisk. Se "man fdisk" for mer om bruken av fdisk.</dd>
+
+					<dt>dmesg</dt>
+					<dd>Viser all informasjon som kernelen spyttet ut under oppstart. Prøve å skriv:</dd>
+					<dd><code>[bruker@pc ~]$ dmesg > oppstart</code></dd>
+					<dd>Vi har nå en fil kalt "oppstart", med all oppstarts-data som kernelen viste.</dd>
+
+					<dt>pwconv</dt>
+					<dd>Hvis shadow ikke er aktivert, er passordet (kryptert), lesbart for alle. Dette er som oftest ingen god idé. Ved å skjule passordet i den restriktige filen shadow, har vi sikret oss mot det. For å deaktivere shadow, bruker vi pwunconv.</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+		</section>
+	</div>
+
+
+
+
+
+
+
+
+
+
+				<dl>
+					<dt><h2>cd</h2></dt>
 					<dd>Brukes for å bytte <em>working directory</em></dd>
 					<dd><code>cd [option] [directory]</code></dd>
 
-					<dt>ls</dt>
+					<dt><h2>ls</h2></dt>
 					<dd>Brukes for å bytte <em>working directory</em></dd>
 					<dd><code>ls [options] [file|dir]</code></dd>
 					<dd>
@@ -294,7 +858,7 @@
 						</table>
 					</dd>
 
-					<dt>cat</dt>
+					<dt><h2>cat</h2></dt>
 					<dd>Brukes for å vise innholdet i en fil</dd>
 					<dd><code>cat [options] file1 [file2...]</code></dd>
 					<dd>
@@ -337,7 +901,7 @@
 						</table>
 					</dd>
 
-					<dt>mv</dt>
+					<dt><h2>mv</h2></dt>
 					<dd>Brukes for å flytte filer og/eller kataloger</dd>
 					<dd><code>mv [options] source dest</code></dd>
 					<dd>
@@ -363,7 +927,7 @@
 						</table>
 					</dd>
 
-					<dt>cp</dt>
+					<dt><h2>cp</h2></dt>
 					<dd>Brukes for å kopiere filer og/eller kataloger</dd>
 					<dd><code>cp [options] source dest</code></dd>
 					<dd>
@@ -383,10 +947,12 @@
 				</dl>
 			</div>
 		</section>
+	</div>
+	<div class="wrapper">
 		<section>
 			<div class="row">
 				<dl>
-					<dt>alias</dt>
+					<dt><h2>alias</h2></dt>
 					<dd>Brukes for å lage aliaser til kommandoer</dd>
 					<dd><code>alias [-p] [name[=value] ... ]</code></dd>
 					<dd>
@@ -409,7 +975,7 @@
 						</table>
 					</dd>
 
-					<dt>rm</dt>
+					<dt><h2>rm</h2></dt>
 					<dd>Brukes for å slette filer og/eller kataloger</dd>
 					<dd><code>rm [OPTION]... FILE...</code></dd>
 					<dd>
@@ -491,20 +1057,53 @@
 							</tbody>
 						</table>
 					</dd>
-				</dl>
-				<h1>Ord og utrykk</h1>
-				<dl>
-					<dt>Working directory</dt>
-					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
+
+					<dt><h2>Case</h2></dt>
+					<dd><code>case EXPRESSION in CASE1) COMMAND-LIST;; CASE2) COMMAND-LIST;; ... CASEN) COMMAND-LIST;; esac</code></dd>
+					<dd class="clear">
+						<div class="fl w5">
+							<pre class="fss">
+case $1 in
+    hello)
+        # $i is "hello"
+        ;;
+    9[1-3]) # <--- Regex
+        # $i is 91, 92 or 93
+        ;;
+    *)
+        # $i is non of the above
+        ;;
+esac
+							</pre>
+						</div>
+						<div class="fl w5">
+							<strong>Gjør om fra timer til sec/min ved: bashfil -s/-m < timer ></strong>
+							<pre class="fss">
+error() { exit 1; }
+
+while getopts ":s:m:" o; do
+    case "${o}" in
+        s)
+            tid=$((${OPTARG}*60*60))
+            ;;
+        m)
+            tid=$((${OPTARG}*60))
+            ;;
+        *)
+            error
+            ;;
+    esac
+done
+							</pre>
+						</div>
+					</dd>
 				</dl>
 			</div>
 		</section>
-	</div>
-	<div class="wrapper">
 		<section>
 			<div class="row">
 				<dl>
-					<dt>if</dt>
+					<dt><h2>if</h2></dt>
 					<dd>Brukes for å starte en if check</dd>
 					<dd><code>if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else COMMANDS; ] fi</code></dd>
 					<dd>
@@ -652,11 +1251,11 @@
 								</tr>
 								<tr>
 									<td>[ EXPR1 -a EXPR2 ]	</td>
-									<td>True if both EXPR1 and EXPR2 are true.</td>
+									<td>True if both EXPR1 and EXPR2 are true. && can also be used.</td>
 								</tr>
 								<tr>
 									<td>[ EXPR1 -o EXPR2 ]	</td>
-									<td>True if either EXPR1 or EXPR2 is true.</td>
+									<td>True if either EXPR1 or EXPR2 is true. || can also be used.</td>
 								</tr>
 								<tr>
 									<td><strong>Eks</strong></td>
@@ -681,20 +1280,10 @@ fi
 							<strong>Sjekk om en bash option er satt (set -o [OPTIONNAME])</strong>
 							<pre class="fss">
 #!/bin/bash
-if [ -o noclobber ]; then
-	# noclobber is set.
+if [ $USER == 'bob' ] || [ $USER == 'andy' ]
+	# user is bob or andy
 else
-	# noclobber is not set.
-fi
-							</pre>
-						</div>
-						<div class="fl w5">
-							<strong>numeriske sammenligninger</strong>
-							<pre class="fss">
-if [ "$num" -gt "150" ]; then
-	# $num er større enn 150
-else 
-	# $num er mindre enn 150
+	# user is neither bob nor andy
 fi
 							</pre>
 						</div>
@@ -706,6 +1295,91 @@ fi
 	<div class="wrapper">
 		<section>
 			<div class="row">
+				<dl>
+					<dt><h2>While loop</h2></dt>
+					<dd><code>while CONTROL-COMMAND; do CONSEQUENT-COMMANDS; done</code></dd>
+					<dd class="clear">
+						<div class="fl w5">
+							<strong>Echo hello 4 ganger</strong>
+							<pre class="fss">
+i="0"
+while [ $i -lt 4 ]; do
+	echo "hello"
+	((i++))
+done
+							</pre>
+							<pre class="fss">
+Kan også skrives uten ((i++)) inni loopen:
+while [[ i++ -lt 4 ]];
+							</pre>
+						</div>
+						<div class="fl w5">
+							<strong>Lag en ny fil hvert 5. min</strong>
+							<pre class="fss">
+while true; do
+	touch filename-'date +%s'.txt
+	sleep 300
+done
+							</pre>
+						</div>
+						<hr>
+					</dd>
+
+					<dt><h2>For in loop</h2></dt>
+					<dd></dd>
+					<dd class="clear">
+						<div class="fl w5">
+							<strong>Output alle filer & kataloger</strong>
+							<pre class="fss">
+for i in $( ls -a ); do
+	echo $i
+done
+							</pre>
+						</div>
+						<div class="fl w5">
+							<strong>Loop fra 1 til 10</strong>
+							<pre class="fss">
+for i in $(seq 1 10); do
+	echo $i;
+done
+							</pre>
+							<pre class="fss">
+Alternativt kan man skrive:
+for i in {1..10}; do
+							</pre>
+						</div>
+						<hr>
+					</dd>
+
+					<div class="clear">
+						<div class="fl w5 br">
+							<dt><h2>Until loop</h2></dt>
+							<dd></dd>
+							<dd>
+								<strong>Tell fra 20 til 10</strong>
+								<pre class="fss">
+i=20
+until [  $i -lt 10 ]; do
+	echo i $i
+	((i--))
+done
+								</pre>
+								<hr>
+							</dd>
+						</div>
+					</div>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<h1>Ord og utrykk</h1>
+				<dl>
+					<dt>Working directory</dt>
+					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
+				</dl>
 				<p>TODO</p>
 				<p><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></p>
 				<p><a href="https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash">https://stackoverflow.com/questions/16483119/example-of-how-to-use-getopts-in-bash</a></p>
@@ -714,7 +1388,6 @@ fi
 		</section>
 		<section>
 			<div class="row">
-				
 			</div>
 		</section>
 	</div>
