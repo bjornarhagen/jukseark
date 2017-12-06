@@ -81,6 +81,11 @@ hr {
 .tj { text-align: justify !important; }
 .tc { text-align: center  !important; }
 
+/* Font sizes */
+.fss { font-size: 0.8em; }
+.fsm { font-size: 1.2em; }
+.fsl { font-size: 1.5em; }
+
 /* Borders */
 .bt { border-top:    1px solid gray; padding-top:    1px; }
 .br { border-right:  1px solid gray; padding-right:  1px; }
