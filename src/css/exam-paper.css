@@ -229,8 +229,18 @@ hr {
 	padding: 0;
 }
 
-.row code {
+.row code,
+.row pre {
+	margin: 0;
+	padding: 0.5em;
 	background-color: #eee;
+}
+
+.row pre {
+	display: inline-block;
+}
+
+.row code {
 	padding: 0em;
 	line-height: 1;
 	font-size: 0.9em;
