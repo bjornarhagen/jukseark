@@ -229,6 +229,45 @@ hr {
 	padding: 0;
 }
 
+.row ul.qna,
+.row ol.qna {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.row ul.qna > li > ul,
+.row ul.qna > li > ol,
+.row ol.qna > li > ul,
+.row ol.qna > li > ol {
+	margin: 0.75em 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.row ul.qna ul,
+.row ol.qna ol {
+	margin: 0;
+	padding: 0 0 0 0.5em;
+}
+
+.row ul.qna > li > ul > li:first-child,
+.row ol.qna > li > ul > li:first-child {
+	font-weight: 700;
+}
+
+.row ul.qna > li > ul > li:first-child pre,
+.row ol.qna > li > ul > li:first-child pre {
+	font-weight: normal;
+}
+
+.row ul.qna > li > ul > li:last-child,
+.row ol.qna > li > ul > li:last-child {
+	padding: 0 0 0 2em;
+	line-height: 1em;
+}
+
+
 .row code,
 .row pre {
 	margin: 0;
