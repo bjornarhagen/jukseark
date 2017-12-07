@@ -2499,9 +2499,69 @@ cp /etc/passwd top_secret
 					<li>
 						<ul>
 							<li>Hva er "runlevels" på et Linuxsystem?</li>
-							<li>Sier hvilket modus serveren kjører i. går fra Runlevel 0­6, hvor 3 og 5 er mest vanlig i produksjon, 3 er uten grafisk, og 5 er med grafisk. Tjenestene kan konfigurereres til å starte forskjellig i ulike runlevels.</li>
+							<li>
+								<div class="clear">
+									<div class="fl w8">
+										<table>
+											<thead>
+												<tr>
+													<th>lvl</th>
+													<th>Name</th>
+													<th>Common usage</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>0</td>
+													<td>Halt</td>
+													<td>Shuts down the system; not used in inittab as it would immediately shut down on initialization.</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>Single-user mode</td>
+													<td>Useful for administrative tasks including unmounting partitions and reinstalling portions of the OS; when used, only root access is available</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Multi-user mode</td>
+													<td>In multi-user mode, Linux allows users other than root to log in. In this case, network services are not started so that the user is limited to access via the console only.</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Multi-user mode with networking</td>
+													<td>Commonly used mode for servers or systems that do not require graphical interface.</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>Not used</td>
+													<td>Forspecial/undefined purposes</td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td class="w3">Multi-user mode with networking and GUI</td>
+													<td>Most common mode for a Linux workstation.</td>
+												</tr>
+												<tr>
+													<td>6</td>
+													<td>Reboot</td>
+													<td>Reboots the system; not used in inittab because it would reboot repeatedly</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="fl w2 i1">
+										<p><strong>Runlevels</strong> sier hvilket modus serveren kjører i. går fra Runlevel 0­-6, hvor 3 og 5 er mest vanlig i produksjon, 3 er uten grafisk, og 5 er med grafisk. Tjenestene kan konfigurereres til å starte forskjellig i ulike runlevels.</p>
+									</div>
+								</div>
+							</li>
 						</ul>
 					</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<ul class="qna">
 					<li>
 						<ul>
 							<li>Hvorfor er det viktig å partisjonere diskene i et Linuxsystem?</li>
@@ -2520,12 +2580,6 @@ cp /etc/passwd top_secret
 							<li>Du kan i Input­kjedet teste på trafikken som går inn til maskinen som IPTABLES kjører på. Dvs begrense eller åpne trafikk til bestemte porter (Alt etter policy). Forward­kjedet dekker trafikk inn og ut på det lokale nettet bak maskinen IPTABLES kjører på. Eks på et lokalt IP­nett bak en router. Skal du f.eks styre trafikken på de lokale maskinene på et lokalnett, så gjør du det i forward­kjedet.</li>
 						</ul>
 					</li>
-				</ul>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-				<ul class="qna">
 					<li>
 						<ul>
 							<li>
@@ -2949,16 +3003,29 @@ CustomLog /var/log/httpd/nyweb2.com/access_log custom 
 					</li>
 					<li>
 						<ul>
-							<li>Du ønsker å lage en mailliste som heter alle_studenter@skolen.no . Enkelte av studentene har eksterne mailadresser, og noen er interne. Hvordan kan du gjøre dette når du administrerer en Linuxserver med Sendmail installert?</li>
+							<li>Forklar forskjellene på : 1. MUA (Mail User Agent) 2. MTA (Mail Transfer Agent) 3. MDA (Mail Delivery Agent)</li>
 							<li>
-								<p>Legg til en linje I /etc/aliases på følgende måte:</p>
-								<code>alle_studenter: brukernavn1, brukernavn2, brukernavn3, ekstern@ekstern.com, ekstern2@ekstern.com.</code>
+								<ol>
+									<li><strong>MUA</strong> (Mail User Agent) – Eks Thunderbird, Outlook Express, KMail osv.. dvs en e-postleser</li>
+									<li><strong>MTA</strong> (Mail Transfer Agent) – Dvs den tjenesten som overtar etter e-post klieneten, og tar seg av selve sendingen av e-posten. Eks på en MTA er Sendmail, Postfix.</li>
+									<li><strong>MDA</strong> (Mail Delivery Agent) – Det er den tjenesten som leverer mailen til den enkeltes mailbox (etter å ha gått igjennom en MTA som Sendmail). Eksempel på MDA er Procmail.</li>
+								</ol>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hva er sendmail?</li>
+							<li class="i2">
+								<p>Utviklet seg over tid – skrevet av den legendariske Eric Allman. I følge wikipedia den mest brukte MTA.</p>
+								<p>I praksis tar sendmail i mot mailen som f.eks. du og jeg sender fra Thunderbird(MUA), og deler den i to deler i katalogen “/var/spool/mqueue”. Sendmail genererer selv en random tekststreng og setter det som navn på fila. Selve innholdet (bodyen) får filendelsen “.df “(datafile), og headeren får filendelsen “.qf ” (queue file). Når mailen blir sendt, vil filene forsvinne fra mailkøen. Dvs – ligger det filer i /var/spool/mailqueue” – ligger det mail som venter på å bli sendt. Når mail blir mottatt av sendmail (fra en annen MTA), legger den mail til (“adder”) i fila /var/spool/mail/brukernavn. Alle brukere har sin egen fil her, som de har tilgang til. Denne fila er det samme som “inbox” i imapfolderen din. Bruker formatet “mbox“.</p>
+								<p>Du kan tune forskjellige elementer i Sendmail. Default innstillinger kan endres i “sendmail.mc“. “sendmail.cf” skal IKKE røres. Etter at du har gjort endringer i “sendmail.mc”, restarterter du sendmail på vanlig måte (eks: “/etc/init.d/sendmail restart“) Etter at denne kommandoen er kjørt, bli “sendmail.cf” overskrevet og oppdatert med de tilpasningene du gjorde i “sendmail.mc”. Tips – Ta backup OFTE, og ikke klå for mye hvis du skal få sendmail til å virke. Mange nettleverandører (min ISP tele2.se gjør dette) stenger utgående port 25, slik at ikke alle mulige internettbrukere kan sette opp forskjellige utgaver av MTA’er som går bananas (og brukes til å spamme deg og meg). Derfor må jeg konfigurere min lokale sendmail hjemme til å benytte smtp.tele2.se som min MTA i Sendmail. Eksempler på å bruke din nettleverandør til å sende mail: <code>define(`SMART_HOST’, `smtp.tele2.se’)</code></p>
+								<p>Vil du at sendmail skal kunne ta i mot mail også, er det viktig at du forteller sendmail dette. Default er sendmail konfigurert med at den kun tar i mot mail innen for sitt eget system. Fjerner du referansen til 127.0.0.1, åpner du opp for at den skal ta i mot inkonmende mail. Eksempel: <code>DAEMON_OPTIONS(`Port=smtp, Name=MTA’)dnl</code>. Sendmail kan også konfigureres slik at den sjekker om avsenderdomenet eksisterer (og at den ikke er SPAM/annet).</p>
 							</li>
 						</ul>
 					</li>
 				</ul>
 
-				<h1>Ord og utrykk</h1>
 				<dl>
 					<dt>Working directory</dt>
 					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
