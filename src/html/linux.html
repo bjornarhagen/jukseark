@@ -645,8 +645,8 @@ lrwxrwxrwx 1 bjornar bjornar    20 okt.  27 01:37 .vimrc -> .dotfiles/vim/.vimrc
 							<dd>La oss se på den første kolonnen til den siste filen her... (.wget-hsts)</dd>
 							<dd class="fsm"><strong><span class="purple">-</span><span class="blue">rw-</span><span class="red">r--</span><span class="green">r--</span></strong> bjornar users 165 okt...</dd>
 							<dd>Det første tegnet er <span class="purple">-</span>, sier hva slags fil dette er (<code>d</code> for kataloger,
-							<code>c</code> for enheter osv.). Videre er det 3 tegn <span class="blue">rw-</span> + 3 tegn <span class="red">r--</span>
-							+ 3 tegn <span class="green">r--</span> = 3 x 3. Tilsammen 10 tegn. La oss forklare hvert segment (hver farge).</dd>
+							<code>c</code> for enheter osv.). Videre er det 3 tegn <span class="blue">rw-</span> (blå) + 3 tegn <span class="red">r--</span>
+							(rød) + 3 tegn <span class="green">r--</span> (grønn) = 3 x 3. Tilsammen 10 tegn. La oss forklare hvert segment (hver farge).</dd>
 							<dd>
 								<dl>
 									<dt>Blå</dt>
@@ -1671,37 +1671,6 @@ sed -i 's/'$word'/*'$word'*/g' $filename
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h1>Ord og utrykk</h1>
-				<dl>
-					<dt>Working directory</dt>
-					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
-
-					<dt>Standard innenhet og standard utenhet</dt>
-					<dd><strong>stdin</strong>: Default kilde (fil) som data leses fra. Stdin er i utgangspunktet tastaturet, eller
-					egentlig den vicefilen som representerer tastaturet.</dd>
-					<dd><strong>stdout</strong>: Default medium (fil) som data skrives til. Stdout er i utgangspunktet skjermen.</dd>
-
-					<dt>Filterprogram</dt>
-					<dd>Program som leser tekstlige data linje for linje fra stdin, og skriver tekstlig output linjevis til stdout.</dd>
-
-					<dt>Redirigering av I/O.</dt>
-					<dd>Tegnene '<' og '>' brukes til å redefinere hhv. stdin og stdout til å være en fil i stedet for skjermen.
-					'>>' (append) gjør at utskrift til stdout legges til på slutten av en eksisterende fil.</dd>
-
-					<dt>Piping (eller "rørlegging")</dt>
-					<dd>Brukes for interprosesskommunikasjon mellom to filterprogrammer. angis med tegnet '|' mellom navnene på
-					programmene. Gjør at stdout fra et filter leses som stdin fra neste filter.</dd>
-				</dl>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-			</div>
-		</section>
-	</div>
-	<div class="wrapper">
-		<section>
-			<div class="row">
 				<dl>
 					<dt>Hva er de viktigste oppgavene til et operativsystem?</dt>
 					<dd>Kommunisere med bruker og styre hardware. Fordele delte ressurser som RAM, nettverksporter, disk og printere.
@@ -2444,12 +2413,573 @@ int main()
 	<div class="wrapper">
 		<section>
 			<div class="row">
-				<h3>Forklar kort hvordan et operativsystem på en datamaskin med én enkel CPU (med bare én kjerne) tilsynelatende klarer å kjøre flere prosesser samtidig.</h3>
-				<p>Et OS deler tiden inn i små deler, typisk et hundredels sekund, og fordeler slike korte timeslices til alle prossene som ønsker å bruke CPU. Siden størrelsen på disse timeslicene er så liten, virker det som om flere prosesser kjører samtidig, selvom det til enhver tid kun er en eneste prosess som kjører. Ved hjelp av et interrupt fra en hardwaretimer sørges det for at OS systematisk kan dele ut CPU­tiden på denne måten.</p>
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>Forklar kort hvordan et operativsystem på en datamaskin med én enkel CPU (med bare én kjerne) tilsynelatende klarer å kjøre flere prosesser samtidig.</li>
+							<li>Et OS deler tiden inn i små deler, typisk et hundredels sekund, og fordeler slike korte timeslices til alle prossene som ønsker å bruke CPU. Siden størrelsen på disse timeslicene er så liten, virker det som om flere prosesser kjører samtidig, selvom det til enhver tid kun er en eneste prosess som kjører. Ved hjelp av et interrupt fra en hardwaretimer sørges det for at OS systematisk kan dele ut CPU­tiden på denne måten.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Et meget CPU-intensivt C-program som brukes til værvarsling, kan i løpet av en halv time (30 minutter) regne ut værprognosen for neste dag på et Linux-system som har én enkel CPU. Programmet skal kjøres fire (4) ganger med fire forskjellige sett inputdata. De fire kjøringene av programmet startes samtidig. Omtrent hvor lang tid vil det ta før alle de fire værprognosene er ferdige? Begrunn svaret.</li>
+							<li>Det vil ta omtrent to timer (4 x 30 minutter) å kjøre ferdig de fire kjøringene. Siden prosessene er CPU­intensive, vil de bruke nesten 100% av CPUen når de først kjører, og prosessene vil dermed i praksis måtte bytte på å bruke den ene CPU'en. Når det ikke er noen ventetid på data eller I/O, er det ikke noen tid å tjene inn på å kjøre prosessene samtidig med multitasking.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Programmet for værvarsling skrives om slik at det bruker fire tråder. Hver tråd regner ut en værprognose basert på hvert sitt sett med input-data. Omtrent hvor lang tid vil det ta før de fire værprognosene er ferdige, når de kjøres på samme Linux-system som ovenfor? Begrunn svaret</li>
+							<li>Dette vil i praksis være nesten det samme som å kjøre fire separate prosesser samtidig som i forrige deloppgave. Det vil fortsatt ta ca to timer, fordi de fire trådene må dele på den ene CPUen som er tilgjengelig. En context switch går litt fortere mellom tråder enn mellom prosesser, men dette vil være ubetydelig sammenlignet med den tiden beregningene bruker. Beregningene vil også bruke litt mindre minne, siden trådene kjører felles kode.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Tråd-programmet for værvarsling flyttes til et annet Linux-system som har samme hardware som ovenfor, men som har fire identiske enkle CPU’er. Omtrent hvor lang tid bør det nå ta før de fire værprognosene er ferdige? Begrunn svaret.</li>
+							<li>OS bør nå kjøre de fire trådene uavhengig og samtidig/parallelt på hver sin CPU. Hele beregningen vil da ta omtrent 30 minutter.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Meterologene som kjører værvarslingsprogrammet ønsker å se fortløpende hvor stor andel av CPU(ene) og primærminnet som programmet bruker. Hvordan kan de enkelt gjøre dette på et Linux-system?</li>
+							<li>Ved å kjøre programmet top og følge med på kolonnene %CPU og %MEM.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Skriv Linux-kommandoer som utfører følgende:</p>
+								<ol>
+									<li>Sletter filen /tmp/log</li>
+									<li>Gir deg som eier alle rettigheter til filen bare_min.txt , mens ingen andre brukere får noen rettigheter</li>
+									<li>Skriver ut statusinformasjon bare om de prosessene på maskinen der prosessinformasjonen inneholder strengen emacs.</li>
+								</ol>
+							</li>
+							<li>
+								<ol>
+									<li><code>rm /tmp/log</code></li>
+									<li><code>chmod 700 bare_min.txt</code></li>
+									<li><code>ps aux | grep emacs</code></li>
+								</ol>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>2b) Hva utføres av denne kommandolinjen?: <code>maskin=$(hostname); os=$(uname);</code></li>
+							<li>Skallvariabelen 'maskin' settes lik Linux­systemets hostname, og skallvariabelen 'os' settes lik navnet på OS'ets kjerne (vanligvis vil dette gi variabelen 'os' verdien "Linux").</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Følgende Linux-kommandoer blir utført:</p>
+<pre class="fss">
+echo "Kanye West" > data.txt
+echo "Cashmere Cat" > data.txt
+cat data.txt | grep Kanye > ny.txt
+</pre>
+								<p>Hva inneholder filen ny.txt etter at kommandoene er blitt kjørt? Begrunn svaret</p>
+							</li>
+							<li>Den andre kommandoen overskriver filen data.txt slik at den ikke lenger inneholder strengen "Kanye", og grep­kommandoen vil returnere null bytes. Filen ny.txt vil derfor være tom etter at kommandoene er blitt kjørt.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Hva blir resultatet av at følgende kommandoer blir kjørt? Begrunn svaret</p>
+<pre class="fss">
+mkdir top_secret
+chmod 000 top_secret
+cp /etc/passwd top_secret
+</pre>
+							</li>
+							<li>Dette vil gi en feilmelding. chmod­kommandoen gjør at vi ikke har skrivetilgang til katalogen top_secret, og vi får derfor ikke lov til å kopiere filen passwd fra /etc til top_secret.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hva er "runlevels" på et Linuxsystem?</li>
+							<li>Sier hvilket modus serveren kjører i. går fra Runlevel 0­6, hvor 3 og 5 er mest vanlig i produksjon, 3 er uten grafisk, og 5 er med grafisk. Tjenestene kan konfigurereres til å starte forskjellig i ulike runlevels.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hvorfor er det viktig å partisjonere diskene i et Linuxsystem?</li>
+							<li>For å sikre at viktige diskområder ikke går fulle og stopper tjenestene på serveren.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hva er forskjellen på protokollene "TCP" og "UDP" i forhold til IPTABLES?</li>
+							<li>TCP er tilstandsbevarende, så da kan du også teste på om det er en ny pakke, eller om det er en del av en strøm. UDP er tilstandsløs.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Forklar kort forskjellen på "Input-kjedet" og "Forward-kjedet" i IPTABLES.</li>
+							<li>Du kan i Input­kjedet teste på trafikken som går inn til maskinen som IPTABLES kjører på. Dvs begrense eller åpne trafikk til bestemte porter (Alt etter policy). Forward­kjedet dekker trafikk inn og ut på det lokale nettet bak maskinen IPTABLES kjører på. Eks på et lokalt IP­nett bak en router. Skal du f.eks styre trafikken på de lokale maskinene på et lokalnett, så gjør du det i forward­kjedet.</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</section>
 		<section>
-			<div class="row"></div>
+			<div class="row">
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>
+								<p>Filen /proc/meminfo inneholder oppdatert informasjon om Linux-systemets minnebruk. Her er et eksempel på hvordan et utsnitt av denne filen kan se ut:</p>
+<pre class="fss">
+MemTotal:        8039276 kB
+MemFree:         3906840 kB
+Buffers:          410156 kB
+Cached:          2312828 kB
+SwapCached:            0 kB
+Active:          2308000 kB
+Inactive:        1403820 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       8249340 kB
+SwapFree:        8249340 kB
+</pre>
+								<p>Bruk verktøyene grep, tr og sed til å skrive en Linux-kommando på bare én linje, som henter verdiene for MemTotal og MemFree fra /proc/meminfo og skriver ut:</p>
+<pre class="fss">
+Totalt minne: 8039276 kB 
+Ledig minne:  3906840 kB 
+</pre>
+
+							</li>
+							<li><code>grep "MemTotal\|MemFree" /proc/meminfo | tr ­s ' ' ' ' | \ sed ­e 's/MemTotal/Totalt minne/' ­e 's/MemFree/Ledig minne/'</code></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Hva utføres av shellprogrammet nedenfor?</p>
+<pre class="fss">
+#!/bin/bash
+cd $1
+for f in `ls *.mp3`
+do
+   mv $f ~/musikkarkiv/
+done
+</pre>
+							</li>
+							<li>Programmet flytter alle filer med filnavn som slutter med ".mp3", fra katalogen angitt som parameter til programmet, til katalogen "musikkarkiv" som ligger under brukers hjemmeområde.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Skriv om shellprogrammet i deloppgaven over, slik at det blir mer robust for feil i input.</li>
+							<li>
+								<p>Ny versjon av programmet som sjekker om antall parametre er riktig og av riktig type:</p>
+<pre class="fss">
+     [ $# ­ne 1 ] && { echo "usage: $0 directory"; exit 1; }
+     [ ! ­d $1 ] && { echo "$0: $1 is not a directory"; exit 1; }
+     cd $1
+     for f in `ls *.mp3`
+     do
+        mv $f ~/musikkarkiv/
+     done
+</pre>
+								<p>Man kan også i tillegg sjekke om vi har de nødvendige tilgangsrettigheter til katalogene og filene som brukes i programmet, men siden oppgaven bare angir at programmet skal være "robust for feil i input" er dette ikke nødvendig for å få full uttelling.</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Forklar hva mappen /etc/skel gjør, og nevn noen gode eksempler på bruk.</li>
+							<li>/etc/skel brukes som mal for hjemmeområder når nye brukere opprettes. En systemansvarlig kan lage en mal for mappestruktur for alle nye brukere. Eks på bruk: lage gode alias i .bashrc fila for nye brukere. F.eks. sette standard editor til "Pico" e.l. Du kan også f.eks. lage en eksempelnettside i en htmlmappe for hver enkelt bruker.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hvordan ville du gått frem for å opprette 1500 nye brukere i et Linuxsystem?</li>
+							<li>Laget et script som sendte parametere til adduser kommandoen, f.eks. med parametre som brukernavn, passord, hjemmeområde osv.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>
+								<p>Brukerne på et Linux-system er vanligvis definert i "passordfilen" /etc/passwd . Starten på denne filen kan se slik ut:</p>
+<pre class="fss">
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+ftp:x:99:99:Anonymous FTP:/local/it/ftp:/bin/sync
+snort:x:10004:1005:Snort IDS:/var/log/snort:/bin/false
+nobody4:x:65534:65534:Nobody:/:/bin/sync
+mroot:x:0:0:Tcsh Root account:/local/it:/bin/bash
+studwww:x:24:24:web server daemon:/:/bin/bash
+snort:x:10044:1005:Snort IDS:/var/log/snort:/bin/false
+snort:x:10088:1005:Snort IDS:/var/log/snort:/bin/false
+janh:x:1000:1000:Jan Høiberg:/home/janh:/bin/bash
+</pre>
+								<p>Feltene på en linje er skilt med tegnet ':' (kolon). Det første feltet på hver linje inneholder brukernavn, det tredje feltet inneholder numerisk brukerid (UID).</p>
+								<p>Skriv et shellprogram som leser /etc/passwd og utfører følgende syv operasjoner:</p>
+								<ol>
+									<li>Skriver ut hvilken maskin (host) scriptet kjøres på og hvilket OS som kjøres.</li>
+									<li>Gir feilmelding og avslutter hvis passordfilen ikke finnes eller ikke kan leses.</li>
+									<li>Skriver ut en lang listing av passordfilens egenskaper (se eksemplet under).</li>
+									<li>Skriver ut antall brukere definert i passordfilen.</li>
+									<li>Skriver ut brukernavn for alle brukere som har UID lik 0 (null).</li>
+									<li>Skriver ut alle brukernavn som forekommer flere ganger.</li>
+									<li>Skriver ut alle UID som forekommer flere ganger.</li>
+								</ol>
+								<p>For filen gitt ovenfor kan programmet gi følgende utskrift:</p>
+<pre class="fss">
+Dette scriptet kjører på ask, operativsystemet er Linux
+­rw­r­­r­­  1 root root 732 Nov 20 15:02 /etc/passwd
+Antall brukere: 12
+root har uid = 0
+mroot har uid = 0
+Brukernavn som forekommer flere ganger:
+       3  snort
+UID som forekommer flere ganger:
+       2  0
+       2  65534
+</pre>
+								<p>Noen hint som kan brukes til å løse oppgaven:</p>
+								<ul>
+									<li>Deloppgave 2b) ovenfor inneholder noen nyttige kommandoer...</li>
+									<li>Operasjon nr 5 som programmet skal utføre løses enklest ved å pipe innholdet av passordfilen til en løkke som leser feltene på filen linje for linje.</li>
+								</ul>
+							</li>
+							<li>
+<pre class="fss">
+passwd=/etc/passwd
+# 1. Skriver ut hvilken maskin (host) scriptet kjøres på og hvilket OS som kjøres.
+echo ­n "Dette scriptet kjører pa $(hostname),"
+echo "operativsystemet er $(uname)"
+# 2. Gir feilmelding og avslutter hvis passordfilen ikke finnes eller ikke kan leses.
+if [ ! ­f $passwd ]
+then
+  echo "$0: Passordfilen finnes ikke"
+  exit 1
+fi
+if [ ! ­r $passwd ]
+then
+  echo "$0: Passordfilen er ikke lesbar"
+  exit 1
+fi
+# 3. Skriver ut en lang listing av passordfilens egenskaper
+ls ­l $passwd
+# 4. Skriver ut antall brukere definert i passordfilen.
+echo "Antall brukere: $(wc ­l $passwd | cut ­f1 ­d' ')"
+# 5. Skriver ut brukernavn for alle brukere som har UID lik 0
+cat $passwd | tr : ' ' |
+while read user x uid restenavlinjen
+do
+  if [ $uid ­eq 0 ]
+  then
+    echo "$user har uid = 0"
+  fi
+done
+# 6. Skriver ut alle brukernavn som forekommer flere ganger
+echo "Brukernavn som forekommer flere ganger:"
+cat $passwd | cut ­f1 ­d: | sort | uniq ­cd
+# 7. Skriver ut alle UID som forekommer flere ganger
+echo "UID som forekommer flere ganger:"
+cat $passwd | cut ­f3 ­d: | sort ­n | uniq ­cd
+</pre>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>
+								<p>Følgende C-funksjon er gitt:</p>
+<pre class="fss">
+void min_max(int A[], int n, int min, int max)
+{
+  /* 
+   * Finner minste og største verdi i arrayen A
+   * som har lengde n. Minste verdi returneres i
+   * min, største verdi returneres i max.
+   */
+  int i;
+  min = max = A[0];
+  for (i = 1; i < n; i++)
+  {    
+    if (A[i] < min)
+      min = A[i];
+    else if (A[i] > max)
+      max = A[i];
+  }
+}
+</pre>
+								<ul>
+									<li>a) Denne funksjonen vil ikke fungere slik som beskrevet i kommentarene i koden. Hvorfor?</li>
+									<li>b) Skriv en ny versjon av funksjonen min_max som fungerer korrekt.</li>
+									<li>c) Skriv et hovedprogram som fyller en array med tilfeldige tall med verdier større enn 0 og mindre eller lik 100, og deretter tester om funksjonen min_max virker. Programmet skal skrive ut både innholdet av arrayen og resultatet fra min_max</li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li>a) Parametrene min og max verdioverføres til funksjonen. Dvs. at det opprettes lokale variable som bare får verdien til parameteren som brukes. Alle endringer skjer lokalt og har ingen effekt på variablene som brukes i et kall på funksjonen. For at funksjonen skal virke som beskrevet, må adressene (pekere) til variablene som skal endres overføres i stedet for verdiene.</li>
+									<li>
+										<p>b)</p>
+<pre class="fss">
+void min_max(int A[], int n, int *min, int *max)
+{
+  int i;
+  *min = *max = A[0];
+  for (i = 1; i < n; i++)
+  {    
+    if (A[i] < *min)
+      *min = A[i];
+    else if (A[i] > *max)
+      *max = A[i];
+  }
+}
+</pre>
+									</li>									
+									<li>
+										<p>c)</p>
+<pre class="fss">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define N 10
+void min_max(int[], int, int *, int *);
+main() 
+{
+  int A[N]; 
+  int i, min, max; 
+  for (i = 0; i < N; i++) 
+    A[i] = rand() % 100 + 1; 
+  for (i = 0; i < N; i++) 
+    printf("A[%d] = %d\n", i, A[i]); 
+  min_max(A, N, &min, &max);
+  printf("min: %d, max: %d\n", min, max);
+}
+</pre>
+									</li>									
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Hva står DocumentRoot for i Apache-sammenheng?</li>
+							<li>Starten for filområdet til webserveren – der filene som skal publiseres ligger.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du vil passordbeskytte et webområde kalt hemmelig (mappen hemmelig ligger i DocumentRoot). Hvordan kan du gjøre dette med Apache-konfigurering?</li>
+							<li>
+								<p>Kan settes opp i både en &lt;Directory&gt; seksjon i <code>httpd.conf</code> (angi katalogen som skal være passordbelagt i directory konfig), eller som en <code>.htaccess</code> fil.. Skal du bruke det siste, må <code>AllowOverride AuthConfig</code> være satt i <code>httpd.conf</code>.</p>
+								<p>Først setter du opp passordfila: <code>htpasswd ­c /var/www/passord torepeng.</code></p>
+								<p>Skriv deretter passordet inn. Opprett <code>.htaccess</code> med følgende (eller legg det i <code>&lt;Directory /var/www/html/hemmelig&gt;</code>)</p>
+<pre class="fss">
+AuthType Basic
+AuthName "Hemmelig katalog"
+AuthBasicProvider file
+AuthUserFile /var/www/passord
+Require user torepeng
+</pre>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<section>
+			<div class="row">
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>Du vil sperre et bestemt subnett ute fra en bestemt katalogstruktur på webserveren. Hvordan gjør du det?</li>
+							<li>
+<pre class="fss">
+&lt;Directory "/var/www/private/public"&gt;
+  Allow from all Deny from
+  159.39.35.0/24 (angir et helt klasse C subnet)
+&lt;/Directory&gt;
+</pre>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Du ser følgende linje i Apache-konfigurasjonen din, hva gjør den?</p>
+								<code>Redirect permanent /studentbedrift http://www.studentbedrift.no</code>
+							</li>
+							<li>Oppslag til den lokale url’en på webserven f.eks www.hiof.no/studentbedrift blir redirectet til den nye siden http://www.studentbedrift.no. I tillegg sier webserveren i fra at dette er en permanent redirect (server sender statuskode 301)</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Beskriv kort hva de forskjellige linjene i følgende direktiv gjør: </p>
+<pre class="fss">
+&lt;VirtualHost *:80&gt;
+ServerAdmin webmaster@studentbedrift.no 
+DocumentRoot /var/www/studentbedrift 
+ServerName www.studentbedrift.no 
+ErrorLog logs/studentbedrift.no ­error_log 
+CustomLog logs/studentbedrift.no ­access_log common 
+&lt;/VirtualHost&gt;
+</pre>
+							</li>
+							<li>Setter opp at virtuell host skal svare på post 80, setter variabel ServerAdmin til webmaster@studentbedrift.no, setter webområdet som skal vise innhold til filstien /var/www/studentbedrift, setter at servernavnet som apache skal svare på til www.studentbedrift.no, oppretter egne logger for den virtuelle hosten til to separate filer. Dette gjør det lett å lete etter feil og analysere besøk til denne hosten.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Vi prater ofte om ”default policy” når vi snakker om iptables. Hva menes med dette? Forklar også hva ”accept” og ”drop” betyr i forhold til dette</li>
+							<li>
+							<dl>
+								<dt>Default policy:</dt>
+								<dd>Hovedregelen for konfigurasjonen. Skal alle pakker droppes eller aksepteres som standard.</dd>
+								
+								<dt>Accept:</dt>
+								<dd>Pakker godtas i regelen</dd>
+								
+								<dt>Drop:</dt>
+								<dd>Pakker slettes i regelen, ingen tilbakemelding gis til avsender av pakken</dd>
+							</dl>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<p>Hva gjør følgende to linjer i et iptables-skript? Forklar parameterne/variablene.</p>
+<pre class="fss">
+IPT ­A FORWARD ­p tcp ­d $INT_NET ­­dport 22 ­j ACCEPT
+IPT ­t nat ­A PREROUTING ­d $EXT_IP ­p tcp ­­dport 22 ­j DNAT ­­to 192.168.1.3:22
+</pre>
+							</li>
+							<li>
+								<p>Første linje legger til en regel i iptables som sier at tcp pakker som skal inn til det interne nettet, og som skal til port 22 skal aksepteres.</p>
+								<p>Andre linje legger til en regel i iptables som router tcp trafikk mot den eksterne ip og port 22 til den interne ip adressen 192.168.1.3 sin port 22.</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du ønsker at alle nye brukere på ditt Linuxsystem skal få VI som standard teksteditor. Du vil også at de skal få en standard nettside med teksten ”Jeg har dessverre ikke oppdatert min nettside...” på adressen www.studentbedrift.no/~brukernavn . Hvordan vil du gjøre dette? Anta at Apache er satt opp til å tillate at brukere kan publisere html-filer i katalogen html­docs på sitt hjemmeområde.</li>
+							<li>Først legger til en linje med $EDITOR=VI i .bashrc i /etc/skel. Deretter oppretter du mappa html­docs i /etc/skel. Deretter lager du en index.html fil inne i html­docs mappa med innholdet ”Jeg har dess....”</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du skal slette en bruker manuelt fra systemet ditt. Hvilke filer trenger du å oppdatere for at all informasjon om brukeren skal bli borte?</li>
+							<li>Slette linjen med brukerinfo i /etc/passwd, /etc/shadow, /etc/group, /etc/gshadow. Slette hele hjemmeområdet fra /home (om det er satt som hjemmeområde). Deretter slette mail ved å slette filen /var/spool/mail/brukernavn.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du ønsker å lage en mailliste som heter medlemmer@studentbedrift.no. Enkelte av mottagerne har eksterne mailadresser, og noen er interne. Hvordan kan du gjøre dette når du er systemansvarlig for Linuxserveren som administrerer mailserveren studentbedrift.no (anta den kjører Sendmail som mailserver).</li>
+							<li>Legge til en linje I /etc/aliases på følgende måte: Medlemmer: brukernavn1, brukernavn2, brukernavn3, ekstern@ekstern.com, ekstern2@ekstern.com.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Forklar hvordan Spamassassin jobber i forhold til Sendmail, og hvordan den sjekker ut hva som er ”spam” og hva som ikke er ”spam”.</li>
+							<li>Litt forenklet: Sjekker header og body på mail etter gitte kriterier før det videresendes til lokale brukere. Beregner en score som settes for å beregne om mail er spam eller ikke. Om du setter spam grensen til for eksempel 5, vil mail med score høyere enn 5 få subject omskrevet til SPAM + subject. Du kan selvsagt legge til lokale mailadresser, og gi de minuspoeng, så du hindrer at mail fra direktør med tittel ”Viagratilbud” blir merket som spam.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du administrerer webserveren til din bedrift, og ser i loggene at mange fremdeles etterspør mappen /bilder_2014 (som ble slettet i 2015). Du ønsker i stedet at de skal nå mappen /bilder_2016 . Hvordan gjør du dette, og hva slags statuskode ønsker du at apache skal svare med når brukerne forsøker å slå opp mappa /bilder_2014 ?</li>
+							<li>
+								<code>Redirect permanent /bilder_2014 http://www.hostname.no/bilder2016</code>
+								<p>Permanent gjør at den sender rett statuskode fra APACHE også. Gjøres i httpd.conf.</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<ul class="qna">
+					<li>
+						<ul>
+							<li>Du vil sette opp to VirtualHosts på din webserver. Det er viktig at e-post til serveradmin blir sendt til forskjellige steder, og det er viktig at hvert nettsted har forskjellige logger. Hvordan kan en slik VirtualHost konfigurasjon se ut?</li>
+							<li>
+								<p>Sette opp to slike i httpd.conf:</p>
+<pre class="fss">
+&lt;VirtualHost *:80&gt;
+ServerName www.nyweb.com 
+ServerAdmin webmaster@nyweb.com 
+DocumentRoot /var/www/nyweb.com 
+ErrorLog /var/log/httpd/nyweb.com/error_log 
+CustomLog /var/log/httpd/nyweb.com/access_log custom 
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+ServerName www.nyweb2.com 
+ServerAdmin webmaster@nyweb2.com 
+DocumentRoot /var/www/nyweb2.com 
+ErrorLog /var/log/httpd/nyweb2.com/error_log 
+CustomLog /var/log/httpd/nyweb2.com/access_log custom 
+&lt;/VirtualHost&gt;
+</pre>
+								<p>Legg merke til at det er nyweb2 som er satt som navn på den andre virtuelle hosten.</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Serveren går veldig tregt, og du mistenker at det er noen som prøver å "bryte seg inn" på din webserver. Hvordan kan du sjekke dette litt nærmere?</li>
+							<li>Gå igjennom logger (/var/log/apache2 eller /var/log/httpd) til apache og se etter mistenkelige kode kjørt mot webserver. Sjekk load på maskinen.</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>Du ønsker å lage en mailliste som heter alle_studenter@skolen.no . Enkelte av studentene har eksterne mailadresser, og noen er interne. Hvordan kan du gjøre dette når du administrerer en Linuxserver med Sendmail installert?</li>
+							<li>
+								<p>Legg til en linje I /etc/aliases på følgende måte:</p>
+								<code>alle_studenter: brukernavn1, brukernavn2, brukernavn3, ekstern@ekstern.com, ekstern2@ekstern.com.</code>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h1>Ord og utrykk</h1>
+				<dl>
+					<dt>Working directory</dt>
+					<dd>Den filkatalogen bruker står i, eller programmet/prosessen er i</dd>
+
+					<dt>Standard innenhet og standard utenhet</dt>
+					<dd><strong>stdin</strong>: Default kilde (fil) som data leses fra. Stdin er i utgangspunktet tastaturet, eller
+					egentlig den vicefilen som representerer tastaturet.</dd>
+					<dd><strong>stdout</strong>: Default medium (fil) som data skrives til. Stdout er i utgangspunktet skjermen.</dd>
+
+					<dt>Filterprogram</dt>
+					<dd>Program som leser tekstlige data linje for linje fra stdin, og skriver tekstlig output linjevis til stdout.</dd>
+
+					<dt>Redirigering av I/O.</dt>
+					<dd>Tegnene '<' og '>' brukes til å redefinere hhv. stdin og stdout til å være en fil i stedet for skjermen.
+					'>>' (append) gjør at utskrift til stdout legges til på slutten av en eksisterende fil.</dd>
+
+					<dt>Piping (eller "rørlegging")</dt>
+					<dd>Brukes for interprosesskommunikasjon mellom to filterprogrammer. angis med tegnet '|' mellom navnene på
+					programmene. Gjør at stdout fra et filter leses som stdin fra neste filter.</dd>
+				</dl>
+			</div>
 		</section>
 	</div>
 </body>
