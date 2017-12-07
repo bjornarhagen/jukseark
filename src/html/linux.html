@@ -1387,7 +1387,7 @@ fi
 				<dl>
 					<dt><h2>While loop</h2></dt>
 					<dd class="clear">
-						<div class="fl w5">
+						<div class="fl w3">
 							<strong>Echo hello 4 ganger</strong><br>
 <pre class="fss">
 i="0"
@@ -1401,13 +1401,26 @@ Kan også skrives uten ((i++)) inni loopen:
 while [[ i++ -lt 4 ]];
 </pre>
 						</div>
-						<div class="fl w5">
+						<div class="fl w3">
 							<strong>Lag en ny fil hvert 5. min</strong><br>
 <pre class="fss">
 while true; do
 	touch filename-'date +%s'.txt
 	sleep 300
 done
+</pre>
+						</div>
+						<div class="fl w4 i3">
+							<strong>while read</strong><br>
+<pre class="fss">
+echo '1 2 3 4 5 6' | while read a b c
+do
+  echo $a $b $c
+done
+
+$a blir 1
+$b blir 2
+$c blir 3 4 5 6
 </pre>
 						</div>
 						<hr>
