@@ -13,10 +13,156 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
+				<h1>Heltall</h1>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">\vec{Z} = \{ ... -2, -1, 0, 1, 2 ... \}.</span></p></li>
+					<li><p>De naturlige tall <span class="katex">\mathbb{N} = \{ 0, 1, 2, 3, ...\}</span></p></li>
+				</ul>
+
+				<h3>Divisjon</h3>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">6i 3 = 2</span> med 0 i rest</p></li>
+					<li><p><span class="katex">7i3 = 2</span> med 1 i rest</p></li>
+				</ul>
+
+				<h4>Definisjon - delbarhet</h4>
+				<p>Dersom a og b er heltall med <span class="katex">b \ne 0</span>, sier vi at b deler a dersom det finnes et heltall c slik at <span class="katex">a = b \times c</span> og vi skriver da <span class="katex">b \mid a</span>. Da sier vi at b er en faktor i a og at a er et multiplum av b.</p>
+				<p><strong>Eksempel</strong> <span class="katex">4|20</span> fordi <span class="katex">20 \div 4 = 5</span> med 0 i rest. <span class="katex">20 = 4 \times 5</span></p>
+
+				<h4>Teorem</h4>
+				<p>Gitt <span class="katex">a,b,c \in \vec{Z}</span></p>
+				<ol class="inline">
+					<li><p>dersom <span class="katex">c \mid a</span> og <span class="katex">c \mid b</span>, så vil også <span class="katex">c \mid (a+b)</span></p></li>
+					<li><p>dersom <span class="katex">c \mid a</span> vil også <span class="katex">c \mid (a \times b)</span> for alle b</p></li>
+					<li><p>dersom <span class="katex">c \mid b</span> og <span class="katex">b \mid a</span>, så vil også <span class="katex">c \mid a</span></p></li>
+				</ol>
+
+				<h3>Primtall</h3>
+				<p>Et positivt heltall større enn 1, kalles et primtall dersom de eneste positive faktorene i p, er 1 og p.</p>
+
+				<h3>Faktorisering - skrive som produkt av faktor</h3>
+				<ul class="nostyle inline">
+					<li><strong>Eks:</strong></li>
+					<li><p><span class="katex">420 = 2 \times 210</span></p></li>
+					<li><p><span class="katex">420 = 4 \times 105</span></p></li>
+					<li><p><span class="katex">\underbrace{420 = 2 \times 2 \times 3 \times 5 \times 7}_\text{primtallsfaktorisering}</span></p></li>
+				</ul>
+
+				<h3>Aritmetikkens fundamentalsteorem</h3>
+				<p>Ethvert positivt heltall større enn 1 kan skrives entydig som produkt av primtall <span class="katex">\rightarrow</span> Goldbachs formodning.</p>
+				<p>Ethvert partall større enn 2 kan skrives som summen av to primtall.</p>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">4 = 2+2</span></p></li>
+					<li><p><span class="katex">6 = 3+3</span></p></li>
+					<li><p><span class="katex">8 = 5+3</span></p></li>
+					<li><p><span class="katex">10 = 5+5</span></p></li>
+					<li><p><span class="katex">12 = 5+7</span></p></li>
+				</ul>
+
+				<h3>Divisjonsalgoritme og restklasser</h3>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">23 \div 3 = 7 \underset{\hookrightarrow \text{kvotient}}{}</span></p></li>
+					<li><p><span class="katex">21</span></p></li>
+					<li><p><span class="katex">2 \underset{\hookrightarrow \text{rest (skal være positiv)}}{}</span></p></li>
+				</ul>
+				<p>Kan skrive <span class="katex">23 = 7 \times 3 + 2</span></p>
+
+				<h4>Definisjon - kvotient og rest</h4>
+				<p>La a være et heltall og b et positivt heltall. Dersom <span class="katex">a = qb + r</span> der <span class="katex">r = 0, 1, 2, ..., b-1</span> kalles <span class="katex">q</span> kvotienten og <span class="katex">r</span> resten når <span class="katex">a</span> divideres med <span class="katex">b</span></p>
+
+				<h3>Kongruens</h3>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">\bold{5}  \div 5 = 1</span> med <span class="katex">0</span> i rest</p></li>
+					<li><p><span class="katex">\bold{10} \div 5 = 2</span> med <span class="katex">0</span> i rest</p></li>
+					<li><p><span class="katex">\bold{15} \div 5 = 3</span> med <span class="katex">0</span> i rest</p></li>
+					<li><p><span class="katex">\bold{6}  \div 5 = 1</span> med <span class="katex">1</span> i rest</p></li>
+					<li><p><span class="katex">\bold{11} \div 5 = 2</span> med <span class="katex">1</span> i rest</p></li>
+					<li><p><span class="katex">\bold{16} \div 5 = 3</span> med <span class="katex">1</span> i rest</p></li>
+				</ul>
+				<p>6, 11 og 16 er kongruente med modulo 5. <span class="katex">11 \equiv 6 \mod 5</span> fordi <span class="katex">11 \div 5</span> gir samme rest som <span class="katex">6 \div 5</span></p>
+				<h4>Definisjon - kongruens</h4>
+				<p>La <span class="katex">n</span> være et positivt heltall. Dersom <span class="katex">a</span> og <span class="katex">b</span> er to heltall som gir samme rest ved divisjon med <span class="katex">n</span>, så skriver vi <span class="katex">a \equiv b \mod n</span> (leses: <span class="katex">a</span> er kongruent med <span class="katex">b</span> modulus n). Dette innebærer også at <span class="katex">n \mid (a-b)</span>. Alle heltall som er kongruente med modulo <span class="katex">n</span> utgjør en restklasse modulo <span class="katex">n</span>.</p>
+				<ul class="nostyle inline">
+					<li><p><strong>Eks:</strong></p></li>
+					<li><p><span class="katex">11 \equiv 6 \mod 5</span></p></li>
+					<li><p><span class="katex">11 - 6 = 5</span></p></li>
+					<li><p>Altså: <span class="katex">5 \mid (11-6)</span></p></li>
+				</ul>
+				<p>Kan brukes for å sjekke om to tall er kongruente</p>
+				<ul class="nostyle inline">
+					<li><p><strong>Eks:</strong></p></li>
+					<li><p>Er <span class="katex">43 \equiv 7 \mod 4</span>?</p></li>
+					<li><p><span class="katex">4 \mid (43-7)</span>?</p></li>
+					<li><p><span class="katex">4 \mid 36 \quad \rightarrow</span> <span class="bb">Ja</span></p></li>
+				</ul>
+
+				<h4>Fermats lille teorem</h4>
+				<p>La <span class="katex">p</span> være et primtall. Dersom <span class="katex">a</span> er et heltall så er <span class="katex">a^p \equiv a \mod p</span></p>
+				<ul class="nostyle inline">
+					<li><p><span class="katex">p = 3, \quad a= 4</span></p></li>
+					<li><p><span class="katex">a^p = 4^3 = 64</span></p></li>
+					<li><p><span class="katex">64 \equiv 4 \mod 3</span></p></li>
+					<li><p><span class="katex">(3 \mid (64-4))</span></p></li>
+				</ul>
+
+				<h3>Premutasjoner og binomialformelen</h3>
+				<p>Premutasjon: omordning av elementer</p>
+				<ul class="nostyle inline">
+					<li><p><strong>Eks:</strong> Angi alle premutasjon av <span class="katex">a</span>, <span class="katex">b</span>, og <span class="katex">c</span></p></li>
+					<li><p><span class="katex">a\ b\ c</span></p></li>
+					<li><p><span class="katex">a\ c\ b</span></p></li>
+					<li><p><span class="katex">b\ a\ c</span></p></li>
+					<li><p><span class="katex">c\ a\ b</span></p></li>
+					<li><p><span class="katex">c\ b\ a</span></p></li>
+					<li><p><span class="katex">b\ c\ a</span></p></li>
+				</ul>
+				<p>Antall permutasjoner av <span class="katex">n</span> elementer er <span class="katex">n!</span>. Antall permutasjoner av strengen <span class="katex">a\ b\ c</span> er følgelig <span class="katex">3!</span> (fordi strengen har 3 elementer). <span class="katex">3! = 3 \times 2 \times 1 = 6</span></p>
+				<ul class="nostyle inline">
+					<li><p><strong>Eks:</strong> På hvor mange måter kan 11 drakter fordeles på 11 folk?</p></li>
+					<li><p><span class="katex">11! = 11 \times 10 \times 9 \times ... \times 2 \times 1</span></p></li>
+				</ul>
+				<p><span class="katex">P(n,k) = \underbrace{n(n-1) \times ... \times (n-k+1)}_\text{k-faktorer} = \dfrac{n!}{(n-k)!}</span></p>
+				<p><strong>Eks:</strong> <span class="katex">P(7,4) = 7 \times 6 \times 5 \times 4 = \dfrac{7!}{(7-4)!} = \dfrac{7!}{3!} = \dfrac{7 \times 6 \times 5 \times 4 \times \ \cancel{3!}}{\cancel{3!}}</span></p>
+				<p><strong>Eks:</strong> En frimerkeklubb på 20 personer skal velge et styre bestående av leder, nestleder, sekretør og kasserer. Hvor mange ulike styrer kan man velge blandt? <span class="katex">P(20, 4) = \dfrac{20!}{(20-4)!} = ... = 20 \times 19 \times 18 \times 17</span></p>
+
+				<h3>K - Kombinasjoner</h3>
+				<p>Rekkefølgen er uten betydning. <strong>Eks:</strong></p>
+				<ul class="nostyle inline">
+					<li><p>Bokstavene a, b, c. 2-kombinasjoner av disse:</p></li>
+					<li><p>ab (samme som ba)</p></li>
+					<li>ac</li>
+					<li>bc</li>
+				</ul>
+				<p>Skrices <span class="katex">C(3,2)</span> eller mer vanlig <span class="katex">\binom{3}{2}</span></p>
+
+				<h4>Generelt</h4>
+				<p><span class="katex">C(n,k) = \binom{n}{k} = \dfrac{n!}{(n-k)!k!}</span></p>
+
+				<p>Velg k elementer fra en mengde med n elementer</p>
+				<table>
+					<tbody>
+						<tr>
+							<th></th>
+							<th>Ordnet utvalg</th>
+							<th>Uordnet utvalg</th>
+						</tr>
+						<tr>
+							<th>Med tilbakelegging</th>
+							<td><p class="tc"><span class="katex">n^t</span></p></td>
+							<td><p class="tc"><span class="katex">\dfrac{(n+k-1)!}{(n-1)!k!}</span></p></td>
+						</tr>
+						<tr>
+							<th>Uten tilbakeleggning</th>
+							<td><p><span class="katex">\underbrace{P(n,k) = \dfrac{n!}{(n-k)!}}_\text{utvalg til styre}</span></p></td>
+							<td><p><span class="katex">\underbrace{\binom{n}{t} = C(n,k) = \dfrac{n!}{(n-k)!k!}}_\text{lotto, komite}</span></p></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<h3>Binomialformelen</h3>
 			</div>
 		</section>
 		<section>
