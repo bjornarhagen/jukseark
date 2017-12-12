@@ -133,7 +133,7 @@
 					<li>ac</li>
 					<li>bc</li>
 				</ul>
-				<p>Skrices <span class="katex">C(3,2)</span> eller mer vanlig <span class="katex">\binom{3}{2}</span></p>
+				<p>Skrives <span class="katex">C(3,2)</span> eller mer vanlig <span class="katex">\binom{3}{2}</span></p>
 
 				<h4>Generelt</h4>
 				<p><span class="katex">C(n,k) = \binom{n}{k} = \dfrac{n!}{(n-k)!k!}</span></p>
@@ -163,10 +163,76 @@
 		<section>
 			<div class="row">
 				<h3>Binomialformelen</h3>
+				<ul class="nostyle i0">
+					<li><p><strong>Eksempel</strong></p></li>
+					<li><p><span class="katex">(x+y)^4 = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4 </span></p></li>
+					<li><p>Koeffisientene fra hvert ledd kan man finne slik:</p></li>
+					<li><p><span class="katex">Foran: x^4: \binom{4}{0} = \dfrac{4!}{(4-0)!0!} = \dfrac{4!}{4! \cdot 1} = 1</span></p></li>
+					<li><p><span class="katex">Foran: x^3y^4: \binom{4}{1} = \dfrac{4!}{(4-1)!1!} = \dfrac{4!}{3! \cdot 1} = \dfrac{4 \cdot \cancel{3!}}{\cancel{3!}}= 4</span></p></li>
+					<li><p><span class="katex">Foran: x^2y^2: \binom{4}{2} = \dfrac{4!}{(4-2)!2!} = \dfrac{4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1 \cdot 2 \cdot 1} = 3 \cdot 2 = 6</span></p></li>
+					<li><p><span class="katex">Foran: xy^3: \binom{4}{3} = \dfrac{4!}{(4-3)!3!} = 4</span></p></li>
+					<li><p><span class="katex">Foran: y^4: \binom{4}{4} = \dfrac{4!}{(4-4)!4!} = \dfrac{1}{0!} = \dfrac{1}{1} = 1</span></p></li>
+					<li><p><strong>Generelt:</strong> La x og y være variable og n et positivt heltall. Da er</p></li>
+					<li><p><span class="katex">(x+y)^n = \binom{n}{0} \cdot x^n + \binom{n}{1}x^{n-1}y + \binom{n}{2}x^{n-2}y^2 +...+ \binom{n}{n-1}xy^{n-1} + \binom {n}{n}y^n</span></p></li>
+				</ul>
+				<h3>Dirichets skuffeprinsipp</h3>
+				<ul class="nostyle i0">
+					<li><p>Dersom m objekter skal plasseres i n skuffer der m > n, vil det være minst en skuff som inneholder minst to objekter.</p></li>
+					<li><p><strong>Eksempel: Svenske bilskilt</strong></p></li>
+					<li><p>Tre bokstaver og tre siffer (ABC497). Hvor mange biler må det være på en parkeringsplass for at man skal være sikker på at minst to har samme tall på skiltet?</p></li>
+					<li><p>Antall forskjellige tall: 001-999 = 999 tall</p></li>
+					<li><p>Hvis parkeringsplassen inneholder minst 1000 biler, vil minst to biler ha samme tall (sifferkombinasjon) på skiltet </p></li>
+				</ul>
+				<ul class="nostyle i0">
+					<h1>Mengder og relasjoner</h1>
+					<h4>Mengdebegrepet</h4>
+					<li><p>Rekkefølgen elementene listet i er uten betydning. Antall ganger et element listes er uten betydning. For å angi at et objekt
+						er element i en mengde, benyttes symbolet <span class="katex">\in</span></p>
+					</li>
+					<h4>Mengdebyggeren</h4>
+					<li><p>Generelt<span class="katex">: A = \{ x | P(x) \}</span></p></li>
+					<li><p>"A" er mengden av alle element x som er slik at P(x) er oppfyllt/sant</p></li>
+					<li><p><span class="katex"> S = \{ x | x \equiv 0 (mod 2) \} = \{ ..., -2, 0, 2, 4, ... \}</span></p></li>
+				</ul>
+					<ul class="nostyle i0">
+						<h4>Delmengde</h4>
+						<li><p><span class="katex">A \subseteq A</span> Alle mengder er en delmengde av seg selv</p></li>
+						<li><p>Dersom A <span class="katex">\subseteq</span> B og vi ønsker å tydliggjøre at A<span class="katex">\ne</span> B, kan vi skrive A <span class="katex">\subset</span> B (ekte delmengde)</p></li>
+						<h4>Mengdelikhet</h4>
+						<li><p>Dersom A <span class="katex"> \subseteq</span> B og samtidig B <span class="katex">\subseteq</span> A, så er A = B</p></li>
+						<h4>Kardinalitet</h4>
+						<li><p>For endelige mengder (mengde med endelig antall elementer) er kardinaliteten antall elementer i mengden. Skrives: |A|</p></li>
+						<li><strong><p>Eksempel</p></strong><span class="katex">A=\{a,b,c\} \ , |A| = 3</span></li>
+						<h4>Potensmengder</h4>
+						<li><p>Potensmengden til en mengde A er mengden av alle delmengder til A. Den betegnes P(A)</p></li>
+						<li><strong><p>Eksempel</p></strong><span class="katex">A=\{a,b,c\} \ , P(A)=\{ \phi, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\},</span></li>
+						<li><span class="katex">|P(A)|=8=2^3</span>, <strong>Generelt:</strong> Hvis <span class="katex">|A|=n, så\ er |P(A)| = 2^n</span></li>
+						<h4>Disjunkte</h4>
+						<li><p>To mengder M og N som ikke har felles elementer, altså der <span class="katex">M \cap  N = \phi</span> kalles disjunkte.</p></li>
+						<h4>Inklusjons- og eksklusjonsprinsippet</h4>
+						<li><p>Når man skal regne ut |A|+|B| teller man med elementene i A<span class="katex">\cap</span>B to ganger. Man må derfra trekke fra disse en gang: </p></li>
+						<li><span class="katex">|A \cup B| = |A| + |B| - |A \cap B|</span></li>
+						<li><p>Utvidet til 3 mengder:</p></li>
+						<li><span class="katex">|A \cup B \cup C| = |A| + |B| +|C| - |A \cap B| - |A \cap C | - | B \cap C | + | A \cap B \cap C | </span></li>
+						<li><p>Kun hva alle mengdene har til felles (snittet):</p> <span class="katex">|A \cap B \cap C| = |A \cup B \cup C| - |A| - |B| - |C| + |A \cap B| + |A \cap C| + |B \cap C| </span></li>
+						<h2>!! Hente eks. fra eksamen</h2>
+					</ul>
+					<ul class="nostyle i0">
+						<h4>Kartetiske produkter</h4>
+						<li><p>Ordnet par: et objekt på formen (a,b) hvor a <span class="katex">\in</span> A, og b <span class="katex">\in</span> B. A og B er mengder.
+						 Mengden av alle ordnede par på denne formen, kalles det kartetiske produktet av A og B, og skrives A x B</p></li>
+						<li><p><strong>Eksempel</strong></p></li>
+						<li><span class="katex">A=\{0,1,2\} \ , B=\{3,5\}</span></li>
+						<li><span class="katex">A \times B=\{ (0,3), (0,5), (1,3), (1,5), (2,3), (2,5) \}</span></li>
+						<li><strong><p>Generelt</p></strong><p>dersom A<span class="katex">\ne</span>B og a<span class="katex">\ne</span>b:</p></li>
+						<li><span class="katex">(a,b) \ne (b,a) \ og\ A \times B \ne B \times A</span></li>
+						<li><p>Vi kan ha kartetiske produketer av mengde med seg selv</p> <span class="katex">A \times A = A^2 \ ,\ A \times A \times A = A^3</span></li>
+					</ul>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<h3>Relasjoner</h3>
 			</div>
 		</section>
 	</div>
