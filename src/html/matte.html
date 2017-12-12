@@ -253,10 +253,65 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
+				<h1>Differensligninger</h1>
+				<h3>Lineære, homogene differensligninger med konstante koeffisienter</h3>
+				<h4>1. ordens ligning</h4>
+				<ul class="nostyle i0">
+					<li><p>Anta at løsningen er på formen <span class="katex">y_n = A \lambda^n</span>, hvor <span class="katex">\lambda</span> er et tall og A er et tall.</p></li>
+					<li><span class="katex">\lambda</span> finner man slik: <span class="katex">a \lambda + b = 0 \ , \lambda = \dfrac{-b}{a}</span></li>
+					<li><strong><p>Eksempel</p></strong></li>
+					<li><span class="katex">4y_n - 5y_{n-1} = 0 </span></li>
+					<li><span class="katex">a=4, b=5</span></li>
+					<li><span class="katex">\lambda = \dfrac{-5}{4} = 1,2</span></li>
+					<li><p>Løsning <span class="katex">y_n = A \cdot 1,2^n</span> (Konstanten A finner man dersom man har en startbetingelse)</p></li>
+					<li><span class="katex">y_0=50 \ , \ (n=0)</span></li>
+					<li><span class="katex">A \cdot 1,2^0 = 50 \ , \ A=50 </span></li>
+					<li><span class="katex">y_n=50 \cdot 1,2^n</span></li>
+					<li><p>Ofte løser vi ligningen på følgende måte: Erstatt <span class="katex">y_n</span> med <span class="katex">  \lambda , og \ y_{n-1} </span> med <span class="katex"> \lambda^0</span> (=1)</p></li>
+					<li><strong>Eksempel</strong> <span class="katex">4y_n -5y_{n-1} = 0</span></li>
+					<li><span class="katex">4 \lambda - 5 = 0 \ , \lambda = \dfrac{5}{4}</span></li>
+				</ul>
+				<ul class="nostyle i0">
+					<h4>2. ordens ligninger</h4>
+					<li><p>Generell 2. ordens ligning: <span class="katex">ay_n + by_{n-1} + cy_{n-2} = 0</span></p></li>
+					<li><p>Karakteristisk ligning: <span class="katex">a \lambda^2 + b \lambda + c = 0</span> Finner lambda ved hjelp av abc-formelen:</p></li>
+					<li><p>Karakteristisk rot: <span class="katex">\lambda = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}</span></p></li>
+					<li><strong>3 tilfeller:</strong></li>
+					<li><p>1. To reelle verdier for <span class="katex">\lambda, \lambda_1 og \lambda_2.</span> Da er løsningen av differensligningen</p></li>
+					<li><span class="katex">y_n = A \lambda_1^n + B \lambda_2^n</span></li>
+					<li><p>2. En reell rot, <span class="katex">\lambda.</span> Løsning: </p></li>
+					<li><span class="katex">y_n = A \lambda^n + Bn \lambda^n</span></li>
+					<li><p>3. To komplekse røtter <span class="katex"> \lambda_1 og \lambda_2.\ \lambda_1 = \overline{\lambda_2} = re^{i \varphi}</span> Løsning:</p></li>
+					<li><span class="katex">y_n = r^n(Acos(n \varphi) + Bsin(n \varphi)), \ (r = \sqrt{a^2 + b^2}), \ (\varphi = \arccos \dfrac{a}{r})</span></li>
+					<li><p>(Se komplekse tall)</p></li>
+					<li><p>I alle de tre tilfellene er A og B ukjente konstanter som kan bestemmes desom vi kjenner startverdiene <span class="katex">(y_0 og y_1)</span></p></li>
+					<h2>Eksempler fra eksamen</h2>
+					<li><p><strong>Generell løsning:</strong> løsning som inneholder ukjente konstanter.</p></li>
+					<li><p><strong>Partikulær løsning:</strong> en løsning uten ukjente konstanter.</p></li>
+				</ul>
+				<ul class="nostyle i0">
+					<h3>Linære inhomogene differensligninger med konstante koeffisienter</h3>
+					<li><p>Inhomogen ligning:</p><span class="katex">ay_n + by_{n-1} + cy_{n-2} = F_n</span></li>
+					<li><p>Løsningen av denne er løsningen av den tilhørende homogene ligningen (THL), <span class="katex">y_n^{(h)}</span> pluss en partikulær løsning av den inhomogene ligningen, <span class="katex">y_n^{(p)}</span></p></li>
+					<li><span class="katex">y_n = y_n^{(h)} + y_n^{(p)}</span></li>
+					<li><strong>THL: </strong> <span class="katex">ay_n + by_{n-1} + cy_{n-2} = 0</span></li>
+					<li><p><strong>En partikulær løsning</strong> av den inhomogene ligningen finner vi ved å anta at den er på samme form som høyresiden, Fn, men med ubestemte konstanter. Sett dette uttrykket inn i differensligningen og bestem på den måten konstantene.</p></li>
+					<h4>Hovedregler</h4>
+					<li><p>1. Dersom Fn er en konstant, bruk <span class="katex">y_n^{(p)}</span>=K</p></li>
+					<li><p>2. Dersom Fn er et polynom av grad r, <span class="katex">F_n = c_rn^r + c_{r-1}n^{r-1} + ... + c_1n + c_0</span>, hvor c-ene er tall, bruk: <span class="katex">y_n^{(p)} = K_rn^r + K_{r-1}n^{r-1} + ... + K_1n + K_0</span>. Merk at man må ha med alle ledd selv om noen av c-ene er 0.</p></li>
+					<li><p>3. Dersom <span class="katex">F_n = C \cdot \alpha^n</span> (F.eks. <span class="katex">F_n = 3 \cdot 2^n</span>). Bruk <span class="katex">y_n^{(p)}=K \cdot \alpha^n</span>. (Altså <span class="katex">y_n^{(p)}=K \cdot 2^n</span>)</p></li>
+					<li><p>4. Dersom <span class="katex">F_n = c_rn^r \alpha^n + c_{r-1}n^{r-1} \alpha^n + ... + c_1n \alpha^n + c_0 \alpha^n</span>. Bruk</p></li>
+					<li><p><span class="katex">y_n{(p)} = (K_rn^r + K_{r-1}n^{r-1} +...+ K_0) \alpha^n</span>. Også her må man ha med alle leddene selv om noen av c-ene er 0.</p></li>
+					<li><strong>Ekstraregel:</strong> Dersom løsningen ikke funker, gang med n og prøv igjen. Dette skjer når den partikulære løsningen vi normalt sett ville forsøkt oss med, allerede finnes i løsningen av THL, <span class="katex">y_n^{(p)}</span></li>
+					<h2>Eksempel fra eksamen</h2>
+				</ul>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<ul class="nostyle i0">
+					<h4>Matriser</h4>
+				</ul>
 			</div>
 		</section>
 		<section>
