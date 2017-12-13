@@ -82,9 +82,9 @@ hr {
 .tc { text-align: center  !important; }
 
 /* Font sizes */
-.fss { font-size: 0.8em; }
-.fsm { font-size: 1.2em; }
-.fsl { font-size: 1.5em; }
+.fss { font-size: 0.8em !important; }
+.fsm { font-size: 1.2em !important; }
+.fsl { font-size: 1.5em !important; }
 
 /* Borders */
 .bt { border-top:    1px solid gray; padding-top:    1px; }
