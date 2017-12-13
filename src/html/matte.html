@@ -252,13 +252,76 @@
 				</ul>
 				<ul class="nostyle i0">
 					<li><p><strong>Ekvivalensklasser</strong></p></li>
+					<li><p><span class="katex">a \equiv b \mod 5</span></p></li>
 					<li><p><span class="katex">[0] = \{ \dots , -10, -5, 0, 5, 10, 15, \dots \}</span></p></li>
 					<li><p><span class="katex">[1] = \{ \dots , -9, -4, 1, 6, 11, 16, \dots \}</span></p></li>
 					<li><p><span class="katex">[2] = \{ \dots , -8, -3, 2, 7, 12, 17, \dots \}</span></p></li>
 					<li><p><span class="katex">[3] = \{ \dots , -7, -2, 3, 8, 13, 18, \dots \}</span></p></li>
 					<li><p><span class="katex">[4] = \{ \dots , -6, -1, 4, 9, 14, 19, \dots \}</span></p></li>
 					<li><p><span class="katex">[5] = [0]</span></p></li>
+					<li><p>Disse ekvivalensklassene kalles restklasser modulo 5.</p></li>
+					<li><p>Ekvivalensklassene er parvis disjunkte og deler inn domenet i partisjoner</p></li>
 				</ul>
+
+				<h3>Delvis ordning (partialordning)</h3>
+				<ul class="nostyle inline">
+					<li><p>Dersom en relasjon R på en mengde A er</p></li>
+					<li><p>- refleksiv</p></li>
+					<li><p>- antisymmetrisk</p></li>
+					<li><p>- transitiv</p></li>
+					<li><p>kalles relasjonen en delvis ordning</p></li>
+				</ul>
+				<p>Mengden <span class="katex">A</span> med en relasjon <span class="katex">R</span>, som er delvis ordrnet, kalles en delvis ordnet mengde, og betegnes <span class="katex">(A,R)</span></p>
+				<p>Dersom <span class="katex">R</span> er en delvis ordning på <span class="katex">A</span> og <span class="katex">(x,y) \in R \ (x\ R\ y)</span>, så sier vi at <span class="katex">x</span> er en forgjenger til <span class="katex">y</span>, og <span class="katex">y</span> er en etterfølger til <span class="katex">x</span>. Vi skriver dette slik <span class="katex">x \preceq y</span>. Dersom <span class="katex">x \preceq y</span> og <span class="katex">x \neq y</span> så kan vi skrive <span class="katex">x \prec y</span></p>
+
+				<h3>Hasse-diagram</h3>
+				<div class="clear">
+					<div class="fl w5">
+						<p>En ikke-rettet graf hvor nodene representerer elementene i den ordnede mengden, og plassering av nodene avgir hva som er forgjenger og etterfølger (forgjenger plasseres nedenfor etterfølger). Umiddel forgjenger til element forbindes med en kant.</p>
+						<ul class="nostyle i0">
+							<li><p><strong>Eks:</strong></p></li>
+							<li><p><span class="katex">A = \{ 1, 2, 3, 6, 12, 18 \} \quad R = \Bigg\{ (x,y) \Bigg| x \mid y \Bigg\}</span></p></li>
+							<li><p><span class="katex">R = \Big\{</span> (1, 1), (1, 2), (1, 3), (1, 62), (1, 12), (1, 18), (2, 2), (2, 6), (2, 12), (2, 18), (3, 3), (3, 6), (3, 12), (3, 18), (6, 6), (6, 12), (6, 18), (12, 12), (18, 18)<span class="katex">\Big\}</span></p></li>
+						</ul>
+					</div>
+					<div class="fr w5">
+						<img src="https://i.xdh.no/09a0727a9467">
+						<p class="tc fss">R som en rettet graf</p>
+					</div>
+				</div>
+				<p>Tegn Hasse-diagrammet for <span class="katex">(A, R) \rightarrow</span> kun for delvis ordnede mengder. Vi kan her ta utgangspunkt i den rettede grafen, og fjerne ting steg for steg</p>
+				<ol>
+					<li><p>Fjerner først refleksive kanter (piler fra et element til seg selv)</p></li>
+					<li><p>Vi vet at relasjonen er transitiv (fordi det er en delvis ordning). Vi kan derfor fjerne de kanter som vi vet må være der fordi R er transitiv.</p></li>
+					<li><p>Ordne nodene slik at alle piler peker oppover</p></li>
+					<li><p>Pilenes retning gir nå ikke lenger noe informajson, og retningene på pilene fjernes.</p></li>
+				</ol>
+				<ul class="inline nostyle tc">
+					<li><p>1</p></li>
+					<li><p>2</p></li>
+					<li><p>3</p></li>
+					<li><p>4</p></li>
+				</ul>
+				<div class="clear">
+					<div class="fl w6">
+						<img class="fl w5" src="https://i.xdh.no/f6ed0f5a28e3">
+						<img class="fl w5" src="https://i.xdh.no/63825c9dfb8b">
+						<p class="fl w10">Hasse-diagrammet gir samme informasjon som den rettede grafen. Vi ser f.eks at 1 er forgjenger til alle andre elementer, men 1 er umidelbar forgjenger til 2 og 3. 1 kalles det minimale elementet. 12 og 18 er maksimale elementer.</p>
+					</div>
+					<div class="fl w4">
+						<img class="fl w5" src="https://i.xdh.no/16d2b901f4f4">
+						<img class="fl w5" src="https://i.xdh.no/f0c9b85ecab1">
+					</div>
+				</div>
+
+				<h3>Totalordning</h3>
+				<p>Begrepet <em>delvis ordning</em> brukes fordi ikke alle elementene nødvendigvis har relasjon. F.eks er 2 og 3 i eksempelet usammenlignbare, dvs. vi har verken <span class="katex">2 \preceq 3</span> eller <span class="katex">3 \preceq 2</span>. (hverken (2,3) eller (3,2) er element i relasjonsmengden.</p>
+				<p>En delvis ordning hvor alle par er sammenlignbare, kalles en totalordning.</p>
+				<p><strong>Eksempler på totalordning</strong></p>
+				<ol>
+					<li><p><span class="katex">\preceq</span> på <span class="katex">\mathbb{Z}</span> (har tidligere set på at dette er en delvis ordning). To tall kan alltid sammenlignes</p></li>
+					<li><p>Ordningen av ord i en ordbok</p></li>
+				</ol>
 			</div>
 		</section>
 	</div>
