@@ -368,7 +368,64 @@
 				</ul>
 				<ul class="nostyle i0">
 					<h4>Isomorfi</h4>
-					
+					<li><p><strong>Definisjon</strong> La <span class="katex">G_1=(V_1, E_1) \ og G_2=(V_2, E_2)</span> være to enkle grafer. En funksjon <span class="katex">f: V_1 \rightarrow V_2</span> kalles en isomorfi dersom:</p></li>
+					<li><p>1. f er injektiv</p></li>
+					<li><p>2. f er surjektiv</p></li>
+					<li><p>3. u og v er naboer i <span class="katex">G_1</span>, hvis og bare hvis f(u) og f(v) er naboer i <span class="katex">G_2</span>, for alle <span class="katex">u,v \in V_1</span></p></li>
+					<li><p>Dersom det finnes en isomorfi sies grafene å være isomorfe.</p></li>
+					<h2>EKSEMPEL ISOMORFI, EKSAMEN http://www.it.hiof.no/mit/mit_eksamen_des10_losning.pdf</h2>
+				</ul>
+				<ul class="nostyle i0">
+					<h4>Eulergraf, eulersyklus</h4>
+					<li><p>En syklus som traverserer alle kantene i en graf eksakt én gang, kalles en eulersyklus. En graf hvor dette lar seg gjøre, kalles en eulergraf. En graf <span class="katex">G=(V,E)</span> er en eulergraf hvis og bare hvis G er sammenhengende og graden til hver node er et partall.</p></li> 
+					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des16_losning.pdf</h2>
+					<h4>Hamiltonsyklus, hamiltongraf</h4>
+					<li><p>En syklus som går igjennom hver node i grafen eksakt én gang kalles en hamiltonsyklus. En graf hvor dette lar seg gjøre, kalles en hamiltongraf. (Må bare prøve seg frem)</p></li>
+					<li><strong>En komplett graf</strong> er en graf hvor alle noder er nabo med alle andre noder. En komplett graf er en hamiltongraf.</li>
+				</ul>
+				<ul class="nostyle i0">
+					<h3>Trær</h3>
+					<li><p>Et tre er en sammenhengende urettet graf uten sykluser. Dersom T er et tre med n noder & k kanter, så er k=n-1</p></li>
+					<li><p><strong>Spenntre</strong> La G være en enkel graf. Et spenntre T til G er en subgraf til G som inneholder alle nodene i G og er et tre. Merk: en graf kan ha mange spenntrær. Ofte knytter man en vekt/kost til hver kant. Det spenntre som totalt sett gir minimal kost/vekt kalles et minimalt spenntre. Vi bruker Krusklas algoritme til dette.</p></li>
+					<h4>Kruskals algoritme</h4>
+					<li><p>La G=(V,E) være en sammenhengende graf med vektede kanter. Et spenntre kan lages slik:</p></li>
+					<li><p>1. Sorter kantene basert på deres vekter</p></li>
+					<li><p>2. Start med en av kantene med lavest vekt</p></li>
+					<li><p>3. Tilføy så en av de gjenværende kantene med lavest vekt, uten å danne syklus.</p></li>
+					<li><p>Gjenta trinn 3 inntil alle noder er med i treet.</p></li>
+					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des11_losning.pdf</h2>
+					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li> 
+					<h2>Eks?</h2>
+				</ul>
+				<ul class="nostyle i0">
+					<h3>Rettede grafer</h3>
+					<h2>Tegne nabomatrise (fra, til)</h2>
+					<li><p>For å finne rettede veier av lengde 1 i grafen, kan vi se i nabomatrisen, M. For å finne rettede veier av lengde 2, kan vi utføre en boolsk matrisemultiplikasjon. <span class="katex">M^{[2]}=M \cdot M.\ M^{[3]} = M \cdot M \cdot M</span></p> 1-ere i nabomatrisen vil da si "en rettet vei av lengde x, fra node1 til node2".</li>
+					<li><p><strong>Boolsk multiplikasjon</strong> <span class="katex">1 \cdot 1 = 0,\ 1 \cdot 0 = 0 \cdot 1 = 0 \cdot 0 = 0</span></p></li>
+					<li><p><strong>Boolsk addering</strong> <span class="katex">1+1=1+0=0+1=1,\ 0+0=0</span></p></li>
+					<h2>Eks?</h2>
+					<li><p><strong>Rekkeviddematrise</strong> Hvorvidt det er mulig å nå en node, kan ses av rekkeviddematrisen, <span class="katex">M^*. M^*</span> er den boolske summen av <span class="katex">M, M^{[2]}, M^{[3]},</span> osv.</p></li>
+				</ul>
+				<ul class="nostyle i0">
+					<h3>Dijkstras algoritme</h3>
+					<li><p>Finner den korteste vei (vei med minst samlet vekt) fra en node til enhver annen node i grafen. Baserer seg på at man tilordner en vekt/kost til enhver kant i grafen.</p></li>
+					<li><p>S: mengden av ferdigbehandlede noder. W(u,v); weight, vekten på kanten (u,v). D(u): total distanse (samlet vekt) fra 
+					startnoden til node u. Til hver node er det knyttet en etikett (label) som angir: </p></li>
+					<li><p>- total distanse fra startnode, - forgjenger </p></li>
+					<li><p>Trinn 1 - initialisering</p></li>
+					<li><p>a) Gi Startnoden (a) etiketten 0,-</p></li>
+					<li><p>b) <span class="katex">S=\{a\}</span></p></li>
+					<li><p>Trinn 2</p></li>
+					<li><p>Gjør en tilordning av etiketter til nodene:</p></li>
+					<li><p>- Nodene direkte knyttet til a gis etiketten w(a,v), a for alle v direkte knyttet til a.</p></li>
+					<li><p>- Noder som ikke er nabo til a, gis etiketten <span class="katex">\infty, a</span></p></li>
+					<li><p>Trinn 3</p></li>
+					<li><p>3.1 Velg den av nodene, u, som ikke er i S som har minst vekt/avstand til a, og føy til S.</p></li>
+					<li><p>For hver node x som ikke er i S og som er nabo til u, erstatt etiketten til x med W(u,x)+D(u),u dersom den nye avstanden W(u,x)+D(u) er mindre enn den vi alt har i etiketten til x.</p></li>
+					<li><p>3.3 Gjenta trinn 3 inntil S inneholder alle nodene i grafen.</p></li>
+					<li><p>Trinn 4</p></li>
+					<li>List korteste veier med deres avstander/vekter (list etikettene).</li>
+					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des14_losning.pdf</h2>
 				</ul>
 			</div>
 		</section>
