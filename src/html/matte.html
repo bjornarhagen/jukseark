@@ -522,10 +522,56 @@
 	<div class="wrapper">
 		<section>
 			<div class="row">
+				<ul class="nostyle">
+					<h3>Språk og tilstandsmaskiner</h3>
+					<li><p><strong>Alfabet:</strong> mengden av de symboler som kan brukes</p></li>
+					<li><p><strong>Grammatikk:</strong> et alfabet + produksjonsregler (for ord)</p></li>
+					<li><p><strong>Ord:</strong> mengden av alle ord som kan produseres av grammatikken</p></li>
+					<li><p><strong>To typer symboler:</strong></p></li>
+					<li><p>1. Avslutningssymboler (terminaler). Ferdiglagde ord i et språk består kun av disse. Mengden av alle avslutningssymboler: T</p></li>
+					<li><p>2. Ikke-avslutningssymboler. Symboler som brukes ved produksjon av ord. Mengden av slike: N.</p></li>
+					<li><p>Startsymbol: S. <span class="katex">S \in N</span></p></li>
+					<li><p><span class="katex">(N \cup T)^*</span> betyr: alle mulige kombinasjoner av symboler fra N og T, inkludert den tomme streng, <span class="katex">\lambda</span> (en streng som b estår av 0 symboler)</p></li>
+					<li><p><strong>Kontekstfri grammatikk</strong> består av:</p></li>
+					<li><p>1. En endelig mengde, N, av ikke-avslutningssymboler, inkludert startsymbolet s.</p></li>
+					<li><p>2. En endelig mengde, T, av avslutningssymboler hvor <span class="katex">N \cap T = \phi</span></p></li>
+					<li><p>En endelig mengde produksjonsregler på formen <span class="katex">w_1 \rightarrow w_2</span>, der <span class="katex">w_1 \in N (w_1</span> er ett symbol fra N) og <span class="katex">w_2 \in (N \cup T)^*. (w_2</span> er en vilkårlig streng av symboler fra N og T).</p></li>
+					<li><p><strong>Regulær grammatikk</strong> er en kontekstfri grammatikk der produksjonsreglene må ha en av følgende former:</p></li>
+					<li><p>1. <span class="katex">w_1 \rightarrow \lambda</span></p></li>
+					<li><p>2. <span class="katex">w_1 \rightarrow aw_2</span></p></li>
+					<li><p>3. <span class="katex">w_1 \rightarrow a</span></p></li>
+					<li><p>der <span class="katex">w_1, w_2 \in N</span> (ett symbol fra N) og <span class="katex"> a \in T</span> (ett symbol fra T)</p>
+					</li>
+					<li><p>Her er det høyre side vi stiller krav til: - den tomme streng, - ett avslutningssymbol fulgt av ett ikke-avslutningssymbol, - ett avslutningssymbol</p></li>
+					<h2>EKS? http://www.it.hiof.no/mit/mit_eksamen_des13_losning.pdf</h2>
+				</ul>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<ul class="nostyle i0">
+					<h3>Endelige tilstandsmaskiner med utgang</h3>
+					<li><p>"Endelig: antall tilstander er endelig. Tegnes ved tilstandstabell eller som et tilstandsdiagram.</p></li>
+					<h2>Tilstandstabell med utgang??</h2>
+					<li><p><strong>Endelig automat</strong> (endelig tilstandsmaskin uten utgang). Ingen utgang, men har en eller flere aksepterende tilstander (sluttilstander). Markeres med dobbel ring i tilstandsdiagrammet. Endelige automater kan brukes til å avgjøre om ord tilhører et språk, dersom språket er et regulært språk. </p></li>
+					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des10_losning.pdf</h2>
+				</ul>
+				<ul class="nostyle i0">
+					<h4>Turingmaskiner</h4>
+					<li><p>Uendelig lang tape, inndelt i celler som kan være blanke (symboliseres med en B) eller inneholde ett symbol fra turingsmaskinens alfabet. Har også en styringsenhet, som kan være i en av et endelig antall tilstander. Styringsenheten operer trinnvis:</p></li>
+					<li><p>I hvert trinn leser den symbolet i cellen den peker på, så skriver den ett symbol til cellen den peker på, og flytter seg deretter en celle til høyre (R) eller venstre (L) på tapen. I tillegg kan den endre tilstand. Styringsenhetens startposisjon er den cellen lengst til venstre som ikke er blank.</p></li>
+					<li><p>En turingmaskin <span class="katex">T=(S,I,f,s_0)</span> består av:</p></li>
+					<li><p>S: en endelig mengde tilstander</p></li>
+					<li><p>I: et alfabet (mulige symboler på tapen) ink. det tomme symbolet B</p></li>
+					<li><p>f: en partiell funksjon fra <span class="katex">S \times I \ til \ S \times I \times \{R,L\} </span>(for noen av de mulige (tilstand, symbol)-par definerer f et (tilstand, symbol, retning)-trippel)</p></li>
+					<li><p><span class="katex">s_0:</span> startilstand</p></li>
+					<li><p><strong>Overgangsregler</strong>, skrives ofte som fem-tupler:</p></li>
+					<li><p>(tilstand, symbol, tilstand, symbol, retning)</p> henholdsvis:</li>
+					<li><p>(den er i, lest fra tapen, den havner i, skrives til tapen, den går til)</p></li>
+					<li><p>Dersom f ikke er definert for det (tilstand, symbol)-paret som den er i og leser, henholdsvis, vil den stoppe. Når den stopper kan man skrive ut resultatet: -strengen av symboler på tapen (-at den stopper, -tilstanden den er i)</p></li>
+					<h4>Church-Turing tesen</h4>
+					<li><p>Dersom man har et problem som kan løses med en algoritme, så vil det finnes en turingmaskin som kan løse problemet</p></li>
+				</ul>
 			</div>
 		</section>
 		<section>
