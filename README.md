@@ -1,11 +1,16 @@
-Live version is available at [bjornarhagen.no](https://bjornarhagen.no/_/skole/hio/datakom/2017/eksamensark/dist/)
+# Høgskolen i Østfold - Eksamensark 2017
+
+Live version is available at [bjornarhagen.no](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/)
+* [Datakommunikasjon](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/matte.html)
+* [Operativsystemer med Linux](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/linux.html)
+* [Matte for IT](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/datakom.html)
 
 ## Setup
 
 1. Run `npm install`
 2. Run `npm start`
 
-Now you should have a `index.html` file in the `/dist/html/` directory.
+HTML files should now be in the `/dist/html/` directory.
 
 ## Usage
 
