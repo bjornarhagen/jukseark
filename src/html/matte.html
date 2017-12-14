@@ -739,7 +739,19 @@
 				<p>1. Basistrinnet: Vis at P(n) gjelder for den laveste verdien av n i domenet.</p>
 				<p>2. Induksjonstrinnet: Anta at P(n) gjelder for en vilkårlig verdi n=k (induksjonshypotesen), og hvis at dette medfører at predikatet
 				gjelder for neste n, nemlig n=k+1. Hvis deretter at VS = HS.</p>
-				<h2>EKS FRA EKSAMEN</h2>
+				<ul class="nostyle i0">
+					<li><p>Bruk induksjonsbevis til å vise at følgende gjelder for alle <span class="katex">n \in Z^+ = \{ 1, 2, 3, \dots \}:</span></p></li>
+					<li><p><span class="katex">\dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \dots + \dfrac{1}{n \cdot (n+1)} = \dfrac{n}{n+1}</span></p></li>
+					<li><p>Basistrinn <span class="katex">n = 1</span>: Venstre side: <span class="katex">\dfrac{1}{1 \cdot 2} = \dfrac{1}{2}</span>. Høyre side: <span class="katex">\dfrac{1}{1+1} = \dfrac{1}{2}</span></p></li>
+					<li><p>Vi ser at høyre side er lik venstre side for <span class="katex">n = 1</span>. Følgelig er basistrinnet OK.</p></li>
+					<li><p>Induksjonstrinn: vi antar at utrykket gjelder for <span class="katex">n = k</span> (dette kalles induksjonshypotesen), altså at <span class="katex">\dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \dots + \dfrac{1}{k \cdot (k+1)} = \dfrac{k}{k+1}</span></p></li>
+					<li><p>og skal vise at det da følger at uttrykket gjelder for <span class="katex">n = k + 1</span>. For <span class="katex">n = k + 1</span> blir utrykket <span class="katex">\dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \dots + \dfrac{1}{k \cdot (k+1)} + \dfrac{1}{(k+1) \cdot ((k+1)+1)} = \dfrac{k+1}{(k+1)+1}</span></p></li>
+					<li><p>De første k leddene på venstre side kan vi, basert på induksjonshypotesen, skrive som <span class="katex">\dfrac{k}{k+1}</span>. Utrykket blir derfor <span class="katex">\dfrac{k}{k+1} + \dfrac{1}{(k+1)} \cdot ((k+1)+1) = \dfrac{k+1}{(k+1)+1}</span></p></li>
+					<li><p>Vi kan skrive <span class="katex">(k + 1) + 1</span> som <span class="katex">k + 2</span>. Uttrykket blir da <span class="katex">\dfrac{k}{k+1} + \dfrac{1}{(k+1)\cdot(k+2)} = \dfrac{k+1}{k+2}</span></p></li>
+					<li><p>Det som gjenstår nå er å vise at venstre side er lik høyre side. Vi ganger så dette uttrykket med (k + 1)(k + 2) for å få bort nevnerne: <span class="katex">\dfrac{k}{k+1} \cdot (k+1)\cdot(k+2) + \dfrac{1}{(k+1)\cdot(k+2)} \cdot (k+1)\cdot(k+2) = \dfrac{k+1}{k+2} \cdot (k+1)\cdot(k+2)</span></p></li>
+					<li><p>Vi kan så forkorte like faktorer og får <span class="katex">k \cdot (k+2)+1=(k+1)\cdot (k+1)</span>. Regner vi videre på høyre side og venstre side hver for seg, får vi <span class="katex">k^2 + 2k + 1 = k^2 + 2k +1</span>. Vi ser at venstre side er lik høyre side, og vi har derfor vist at dersom uttrykket gjelder for n = k så gjelder det også for n = k + 1. Siden vi også har vist at det gjelder for n = 1, betyr det at vi har vist at det gjelder for alle n.</p></li>
+				</ul>
+
 				<h3>Rekursiv definisjon</h3>
 				<p><strong>Eks</strong> Lag en rekursiv definisjon basert på en direkte funksjon.</p>
 				<p><span class="katex">a_n = n(n+1), for\ n \geq 1</span></p>
@@ -753,27 +765,6 @@
 				<h4>Rekursiv definisjon nr 2</h4>
 				<p>Rekursive funksjoner hvor <span class="katex">y_n </span>er definert ved både <span class="katex">y_{n-1}</span> og <span class="katex">y_{n-2}</span>. I disse
 					tilfellene må basis bestå av både <span class="katex">y_0</span> og <span class="katex">y_1</span>.</p>
-				<h3>Komplekse tall</h3>
-				<p><span class="katex">i= \sqrt{-1} , \ i^2=-1</span></p>
-				<p><strong>Kartesisk form, rektangulær form.</strong> <span class="katex">Z=a+bi</span>, a: Realdel. b: Imaginærdel. i: den imaginære enhet</p>
-				<p><strong>Komplekskonjugering</strong> <span class="katex">Z=a+bi \  |  \overline Z = a-bi</span></p>
-				<p><strong>Polarform</strong> <span class="katex">cos \phi = \dfrac{a}{r} , \ a = r \cdot cos \phi</span> |  <span class="katex">sin \phi = \dfrac{b}{r} , \ b = r \cdot sin \phi</span></p>
-				<p><span class="katex">Z=a+bi = rcos \phi + r sin \phi i = r(cos \phi + isin \phi)</span></p>
-				<p><strong>Eksponentialform</strong> <span class="katex">Z=r \cdot e^{i \phi}</span></p>
-				<p>Multiplikasjon og divisjon på eksponentialform</p>
-				<p><span class="katex">Z_1 = r_1e^{i \phi_1}</span>  ,  <span class="katex">Z_2 = r_2e^{i \phi_2}</span></p>
-				<p><span class="katex">Z_1Z_2 = r_1r_2e^{i(\phi_1 + \phi_2)}</span></p>
-				<p><span class="katex">\dfrac{Z_1}{Z_2} = \dfrac{r_1}{r_2} e^{i(\phi_1 - \phi_2)}</span></p>
-				<p><span class="katex">\phi</span> målt i radianer: <span class="katex">\phi = \dfrac{b}{r}</span></p>
-				<p><strong>Euler: </strong> <span class="katex">e^{i \phi} = cos \phi + isin \phi</span></p>
-				<p><strong>Konvertering fra eksponentialform til rektangulær form</strong></p>
-				<p><span class="katex">Z = re^{i \phi} = r(cos \phi + i sin \phi) , \ a=rcos \phi, \ b=rsin \phi</span></p>
-				<p><strong>Kartesisk til eksponential form</strong></p>
-				<p><span class="katex">r=|z|= \sqrt{a^2+b^2}</span></p>
-				<p><span class="katex">cos \phi = \dfrac{a}{r} \to \phi = cos^{-1} \dfrac{a}{r}</span></p>
-				<p><span class="katex">sin \phi = \dfrac{b}{r} \to \phi = sin^{-1} \dfrac{b}{r}</span></p>
-				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
-
 			</div>
 		</section>
 	</div>
@@ -1014,6 +1005,27 @@
 				<p>Ligning 1/rekke 1 gir:</p>
 				<p><span class="katex">x_1- \dfrac{2}{3}x_3 = 1 \qquad x_1 = \dfrac{2}{3}x_3 + 1 = \dfrac{2}{3}t + 1</span></p>
 				<p><span class="katex">\underline{\underline{x_1 = \dfrac{2}{3}t + 1 , x_2 = \dfrac{5}{3}t , x_3 = t}}</span></p>
+
+				<h3>Komplekse tall</h3>
+				<p><span class="katex">i= \sqrt{-1} , \ i^2=-1</span></p>
+				<p><strong>Kartesisk form, rektangulær form.</strong> <span class="katex">Z=a+bi</span>, a: Realdel. b: Imaginærdel. i: den imaginære enhet</p>
+				<p><strong>Komplekskonjugering</strong> <span class="katex">Z=a+bi \  |  \overline Z = a-bi</span></p>
+				<p><strong>Polarform</strong> <span class="katex">cos \phi = \dfrac{a}{r} , \ a = r \cdot cos \phi</span> |  <span class="katex">sin \phi = \dfrac{b}{r} , \ b = r \cdot sin \phi</span></p>
+				<p><span class="katex">Z=a+bi = rcos \phi + r sin \phi i = r(cos \phi + isin \phi)</span></p>
+				<p><strong>Eksponentialform</strong> <span class="katex">Z=r \cdot e^{i \phi}</span></p>
+				<p>Multiplikasjon og divisjon på eksponentialform</p>
+				<p><span class="katex">Z_1 = r_1e^{i \phi_1}</span>  ,  <span class="katex">Z_2 = r_2e^{i \phi_2}</span></p>
+				<p><span class="katex">Z_1Z_2 = r_1r_2e^{i(\phi_1 + \phi_2)}</span></p>
+				<p><span class="katex">\dfrac{Z_1}{Z_2} = \dfrac{r_1}{r_2} e^{i(\phi_1 - \phi_2)}</span></p>
+				<p><span class="katex">\phi</span> målt i radianer: <span class="katex">\phi = \dfrac{b}{r}</span></p>
+				<p><strong>Euler: </strong> <span class="katex">e^{i \phi} = cos \phi + isin \phi</span></p>
+				<p><strong>Konvertering fra eksponentialform til rektangulær form</strong></p>
+				<p><span class="katex">Z = re^{i \phi} = r(cos \phi + i sin \phi) , \ a=rcos \phi, \ b=rsin \phi</span></p>
+				<p><strong>Kartesisk til eksponential form</strong></p>
+				<p><span class="katex">r=|z|= \sqrt{a^2+b^2}</span></p>
+				<p><span class="katex">cos \phi = \dfrac{a}{r} \to \phi = cos^{-1} \dfrac{a}{r}</span></p>
+				<p><span class="katex">sin \phi = \dfrac{b}{r} \to \phi = sin^{-1} \dfrac{b}{r}</span></p>
+				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
 			</div>
 		</section>
 		<section>
