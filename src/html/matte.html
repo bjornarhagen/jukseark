@@ -800,10 +800,80 @@
 		<section>
 			<div class="row">
 				<h3>Matriser</h3>
-				<ul class="nostyle inline">
-					<li><p><strong>Koeffisientmatrise</strong></p></li>
-					<li><p><span class="katex"></span></p></li>
-					<li><p><strong>Totalmatrise</strong></p></li>
+				<h4>Koeffisientmatrise</h4>
+				<ul class="nostyle i0">
+					<li><p><span>$$
+						\begin{matrix}
+							3x_1 & + & 4x_2 & = & 2 \\
+							5x_1 & + & 2x_2 & = & 1 \\
+						\end{matrix}
+					\qquad$$</span> dette ligningssystemet sin koeff.mat. ser slik ut: <span>$$
+						\begin{bmatrix}
+							3 & 4 \\
+							5 & 2
+						\end{bmatrix}
+					$$</span></p></li>
+				</ul>
+				<h4>Totalmatrise</h4>
+				<ul class="nostyle i0">
+					<li><p><span>$$
+						\left[\begin{array}{cc|c}
+							3 & 4 & 2 \\
+							5 & 2 & 2
+						\end{array}\right]
+
+						\sim
+						\left[\begin{array}{cc|c}
+							1 & 6 & 3 \\
+							5 & 2 & 2
+						\end{array}\right]
+						\begin{matrix}
+							R^1_1 = 2R_1 - R_2 \\
+							\quad
+						\end{matrix}
+
+						\sim
+						\left[\begin{array}{cc|c}
+							1 & 6 & 3 \\
+							0 & -28 & -14
+						\end{array}\right]
+						\begin{matrix}
+							\quad \\
+							R^1_2 = R_2 - 5R_1
+						\end{matrix}
+					$$</span></p><p><span>$$
+						\sim
+						\left[\begin{array}{cc|c}
+							1 & 6 & 3 \\
+							0 & -28 & -14
+						\end{array}\right]
+						\begin{matrix}
+							\quad \\
+							R^1_2 = R_2 - 5R_1
+						\end{matrix}
+
+						\sim
+						\left[\begin{array}{cc|c}
+							1 & 6 & 3 \\
+							0 & -1 & \dfrac{1}{2}
+						\end{array}\right]
+						\begin{matrix}
+							\quad \\
+							R^1_2 = - \dfrac{1}{28R_2}
+						\end{matrix}
+					$$</span></p><p><span>$$
+						\sim
+						\left[\begin{array}{cc|c}
+							1 & 0 & 0 \\
+							0 & -1 & \dfrac{1}{2}
+						\end{array}\right]
+						\begin{matrix}
+							R^1_2 = - R_1 - 6R_2 \\
+							\quad
+						\end{matrix}
+
+						\qquad\qquad \underline{\underline{x_1 = 0, \quad x_2 = \dfrac{1}{2}}}
+					$$</span></p></li>
 				</ul>
 
 
