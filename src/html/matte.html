@@ -712,8 +712,51 @@
 				<p><span class="katex"> \neg \forall x P(x): </span> <strong>ikke alle</strong> sensorer er snille. <span class="katex">\exists x \neg P(x):</span> det finnes minst en sensor som ikke er snill</p>
 				<p><span class="katex">\exists</span> er knyttet til <span class="katex">\wedge</span>. <span class="katex">\forall</span> er knyttet til <span class="katex">\to</span></p>
 				<p><strong>Domene:</strong> Når vi sier <span class="katex">\forall x</span> eller <span class="katex">\exists x</span>, så refererer vi til et domene, D, hvor vi henter x fra (universet)</p>
+				<h4>Logiske porter</h4>
+				<p><strong>Og, and</strong></p>
+				<p><strong>Eller, or</strong></p>
+				<h4>Matematisk induksjon</h4>
+				<p>Vi kan bevise at predikatet P(n) gjelder for alle n (n er et heltall) på følgende måte: 1. Basistrinnet</p>
+				<p>1. Basistrinnet: Vis at P(n) gjelder for den laveste verdien av n i domenet.</p>
+				<p>2. Induksjonstrinnet: Anta at P(n) gjelder for en vilkårlig verdi n=k (induksjonshypotesen), og hvis at dette medfører at predikatet
+				gjelder for neste n, nemlig n=k+1. Hvis deretter at VS = HS.</p>
+				<h2>EKS FRA EKSAMEN</h2>
+				<h3>Rekursiv definisjon</h3>
+				<p><strong>Eks</strong> Lag en rekursiv definisjon basert på en direkte funksjon.</p>
+				<p><span class="katex">a_n = n(n+1), for\ n \geq 1</span></p>
+				<p><span class="katex">a_1 = 1(1+1) = 2</span></p>
+				<p><span class="katex">a_2 = 2(2+1) = 6</span></p>
+				<p><span class="katex">a_3 = 3(3+1) = 12</span></p>
+				<p>Rekursiv definisjon: 1) Basis <span class="katex">a_1 = 2</span></p>
+				<p>2) Rekusjonsformel: <span class="katex">a_n=n(n+1), a_{n-1} = (n-1)(n-1+1) = (n-1)n</span>. Forsøker med å subtrahere <span class="katex">a_{n-1}</span> fra <span class="katex">a_n</span>:</p>
+				<p><span class="katex">a_n - a_{n-1} = n(n+1)-(n-1)</span>  |
+				<span class="katex"> a_n = an_1 + n^2 + n - n^2 +  n = an_1 + 2n</span></p>
+				<h4>Rekursiv definisjon nr 2</h4>
+				<p>Rekursive funksjoner hvor <span class="katex">y_n </span>er definert ved både <span class="katex">y_{n-1}</span> og <span class="katex">y_{n-2}</span>. I disse
+					tilfellene må basis bestå av både <span class="katex">y_0</span> og <span class="katex">y_1</span>.</p>
+				<h3>Komplekse tall</h3>
+				<p><span class="katex">i= \sqrt{-1} , \ i^2=-1</span></p>
+				<p><strong>Kartesisk form, rektangulær form.</strong> <span class="katex">Z=a+bi</span>, a: Realdel. b: Imaginærdel. i: den imaginære enhet</p>
+				<p><strong>Komplekskonjugering</strong> <span class="katex">Z=a+bi \  |  \overline Z = a-bi</span></p>
+				<p><strong>Polarform</strong> <span class="katex">cos \phi = \dfrac{a}{r} , \ a = r \cdot cos \phi</span> |  <span class="katex">sin \phi = \dfrac{b}{r} , \ b = r \cdot sin \phi</span></p>
+				<p><span class="katex">Z=a+bi = rcos \phi + r sin \phi i = r(cos \phi + isin \phi)</span></p>
+				<p><strong>Eksponentialform</strong> <span class="katex">Z=r \cdot e^{i \phi}</span></p>
+				<p>Multiplikasjon og divisjon på eksponentialform</p>
+				<p><span class="katex">Z_1 = r_1e^{i \phi_1}</span>  ,  <span class="katex">Z_2 = r_2e^{i \phi_2}</span></p>
+				<p><span class="katex">Z_1Z_2 = r_1r_2e^{i(\phi_1 + \phi_2)}</span></p>
+				<p><span class="katex">\dfrac{Z_1}{Z_2} = \dfrac{r_1}{r_2} e^{i(\phi_1 - \phi_2)}</span></p>
+				<p><span class="katex">\phi</span> målt i radianer: <span class="katex">\phi = \dfrac{b}{r}</span></p>
+				<p><strong>Euler: </strong> <span class="katex">e^{i \phi} = cos \phi + isin \phi</span></p>
+				<p><strong>Konvertering fra eksponentialform til rektangulær form</strong></p>
+				<p><span class="katex">Z = re^{i \phi} = r(cos \phi + i sin \phi) , \ a=rcos \phi, \ b=rsin \phi</span></p>
+				<p><strong>Kartesisk til eksponential form</strong></p>
+				<p><span class="katex">r=|z|= \sqrt{a^2+b^2}</span></p>
+				<p><span class="katex">cos \phi = \dfrac{a}{r} \to \phi = cos^{-1} \dfrac{a}{r}</span></p>
+				<p><span class="katex">sin \phi = \dfrac{b}{r} \to \phi = sin^{-1} \dfrac{b}{r}</span></p>
+				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
+
 			</div>
-		</section>
+		</section>	
 	</div>
 	<div class="wrapper">
 		<section>
