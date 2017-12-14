@@ -233,7 +233,7 @@
 		<section>
 			<div class="row">
 				<h3>Relasjoner</h3>
-				
+
 				<ul class="nostyle i0">
 					<li><p><strong>Refleksiv</strong> <span class="katex">(a,a) \in R</span> for alle <span class="katex">a \in A</span></p></li>
 					<li><p><strong>Symmetrisk</strong> <span class="katex">(a,b) \in R</span> så er <span class="katex">(b,a) \in R</span></p></li>
@@ -417,222 +417,264 @@
 		<section>
 			<div class="row">
 				<h3>Sannhetstabeller</h3>
-				<h4>Konjunksjon, og</h4>
-				<table>
-					<tbody>
-						<tr>
-							<td><p>p</p></td>
-							<td><p>q</p></td>
-							<td><span class="katex">p \wedge q</span></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-					</tbody>
-				</table>
-				<h4>Disjunksjon, eller</h4>
-				<table>
-					<tbody>
-						<tr>
-							<td><p>p</p></td>
-							<td><p>q</p></td>
-							<td><span class="katex">p \vee q</span></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-					</tbody>
-				</table>
-				<h4>Eksklusiv eller</h4>
-				<table>
-					<tbody>
-						<tr>
-							<td><p>p</p></td>
-							<td><p>q</p></td>
-							<td><span class="katex">p \oplus q</span></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-					</tbody>
-				</table>
-				</table>
-				<h4>Implikasjon, hvis-så</h4>
-				<table>
-					<tbody>
-						<tr>
-							<td><p>p</p></td>
-							<td><p>q</p></td>
-							<td><span class="katex">p \to q</span></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-						</tr>
-					</tbody>
-				</table>
-				<h4>Ekvivalens, hvis og bare hvis</h4>
-				<table>
-					<tbody>
-						<tr>
-							<td><p>p</p></td>
-							<td><p>q</p></td>
-							<td><span class="katex">p \leftrightarrow q</span></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-							<td><p>S</p></td>
-						</tr>
-						<tr>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-							<td><p>F</p></td>
-						</tr>
-						<tr>
-							<td><p>F</p></td>
-							<td><p>F</p></td>
-							<td><p>S</p></td>
-						</tr>
-					</tbody>
-				</table>
-				<h4>Logisk ekvivalens</h4>
-				<p>To sammensatte logiske utsagn kalles logisk ekvivalente dersom de har samme sannhetsverdi for enhver kombinasjon av
-				sannhetsverdiene til de atomære utsagnene. (Har samme "høyrekolonne" i sannhetstabellene). Angis med
-				<span class="katex">\Leftrightarrow , (\equiv)</span></p>
+				<div class="clear">
+					<div class="w3 fl">
+						<h4>Konjunksjon, og</h4>
+						<table>
+							<thead>
+								<tr>
+									<th><p>p</p></th>
+									<th><p>q</p></th>
+									<th><span class="katex">p \wedge q</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="w3 fl">
+						<h4>Disjunksjon, eller</h4>
+						<table>
+							<thead>
+								<tr>
+									<th><p>p</p></th>
+									<th><p>q</p></th>
+									<th><span class="katex">p \vee q</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="w3 fl">
+						<h4>Eksklusiv eller</h4>
+						<table>
+							<thead>
+								<tr>
+									<th><p>p</p></th>
+									<th><p>q</p></th>
+									<th><span class="katex">p \oplus q</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="w3 fl">
+						<h4>Implikasjon, hvis-så</h4>
+						<table>
+							<thead>
+								<tr>
+									<th><p>p</p></th>
+									<th><p>q</p></th>
+									<th><span class="katex">p \to q</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="w3 fl">
+						<h4>Ekvivalens, hvis og bare hvis</h4>
+						<table>
+							<thead>
+								<tr>
+									<th><p>p</p></th>
+									<th><p>q</p></th>
+									<th><span class="katex">p \leftrightarrow q</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+									<td><p>S</p></td>
+								</tr>
+								<tr>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+									<td><p>F</p></td>
+								</tr>
+								<tr>
+									<td><p>F</p></td>
+									<td><p>F</p></td>
+									<td><p>S</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="w3 fl">
+						<h4>Logisk ekvivalens</h4>
+						<p>To sammensatte logiske utsagn kalles logisk ekvivalente dersom de har samme sannhetsverdi for enhver kombinasjon av sannhetsverdiene til de atomære utsagnene. (Har samme "høyrekolonne" i sannhetstabellene). Angis med
+					</div>
+				</div>
 				<h4>Tautologi</h4>
-				<p>Et utsagn som alltid er sant, uavhengig av hva sannhetsverdien til de enkele delene er. Kan vise at et uttrykk er en 
-				tautologi enten ved sannhetstabeller eller ved lovene for logisk uttrykk (utrykket blir ekvivalent med S).</p>
-				<h4>Slutningsregler</h4>
-				<p>(Regler for gyldige slutninger)</p>
-				<p><strong>1. Modus  ponens</strong>. Hvis p er sann, og hvis p medfører q, så kan vi slutte at q er sann.</p>
-				<p><span class="katex">
-					\begin{matrix}
-					p \qquad \\
-					\dfrac{p \to q}{ \therefore q \qquad}
-					\end{matrix}
-				</span></p>
-				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
-				<p>Det er søndag (p) og det er slik at Hvis det er søndag så er polet stengt (<span class="katex">p \to q</span>),
-				kan vi slutte at Polet er stengt (q)</p>
-				<p><span class="katex"> \therefore =</span> følgelig, derfor, ergo</p>
-				<p>Hvis q garantert skal være sann, må både utsagnet p være sant og utsagnet <span class="katex">p \to q</span> være sant. 
-				Merk at: -p og q kan være sammensatte utsagn. -man kan også skrive regelen slik </p>
-				<p><span class="katex">
-					\begin{matrix}
-					p \to q \\
-					\dfrac{p \qquad}{ \therefore q \qquad}
-					\end{matrix}
-				<p><strong>2. Modus tollens</strong></p>
-				</span></p>
-				<p><span class="katex">
-					\begin{matrix}
-					p \to q \\
-					\dfrac{\neg q \qquad}{ \therefore p \qquad}
-					\end{matrix}
-				</span></p>
-				<p><span class="katex">
-					\begin{matrix}
-					\neg q \qquad \\
-					\dfrac{p \to q}{ \therefore p \qquad}
-					\end{matrix}
-				</span></p>
-				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
-				<p>Hvis det er søndag, så er polet stengt (<span class="katex">p \to q</span>)</p>
-				<p>Polet er åpent (<span class="katex">\neg q</span>)</p>
-				<p><span class="katex">\therefore</span> Det er ikke søndag <span class="katex">(\neg p)</span></p>
-				<p><strong>Sylloismeloven</strong></p>
-				<p><span class="katex">
-					\begin{matrix}
-					p \to q \\
-					\dfrac{q \to r}{ \therefore p \to r}
-					\end{matrix}
-				</span></p>		
-				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt. r: alarmen er på</p>		
-				<p>Hvis det er søndag, så er polet stengt (<span class="katex">p \to q</span>)</p>
-				<p>Hvis polet er stengt, så er alarmen på (<span class="katex">q \to r</span>)</p>
-				<p><span class="katex">\therefore</span> Hvis det er søndag, så er alarmen på (<span class="katex">p \to r</span>)</p>
-				<p><strong>Ugyldige argumenter/slutninger</strong></p>
-				<p><strong>Eks</strong> p: jeg er tørst. q: jeg drikker vann</p>
-				<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
-				<p>Jeg drikker vann (q)</p>
-				<p><span class="katex">\therefore</span> Jeg er tørst (p)</p>
-				<p><strong>Eks2</strong></p>
-				<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
-				<p>Jeg er ikke tørst (<span class="katex">\neg p</span>)</p>
-				<p><span class="katex">\therefore</span> Jeg drikker ikke vann (<span class="katex">\neg q</span>)</p>
+				<p>Et utsagn som alltid er sant, uavhengig av hva sannhetsverdien til de enkele delene er. Kan vise at et uttrykk er en tautologi enten ved sannhetstabeller eller ved lovene for logisk uttrykk (utrykket blir ekvivalent med S).</p>
+				<span class="katex">\Leftrightarrow , \equiv</span></p>
+				<div class="clear">
+					<h4 class="w4 fl">Slutningsregler</h4>
+					<p class="w6 fr">(Regler for gyldige slutninger) <span class="katex i3">\therefore =</span> følgelig, derfor, ergo</p>
+				</div>
+				<div class="clear bb bt">
+					<div class="w3 fl">
+						<p><strong>1. Modus  ponens</strong>. Hvis p er sann, og hvis p medfører q, så kan vi slutte at q er sann.</p>
+						<p class="i3"><span class="katex">
+							\begin{matrix}
+							p \qquad \\
+							\dfrac{p \to q}{ \therefore q \qquad}
+							\end{matrix}
+						</span></p>
+					</div>
+					<div class="w7 fl i1">
+						<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
+						<p>Det er søndag (p) og det er slik at Hvis det er søndag så er polet stengt (<span class="katex">p \to q</span>), kan vi slutte at Polet er stengt (q)</p>
+						<div class="clear bt">
+							<p class="fl w7">Hvis q garantert skal være sann, må både utsagnet p være sant og utsagnet <span class="katex">p \to q</span> være sant. Merk at: -p og q kan være sammensatte utsagn. -man kan også skrive regelen slik: </p>
+							<p class="fl w3 i1"><span class="katex">
+								\begin{matrix}
+								p \to q \\
+								\dfrac{p \qquad}{ \therefore q \qquad}
+								\end{matrix}
+							</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="clear bb">
+					<div class="w5 fl">
+						<p><strong>2. Modus tollens</strong></p>
+						<p class="w5 fl">Vanlig: <span class="katex">
+							\begin{matrix}
+							p \to q \\
+							\dfrac{\neg q \qquad}{ \therefore p \qquad}
+							\end{matrix}
+						</span></p>
+						<p class="w5 fr tl">Alternativt: <span class="katex">
+							\begin{matrix}
+							\neg q \qquad \\
+							\dfrac{p \to q}{ \therefore p \qquad}
+							\end{matrix}
+						</span></p>
+					</div>
+					<div class="w5 fr">
+						<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
+						<p>Hvis det er søndag, så er polet stengt (<span class="katex">p \to q</span>)</p>
+						<p><span class="katex">\dfrac{\text{Polet er åpent } (\neg q) \qquad}{\therefore \text{ Det er ikke søndag } (\neg p)}</span></p>
+					</div>
+				</div>
+				<div class="clear bb">
+					<div class="w3 fl">
+						<p><strong>Sylloismeloven</strong></p>
+						<p><span class="katex">
+							\begin{matrix}
+							p \to q \\
+							\dfrac{q \to r}{ \therefore p \to r}
+							\end{matrix}
+						</span></p>
+					</div>
+					<div class="w7 fl">
+						<p><strong>Eks</strong> p: det er søndag. q: polet er stengt. r: alarmen er på</p>
+						<p>Hvis det er søndag, så er alarmen på (<span class="katex">p \to r</span>)</p>
+						<p><span class="katex">\dfrac{\text{Hvis polet er stengt, så er alarmen på } (q \to r)}{\therefore \text{ Hvis det er søndag, så er alarmen på } (p \to r)}</span></p>
+					</div>
+				</div>
+				<div class="clear bb">
+					<div class="w5 fl">
+						<p><strong>Ugyldige argumenter/slutninger</strong></p>
+						<p><strong>Eks</strong> p: jeg er tørst. q: jeg drikker vann</p>
+						<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
+						<p><span class="katex">\dfrac{ \text{Jeg drikker vann } (q) }{ \therefore \text{Jeg er tørst } (p) }</span></p>
+					</div>
+					<div class="w5 fl">
+						<p><strong>Eks2</strong></p>
+						<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
+						<p><span class="katex">\dfrac{ \text{Jeg er ikke tørst } (\neg q) }{ \therefore \text{Jeg drikker ikke vann } (\neg p) }</span></p>
+					</div>
+				</div>
 			</div>
 		</section>
 		<section>
@@ -699,18 +741,25 @@
 		</section>
 		<section>
 			<div class="row">
-				<ul class="nostyle i0">
-					<h3>Matriser</h4>
-					<li><strong>Koeffisientmatrise</strong></li>
-					<li><strong>Totalmatrise</strong></li>
-					<h4>Metodikk for gauss-jordaneliminasjon</h3>
+				<h3>Matriser</h3>
+				<ul class="nostyle inline">
+					<li><p><strong>Koeffisientmatrise</strong></p></li>
+					<li><p><span class="katex"></span></p></li>
+					<li><p><strong>Totalmatrise</strong></p></li>
+				</ul>
+
+
+				<h4>Metodikk for gauss-jordaneliminasjon</h4>
+				<ul class="nostyle inline">
 					<li><p>Sørg underveis for at matrisen har trappeform ved å bytte om rekker etter behov</p></li>
-					<li><p>1. Produser en 1-er øverst til venstre</p></li>
-					<li><p>2. Produser 0-er under 1-eren i 1. kolonne</p></li>
-					<li><p>3. Produser en 1-er i 2.rekke, 2. kolonne</p></li>
-					<li><p>4. Produser 0-er under 1-eren du fikk i trinnet over</p></li>
-					<li><p>5. Fortsett å produsere 1-ere som første element i hver rekke og 0-er under 1-erne</p></li>
-					<li><p>6. Når du er ferdig med siste rekke, produserer du 0-er i hver kolonne over hver 1-er. Begynn nedenfra og gå oppover. Når du er ferdig vil matrisen være på redusert trappeform</p></li>
+					<li class="w4"><p><strong>1)</strong> Produser en 1-er øverst til venstre</p></li>
+					<li class="w5"><p><strong>2)</strong> Produser 0-er under 1-eren i 1. kolonne</p></li>
+					<li class="w4"><p><strong>3)</strong> Produser en 1-er i 2.rekke, 2. kolonne</p></li>
+					<li class="w5"><p><strong>4)</strong> Produser 0-er under 1-eren du fikk i trinnet over</p></li>
+					<li><p><strong>5)</strong> Fortsett å produsere 1-ere som første element i hver rekke og 0-er under 1-erne</p></li>
+					<li><p><strong>6)</strong> Når du er ferdig med siste rekke, produserer du 0-er i hver kolonne over hver 1-er. Begynn nedenfra og gå oppover. Når du er ferdig vil matrisen være på redusert trappeform</p></li>
+				</ul>
+				<ul class="nostyle i0">
 					<li><strong>Inkonsistente ligningssystemer:</strong> ligningssystemer som ikke har noen løsning. Har intet skjæringspunkt, og altså ingen løsning.(Linjene/ligningene er parallelle)</li> <h2>EKSEMPEL</h2>
 					<li><strong>Ligningssystemer med uendelig mange løsninger:</strong> Linjene/ligningene overlapper, og alle punkter på linjen er løsning av ligningssystemet</li> <h2>EKSEMPEL</h2>
 				</ul>
@@ -718,7 +767,7 @@
 		</section>
 		<section>
 			<div class="row">
-				<ul class="nostyle i0"> 
+				<ul class="nostyle i0">
 					<h3>Grafer, trær og tilstandsmaskiner</h3>
 					<li><p><strong>Enkel graf: </strong> to noder er forbundet med maks en kant, og ingen kant fra en node til seg selv. En graf som ikke er enkel, kalles en multigraf.</p></li>
 					<li><p><strong>Eks. Nodemengde:</strong> V={a,b,c}</p></li>
@@ -741,7 +790,7 @@
 				</ul>
 				<ul class="nostyle i0">
 					<h4>Eulergraf, eulersyklus</h4>
-					<li><p>En syklus som traverserer alle kantene i en graf eksakt én gang, kalles en eulersyklus. En graf hvor dette lar seg gjøre, kalles en eulergraf. En graf <span class="katex">G=(V,E)</span> er en eulergraf hvis og bare hvis G er sammenhengende og graden til hver node er et partall.</p></li> 
+					<li><p>En syklus som traverserer alle kantene i en graf eksakt én gang, kalles en eulersyklus. En graf hvor dette lar seg gjøre, kalles en eulergraf. En graf <span class="katex">G=(V,E)</span> er en eulergraf hvis og bare hvis G er sammenhengende og graden til hver node er et partall.</p></li>
 					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des16_losning.pdf</h2>
 					<h4>Hamiltonsyklus, hamiltongraf</h4>
 					<li><p>En syklus som går igjennom hver node i grafen eksakt én gang kalles en hamiltonsyklus. En graf hvor dette lar seg gjøre, kalles en hamiltongraf. (Må bare prøve seg frem)</p></li>
@@ -758,7 +807,7 @@
 					<li><p>3. Tilføy så en av de gjenværende kantene med lavest vekt, uten å danne syklus.</p></li>
 					<li><p>Gjenta trinn 3 inntil alle noder er med i treet.</p></li>
 					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des11_losning.pdf</h2>
-					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li> 
+					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li>
 					<h2>Eks?</h2>
 				</ul>
 				<ul class="nostyle i0">
@@ -773,7 +822,7 @@
 				<ul class="nostyle i0">
 					<h3>Dijkstras algoritme</h3>
 					<li><p>Finner den korteste vei (vei med minst samlet vekt) fra en node til enhver annen node i grafen. Baserer seg på at man tilordner en vekt/kost til enhver kant i grafen.</p></li>
-					<li><p>S: mengden av ferdigbehandlede noder. W(u,v); weight, vekten på kanten (u,v). D(u): total distanse (samlet vekt) fra 
+					<li><p>S: mengden av ferdigbehandlede noder. W(u,v); weight, vekten på kanten (u,v). D(u): total distanse (samlet vekt) fra
 					startnoden til node u. Til hver node er det knyttet en etikett (label) som angir: </p></li>
 					<li><p>- total distanse fra startnode, - forgjenger </p></li>
 					<li><p>Trinn 1 - initialisering</p></li>
