@@ -1006,32 +1006,56 @@
 				<p><span class="katex">x_1- \dfrac{2}{3}x_3 = 1 \qquad x_1 = \dfrac{2}{3}x_3 + 1 = \dfrac{2}{3}t + 1</span></p>
 				<p><span class="katex">\underline{\underline{x_1 = \dfrac{2}{3}t + 1 , x_2 = \dfrac{5}{3}t , x_3 = t}}</span></p>
 
-				<h3>Komplekse tall</h3>
-				<p><span class="katex">i= \sqrt{-1} , \ i^2=-1</span></p>
-				<p><strong>Kartesisk form, rektangulær form.</strong> <span class="katex">Z=a+bi</span>, a: Realdel. b: Imaginærdel. i: den imaginære enhet</p>
-				<p><strong>Komplekskonjugering</strong> <span class="katex">Z=a+bi \  |  \overline Z = a-bi</span></p>
-				<p><strong>Polarform</strong> <span class="katex">cos \phi = \dfrac{a}{r} , \ a = r \cdot cos \phi</span> |  <span class="katex">sin \phi = \dfrac{b}{r} , \ b = r \cdot sin \phi</span></p>
-				<p><span class="katex">Z=a+bi = rcos \phi + r sin \phi i = r(cos \phi + isin \phi)</span></p>
-				<p><strong>Eksponentialform</strong> <span class="katex">Z=r \cdot e^{i \phi}</span></p>
-				<p>Multiplikasjon og divisjon på eksponentialform</p>
-				<p><span class="katex">Z_1 = r_1e^{i \phi_1}</span>  ,  <span class="katex">Z_2 = r_2e^{i \phi_2}</span></p>
-				<p><span class="katex">Z_1Z_2 = r_1r_2e^{i(\phi_1 + \phi_2)}</span></p>
-				<p><span class="katex">\dfrac{Z_1}{Z_2} = \dfrac{r_1}{r_2} e^{i(\phi_1 - \phi_2)}</span></p>
-				<p><span class="katex">\phi</span> målt i radianer: <span class="katex">\phi = \dfrac{b}{r}</span></p>
-				<p><strong>Euler: </strong> <span class="katex">e^{i \phi} = cos \phi + isin \phi</span></p>
-				<p><strong>Konvertering fra eksponentialform til rektangulær form</strong></p>
-				<p><span class="katex">Z = re^{i \phi} = r(cos \phi + i sin \phi) , \ a=rcos \phi, \ b=rsin \phi</span></p>
-				<p><strong>Kartesisk til eksponential form</strong></p>
-				<p><span class="katex">r=|z|= \sqrt{a^2+b^2}</span></p>
-				<p><span class="katex">cos \phi = \dfrac{a}{r} \to \phi = cos^{-1} \dfrac{a}{r}</span></p>
-				<p><span class="katex">sin \phi = \dfrac{b}{r} \to \phi = sin^{-1} \dfrac{b}{r}</span></p>
-				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
+
+ 				<h3>Determinanter</h3>
+ 				<p>Gitt
+ 					<span>$$
+ 						A =
+ 						\begin{bmatrix}
+ 							a_{11} & a_{12} \\
+ 							a_{21} & a_{22}
+ 						\end{bmatrix}
+ 						\qquad
+ 					$$</span>Determinanten til <span class="katex">A</span> er:
+ 					<span>$$
+ 					detA =
+ 					\begin{vmatrix}
+ 						a_{11} & a_{12} \\
+ 						\qquad\swarrow & \searrow \qquad \\
+ 						a_{21} & a_{22}
+ 					\end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}
+
+ 					\begin{vmatrix}
+						a_{11} & a_{12} & a_{13} \\
+						a_{21} & a_{22} & a_{23} \\
+						a_{31} & a_{32} & a_{33}
+					\end{vmatrix} =
+				$$</span><span>$$
+					a_{11}
+					\begin{vmatrix}
+						a_{22} & a_{23} \\
+						a_{32} & a_{33}
+					\end{vmatrix}
+
+					- a_{12}
+					\begin{vmatrix}
+						a_{21} & a_{23} \\
+						a_{31} & a_{33}
+					\end{vmatrix}
+
+					+ a_{13}
+					\begin{vmatrix}
+						a_{21} & a_{22} \\
+						a_{31} & a_{32}
+					\end{vmatrix}
+					$$</span>
+ 				</p>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<h3>Grafer, trær og tilstandsmaskiner</h3>
 				<ul class="nostyle i0">
-					<h3>Grafer, trær og tilstandsmaskiner</h3>
 					<li><p><strong>Enkel graf: </strong> to noder er forbundet med maks en kant, og ingen kant fra en node til seg selv. En graf som ikke er enkel, kalles en multigraf.</p></li>
 					<li><p><strong>Eks. Nodemengde:</strong> V={a,b,c}</p></li>
 					<li><p><strong>Eks. Kantmengde</strong> E={(a,b),(b,c),(c,a)}</p></li>
@@ -1056,16 +1080,18 @@
 					<p>Vi må også sjekke at naboskap beholdes, altså at dersom u og v er naboer i G1 så er f(u) og f(v) naboer i G2. Det er lurt å være systematisk når man lister opp disse: først naboer til a, så naboer til b, osv</p>
 					<p>Vi ser at naboskap bevares under f. Siden f også er injektiv og surjektiv (altså bijektiv), kan vi konkludere med at f slik vi har definert den, er en isomorfi. G1 og G2 er følgelig isomorfe. </p>
 				</ul>
+
+				<h4>Eulergraf, eulersyklus</h4>
 				<ul class="nostyle i0">
-					<h4>Eulergraf, eulersyklus</h4>
 					<li><p>En syklus som traverserer alle kantene i en graf eksakt én gang, kalles en eulersyklus. En graf hvor dette lar seg gjøre, kalles en eulergraf. En graf <span class="katex">G=(V,E)</span> er en eulergraf hvis og bare hvis G er sammenhengende og graden til hver node er et partall.</p></li>
 					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des16_losning.pdf</h2>
 					<h4>Hamiltonsyklus, hamiltongraf</h4>
 					<li><p>En syklus som går igjennom hver node i grafen eksakt én gang kalles en hamiltonsyklus. En graf hvor dette lar seg gjøre, kalles en hamiltongraf. (Må bare prøve seg frem)</p></li>
 					<li><strong>En komplett graf</strong> er en graf hvor alle noder er nabo med alle andre noder. En komplett graf er en hamiltongraf.</li>
 				</ul>
+
+				<h3>Trær</h3>
 				<ul class="nostyle i0">
-					<h3>Trær</h3>
 					<li><p>Et tre er en sammenhengende urettet graf uten sykluser. Dersom T er et tre med n noder & k kanter, så er k=n-1</p></li>
 					<li><p><strong>Spenntre</strong> La G være en enkel graf. Et spenntre T til G er en subgraf til G som inneholder alle nodene i G og er et tre. Merk: en graf kan ha mange spenntrær. Ofte knytter man en vekt/kost til hver kant. Det spenntre som totalt sett gir minimal kost/vekt kalles et minimalt spenntre. Vi bruker Krusklas algoritme til dette.</p></li>
 					<h4>Kruskals algoritme</h4>
@@ -1078,6 +1104,7 @@
 					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li>
 					<h2>Eks?</h2>
 				</ul>
+
 				<ul class="nostyle i0">
 					<h3>Rettede grafer</h3>
 					<h2>Tegne nabomatrise (fra, til)</h2>
@@ -1123,7 +1150,7 @@
 					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des14_losning.pdf</h2>
 				</ul>
 
-				<ul class="nostyle">
+				<ul class="nostyle i0">
 					<h3>Språk og tilstandsmaskiner</h3>
 					<li><p><strong>Alfabet:</strong> mengden av de symboler som kan brukes</p></li>
 					<li><p><strong>Grammatikk:</strong> et alfabet + produksjonsregler (for ord)</p></li>
@@ -1146,6 +1173,27 @@
 					<li><p>Her er det høyre side vi stiller krav til: - den tomme streng, - ett avslutningssymbol fulgt av ett ikke-avslutningssymbol, - ett avslutningssymbol</p></li>
 					<h2>EKS? http://www.it.hiof.no/mit/mit_eksamen_des13_losning.pdf</h2>
 				</ul>
+
+				<h3>Komplekse tall</h3>
+				<p><span class="katex">i= \sqrt{-1} , \ i^2=-1</span></p>
+				<p><strong>Kartesisk form, rektangulær form.</strong> <span class="katex">Z=a+bi</span>, a: Realdel. b: Imaginærdel. i: den imaginære enhet</p>
+				<p><strong>Komplekskonjugering</strong> <span class="katex">Z=a+bi \  |  \overline Z = a-bi</span></p>
+				<p><strong>Polarform</strong> <span class="katex">cos \phi = \dfrac{a}{r} , \ a = r \cdot cos \phi</span> |  <span class="katex">sin \phi = \dfrac{b}{r} , \ b = r \cdot sin \phi</span></p>
+				<p><span class="katex">Z=a+bi = rcos \phi + r sin \phi i = r(cos \phi + isin \phi)</span></p>
+				<p><strong>Eksponentialform</strong> <span class="katex">Z=r \cdot e^{i \phi}</span></p>
+				<p>Multiplikasjon og divisjon på eksponentialform</p>
+				<p><span class="katex">Z_1 = r_1e^{i \phi_1}</span>  ,  <span class="katex">Z_2 = r_2e^{i \phi_2}</span></p>
+				<p><span class="katex">Z_1Z_2 = r_1r_2e^{i(\phi_1 + \phi_2)}</span></p>
+				<p><span class="katex">\dfrac{Z_1}{Z_2} = \dfrac{r_1}{r_2} e^{i(\phi_1 - \phi_2)}</span></p>
+				<p><span class="katex">\phi</span> målt i radianer: <span class="katex">\phi = \dfrac{b}{r}</span></p>
+				<p><strong>Euler: </strong> <span class="katex">e^{i \phi} = cos \phi + isin \phi</span></p>
+				<p><strong>Konvertering fra eksponentialform til rektangulær form</strong></p>
+				<p><span class="katex">Z = re^{i \phi} = r(cos \phi + i sin \phi) , \ a=rcos \phi, \ b=rsin \phi</span></p>
+				<p><strong>Kartesisk til eksponential form</strong></p>
+				<p><span class="katex">r=|z|= \sqrt{a^2+b^2}</span></p>
+				<p><span class="katex">cos \phi = \dfrac{a}{r} \to \phi = cos^{-1} \dfrac{a}{r}</span></p>
+				<p><span class="katex">sin \phi = \dfrac{b}{r} \to \phi = sin^{-1} \dfrac{b}{r}</span></p>
+				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
 			</div>
 		</section>
 		<section>
