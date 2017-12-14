@@ -678,46 +678,24 @@
 						<p><span class="katex">\dfrac{ \text{Jeg er ikke tørst } (\neg q) }{ \therefore \text{Jeg drikker ikke vann } (\neg p) }</span></p>
 					</div>
 				</div>
+				<h4>Bevis</h4>
+				<p><strong>Direkte bevis</strong> anta at p er sann, og vis at da følger q</p>
+				<p>Påstand: summen av et partall og et oddetall, er et oddetall. p: n er et partall. q: m et oddetall.</p>
+				<p>Anta nå at n er et partall og m er et oddetall. Vi skal da vise at n + m er et oddetall. Dersom n er et partall, kan det skrives som <span class="katex">n = 2a, a \in Z</span></p>
+				<p>Dersom m er et oddetall, kan det skrives som <span class="katex">m = 2b + 1, b \in Z</span>. Da er <span class="katex">m+n = 2a + 2b + 1 = 2(a+b)+1</span> Siden a og b er heltall, er også a + b et heltall. Følgelig er 2(a + b) et partall (siden et heltall ganger 2 er et partall). Et partall + 1 er et oddetall. Følgelig er (a + b) + 1 et oddetall. Siden (a + b) + 1 er lik n + m, er også n + m et oddetall, og det var jo nettopp det vi skulle bevise. qed. </p>
+				<p><strong>Kontrapositivt bevis</strong> <span class="katex">p \to q \Leftrightarrow \neg q \to \neg p</span>. Antar at q er falsk (dvs at <span class="katex">\neg q</span> er sann) og vis at det medfører at p er falsk (dvs at <span class="katex">\neg p</span>) er sann.</p>
+				<p>Påstand: <span class="katex">n^2-6n+5</span> er et partall, så er n et oddetall.</p>
+				<p>Det kontrapositive er: Dersom n er et partall så er <span class="katex">n^2-6n+5</span> et oddetall. Dersom n er et partall, kan det skrives slik: <span class="katex">n=2a</span>, hvor a er et heltall. Da har vi at <span class="katex">n^2-6n+5=(2a)^2 -6 \cdot 2a + 5 = 4a^2 - 12a + 5 = 4a^2-12a+4+1=2(2a^2-6a+2)+1</span> </p>
+				<p>Siden a er et heltall, er utrykket i parantesen et heltall. Et heltall ganger 2 er et partall, og <span class="katex">2(2a^2-6a+2)</span> er derfor et partall. Et partall pluss 1 er et oddetall. Uttrykket er derfor et oddetall. QED.</p>
+				<p><strong>Bevis ved selvmotsigelse</strong> Hvis vi skal bevise p, anta at <span class="katex">\neg p</span> er sann og vis at dette fører til en selvmotsigelse</p>
+				<p><strong>Eks</strong> Bevis at <span class="katex">\sqrt{2}</span> er et irrasjonalt tall. Et rasjonalt tall er et tall som kan skrives som en brøk av heltall. Et irrasjonalt tall kan ikke skrives som en brøk av heltall. p: <span class="katex">\sqrt{2}</span> er et irrasjonalt tall. Anta at <span class="katex">\neg p: \sqrt{2}</span> er et rasjonalt tall </p>
+				<p>Da kan man skrive <span class="katex">\sqrt{2} = \dfrac{m}{n}, m,n \in Z</span>. Anta nå at <span class="katex">\dfrac{m}{n}</span> er skrevet på redusert form <strong>(uten felles faktorer)</strong>. Vi har da <span class="katex">\sqrt{2}=\dfrac{m}{n}</span> Vi kvadrerer begge sider: <span class="katex">(\sqrt{2})^2=(\dfrac{m}{n})^2 \to 2 = \dfrac{m^2}{n^2}</span>. Ganger begge sider med <span class="katex">n^2</span>: <span class="katex">2n^2=\dfrac{m}{n} \cdot n^2</span>. Siden n er et heltall, er <span class="katex">n^2</span> et heltall. <span class="katex">2n^2</span> er følgelig et partall.</p>
+				<p>Siden <span class="katex">2n^2=m^2 (*)</span> er også <span class="katex">m^2</span> et partall. Sist beviste vi at dersom <span class="katex">a^2</span>er et partall, er også a et partall. Siden <span class="katex">m^2</span> er et partall, så er <strong>også m et partall</strong>. Vi kan derfor skrive <span class="katex">m = 2p, p \in Z</span>. Setter vi dette inn i (*) får vi: <span class="katex">2n^2=(2p)^2 = 4p^2</span> Deler med 2 på begge sider: <span class="katex">n^2=2p^2</span>. Siden p er et heltall er <span class="katex">p^2</span> et heltall, og <span class="katex">2p^2</span> er følgelig et partall. Da er også <span class="katex">n^2</span> et partall (fordi den er lik <span class="katex">2p^2</span>). Da er også <strong>n et partall</strong>.</p>
+				<p>Vi har altså vist at både n og m er partall. Dette innebærer at m og n har en felles faktor, nemlig 2. Dette strider mot forutsetningene, og viser at <span class="katex">\neg p</span> er falsk. Følgelig må p være sann. qed.</p>
 			</div>
 		</section>
 		<section>
 			<div class="row">
-				<h4>Bevis</h4>
-				<p><strong>Direkte bevis</strong> anta at p er sann, og vis at da følger q</p>
-				<p>Påstand: summen av et partall og et oddetall, er et oddetall. p: n er et partall. q: m et oddetall.</p>
-				<p>Anta nå at n er et partall og m er et oddetall. Vi skal da vise at n + m er et oddetall.
-				Dersom n er et partall, kan det skrives som <span class="katex">n = 2a, a \in Z</span></p>
-				<p>Dersom m er et oddetall, kan det skrives som <span class="katex">m = 2b + 1, b \in Z</span>. Da er
-				<span class="katex">m+n = 2a + 2b + 1 = 2(a+b)+1</span> Siden a og b er heltall, er også a + b et heltall.
-				Følgelig er 2(a + b) et partall (siden et heltall ganger 2 er et partall). Et partall + 1 er et oddetall.
-				Følgelig er (a + b) + 1 et oddetall. Siden (a + b) + 1 er lik n + m, er også n + m et oddetall, og det var jo nettopp det vi
-				skulle bevise. qed. </p>
-				<p><strong>Kontrapositivt bevis</strong> <span class="katex">p \to q \Leftrightarrow \neg q \to \neg p</span>. Antar at q er falsk
-				(dvs at <span class="katex">\neg q</span> er sann) og vis at det medfører at p er falsk (dvs at <span class="katex">\neg p</span>) er sann.</p>
-				<p>Påstand: <span class="katex">n^2-6n+5</span> er et partall, så er n et oddetall.</p>
-				<p>Det kontrapositive er: Dersom n er et partall så er <span class="katex">n^2-6n+5</span> et oddetall. Dersom n er et partall, kan det skrives slik:
-				<span class="katex">n=2a</span>, hvor a er et heltall. Da har vi at
-				<span class="katex">n^2-6n+5=(2a)^2 -6 \cdot 2a + 5 = 4a^2 - 12a + 5 = 4a^2-12a+4+1=2(2a^2-6a+2)+1</span> </p>
-				<p>Siden a er et heltall, er utrykket i parantesen et heltall. Et heltall ganger 2 er et partall, og
-				<span class="katex">2(2a^2-6a+2)</span> er derfor et partall. Et partall pluss 1 er et oddetall. Uttrykket er derfor et oddetall. QED.</p>
-				<p><strong>Bevis ved selvmotsigelse</strong> Hvis vi skal bevise p, anta at <span class="katex">\neg p</span> er sann og vis at dette fører til en selvmotsigelse</p>
-				<p><strong>Eks</strong> Bevis at <span class="katex">\sqrt{2}</span> er et irrasjonalt tall. Et rasjonalt tall er et tall som kan skrives som en brøk av heltall.
-					Et irrasjonalt tall kan ikke skrives som en brøk av heltall. p: <span class="katex">\sqrt{2}</span> er et irrasjonalt tall. Anta at
-					<span class="katex">\neg p: \sqrt{2}</span> er et rasjonalt tall
-				</p>
-				<p>Da kan man skrive <span class="katex">\sqrt{2} = \dfrac{m}{n}, m,n \in Z</span>. Anta nå at <span class="katex">\dfrac{m}{n}</span>
-					er skrevet på redusert form <strong>(uten felles faktorer)</strong>. Vi har da <span class="katex">\sqrt{2}=\dfrac{m}{n}</span> Vi kvadrerer begge sider:
-					<span class="katex">(\sqrt{2})^2=(\dfrac{m}{n})^2 \to 2 = \dfrac{m^2}{n^2}</span>. Ganger begge sider med <span class="katex">n^2</span>:
-					<span class="katex">2n^2=\dfrac{m}{n} \cdot n^2</span>. Siden n er et heltall, er <span class="katex">n^2</span> et heltall. <span class="katex">2n^2</span> er følgelig et partall.
-				</p>
-				<p>Siden <span class="katex">2n^2=m^2 (*)</span> er også <span class="katex">m^2</span> et partall. Sist beviste vi at dersom <span class="katex">a^2</span>er et partall, er også a et partall. Siden
-					<span class="katex">m^2</span> er et partall, så er <strong>også m et partall</strong>. Vi kan derfor skrive <span class="katex">m = 2p, p \in Z</span>. Setter vi dette inn i (*) får vi:
-					<span class="katex">2n^2=(2p)^2 = 4p^2</span> Deler med 2 på begge sider: <span class="katex">n^2=2p^2</span>. Siden p er et heltall er <span class="katex">p^2</span> et heltall, og
-					<span class="katex">2p^2</span> er følgelig et partall. Da er også <span class="katex">n^2</span> et partall (fordi den er lik <span class="katex">2p^2</span>). Da er også <strong>n et partall</strong>.
-				</p>
-				<p>Vi har altså vist at både n og m er partall. Dette innebærer at m og n har en felles faktor, nemlig 2. Dette strider mot forutsetningene, og viser at
-					<span class="katex">\neg p</span> er falsk. Følgelig må p være sann. qed.</p>
-
 				<h4>Predikatlogikk</h4>
 				<p>Eks predikat:  P(x): x er et heltall som oppfyller <span class="katex">x^2 = x</span>(Denne er sann for x=0 og x=1. For alle andre x er den falsk)</p>
 				<p>For å uttrykke dette bruker vi kvantorer: <span class="katex">\forall</span>: allkvantor. Leses "for alle". <span class="katex">\exists</span>: eksistenskvantor. "det finnes". Benytter mman en kvantor på et predikat, får man et utsagn.</p>
@@ -734,9 +712,6 @@
 				<p><span class="katex"> \neg \forall x P(x): </span> <strong>ikke alle</strong> sensorer er snille. <span class="katex">\exists x \neg P(x):</span> det finnes minst en sensor som ikke er snill</p>
 				<p><span class="katex">\exists</span> er knyttet til <span class="katex">\wedge</span>. <span class="katex">\forall</span> er knyttet til <span class="katex">\to</span></p>
 				<p><strong>Domene:</strong> Når vi sier <span class="katex">\forall x</span> eller <span class="katex">\exists x</span>, så refererer vi til et domene, D, hvor vi henter x fra (universet)</p>
-
-
-
 			</div>
 		</section>
 	</div>
