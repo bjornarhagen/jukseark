@@ -202,7 +202,7 @@
 						<li><p>Dersom A <span class="katex"> \subseteq</span> B og samtidig B <span class="katex">\subseteq</span> A, så er A = B</p></li>
 						<h4>Kardinalitet</h4>
 						<li><p>For endelige mengder (mengde med endelig antall elementer) er kardinaliteten antall elementer i mengden. Skrives: |A|</p></li>
-						<li><strong><p>Eksempel</p></strong><span class="katex">A=\{a,b,c\} \ , |A| = 3</span></li>
+						<li><p><strong>Eksempel:</strong><span class="katex">\quad A=\{a,b,c\} \ , |A| = 3</span></p></li>
 						<h4>Potensmengder</h4>
 						<li><p>Potensmengden til en mengde A er mengden av alle delmengder til A. Den betegnes P(A)</p></li>
 						<li><strong><p>Eksempel</p></strong><span class="katex">A=\{a,b,c\} \ , P(A)=\{ \phi, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\},</span></li>
@@ -215,25 +215,45 @@
 						<li><p>Utvidet til 3 mengder:</p></li>
 						<li><span class="katex">|A \cup B \cup C| = |A| + |B| +|C| - |A \cap B| - |A \cap C | - | B \cap C | + | A \cap B \cap C | </span></li>
 						<li><p>Kun hva alle mengdene har til felles (snittet):</p> <span class="katex">|A \cap B \cap C| = |A \cup B \cup C| - |A| - |B| - |C| + |A \cap B| + |A \cap C| + |B \cap C| </span></li>
-						<h2>!! Hente eks. fra eksamen</h2>
-					</ul>
-					<ul class="nostyle i0">
-						<h4>Kartetiske produkter</h4>
-						<li><p>Ordnet par: et objekt på formen (a,b) hvor a <span class="katex">\in</span> A, og b <span class="katex">\in</span> B. A og B er mengder.
-						 Mengden av alle ordnede par på denne formen, kalles det kartetiske produktet av A og B, og skrives A x B</p></li>
-						<li><p><strong>Eksempel</strong></p></li>
-						<li><span class="katex">A=\{0,1,2\} \ , B=\{3,5\}</span></li>
-						<li><span class="katex">A \cdot B=\{ (0,3), (0,5), (1,3), (1,5), (2,3), (2,5) \}</span></li>
-						<li><strong><p>Generelt</p></strong><p>dersom A<span class="katex">\ne</span>B og a<span class="katex">\ne</span>b:</p></li>
-						<li><span class="katex">(a,b) \ne (b,a) \ og\ A \cdot B \ne B \cdot A</span></li>
-						<li><p>Vi kan ha kartetiske produketer av mengde med seg selv</p> <span class="katex">A \cdot A = A^2 \ ,\ A \cdot A \cdot A = A^3</span></li>
+
+						<ul class="nostyle i0">
+							<li><p><strong>Eksempel</strong></p></li>
+							<li><p>Ved IT-studiet ved en høgskole, var det 67 studenter som tok eksamen i minst ett av fagene matematikk, programmering og databaser. 56 studenter tok eksamen i matematikk, 55 tok eksamen i programmering, mens 53 tok eksamen i databaser. 46 tok eksamen i både matematikk og programmering. Det var like mange som tok eksamen i både matematikk og databaser som dem som tok eksamen i både programmering og databaser. 39 studenter tok eksamen i alle tre fagene. <em>Hvor mange tok eksamen i både matematikk og databaser?</em></p></li>
+							<li><p>Vi kan kalle mengden av dem som tar eksamen i matematikk for M, mengden av dem som tar eksamen i programmering for P og mengden av dem som tar eksamen i databaser for D. Opplysningene som er gitt i oppgaven kan da uttrykkes slik:</p></li>
+							<li>
+								<ul class="nostyle inline">
+									<li><p><span class="katex">|M| = 56</span></p></li>
+									<li><p><span class="katex">|P| = 55</span></p></li>
+									<li><p><span class="katex">|D| = 53</span></p></li>
+									<li><p><span class="katex">|M \cap P| = 46</span></p></li>
+									<li><p><span class="katex">|M \cap D| = |P \cap D|</span></p></li>
+									<li><p><span class="katex">|M \cap P \cap D| = 39</span></p></li>
+								</ul>
+							</li>
+							<li><p>Opplysningen om at det totalt var 67 studenter som tok eksamen i minst ett av disse fagene, kan vi uttrykke ved <span class="katex">|M \cup P \cup D| = 67</span>. Inklusjons- og eksklusjonsprinsippet sier: <span class="katex">| M \cup P \cup D | = | M | + | P | + | D | - | M \cap P | - | M \cap D | - | P \cap D | + | M \cap P \cap D |</span></p></li>
+							<li><p>Siden <span class="katex">| M \cap D| = | P \cap D|</span> kan vi skrive denne som <span class="katex">| M \cup P \cup D | = | M | + | P | + | D | - | M \cap P | -2 | M \cap D | + | M \cap P \cap D |</span></p></li>
+							<li><p>Løser vi så denne med hensyn på <span class="katex">| M \cap D |</span> får vi</p></li>
+							<li><p><span class="katex">| M \cap D | = \dfrac{1}{2} (| M + P + D - M \cap P + M \cap P \cap D - M \cup P \cup D |)</span>. Setter vi nå inn tall, finner vi</p></li>
+							<li><p><span class="katex">| M \cap D | = \dfrac{1}{2} ( 56 + 55 + 53 - 46 - 39 + 67 ) = \dfrac{1}{2} \cdot 90 = \underline{\underline{45}}</span></p></li>
+						</ul>
 					</ul>
 			</div>
 		</section>
 		<section>
 			<div class="row">
-				<h3>Relasjoner</h3>
+				<ul class="nostyle i0">
+					<h4>Kartetiske produkter</h4>
+					<li><p>Ordnet par: et objekt på formen (a,b) hvor a <span class="katex">\in</span> A, og b <span class="katex">\in</span> B. A og B er mengder.
+					 Mengden av alle ordnede par på denne formen, kalles det kartetiske produktet av A og B, og skrives A x B</p></li>
+					<li><p><strong>Eksempel</strong></p></li>
+					<li><span class="katex">A=\{0,1,2\} \ , B=\{3,5\}</span></li>
+					<li><span class="katex">A \cdot B=\{ (0,3), (0,5), (1,3), (1,5), (2,3), (2,5) \}</span></li>
+					<li><strong><p>Generelt</p></strong><p>dersom A<span class="katex">\ne</span>B og a<span class="katex">\ne</span>b:</p></li>
+					<li><span class="katex">(a,b) \ne (b,a) \ og\ A \cdot B \ne B \cdot A</span></li>
+					<li><p>Vi kan ha kartetiske produketer av mengde med seg selv</p> <span class="katex">A \cdot A = A^2 \ ,\ A \cdot A \cdot A = A^3</span></li>
+				</ul>
 
+				<h3>Relasjoner</h3>
 				<ul class="nostyle i0">
 					<li><p><strong>Refleksiv</strong> <span class="katex">(a,a) \in R</span> for alle <span class="katex">a \in A</span></p></li>
 					<li><p><strong>Symmetrisk</strong> <span class="katex">(a,b) \in R</span> så er <span class="katex">(b,a) \in R</span></p></li>
@@ -756,7 +776,7 @@
 				<p><strong>Men husk:</strong> cosinus til eksplementvinkler er like. Vi må derfor i tillegg gjøre en vurdering av hvilken kvadrant tallet ligger i. (Man kan gjøre dette ved å se på fortegnene til a+bi) </p>
 
 			</div>
-		</section>	
+		</section>
 	</div>
 	<div class="wrapper">
 		<section>
