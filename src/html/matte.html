@@ -1030,11 +1030,49 @@
 				<p><span>$$A\cdot A^{-1} = I \qquad\quad A\cdot A^{-1} = \begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$$</span></p>
 				<p class="tl inline"><span class="katex">2 \times 2</span>-matrise:</p>
 				<p class="inline"><span>$$A = \begin{bmatrix} a_{11} & & a_{12}\\ & {\huge \times} & \\ a_{21} & & a_{22}\end{bmatrix} \begin{matrix} A^{-1} = \dfrac{1}{\underbrace{a_{11}a_{22}-a_{12}a_{21}}_\text{detA}} \begin{bmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix} \end{matrix}$$</span></p>
-				<p>For matriser større enn <span class="katex">2\times2</span> Dann matrisen <span class="katex">\Big[A|I\Big]</span>. Utfør elemtære rekkeoperasjoner så venstre halvdel blir <span class="katex">I</span>. Da vil høre halvdel ha blitt <span class="katex">A^{-1}</span></p>
+				<p>For matriser større enn <span class="katex">2\times2</span> Dann matrisen <span class="katex">\Big[A|I\Big]</span>. Utfør elemtære rekkeoperasjoner så venstre halvdel blir <span class="katex">I</span>. Da vil høre halvdel ha blitt <span class="katex">A^{-1}</span>. Dersom <span class="katex">A</span> og <span class="katex">B</span> er to inverterbare <span class="katex">n\times n</span>-matriser, så er <span class="katex">AB</span> inverterbar med <span class="katex">(AB)^{-1} = B^{-1}A^{-1}</span>. Ikke alle kvadratiske matriser kan inverteres. Matriser som ikke kan inverteres kalles <em>singulære</em>.</p>
+				<p><strong>Teorem</strong>: En kvadratisk matrise er inverterbar (ikke-singulær) hvis og bare hvis <span class="katex">detA \ne 0</span></p>
+				<p><strong>Triangulær matrise</strong>: En kvadratisk matrise med kun 0-er enten over eller under hoveddiagon</p>
+				<p><strong>Diagonalmatrise</strong>: En kvadratisk matrise der elementene både over og under hoveddiagonalen er 0-er</p>
+				<p><strong>Enhetsmatrise/identitetsmatrise</strong>: bare 1-ere i hoveddiagonalen.</p>
+				<p><strong>Hoveddiagonalen:</strong>: skrått over</p>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<h3>Ligningssystemer på matriseform</h3>
+				<p>Vektorer har vi skrevet slik <span class="katex">\vec{v} = [3, -1, 1]</span> eller slik <span class="katex">\vec{v} = 3\vec{i}-1\vec{j}+1\vec{k}</span> Vi kan også skriver vektorer slik: <span class="katex">\vec{v} = \begin{bmatrix} 3 \\ -1 \\ 1 \end{bmatrix}</span> kolonnevektor. Ved å bruke dette kan vi skrive et ligningssystem slik:
+					<span>$$
+						\begin{matrix}
+						2x_1+x_2 = 3 \\
+						3x_1-2x_2 = 4
+						\end{matrix}
+					$$</span>. ligningssystem <span class="katex">\Leftrightarrow A\vec{x} = \vec{b}</span> hvor
+					<span>$$
+						A =
+						\begin{bmatrix}
+							2 & 1 \\
+							3 & -2
+						\end{bmatrix}
+						\quad
+						\vec{x} =
+					\begin{bmatrix} x_1 \\
+						x_2 \end{bmatrix}
+						\quad \vec{b} = \begin{bmatrix} 3 \\
+						4
+					\end{bmatrix}
+				$$</span> La oss vise at dette blir det samme: <span class="katex">A\vec{x} = \vec{b}</span> <span>$$\begin{bmatrix} 2 & 1 \\ 3 & -2\end{bmatrix} \cdot \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}$$</span> <span class="katex">(2\times2) \cdot (2\times1) \Rightarrow 2\times1</span> <span>$$\begin{bmatrix} 2x_1 + x_2 \\ 3x_1 - 2x_2 \end{bmatrix} = \begin{bmatrix} 3\\4 \end{bmatrix}$$.</span> For at to vektorer skal være like må 1.komponent være lik 1. komponent og 2 - || - 2. - || - <span class="katex">2x_1+x_2 = 3 \qquad\qquad 3x_1-2x_2 = 4</span> Dersom <span class="katex">\vec{b} = 0</span> er systemet homogent. Løsningen av ligningssystemet: Anta at <span class="katex">A</span> er kvadratisk (like mange ligninger som ukjente) og inverterbar (ikke-singulær). Ganger med <span class="katex">A^{-1}</span> fra venstre:
+					<span>$$
+					\begin{matrix}
+						A\vec{x} = \vec{b} \\
+						\big\Updownarrow \\
+						\underline{A^{-1}A\vec{x}} = A^{-1}\vec{b} \\
+						\hookrightarrow I \qquad\quad \\
+						I\vec{x} = A ^{-1}\vec{b} \\
+						\underline{\underline{\vec{x} = A^{-1}\vec{b}}}
+					\end{matrix}
+				$$</span>. <strong>Dette er løsningen om A er inverterbar</strong></p>
+
  				<h3>Determinanter</h3>
  				<p>Gitt
  					<span>$$
@@ -1113,39 +1151,6 @@
 					<h4>Hamiltonsyklus, hamiltongraf</h4>
 					<li><p>En syklus som går igjennom hver node i grafen eksakt én gang kalles en hamiltonsyklus. En graf hvor dette lar seg gjøre, kalles en hamiltongraf. (Må bare prøve seg frem)</p></li>
 					<li><strong>En komplett graf</strong> er en graf hvor alle noder er nabo med alle andre noder. En komplett graf er en hamiltongraf.</li>
-				</ul>
-
-				<h3>Trær</h3>
-				<ul class="nostyle i0">
-					<li><p>Et tre er en sammenhengende urettet graf uten sykluser. Dersom T er et tre med n noder & k kanter, så er k=n-1</p></li>
-					<li><p><strong>Spenntre</strong> La G være en enkel graf. Et spenntre T til G er en subgraf til G som inneholder alle nodene i G og er et tre. Merk: en graf kan ha mange spenntrær. Ofte knytter man en vekt/kost til hver kant. Det spenntre som totalt sett gir minimal kost/vekt kalles et minimalt spenntre. Vi bruker Krusklas algoritme til dette.</p></li>
-					<h4>Kruskals algoritme</h4>
-					<li><p>La G=(V,E) være en sammenhengende graf med vektede kanter. Et spenntre kan lages slik:</p></li>
-					<li><p>1. Sorter kantene basert på deres vekter</p></li>
-					<li><p>2. Start med en av kantene med lavest vekt</p></li>
-					<li><p>3. Tilføy så en av de gjenværende kantene med lavest vekt, uten å danne syklus.</p></li>
-					<li><p>Gjenta trinn 3 inntil alle noder er med i treet.</p></li>
-					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des11_losning.pdf</h2>
-					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li>
-					<h2>Eks?</h2>
-				</ul>
-
-				<ul class="nostyle i0">
-					<h3>Rettede grafer</h3>
-					<h2>Tegne nabomatrise (fra, til)</h2>
-					<li><p>For å finne rettede veier av lengde 1 i grafen, kan vi se i nabomatrisen, M. For å finne rettede veier av lengde 2, kan vi utføre en boolsk matrisemultiplikasjon. <span class="katex">M^{[2]}=M \cdot M.\ M^{[3]} = M \cdot M \cdot M</span></p> 1-ere i nabomatrisen vil da si "en rettet vei av lengde x, fra node1 til node2".</li>
-					<div class="clear">
-						<div class="w6 fl">
-							<li><p><strong>Boolsk multiplikasjon</strong> <span class="katex">1 \cdot 1 = 0,\ 1 \cdot 0 = 0 \cdot 1 = 0 \cdot 0 = 0</span></p></li>
-							<li><p><strong>Boolsk addering</strong> <span class="katex">1+1=1+0=0+1=1,\ 0+0=0</span></p></li>
-						</div>
-						<div class="w4 fl">
-							<img src="https://i.xdh.no/f6e9b86f6059">
-						</div>
-					</div>
-
-					<h2>Eks?</h2>
-					<li><p><strong>Rekkeviddematrise</strong> Hvorvidt det er mulig å nå en node, kan ses av rekkeviddematrisen, <span class="katex">M^*. M^*</span> er den boolske summen av <span class="katex">M, M^{[2]}, M^{[3]},</span> osv.</p></li>
 				</ul>
 			</div>
 		</section>
@@ -1246,10 +1251,75 @@
 					<h4>Church-Turing tesen</h4>
 					<li><p>Dersom man har et problem som kan løses med en algoritme, så vil det finnes en turingmaskin som kan løse problemet</p></li>
 				</ul>
+
+				<h3>Trær</h3>
+				<ul class="nostyle i0">
+					<li><p>Et tre er en sammenhengende urettet graf uten sykluser. Dersom T er et tre med n noder & k kanter, så er k=n-1</p></li>
+					<li><p><strong>Spenntre</strong> La G være en enkel graf. Et spenntre T til G er en subgraf til G som inneholder alle nodene i G og er et tre. Merk: en graf kan ha mange spenntrær. Ofte knytter man en vekt/kost til hver kant. Det spenntre som totalt sett gir minimal kost/vekt kalles et minimalt spenntre. Vi bruker Krusklas algoritme til dette.</p></li>
+					<h4>Kruskals algoritme</h4>
+					<li><p>La G=(V,E) være en sammenhengende graf med vektede kanter. Et spenntre kan lages slik:</p></li>
+					<li><p>1. Sorter kantene basert på deres vekter</p></li>
+					<li><p>2. Start med en av kantene med lavest vekt</p></li>
+					<li><p>3. Tilføy så en av de gjenværende kantene med lavest vekt, uten å danne syklus.</p></li>
+					<li><p>Gjenta trinn 3 inntil alle noder er med i treet.</p></li>
+					<h2>EKS http://www.it.hiof.no/mit/mit_eksamen_des11_losning.pdf</h2>
+					<li><p><strong>Et rottre</strong> er et tre hvor en node utpekes som rot, og hvor det er en vei fra rota til hver av de andre nodene.</p></li>
+					<h2>Eks?</h2>
+				</ul>
+
+				<ul class="nostyle i0">
+					<h3>Rettede grafer</h3>
+					<h2>Tegne nabomatrise (fra, til)</h2>
+					<li><p>For å finne rettede veier av lengde 1 i grafen, kan vi se i nabomatrisen, M. For å finne rettede veier av lengde 2, kan vi utføre en boolsk matrisemultiplikasjon. <span class="katex">M^{[2]}=M \cdot M.\ M^{[3]} = M \cdot M \cdot M</span></p> 1-ere i nabomatrisen vil da si "en rettet vei av lengde x, fra node1 til node2".</li>
+					<div class="clear">
+						<div class="w6 fl">
+							<li><p><strong>Boolsk multiplikasjon</strong> <span class="katex">1 \cdot 1 = 0,\ 1 \cdot 0 = 0 \cdot 1 = 0 \cdot 0 = 0</span></p></li>
+							<li><p><strong>Boolsk addering</strong> <span class="katex">1+1=1+0=0+1=1,\ 0+0=0</span></p></li>
+						</div>
+						<div class="w4 fl">
+							<img src="https://i.xdh.no/f6e9b86f6059">
+						</div>
+					</div>
+
+					<h2>Eks?</h2>
+					<li><p><strong>Rekkeviddematrise</strong> Hvorvidt det er mulig å nå en node, kan ses av rekkeviddematrisen, <span class="katex">M^*. M^*</span> er den boolske summen av <span class="katex">M, M^{[2]}, M^{[3]},</span> osv.</p></li>
+				</ul>
+
+				<h3>Surjektiv / injektiv</h3>
+				<p>Gitt en funksjon <span class="katex">f: A \to B</span>. Anta at f er injektiv, men ikke nødvendigvis surjektiv. Hvilke av følgende påstander er da korrekte. Begrunn svaret</p>
+				<div class="clear">
+					<div class="fl w7">
+						<p>Fordi f er en funksjon, må hvert element i A ha relasjon til nøyaktig ett element i B. At funksjonen er injektiv, innebærer at ulike elementer i A har ulike bilder i B. Av dette kan vi slutte at antall elementer i B i det minste må være like stort som antall elementer i A, for hvis antall elementer i B var mindre enn antall i A, måtte minst to elementer i A ha samme bilde i B. Men fordi funksjonen ikke nødvendigvis er surjektiv, kan vi godt ha en situasjon hvor antall elementer i B er større enn antall elementer i A, for det gjør da ikke noe om B har elementer som ikke er bilde av noe element i A.</p>
+						<p><strong>Påstand (ii) er derfor riktig.</strong></p>
+					</div>
+					<div class="fl w2 i2">
+						<img class="w9" src="https://i.xdh.no/2a1a55ef3727">
+					</div>
+				</div>
+				<p>Gitt en funksjon <span class="katex">f: A \to B</span>. Anta at f er surjektiv, men ikke nødvendigvis injektiv. Hvilke av følgende påstander er da korrekte. Begrunn svaret.</p>
+				<p>Fordi f er en funksjon, må hvert element i A ha relasjon til nøyaktig ett element i B. Hvert element i A kan altså ikke «dekke opp for» mer enn ett element i B. Og siden hvert element i B må være bilde av et element i A (fordi f er surjektiv), må antall elementer i A være større eller lik antall elementer i B.</p>
+				<p><strong>Påstand (iv) er derfor riktig</strong></p>
+
+				<h3>Tilstandstabell</h3>
+				<div class="clear">
+					<img class="fl w5" src="https://i.xdh.no/a050ecbac745">
+					<img class="fr w5" src="https://i.xdh.no/55430c93f9e5">
+				</div>
 			</div>
 		</section>
 		<section>
 			<div class="row">
+				<h3>Differensligning eksempel</h3>
+				<img class="w7" src="https://i.xdh.no/772c3718fedc">
+				<img class="w7" src="https://i.xdh.no/43133ef12d8d">
+				<img class="w7" src="https://i.xdh.no/cddc6646dc95">
+				<img class="w7" src="https://i.xdh.no/412ad138ef2a">
+
+				<h3>Tilstandsdiagram</h3>
+				<div class="clear">
+					<p class="fl w7">Lag en endelig tilstandsmaskin med binær inngang og utgang som gir 1-er ut når inndatasymbolet den leser er likt det foregående inndatasymbolet, og 0-er ut ellers. For eksempel skal inndatastrengen 0001100 gi følgende ut: 0110101. Her trenger vi minst tre tilstander. En starttilstand ( ) 0 s , en tilstand vi går til når vi leser en 0- er ( ) 1 s og en tilstand vi går til når vi leser en 1-er ( ) 2 s . Tilstandene 1 s og 2 s bruker vi altså til å huske hva sist innleste bit er slik at vi kan sammenligne med det bitet vi leser nå. Tilstandsmaskinen kan da se slik ut (det kan finnes andre korrekte løsninger):</p>
+					<img class="w3" src="https://i.xdh.no/22befaaf0d7d" style="">
+				</div>
 			</div>
 		</section>
 	</div>
