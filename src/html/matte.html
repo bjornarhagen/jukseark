@@ -416,6 +416,223 @@
 		</section>
 		<section>
 			<div class="row">
+				<h3>Sannhetstabeller</h3>
+				<h4>Konjunksjon, og</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td><p>p</p></td>
+							<td><p>q</p></td>
+							<td><span class="katex">p \wedge q</span></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Disjunksjon, eller</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td><p>p</p></td>
+							<td><p>q</p></td>
+							<td><span class="katex">p \vee q</span></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Eksklusiv eller</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td><p>p</p></td>
+							<td><p>q</p></td>
+							<td><span class="katex">p \oplus q</span></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+					</tbody>
+				</table>
+				</table>
+				<h4>Implikasjon, hvis-så</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td><p>p</p></td>
+							<td><p>q</p></td>
+							<td><span class="katex">p \to q</span></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Ekvivalens, hvis og bare hvis</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td><p>p</p></td>
+							<td><p>q</p></td>
+							<td><span class="katex">p \leftrightarrow q</span></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+							<td><p>S</p></td>
+						</tr>
+						<tr>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+							<td><p>F</p></td>
+						</tr>
+						<tr>
+							<td><p>F</p></td>
+							<td><p>F</p></td>
+							<td><p>S</p></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Logisk ekvivalens</h4>
+				<p>To sammensatte logiske utsagn kalles logisk ekvivalente dersom de har samme sannhetsverdi for enhver kombinasjon av
+				sannhetsverdiene til de atomære utsagnene. (Har samme "høyrekolonne" i sannhetstabellene). Angis med
+				<span class="katex">\Leftrightarrow , (\equiv)</span></p>
+				<h4>Tautologi</h4>
+				<p>Et utsagn som alltid er sant, uavhengig av hva sannhetsverdien til de enkele delene er. Kan vise at et uttrykk er en 
+				tautologi enten ved sannhetstabeller eller ved lovene for logisk uttrykk (utrykket blir ekvivalent med S).</p>
+				<h4>Slutningsregler</h4>
+				<p>(Regler for gyldige slutninger)</p>
+				<p><strong>1. Modus  ponens</strong>. Hvis p er sann, og hvis p medfører q, så kan vi slutte at q er sann.</p>
+				<p><span class="katex">
+					\begin{matrix}
+					p \qquad \\
+					\dfrac{p \to q}{ \therefore q \qquad}
+					\end{matrix}
+				</span></p>
+				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
+				<p>Det er søndag (p) og det er slik at Hvis det er søndag så er polet stengt (<span class="katex">p \to q</span>),
+				kan vi slutte at Polet er stengt (q)</p>
+				<p><span class="katex"> \therefore =</span> følgelig, derfor, ergo</p>
+				<p>Hvis q garantert skal være sann, må både utsagnet p være sant og utsagnet <span class="katex">p \to q</span> være sant. 
+				Merk at: -p og q kan være sammensatte utsagn. -man kan også skrive regelen slik </p>
+				<p><span class="katex">
+					\begin{matrix}
+					p \to q \\
+					\dfrac{p \qquad}{ \therefore q \qquad}
+					\end{matrix}
+				<p><strong>2. Modus tollens</strong></p>
+				</span></p>
+				<p><span class="katex">
+					\begin{matrix}
+					p \to q \\
+					\dfrac{\neg q \qquad}{ \therefore p \qquad}
+					\end{matrix}
+				</span></p>
+				<p><span class="katex">
+					\begin{matrix}
+					\neg q \qquad \\
+					\dfrac{p \to q}{ \therefore p \qquad}
+					\end{matrix}
+				</span></p>
+				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt</p>
+				<p>Hvis det er søndag, så er polet stengt (<span class="katex">p \to q</span>)</p>
+				<p>Polet er åpent (<span class="katex">\neg q</span>)</p>
+				<p><span class="katex">\therefore</span> Det er ikke søndag <span class="katex">(\neg p)</span></p>
+				<p><strong>Sylloismeloven</strong></p>
+				<p><span class="katex">
+					\begin{matrix}
+					p \to q \\
+					\dfrac{q \to r}{ \therefore p \to r}
+					\end{matrix}
+				</span></p>		
+				<p><strong>Eks</strong> p: det er søndag. q: polet er stengt. r: alarmen er på</p>		
+				<p>Hvis det er søndag, så er polet stengt (<span class="katex">p \to q</span>)</p>
+				<p>Hvis polet er stengt, så er alarmen på (<span class="katex">q \to r</span>)</p>
+				<p><span class="katex">\therefore</span> Hvis det er søndag, så er alarmen på (<span class="katex">p \to r</span>)</p>
+				<p><strong>Ugyldige argumenter/slutninger</strong></p>
+				<p><strong>Eks</strong> p: jeg er tørst. q: jeg drikker vann</p>
+				<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
+				<p>Jeg drikker vann (q)</p>
+				<p><span class="katex">\therefore</span> Jeg er tørst (p)</p>
+				<p><strong>Eks2</strong></p>
+				<p>Hvis jeg er tørst, så drikker jeg vann (<span class="katex">p \to q</span>)</p>
+				<p>Jeg er ikke tørst (<span class="katex">\neg p</span>)</p>
+				<p><span class="katex">\therefore</span> Jeg drikker ikke vann (<span class="katex">\neg q</span>)</p>
 			</div>
 		</section>
 		<section>
