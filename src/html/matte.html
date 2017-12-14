@@ -1024,6 +1024,17 @@
 				</ul>
 				</div>
 
+				<h3>Inverse matriser</h3>
+				<p>Merk: Det er kun kvadratiske matriser som man kan finne den inverse matrisen til.</p>
+				<p>Den inverse matrisen til matrise <span class="katex">A</span> skrives <span class="katex">A^{-1}</span> og er definert som den matrisen som ganget med <span class="katex">A</span> gir identitetsmatrisen, altså:</p>
+				<p><span>$$A\cdot A^{-1} = I \qquad\quad A\cdot A^{-1} = \begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$$</span></p>
+				<p class="tl inline"><span class="katex">2 \times 2</span>-matrise:</p>
+				<p class="inline"><span>$$A = \begin{bmatrix} a_{11} & & a_{12}\\ & {\huge \times} & \\ a_{21} & & a_{22}\end{bmatrix} \begin{matrix} A^{-1} = \dfrac{1}{\underbrace{a_{11}a_{22}-a_{12}a_{21}}_\text{detA}} \begin{bmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix} \end{matrix}$$</span></p>
+				<p>For matriser større enn <span class="katex">2\times2</span> Dann matrisen <span class="katex">\Big[A|I\Big]</span>. Utfør elemtære rekkeoperasjoner så venstre halvdel blir <span class="katex">I</span>. Da vil høre halvdel ha blitt <span class="katex">A^{-1}</span></p>
+			</div>
+		</section>
+		<section>
+			<div class="row">
  				<h3>Determinanter</h3>
  				<p>Gitt
  					<span>$$
@@ -1067,10 +1078,7 @@
 					\end{vmatrix}
 					$$</span>
  				</p>
-			</div>
-		</section>
-		<section>
-			<div class="row">
+
 				<h3>Grafer, trær og tilstandsmaskiner</h3>
 				<ul class="nostyle i0">
 					<li><p><strong>Enkel graf: </strong> to noder er forbundet med maks en kant, og ingen kant fra en node til seg selv. En graf som ikke er enkel, kalles en multigraf.</p></li>
