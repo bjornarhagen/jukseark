@@ -14,69 +14,219 @@
     <div class="wrapper">
       <section>
         <div class="row">
-			<h1>Page 1 - Section 1</h1>
-		</div>
+          <div class="clear">
+            <div class="w2 fl br">
+              <h2>Obliger</h2>
+              <h3>Oblig 1</h3>
+              <h4>Oppgave 1</h4>
+              <p class="tl">
+                Lag en «egen»XOR port med AND og OR porter. Bruk Ladder (LD)
+                eller funksjonsblokker (FBD) for å løse oppgaven. Programmer
+                løsningen i Codesys med et egnet HMI.
+              </p>
+
+              <h4 class="bt">Oppgave 2</h4>
+              <p class="tl">
+                Lag et FBD-program i Codesys med et HMI for et enkelt lyskryss
+                som følger tidspunkter gitt nedenfor. Løs først nord-syd
+                NS-retningen. Bruk en bryter (start/stopp) for å starte stoppe
+                lyskrysset.
+              </p>
+            </div>
+            <div class="w6 fl br">
+              <p class="fss"><strong>opg1: Med ladder</strong></p>
+              <img class="bb" src="https://i.xdh.no/13ac0c442f69" alt="" />
+              <p class="fss"><strong>opg1: Med FBD</strong></p>
+              <img src="https://i.xdh.no/d48e9f5f4072" alt="" />
+            </div>
+            <div class="w2 fl">
+              <p class="fss"><strong>opg1: HMI for alle</strong></p>
+              <img class="bb" src="https://i.xdh.no/fe9c0dbd0844" alt="" />
+              <p class="fss tl"><strong>opg1: Med strukturert tekst</strong></p>
+              <img src="https://i.xdh.no/4b45aa7153ee" alt="" />
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w2 fl bb">
+              <p class="tl">
+                Test at det NS-retningen virker. Legg nå til øst-vest
+                ØV-retningen.
+                <strong>Trafikklyset skal skifte på følgende vis:</strong>
+              </p>
+              <img src="https://i.xdh.no/8a6d26d5ce55" alt="" />
+              <p>Tidsangivelse</p>
+              <p><strong>NS-retningen</strong></p>
+              <ul class="nostyle i0">
+                <li>Rødt : 8 sek</li>
+                <li>Rød + Gul: 4 sek</li>
+                <li>Grønn: 8 sek</li>
+                <li>Gul: 4 sek</li>
+              </ul>
+              <p><strong>ØV-retningen</strong></p>
+              <ul class="nostyle i0">
+                <li>Grønn: 8 sek</li>
+                <li>Gul: 4 sek</li>
+                <li>Rød: 8 sek</li>
+                <li>Rød + Gul: 4 sek</li>
+              </ul>
+              <p><strong>HMI</strong></p>
+              <img src="https://i.xdh.no/ebce983d53ad" alt="" />
+              <img src="https://i.xdh.no/95c680b549af" alt="" />
+            </div>
+            <img
+              class="w7 fl bt br bl"
+              src="https://i.xdh.no/76c67e5b984e"
+              alt=""
+            />
+            <div class="w4 fl br bb bl">
+              <img src="https://i.xdh.no/6dbf130a8599" alt="" />
+            </div>
+            <div class="w4 fl bt">
+              <h4>Oppgave 3. (Fra eksamen 2011)</h4>
+              <p>
+                En hermetikkfabrikk har en produksjonslinje for fiskeboller. Et
+                transportbånd frakter boksene som produseres til et pakkeanlegg.
+                En fotocelle som er montert ved transportbåndet registrerer hver
+                boks som passerer. Systemet er konstruert slik at når en boks
+                passerer fotocellen (bryter lyset), så gir den logisk 1 (sann).
+                Når lyset ikke er brutt gir den logisk 0 (falsk). Produserte
+                bokser samles opp i enden av transportbåndet, og når 5 bokser er
+                produsert skal de skyves ved hjelp av et stempel inn i esker.
+                Stempelet skyver boksene når det får logisk 1 (sann) som en kort
+                puls fra logisk 0 til 1 og tilbake til 0 igjen.
+              </p>
+              <p>
+                I tillegg benyttes en startbryter som gir logisk 1 (sann) når
+                den er trykket. Den returnerer til logisk 0 (falsk) når den
+                slippes, samt en tilsvarende stoppbryter som gir logisk 1 når
+                den er trykket, og logisk 0 (falsk) når den er urørt.
+                Transportbåndet vil gå når <code>trans_b</code> legges til
+                logisk 1 (sann), og vil stoppe når <code>trans_b</code> leggs
+                til logisk 0. Figur 4.1 viser en oversikt over inn – og utganger
+                som benyttes på PLS’en.
+              </p>
+              <figure>
+                <table class="w10">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Inngang</th>
+                      <th>Utgang</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Startbryter</th>
+                      <td>start_br</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Stoppbryter</th>
+                      <td>stopp_br</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Fotocelle</th>
+                      <td>foto_c</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Stempel</th>
+                      <td></td>
+                      <td>stempel</td>
+                    </tr>
+                    <tr>
+                      <th>Transportbånd</th>
+                      <td></td>
+                      <td>trans_b</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <figcaption>
+                  Figur 4.1 som viser hvordan inn- og utganger er navngitt i
+                  PLS’en
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </section>
       <section>
         <div class="row">
-			<h1>Page 1 - Section 2</h1>
-		</div>
+          <h4>Oppgave 3. Fortsetter</h4>
+          <h5>Oppgave som skal løses</h5>
+          <p>
+            <em>
+              Når startbryteren trykkes (startsignal) skal transportbåndet
+              starte. Når en fiskebolleboks passeres fotocellen skal de telles
+              med to tellere. Teller_1 skal når den kommer til 5 starte
+              stempelet som skyver boksene ut. Samtidig skal telleren resettes,
+              slik at den kan telle opp 5 nye bokser. Teller_2 skal være en
+              akkumulerende teller som teller alle bokser som er produsert etter
+              at startbryteren ble trykket. Den skal ha en Preset Value på
+              10000. Når det er produsert 10000 bokser skal teller_2 resettes.
+              Når stoppbryteren blir trykket skal transportbåndet stoppe, og
+              teller_2 skal resettes
+            </em>
+          </p>
+          <h5>Mulig løsning</h5>
+          <div class="clear">
+            <p>
+              Ettersom start- og stoppbryterne er touch-brytere må vi sikre at
+              verdiene holdes med en RS-vippe. Benytter 2 timere. Resetter
+              timere etter gitt krav. Ettersom både stopp-knappen og når
+              teller_2 har kommet til 10000 bokser kan restte teller_2 så
+              benytter vi en eller-blokk for disse.
+            </p>
+            <img
+              src="https://i.xdh.no/11bc35b78271"
+              alt="Løsning for oblig 1 oppgave 3 - Codesys logikk"
+            />
+          </div>
+          <!--
+            <img
+              src="https://i.xdh.no/90e4439573a3"
+              alt="Løsning for oblig 1 oppgave 3 - HMS"
+            />
+          -->
+        </div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 1 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 1 - Section 3</h1></div>
       </section>
     </div>
     <div class="wrapper">
       <section>
-        <div class="row">
-			<h1>Page 2 - Section 1</h1>
-		</div>
+        <div class="row"><h1>Page 2 - Section 1</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 2 - Section 2</h1>
-		</div>
+        <div class="row"><h1>Page 2 - Section 2</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 2 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 2 - Section 3</h1></div>
       </section>
     </div>
     <div class="wrapper">
       <section>
-        <div class="row">
-			<h1>Page 3 - Section 1</h1>
-		</div>
+        <div class="row"><h1>Page 3 - Section 1</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 3 - Section 2</h1>
-		</div>
+        <div class="row"><h1>Page 3 - Section 2</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 3 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 3 - Section 3</h1></div>
       </section>
     </div>
     <div class="wrapper">
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 1</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 1</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 2</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 2</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 3</h1></div>
       </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
