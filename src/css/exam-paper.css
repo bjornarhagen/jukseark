@@ -22,6 +22,16 @@ hr {
 	background-color: gray;
 }
 
+/* Question */
+.q {
+	font-style: italic;
+}
+
+/* Answer */
+.a {
+	font-style: normal;
+}
+
 /* Clearfix */
 .clear:before,
 .clear:after {
