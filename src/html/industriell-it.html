@@ -17,16 +17,16 @@
           <div class="clear">
             <div class="w2 fl br">
               <h2>Obliger</h2>
-              <h3>Oblig 1</h3>
+              <h3>Oblig 1 - Del A</h3>
               <h4>Oppgave 1</h4>
-              <p class="tl">
+              <p class="tl q">
                 Lag en «egen»XOR port med AND og OR porter. Bruk Ladder (LD)
                 eller funksjonsblokker (FBD) for å løse oppgaven. Programmer
                 løsningen i Codesys med et egnet HMI.
               </p>
 
               <h4 class="bt">Oppgave 2</h4>
-              <p class="tl">
+              <p class="tl q">
                 Lag et FBD-program i Codesys med et HMI for et enkelt lyskryss
                 som følger tidspunkter gitt nedenfor. Løs først nord-syd
                 NS-retningen. Bruk en bryter (start/stopp) for å starte stoppe
@@ -39,7 +39,7 @@
               <p class="fss"><strong>opg1: Med FBD</strong></p>
               <img src="https://i.xdh.no/d48e9f5f4072" alt="" />
             </div>
-            <div class="w2 fl">
+            <div class="w2 fl br">
               <p class="fss"><strong>opg1: HMI for alle</strong></p>
               <img class="bb" src="https://i.xdh.no/fe9c0dbd0844" alt="" />
               <p class="fss tl"><strong>opg1: Med strukturert tekst</strong></p>
@@ -49,22 +49,22 @@
 
           <div class="clear">
             <div class="w2 fl bb">
-              <p class="tl">
+              <p class="tl q">
                 Test at det NS-retningen virker. Legg nå til øst-vest
                 ØV-retningen.
                 <strong>Trafikklyset skal skifte på følgende vis:</strong>
               </p>
               <img src="https://i.xdh.no/8a6d26d5ce55" alt="" />
-              <p>Tidsangivelse</p>
-              <p><strong>NS-retningen</strong></p>
-              <ul class="nostyle i0">
+              <p class="q">Tidsangivelse</p>
+              <p class="q"><strong>NS-retningen</strong></p>
+              <ul class="nostyle i0 q">
                 <li>Rødt : 8 sek</li>
                 <li>Rød + Gul: 4 sek</li>
                 <li>Grønn: 8 sek</li>
                 <li>Gul: 4 sek</li>
               </ul>
               <p><strong>ØV-retningen</strong></p>
-              <ul class="nostyle i0">
+              <ul class="nostyle i0 q">
                 <li>Grønn: 8 sek</li>
                 <li>Gul: 4 sek</li>
                 <li>Rød: 8 sek</li>
@@ -154,42 +154,199 @@
       </section>
       <section>
         <div class="row">
-          <h4>Oppgave 3. Fortsetter</h4>
-          <h5>Oppgave som skal løses</h5>
-          <p>
-            <em>
-              Når startbryteren trykkes (startsignal) skal transportbåndet
-              starte. Når en fiskebolleboks passeres fotocellen skal de telles
-              med to tellere. Teller_1 skal når den kommer til 5 starte
-              stempelet som skyver boksene ut. Samtidig skal telleren resettes,
-              slik at den kan telle opp 5 nye bokser. Teller_2 skal være en
-              akkumulerende teller som teller alle bokser som er produsert etter
-              at startbryteren ble trykket. Den skal ha en Preset Value på
-              10000. Når det er produsert 10000 bokser skal teller_2 resettes.
-              Når stoppbryteren blir trykket skal transportbåndet stoppe, og
-              teller_2 skal resettes
-            </em>
-          </p>
-          <h5>Mulig løsning</h5>
           <div class="clear">
-            <p>
-              Ettersom start- og stoppbryterne er touch-brytere må vi sikre at
-              verdiene holdes med en RS-vippe. Benytter 2 timere. Resetter
-              timere etter gitt krav. Ettersom både stopp-knappen og når
-              teller_2 har kommet til 10000 bokser kan restte teller_2 så
-              benytter vi en eller-blokk for disse.
-            </p>
+            <div class="w3 fl ">
+              <h4>Oppgave 3. Fortsetter</h4>
+              <h5>Oppgave som skal løses</h5>
+              <p class="q tl">
+                Når startbryteren trykkes (startsignal) skal transportbåndet
+                starte. Når en fiskebolleboks passeres fotocellen skal de telles
+                med to tellere. Teller_1 skal når den kommer til 5 starte
+                stempelet som skyver boksene ut. Samtidig skal telleren
+                resettes, slik at den kan telle opp 5 nye bokser. Teller_2 skal
+                være en akkumulerende teller som teller alle bokser som er
+                produsert etter at startbryteren ble trykket. Den skal ha en
+                Preset Value på 10000. Når det er produsert 10000 bokser skal
+                teller_2 resettes. Når stoppbryteren blir trykket skal
+                transportbåndet stoppe, og teller_2 skal resettes
+              </p>
+            </div>
             <img
+              class="w7 fl"
               src="https://i.xdh.no/11bc35b78271"
-              alt="Løsning for oblig 1 oppgave 3 - Codesys logikk"
+              alt="Løsning for oblig 1a oppgave 3 - Codesys logikk"
             />
           </div>
-          <!--
+
+          <div class="clear">
+            <p class="w3 fl tl a bt bb">
+              <strong>Løsning</strong> Ettersom start- og stoppbryterne er
+              touch-brytere må vi sikre at verdiene holdes med en RS-vippe.
+              Benytter 2 timere. Resetter timere etter gitt krav. Ettersom både
+              stopp-knappen og når teller_2 har kommet til 10000 bokser kan
+              restte teller_2 så benytter vi en eller-blokk for disse.
+            </p>
             <img
+              class="w2 fl bb"
               src="https://i.xdh.no/90e4439573a3"
-              alt="Løsning for oblig 1 oppgave 3 - HMS"
+              alt="Løsning for oblig 1a oppgave 3 - HMS"
             />
-          -->
+            <div class="w5 fr bl bt">
+              <h3>Oblig 1 - Del B</h3>
+              <h4>Oppgave 1A</h4>
+              <p class="q">
+                Tegn et blokkskjema for et generelt reguleringssystem. Forklar
+                kort hvilke blokker som inngår. Redegjør kort for hva som er
+                hovedoppgavene til et reguleringssystem.
+              </p>
+              <div class="a bb">
+                <figure>
+                  <img
+                    src="https://i.xdh.no/f0614a2e5208"
+                    alt="Figur. Blokker i et generelt reguleringssystem"
+                  />
+                  <figcaption>
+                    Figur. Blokker i et generelt reguleringssystem.
+                  </figcaption>
+                </figure>
+                <p>
+                  Blokkene er forklart i kompendiet «Intro til reg_tek». Et
+                  <strong>reguleringssystem</strong> kan ha flere hovedoppgaver
+                  som;
+                </p>
+                <ul>
+                  <li>Holde utgangen mest mulig lik referansen.</li>
+                  <li>Eliminerer innvirkning av forstyrelser</li>
+                  <li>Holde reg.syetmet stabilt under ulike driftsforhold</li>
+                  <li>Minst mulig påvirket av endringer i prosessparametre</li>
+                </ul>
+              </div>
+            </div>
+            <div class="w10">
+              <h4>Oppgave 1B</h4>
+              <div class="q">
+                <p>
+                  Du skal lage et system for regulering av hastigheten på en
+                  bil. (Cruisekontroll). Forklar hvilke komponenter/moduler du
+                  vil trenge for å lage et slikt system. Tegn et blokkskjema som
+                  viser hvordan komponentene inngår. Forklar kort begrepene:
+                </p>
+                <ul class="inline2">
+                  <li>Avvik</li>
+                  <li>Pådrag</li>
+                  <li>Tilstand</li>
+                  <li>Forstyrrelse</li>
+                </ul>
+              </div>
+              <div class="a">
+                <p>
+                  Vi må lage et <strong>tilbakekoblet system</strong> med en
+                  regulator som påvirker/regulerer hastigheten til bilen. Vil
+                  trenge: Regulator, pådragsorgan som styrer bensin/diesel
+                  innsprøytning, prosessen (bilen), måleelement som måler
+                  hastigheten. Er det en elektrisk bil kan vi styre elmotorene
+                  med kraftforsterkere
+                </p>
+                <div class="clear bb">
+                  <figure class="w6 fl">
+                    <img src="https://i.xdh.no/9c9797fbd020" alt="" />
+                    <figcaption>
+                      Figur. Et typisk tilbakekoblet system.
+                    </figcaption>
+                  </figure>
+                  <ul class="w4 fr">
+                    <li>
+                      <strong>Avvik</strong>: Differensen mellom ønsket verdi og
+                      målt verdi. Angis med: e(t)
+                    </li>
+                    <li>
+                      <strong>Pådrag</strong>: utgangen fra regulatoren som skal
+                      drive prosessen i riktig retning. Angis med: u(t)
+                    </li>
+                    <li>
+                      <strong>Tilstand</strong>: En karakteristisk størrelse som
+                      beskriver prosessen. F.eks temperaturen i et rom. Kalles
+                      også prosessvariabel. x(t)
+                    </li>
+                    <li>
+                      <strong>Forstyrrelse</strong>: utilsiktet påvirkning som
+                      vi ikke har ”styring” på. F.eks en motbakke når vi kjører
+                      bil.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w66 fl">
+              <h4>Oppgave 1C</h4>
+              <p>
+                <span class="q">
+                  Hvorfor benyttes pådragsorganer i en reguleringssløyfe? Nevn
+                  noen typiske pådragsorganer?
+                </span>
+
+                <span class="a">
+                  Pådragsorgan benyttes for å forsterke opp pådragssignalet fra
+                  regulatoren. En regulator gir kun ut svake signaler som f.eks
+                  4 -> 20mA. Et slikt signal må forsterkes for å kunne gi noe
+                  effekt på en prosess. <strong>Typiske pådragsorgan</strong>;
+
+                  <span class="i1">ventiler</span>
+                  <span class="i1">elektriske forsterkere</span>
+                  <span class="i1">motorer</span> <span class="i1">pumper</span>
+                </span>
+              </p>
+            </div>
+
+            <div class="w33 fr sl">
+              <h4>Oppgave 1D</h4>
+              <p class="q">
+                Hvilke standardiserte signalverdier (strøm, spenning) benyttes i
+                en reguleringssløyfe?
+              </p>
+              <p class="a">
+                <strong>Typisk signalverdier</strong> er:
+                <span class="i1">4 - 20mA</span>
+                <span class="i1">0 – 10 Volt</span>
+                <span class="i1">1 - 5 Volt </span>
+                <span class="i1">3 - 15 PSI</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w45 fl">
+              <h4>Oppgave 1E</h4>
+              <p class="q">
+                Du skal lage et system som overvåker en pasient på et sykehus
+                (eller hjemme for den saks skyld). Hva slags type «informasjon»
+                kan det være interessant å måle/overvåke?
+              </p>
+              <p class="a">
+                Her er det mange «tilstander» som kan være interessant å
+                måle/overvåke: På selve pasienten: Puls, blodtrykk, hjerterytme,
+                oksygen i blodet, blodsukker, kroppstemperatur, fuktighet...
+                (Andre parametere kan være kolesterol, blodprosent, samt
+                x-antall andre parametere som kan måles via blodprøver). Andre
+                tilstander kan være bevegelse, fall, i hvilket rom man er,
+                lysforhold, lyd, temperatur, ...
+              </p>
+
+              <h4>Oppgave 4</h4>
+              <p class="q">
+                Gitt følgende integral:
+                <span class="katex">y = \int_{a}^{b} f(x) dx</span>
+                <span class="katex i2">f(x) = 30x^3 - 8x^2 + 4x + 10</span>
+                Beregn selv hva det korrekte svaret er når:
+                <span class="katex">a=0 \quad b=3</span> Bruk nå Matlab til å
+                integrere uttrykket. Kommenter nøyaktigheten i svaret
+              </p>
+            </div>
+            <img class="w55 fr sl" src="https://i.xdh.no/b0be7a777b08" alt="" />
+          </div>
         </div>
       </section>
       <section>
