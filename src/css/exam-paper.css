@@ -200,6 +200,7 @@ hr {
 .row h6,
 .row p,
 .row img,
+.row figure,
 .row ul,
 .row ol {
 	width: 100%;
@@ -364,4 +365,24 @@ hr {
 	font-size: 0.8em;
 	line-height: 1em;
 	padding: 0.1em 0.2em 0;
+}
+
+.row figure {
+	margin: 0;
+	padding: 0;
+}
+
+.row figure img {
+	margin: 0;
+	padding: 0;
+}
+
+.row figure figcaption {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-size: 0.8em;
+	text-align: left;
+	color: #444;
+	font-family: 'PT Serif Caption', serif;
 }
