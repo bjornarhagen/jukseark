@@ -145,6 +145,7 @@ hr {
 	/*border: 5mm solid red;*/
 	flex-direction: row;
 	justify-content: space-between;
+	color: #222;
 	background-color: #fff;
 	width: 297mm;
 	height: 210mm;
@@ -216,6 +217,15 @@ hr {
 	margin: 0;
 	line-height: 1;
 	text-align: justify;
+}
+
+.row h1,
+.row h2,
+.row h3,
+.row h4,
+.row h5,
+.row h6 {
+	color: #111;
 }
 
 .row p {
