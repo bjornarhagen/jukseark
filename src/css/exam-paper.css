@@ -46,7 +46,7 @@ hr {
 
 /* Floats */
 .fl { float: left; }
-.fr { float: left; }
+.fr { float: right; }
 
 /* Widths */
 .w1  { width: 10%  !important; }
