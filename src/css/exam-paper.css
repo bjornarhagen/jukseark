@@ -50,14 +50,26 @@ hr {
 
 /* Widths */
 .w1  { width: 10%  !important; }
+.w15 { width: 10%  !important; }
 .w2  { width: 20%  !important; }
+.w25 { width: 20%  !important; }
+.w25 { width: 25%  !important; }
 .w3  { width: 30%  !important; }
+.w33 { width: 33.3333% !important; }
+.w35 { width: 30%  !important; }
 .w4  { width: 40%  !important; }
+.w45 { width: 40%  !important; }
 .w5  { width: 50%  !important; }
+.w55 { width: 50%  !important; }
 .w6  { width: 60%  !important; }
+.w65 { width: 60%  !important; }
+.w66 { width: 66.6667%  !important; }
 .w7  { width: 70%  !important; }
+.w75 { width: 70%  !important; }
 .w8  { width: 80%  !important; }
+.w85 { width: 80%  !important; }
 .w9  { width: 90%  !important; }
+.w95 { width: 90%  !important; }
 .w10 { width: 100% !important; }
 
 /* Colors */
