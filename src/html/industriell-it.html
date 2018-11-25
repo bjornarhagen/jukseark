@@ -461,13 +461,66 @@
     </div>
     <div class="wrapper" page="2">
       <section>
-        <div class="row"><h1>Page 2 - Section 1</h1></div>
+        <div class="row">
+		</div>
       </section>
       <section>
-        <div class="row"><h1>Page 2 - Section 2</h1></div>
+        <div class="row">
+			<h1>Page 2 - Section 3</h1>
+		</div>
       </section>
       <section>
-        <div class="row"><h1>Page 2 - Section 3</h1></div>
+        <div class="row">
+        	<h3>Oblig 3</h3>
+			<p><em><strong>Gitt følgende differensialligning. </strong>(Beskrivelse av et fysisk system). 
+				<span class="katex">\ddot{X} + 0.8\dot{X}+4X(t) = 0.1f(t)</span>
+				Anta at alle startbetingelser ved t = 0 er 0.
+				Diskretiser ligning 1 vha Eulers 1-skritts metode. Vis utledningen og svaret.
+				TIPS!!
+				Erstatt den 2 -deriverte med sin numeriske ekvivalent osv.
+				Anta at f(t) er et enhetssprang ved t=0.<span class="katex">\rightarrow</span>f(t) = 1.
+				Lag et program som beregner (simulerer) systemet for verdier av t mellom 0 og 10 sekunder.
+				Test følgende tidskritt T. T= 0.01, T = 0.1, T =1.0 sek
+				Skisser (plot) løsningen x(t) som programmet beregner.
+				Kommenter hva som skjer når T øker.</em>
+			</p>
+			<p>Benytter Eulers bakovermetode og setter inn for den første og andre deriverte.</p>
+			<p>
+				<span class="katex">\dot{X} = \frac{X_k - X_{k-1}}{T}</span>
+				<span class="i2 katex">\ddot{X} = \frac{X_k - 2X_{k-1} + X_{k-2}}{T}</span>
+			</p>
+			<p>Setter inn i 1 og løser mhp Xk.</p>
+			<span class="katex">\frac{X_k - 2X_{k-1} + X_{k-2}}{T^2} + 0.8 \frac{X_k-X_{k-1}}{T} + 4X_k = 0.1F_k</span>
+			<p>Løser med hensyn på Xk. Får nå den numeriske ligningen;</p>
+			<span class="katex">X_k = \frac{0.1T^2F_k + (0.8T+2)X_{k-1} - X_{k-2}}{(1+0.8T+4T^2)}</span>
+			<p>Fk - Påtrykt signal.</p>
+			<p>Fk = 1 når f(t) er et enhetssprang, Fk = sin(2*T*k) når f(t) er et sinussignal på 2 rad/s. Benytter at tiden t = k*T</p>
+			<p><strong>Gitt følgende integral</strong></p>
+			<p>Beregn hva det korrekte svaret er når : a= 0 b= 4</p>
+			<p>
+				<span class="katex">y = \int_{a}^{b} f(t) dt</span>
+				<span class="i2 katex">f(t) = 50t^4+20t^3-3t^2+4t-10</span>
+				<span class="katex">=\Big[ \frac{50}{4+1}t^{4+1} + \frac{20}{3+1}t^{3+1} - \frac{3}{2+1}t^{2+1}+\frac{4}{1+1}t^{1+1}-\frac{10}{0+1}t^{0+1} \Big]_{0}^{4} = 11448</span>
+			</p>
+			<p><strong>Tustins metode</strong> tar utgangspunkt i følgende sammenheng:
+				<span class="katex">y_k = y_{k-1} + \frac{T}{2}(f_k + f_{k-1})</span>
+				Når vi kjenner T og beregner funksjonsverdien ved k og k-1 får vi arealet av en skive.
+				Summerer alle ”skivene” fra start til stopp punktet. Får da totalt areal.
+				Ser at Tustins metode blir mer nøyaktig med økende antall skiver (n). Høyere n -> lavere T -> bedre nøyaktighet.
+			</p>
+			<p><strong>Simpsons metode</strong>
+				<span class="katex">y_k = y_{k-1} + \frac{T}{3}(f_{2k} + 4f_{2k+1} + f_{2k+2})</span>
+				<span class="katex"> 0 \leq k \lt \dfrac{n}{2} </span>
+				, n = antall skiver, må være et like tall. Simpsons metode er mer nøyaktig enn Tustin.
+			</p>
+			<p><em><strong>Shannon-Nyquist </strong>Forklar kort hva Shannon-Nyquist samplingsteorem beskriver.Anta at man sampler musikk med 20kHz. Hva er den høyeste frekvensen man vil sitte igjen med? Anta at det ligger en tone ved 16kHz når samplingen gjennomføres. Hva skjer med den? Hvilken frekvens «dukker» den opp som? Hvordan unngår man aliasfrekvenser ved sampling?</em>
+			</p>
+			<p>
+				Samplingsteoremet sier at vi må sample minst dobbelt så hurtig som den høyeste frekvensen i	signalet vi ønsker å gjenskape etter sampling.
+				<span class="katex">F_s \geq 2F_{max}</span>
+				Det betyr at vi aldri vil sitte igjen med høyere frekvenser enn Fs/2 (Nyquist frekvensen) i det samplede signalet. Hvis Fmax= 20kHz vil vi ikke sitte igjen med høyere frekvenser enn 10kHz.Et 16kHz signal vil dukke opp som en aliasfrekvens på: 20kHz – 16kHz = 4kHz. Dukker opp som en 4kHz frekvens som aldri var der originalt. (Falsk frekvens). Man unngår problemet med aliasfrekvenser ved å filtrere bor alle frekvenser over Fs/2 før sampling. Benytter da et lavpassfilter som demper alle frekvenser over Fs/2. Anti-alias filteret bør ha en cut-off frekvens som er noe lavere enn Fs/2.
+			</p>
+		</div>
       </section>
     </div>
     <div class="wrapper" page="3">

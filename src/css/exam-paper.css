@@ -50,27 +50,41 @@ hr {
 
 /* Widths */
 .w1  { width: 10%  !important; }
-.w15 { width: 10%  !important; }
+.w15 { width: 15%  !important; }
 .w2  { width: 20%  !important; }
-.w25 { width: 20%  !important; }
+.w25 { width: 25%  !important; }
 .w25 { width: 25%  !important; }
 .w3  { width: 30%  !important; }
 .w33 { width: 33.3333% !important; }
-.w35 { width: 30%  !important; }
+.w35 { width: 35%  !important; }
 .w4  { width: 40%  !important; }
-.w45 { width: 40%  !important; }
+.w45 { width: 45%  !important; }
 .w5  { width: 50%  !important; }
-.w55 { width: 50%  !important; }
+.w55 { width: 55%  !important; }
 .w6  { width: 60%  !important; }
-.w65 { width: 60%  !important; }
+.w65 { width: 65%  !important; }
 .w66 { width: 66.6667%  !important; }
 .w7  { width: 70%  !important; }
-.w75 { width: 70%  !important; }
+.w75 { width: 75%  !important; }
 .w8  { width: 80%  !important; }
-.w85 { width: 80%  !important; }
+.w85 { width: 85%  !important; }
 .w9  { width: 90%  !important; }
-.w95 { width: 90%  !important; }
+.w95 { width: 95%  !important; }
 .w10 { width: 100% !important; }
+
+/* Columns */
+.cols {
+	column-gap: 0.5em;
+	column-rule: 1px dotted #ddd;
+}
+
+.cols-2 {
+	column-count: 2;
+}
+
+.cols-3 {
+	column-count: 3;
+}
 
 /* Colors */
 .black  { color: black;  }
@@ -141,8 +155,6 @@ hr {
 	display: flex;
 	margin: 10em auto;
 	padding: 5mm;
-	/*padding: 0;*/
-	/*border: 5mm solid red;*/
 	flex-direction: row;
 	justify-content: space-between;
 	color: #222;
@@ -154,6 +166,16 @@ hr {
 	box-shadow: 0 2em 5em -1em rgba(0, 0, 64, 0.1);
 	overflow-y: auto;
 	overflow-x: hidden;
+	/*padding: 0;*/
+	/*border: 5mm solid red;*/
+	position: relative;
+}
+
+.wrapper:after {
+	position: absolute;
+	bottom: 2.5mm;
+	right: 2.5mm;
+	content: attr(page);
 }
 
 /* Make sure print behaves correctly */
@@ -272,6 +294,28 @@ hr {
 .row ol.inline.nostyle {
 	padding: 0;
 }
+
+.row ul.inline2 {
+	padding: 0;
+	list-style: none;
+}
+
+.row ul.inline2 li {
+	position: relative;
+	display: inline;
+	padding: 0 0.75em;
+}
+
+.row ul.inline2 li::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+	content: '\25CF';
+}
+
 
 .row ul.qna,
 .row ol.qna {
