@@ -72,6 +72,20 @@ hr {
 .w95 { width: 95%  !important; }
 .w10 { width: 100% !important; }
 
+/* Columns */
+.cols {
+	column-gap: 0.5em;
+	column-rule: 1px dotted #ddd;
+}
+
+.cols-2 {
+	column-count: 2;
+}
+
+.cols-3 {
+	column-count: 3;
+}
+
 /* Colors */
 .black  { color: black;  }
 .white  { color: white;  }
