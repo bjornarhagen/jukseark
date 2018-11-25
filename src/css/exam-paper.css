@@ -107,7 +107,7 @@ hr {
 .i5 { padding-left: 5em !important; }
 
 /* Center an element */
-.centered { display: block; margin: 0 auto; }
+.centered { display: block; margin-left: auto !important; margin-right: auto !important; }
 
 /* Seperators */
 .sl { padding-left:  0.5em; border-left:  0.05em solid gray; }
