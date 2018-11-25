@@ -295,6 +295,28 @@ hr {
 	padding: 0;
 }
 
+.row ul.inline2 {
+	padding: 0;
+	list-style: none;
+}
+
+.row ul.inline2 li {
+	position: relative;
+	display: inline;
+	padding: 0 0.75em;
+}
+
+.row ul.inline2 li::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+	content: '\25CF';
+}
+
+
 .row ul.qna,
 .row ol.qna {
 	margin: 0;
