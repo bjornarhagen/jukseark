@@ -11,24 +11,470 @@
     <link rel="stylesheet" href="css/exam-paper.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper" page="1">
       <section>
         <div class="row">
-			<h1>Page 1 - Section 1</h1>
-		</div>
+          <div class="clear">
+            <div class="w2 fl br">
+              <h2>Obliger</h2>
+              <h3>Oblig 1 - Del A</h3>
+              <h4>Oppgave 1</h4>
+              <p class="tl q">
+                Lag en «egen»XOR port med AND og OR porter. Bruk Ladder (LD)
+                eller funksjonsblokker (FBD) for å løse oppgaven. Programmer
+                løsningen i Codesys med et egnet HMI.
+              </p>
+
+              <h4 class="bt">Oppgave 2</h4>
+              <p class="tl q">
+                Lag et FBD-program i Codesys med et HMI for et enkelt lyskryss
+                som følger tidspunkter gitt nedenfor. Løs først nord-syd
+                NS-retningen. Bruk en bryter (start/stopp) for å starte stoppe
+                lyskrysset.
+              </p>
+            </div>
+            <div class="w6 fl br">
+              <p class="fss"><strong>opg1: Med ladder</strong></p>
+              <img class="bb" src="https://i.xdh.no/13ac0c442f69" alt="" />
+              <p class="fss"><strong>opg1: Med FBD</strong></p>
+              <img src="https://i.xdh.no/d48e9f5f4072" alt="" />
+            </div>
+            <div class="w2 fl br">
+              <p class="fss"><strong>opg1: HMI for alle</strong></p>
+              <img class="bb" src="https://i.xdh.no/fe9c0dbd0844" alt="" />
+              <p class="fss tl"><strong>opg1: Med strukturert tekst</strong></p>
+              <img src="https://i.xdh.no/4b45aa7153ee" alt="" />
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w2 fl bb">
+              <p class="tl q">
+                Test at det NS-retningen virker. Legg nå til øst-vest
+                ØV-retningen.
+                <strong>Trafikklyset skal skifte på følgende vis:</strong>
+              </p>
+              <img src="https://i.xdh.no/8a6d26d5ce55" alt="" />
+              <p class="q">Tidsangivelse</p>
+              <p class="q"><strong>NS-retningen</strong></p>
+              <ul class="nostyle i0 q">
+                <li>Rødt : 8 sek</li>
+                <li>Rød + Gul: 4 sek</li>
+                <li>Grønn: 8 sek</li>
+                <li>Gul: 4 sek</li>
+              </ul>
+              <p><strong>ØV-retningen</strong></p>
+              <ul class="nostyle i0 q">
+                <li>Grønn: 8 sek</li>
+                <li>Gul: 4 sek</li>
+                <li>Rød: 8 sek</li>
+                <li>Rød + Gul: 4 sek</li>
+              </ul>
+              <p><strong>HMI</strong></p>
+              <img src="https://i.xdh.no/ebce983d53ad" alt="" />
+              <img src="https://i.xdh.no/95c680b549af" alt="" />
+            </div>
+            <img
+              class="w7 fl bt br bl"
+              src="https://i.xdh.no/76c67e5b984e"
+              alt=""
+            />
+            <div class="w4 fl br bb bl">
+              <img src="https://i.xdh.no/6dbf130a8599" alt="" />
+            </div>
+            <div class="w4 fl bt">
+              <h4>Oppgave 3. (Fra eksamen 2011)</h4>
+              <p>
+                En hermetikkfabrikk har en produksjonslinje for fiskeboller. Et
+                transportbånd frakter boksene som produseres til et pakkeanlegg.
+                En fotocelle som er montert ved transportbåndet registrerer hver
+                boks som passerer. Systemet er konstruert slik at når en boks
+                passerer fotocellen (bryter lyset), så gir den logisk 1 (sann).
+                Når lyset ikke er brutt gir den logisk 0 (falsk). Produserte
+                bokser samles opp i enden av transportbåndet, og når 5 bokser er
+                produsert skal de skyves ved hjelp av et stempel inn i esker.
+                Stempelet skyver boksene når det får logisk 1 (sann) som en kort
+                puls fra logisk 0 til 1 og tilbake til 0 igjen.
+              </p>
+              <p>
+                I tillegg benyttes en startbryter som gir logisk 1 (sann) når
+                den er trykket. Den returnerer til logisk 0 (falsk) når den
+                slippes, samt en tilsvarende stoppbryter som gir logisk 1 når
+                den er trykket, og logisk 0 (falsk) når den er urørt.
+                Transportbåndet vil gå når <code>trans_b</code> legges til
+                logisk 1 (sann), og vil stoppe når <code>trans_b</code> leggs
+                til logisk 0. Figur 4.1 viser en oversikt over inn – og utganger
+                som benyttes på PLS’en.
+              </p>
+              <figure>
+                <table class="w10">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Inngang</th>
+                      <th>Utgang</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Startbryter</th>
+                      <td>start_br</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Stoppbryter</th>
+                      <td>stopp_br</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Fotocelle</th>
+                      <td>foto_c</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Stempel</th>
+                      <td></td>
+                      <td>stempel</td>
+                    </tr>
+                    <tr>
+                      <th>Transportbånd</th>
+                      <td></td>
+                      <td>trans_b</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <figcaption>
+                  Figur 4.1 som viser hvordan inn- og utganger er navngitt i
+                  PLS’en
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </section>
       <section>
         <div class="row">
-			<h1>Page 1 - Section 2</h1>
-		</div>
+          <div class="clear">
+            <div class="w3 fl ">
+              <h4>Oppgave 3. Fortsetter</h4>
+              <h5>Oppgave som skal løses</h5>
+              <p class="q tl">
+                Når startbryteren trykkes (startsignal) skal transportbåndet
+                starte. Når en fiskebolleboks passeres fotocellen skal de telles
+                med to tellere. Teller_1 skal når den kommer til 5 starte
+                stempelet som skyver boksene ut. Samtidig skal telleren
+                resettes, slik at den kan telle opp 5 nye bokser. Teller_2 skal
+                være en akkumulerende teller som teller alle bokser som er
+                produsert etter at startbryteren ble trykket. Den skal ha en
+                Preset Value på 10000. Når det er produsert 10000 bokser skal
+                teller_2 resettes. Når stoppbryteren blir trykket skal
+                transportbåndet stoppe, og teller_2 skal resettes
+              </p>
+            </div>
+            <img
+              class="w7 fl"
+              src="https://i.xdh.no/11bc35b78271"
+              alt="Løsning for oblig 1a oppgave 3 - Codesys logikk"
+            />
+          </div>
+
+          <div class="clear">
+            <p class="w3 fl tl a bt bb">
+              <strong>Løsning</strong> Ettersom start- og stoppbryterne er
+              touch-brytere må vi sikre at verdiene holdes med en RS-vippe.
+              Benytter 2 timere. Resetter timere etter gitt krav. Ettersom både
+              stopp-knappen og når teller_2 har kommet til 10000 bokser kan
+              restte teller_2 så benytter vi en eller-blokk for disse.
+            </p>
+            <img
+              class="w2 fl bb"
+              src="https://i.xdh.no/90e4439573a3"
+              alt="Løsning for oblig 1a oppgave 3 - HMS"
+            />
+            <div class="w5 fr bl bt">
+              <h3>Oblig 1 - Del B</h3>
+              <h4>Oppgave 1A</h4>
+              <p class="q">
+                Tegn et blokkskjema for et generelt reguleringssystem. Forklar
+                kort hvilke blokker som inngår. Redegjør kort for hva som er
+                hovedoppgavene til et reguleringssystem.
+              </p>
+              <div class="a bb">
+                <figure>
+                  <img
+                    src="https://i.xdh.no/f0614a2e5208"
+                    alt="Figur. Blokker i et generelt reguleringssystem"
+                  />
+                  <figcaption>
+                    Figur. Blokker i et generelt reguleringssystem.
+                  </figcaption>
+                </figure>
+                <p>
+                  Blokkene er forklart i kompendiet «Intro til reg_tek». Et
+                  <strong>reguleringssystem</strong> kan ha flere hovedoppgaver
+                  som;
+                </p>
+                <ul>
+                  <li>Holde utgangen mest mulig lik referansen.</li>
+                  <li>Eliminerer innvirkning av forstyrelser</li>
+                  <li>Holde reg.syetmet stabilt under ulike driftsforhold</li>
+                  <li>Minst mulig påvirket av endringer i prosessparametre</li>
+                </ul>
+              </div>
+            </div>
+            <div class="w10">
+              <h4>Oppgave 1B</h4>
+              <div class="q">
+                <p>
+                  Du skal lage et system for regulering av hastigheten på en
+                  bil. (Cruisekontroll). Forklar hvilke komponenter/moduler du
+                  vil trenge for å lage et slikt system. Tegn et blokkskjema som
+                  viser hvordan komponentene inngår. Forklar kort begrepene:
+                </p>
+                <ul class="inline2">
+                  <li>Avvik</li>
+                  <li>Pådrag</li>
+                  <li>Tilstand</li>
+                  <li>Forstyrrelse</li>
+                </ul>
+              </div>
+              <div class="a">
+                <p>
+                  Vi må lage et <strong>tilbakekoblet system</strong> med en
+                  regulator som påvirker/regulerer hastigheten til bilen. Vil
+                  trenge: Regulator, pådragsorgan som styrer bensin/diesel
+                  innsprøytning, prosessen (bilen), måleelement som måler
+                  hastigheten. Er det en elektrisk bil kan vi styre elmotorene
+                  med kraftforsterkere
+                </p>
+                <div class="clear bb">
+                  <figure class="w6 fl">
+                    <img src="https://i.xdh.no/9c9797fbd020" alt="" />
+                    <figcaption>
+                      Figur. Et typisk tilbakekoblet system.
+                    </figcaption>
+                  </figure>
+                  <ul class="w4 fr">
+                    <li>
+                      <strong>Avvik</strong>: Differensen mellom ønsket verdi og
+                      målt verdi. Angis med: e(t)
+                    </li>
+                    <li>
+                      <strong>Pådrag</strong>: utgangen fra regulatoren som skal
+                      drive prosessen i riktig retning. Angis med: u(t)
+                    </li>
+                    <li>
+                      <strong>Tilstand</strong>: En karakteristisk størrelse som
+                      beskriver prosessen. F.eks temperaturen i et rom. Kalles
+                      også prosessvariabel. x(t)
+                    </li>
+                    <li>
+                      <strong>Forstyrrelse</strong>: utilsiktet påvirkning som
+                      vi ikke har ”styring” på. F.eks en motbakke når vi kjører
+                      bil.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w66 fl">
+              <h4>Oppgave 1C</h4>
+              <p>
+                <span class="q">
+                  Hvorfor benyttes pådragsorganer i en reguleringssløyfe? Nevn
+                  noen typiske pådragsorganer?
+                </span>
+
+                <span class="a">
+                  Pådragsorgan benyttes for å forsterke opp pådragssignalet fra
+                  regulatoren. En regulator gir kun ut svake signaler som f.eks
+                  4 -> 20mA. Et slikt signal må forsterkes for å kunne gi noe
+                  effekt på en prosess. <strong>Typiske pådragsorgan</strong>;
+
+                  <span class="i1">ventiler</span>
+                  <span class="i1">elektriske forsterkere</span>
+                  <span class="i1">motorer</span> <span class="i1">pumper</span>
+                </span>
+              </p>
+            </div>
+
+            <div class="w33 fr sl">
+              <h4>Oppgave 1D</h4>
+              <p class="q">
+                Hvilke standardiserte signalverdier (strøm, spenning) benyttes i
+                en reguleringssløyfe?
+              </p>
+              <p class="a">
+                <strong>Typisk signalverdier</strong> er:
+                <span class="i1">4 - 20mA</span>
+                <span class="i1">0 – 10 Volt</span>
+                <span class="i1">1 - 5 Volt </span>
+                <span class="i1">3 - 15 PSI</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="clear">
+            <div class="w45 fl">
+              <h4>Oppgave 1E</h4>
+              <p class="q">
+                Du skal lage et system som overvåker en pasient på et sykehus
+                (eller hjemme for den saks skyld). Hva slags type «informasjon»
+                kan det være interessant å måle/overvåke?
+              </p>
+              <p class="a tl">
+                Her er det mange «tilstander» som kan være interessant å
+                måle/overvåke: På selve pasienten: Puls, blodtrykk, hjerterytme,
+                oksygen i blodet, blodsukker, kroppstemperatur, fuktighet...
+                (Andre parametere kan være kolesterol, blodprosent, samt
+                x-antall andre parametere som kan måles via blodprøver). Andre
+                tilstander kan være bevegelse, fall, i hvilket rom man er,
+                lysforhold, lyd, temperatur, ...
+              </p>
+
+              <h4>Oppgave 4</h4>
+              <p class="q tl">
+                Gitt følgende integral:
+                <span class="katex">y = \int_{a}^{b} f(x) dx</span>
+                <span class="katex i2">f(x) = 30x^3 - 8x^2 + 4x + 10</span>
+                Beregn selv hva det korrekte svaret er når:
+                <span class="katex">a=0 \quad b=3</span> Bruk nå Matlab til å
+                integrere uttrykket. Kommenter nøyaktigheten i svaret
+              </p>
+            </div>
+            <img class="w55 fr sl" src="https://i.xdh.no/b0be7a777b08" alt="" />
+          </div>
+        </div>
       </section>
       <section>
         <div class="row">
-			<h1>Page 1 - Section 3</h1>
-		</div>
+          <div class="cols cols-2 bb">
+            <h4>Oppgave 6</h4>
+            <p class="q">
+              Et system kan beskrives med følgende differensialligning;
+              <span class="katex">20\dot{x} + 10x = f(t)</span>
+            </p>
+            <p class="q">
+              <span class="katex">f(t) = inngang</span>
+              <span class="katex">x(t) = utgang</span> Finn transferfunksjonen
+              som beskriver systemet gitt i ligning 1. Forklar kort hva en
+              transferfunksjon uttrykker/beskriver (på generell basis). Anta at
+              f(t) er et enhetssprang ved t=0.
+            </p>
+            <p class="a bt">
+              Finner transferfunksjonen ved å benytte Laplace på hvert ledd.
+              <span class="katex">20s \cdot X(s) + 10X(s) = F(s)</span>
+              <span class="katex">(20 + 10s)X(s) = F(s)</span>
+              <span class="katex"
+                >\dfrac{X(s)}{F(s)} = H(s) = \dfrac{1}{20s + 10} =
+                \dfrac{0.1}{2s + 1}</span
+              >
+            </p>
+            <p class="a tl">
+              Vi har nå funnet transferfunksjonen som beskriver systemet. En
+              transferfunksjon er en beskrivelse av et system (modell) i s-plan.
+              Beskriver sammenhengen mellom inngang og utgang i systemet.
+              <span class="katex"
+                >f(t) - enhetssprang \rightarrow F(s) = 1/s</span
+              >
+              <span class="katex"
+                >X(s) = H(s) \cdot F(s) = \dfrac{0.1}{s(2s + 1)}</span
+              >
+            </p>
+            <p class="a">
+              Invers Laplace gir;
+              <span class="katex">x(t) = 0.1(1-e^{-0.5t})</span>
+            </p>
+
+            <h4>Oppgave 7</h4>
+            <p class="q">
+              Gitt at du har en differensialligning som beskrevet nedenfor der
+              y(t) er utgangen og x(t) er inngangen. Hva blir transferfunksjonen
+              til dette systemet?
+              <span class="katex"
+                >\ddot{y}(t) + 4\dot{y}(t) + 3y(t) = x(t)</span
+              >
+              Hva blir Y(s) gitt at x(t) er et enhets-sprang?
+            </p>
+            <p class="a bt">
+              Må Laplacetransformere ledd for ledd. Initialtilstander settes lik
+              0. Vi får da:
+              <span class="katex">
+                s^2 \cdot Y(s) + 4s \cdot Y(s) + 3Y(s) = X(s)
+              </span>
+              <span class="katex"> Y(s) \cdot (s^2 + 4s + 3) = X(s) </span>
+              <span class="katex">
+                \dfrac{Y(s)}{X(s)} = H(s) = \dfrac{1}{s^2 + 4s + 3}
+              </span>
+            </p>
+            <p class="a">
+              <span class="katex">X(s)</span> skal være et enhetssprang
+              <span class="katex">\rightarrow X(s) = 1/s</span>
+            </p>
+            <p class="a tl">
+              Finner da:
+              <span class="katex">
+                Y(s) = H(s) \cdot X(s) = \dfrac{1}{s(s+3)(s+1)}
+              </span>
+            </p>
+            <p class="a">
+              Vi finner <span class="katex">y(t)</span> ved å ta invers Laplace
+              av uttrykket <span class="katex">Y(s)</span>.
+            </p>
+            <h4>Oppgave 9</h4>
+            <p class="q">
+              Et fjæringssystem på en bil har følgende transferfunksjon;
+              <span class="katex">H(s) = \dfrac{10}{s^2 + 0.8s + 4}</span>
+            </p>
+            <p class="q">
+              <strong>A.</strong> Beregn hva systemets poler er. Hvordan vil du
+              klassifisere polene til systemet? Skisser hvordan du vil forvente
+              at sprangresponsen blir?
+            </p>
+            <p class="a">Setter nevneren = 0.</p>
+            <p class="a">
+              <span class="katex">s^2 + 0.8s + 4 = 0</span>
+              <span class="katex"
+                >s = \dfrac{-0.8 \pm \sqrt{0.8^2 - 4 \cdot 1 \cdot 4}}{2 \cdot
+                1}</span
+              >
+              <span class="katex">= \dfrac{-0.8 \pm \sqrt{0.64 - 16}}{2}</span>
+              <span class="katex">= \dfrac{-0.8 \pm \sqrt{15.36}}{2}</span>
+              <span class="katex">s_1 = -0.4 + 1.96i</span>
+              <span class="katex"
+                >\underline{\underline{s_2 = -0.4 - 1.96i}}</span
+              >
+            </p>
+            <p class="a">
+              Vi klassifiserer polene til systemet som kompleks konjugerte.
+              Polene har negativ realdel dermed er systemet stabilt. Et system
+              med kompleks konjugerte poler vil ha en sprangrespons med
+              oversving. Systemer er stabilt og svinger seg inn mot en stabil
+              verdi.
+            </p>
+            <img src="https://i.xdh.no/5c29b3847cd7" alt="Sprangrespons" />
+            <p class="q">
+              <strong>B.</strong> Hva vil det si at et system har en
+              resonansfrekvens?
+            </p>
+            <p class="a tl">
+              <code>Robert sin forklaring:</code> Hvis frekvensresponsen viser
+              en <strong>forstrekningstopp</strong> ved en gitt frekvens så har
+              systemet en <strong>resonansfrekvens</strong>.
+            </p>
+            <p class="a tl">
+              <code>Vår forklaring:</code> Resonansfrekvens er en frekvens hvor
+              det fortsetter å svinge av seg selv når svingningene først er satt
+              i gang og svingebevegelsene ikke blir dempet.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" page="2">
       <section>
         <div class="row">
 			<h3>Oblig 2</h3>
@@ -201,26 +647,18 @@
 		</div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 3 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 3 - Section 3</h1></div>
       </section>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" page="4">
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 1</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 1</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 2</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 2</h1></div>
       </section>
       <section>
-        <div class="row">
-			<h1>Page 4 - Section 3</h1>
-		</div>
+        <div class="row"><h1>Page 4 - Section 3</h1></div>
       </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
