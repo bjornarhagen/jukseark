@@ -325,7 +325,7 @@
                 (eller hjemme for den saks skyld). Hva slags type «informasjon»
                 kan det være interessant å måle/overvåke?
               </p>
-              <p class="a">
+              <p class="a tl">
                 Her er det mange «tilstander» som kan være interessant å
                 måle/overvåke: På selve pasienten: Puls, blodtrykk, hjerterytme,
                 oksygen i blodet, blodsukker, kroppstemperatur, fuktighet...
@@ -336,7 +336,7 @@
               </p>
 
               <h4>Oppgave 4</h4>
-              <p class="q">
+              <p class="q tl">
                 Gitt følgende integral:
                 <span class="katex">y = \int_{a}^{b} f(x) dx</span>
                 <span class="katex i2">f(x) = 30x^3 - 8x^2 + 4x + 10</span>
@@ -350,7 +350,113 @@
         </div>
       </section>
       <section>
-        <div class="row"><h1>Page 1 - Section 3</h1></div>
+        <div class="row">
+          <div class="cols cols-2 bb">
+            <h4>Oppgave 6</h4>
+            <p class="q">
+              Et system kan beskrives med følgende differensialligning;
+              <span class="katex">20\dot{x} + 10x = f(t)</span>
+            </p>
+            <p class="q">
+              <span class="katex">f(t) = inngang</span>
+              <span class="katex">x(t) = utgang</span> Finn transferfunksjonen
+              som beskriver systemet gitt i ligning 1. Forklar kort hva en
+              transferfunksjon uttrykker/beskriver (på generell basis). Anta at
+              f(t) er et enhetssprang ved t=0.
+            </p>
+            <p class="a bt">
+              Finner transferfunksjonen ved å benytte Laplace på hvert ledd.
+              <span class="katex">20s \cdot X(s) + 10X(s) = F(s)</span>
+              <span class="katex">(20 + 10s)X(s) = F(s)</span>
+              <span class="katex"
+                >\dfrac{X(s)}{F(s)} = H(s) = \dfrac{1}{20s + 10} =
+                \dfrac{0.1}{2s + 1}</span
+              >
+            </p>
+            <p class="a tl">
+              Vi har nå funnet transferfunksjonen som beskriver systemet. En
+              transferfunksjon er en beskrivelse av et system (modell) i s-plan.
+              Beskriver sammenhengen mellom inngang og utgang i systemet.
+              <span class="katex"
+                >f(t) - enhetssprang \rightarrow F(s) = 1/s</span
+              >
+              <span class="katex"
+                >X(s) = H(s) \cdot F(s) = \dfrac{0.1}{s(2s + 1)}</span
+              >
+            </p>
+            <p class="a">
+              Invers Laplace gir;
+              <span class="katex">x(t) = 0.1(1-e^{-0.5t})</span>
+            </p>
+
+            <h4>Oppgave 7</h4>
+            <p class="q">
+              Gitt at du har en differensialligning som beskrevet nedenfor der
+              y(t) er utgangen og x(t) er inngangen. Hva blir transferfunksjonen
+              til dette systemet?
+              <span class="katex"
+                >\ddot{y}(t) + 4\dot{y}(t) + 3y(t) = x(t)</span
+              >
+              Hva blir Y(s) gitt at x(t) er et enhets-sprang?
+            </p>
+            <p class="a bt">
+              Må Laplacetransformere ledd for ledd. Initialtilstander settes lik
+              0. Vi får da:
+              <span class="katex">
+                s^2 \cdot Y(s) + 4s \cdot Y(s) + 3Y(s) = X(s)
+              </span>
+              <span class="katex"> Y(s) \cdot (s^2 + 4s + 3) = X(s) </span>
+              <span class="katex">
+                \dfrac{Y(s)}{X(s)} = H(s) = \dfrac{1}{s^2 + 4s + 3}
+              </span>
+            </p>
+            <p class="a">
+              <span class="katex">X(s)</span> skal være et enhetssprang
+              <span class="katex">\rightarrow X(s) = 1/s</span>
+            </p>
+            <p class="a tl">
+              Finner da:
+              <span class="katex">
+                Y(s) = H(s) \cdot X(s) = \dfrac{1}{s(s+3)(s+1)}
+              </span>
+            </p>
+            <p class="a">
+              Vi finner <span class="katex">y(t)</span> ved å ta invers Laplace
+              av uttrykket <span class="katex">Y(s)</span>.
+            </p>
+            <h4>Oppgave 9</h4>
+            <p class="q">
+              Et fjæringssystem på en bil har følgende transferfunksjon;
+              <span class="katex">H(s) = \dfrac{10}{s^2 + 0.8s + 4}</span>
+            </p>
+            <p class="q">
+              <strong>A.</strong> Beregn hva systemets poler er. Hvordan vil du
+              klassifisere polene til systemet? Skisser hvordan du vil forvente
+              at sprangresponsen blir?
+            </p>
+            <p class="a">Setter nevneren = 0.</p>
+            <p class="a">
+              <span class="katex">s^2 + 0.8s + 4 = 0</span>
+              <span class="katex"
+                >s = \dfrac{-0.8 \pm \sqrt{0.8^2 - 4 \cdot 1 \cdot 4}}{2 \cdot
+                1}</span
+              >
+              <span class="katex">= \dfrac{-0.8 \pm \sqrt{0.64 - 16}}{2}</span>
+              <span class="katex">= \dfrac{-0.8 \pm \sqrt{15.36}}{2}</span>
+              <span class="katex">s_1 = -0.4 + 1.96i</span>
+              <span class="katex"
+                >\underline{\underline{s_2 = -0.4 - 1.96i}}</span
+              >
+            </p>
+            <p class="a">
+              Vi klassifiserer polene til systemet som kompleks konjugerte.
+              Polene har negativ realdel dermed er systemet stabilt. Et system
+              med kompleks konjugerte poler vil ha en sprangrespons med
+              oversving. Systemer er stabilt og svinger seg inn mot en stabil
+              verdi.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
     <div class="wrapper" page="2">
