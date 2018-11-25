@@ -481,16 +481,16 @@
 			<p><em><strong>Hvorfor må et reguleringssystem ha stabilitetsmarginer?</strong>
 			Forklar kort hvilke marginer man normalt benytter i et reguleringssystem og hvilken praktisk betydning de har.</em></p>
 			<p>Stabilitetsmarginer er nødvendig for at reguleringssystemet skal være stabilt. Desto større marginer jo mer stabilt er systemet. Ettersom et reg.ssytem skal fungere under ulike driftsforhold og over lang tid er det nødvendig med akseptable marginer.Vi setter krav til fasemargin. Den bør normalt være på minst 45 grader. Velges 60 grader fårman et godt stabilt system. Pidtune() i Matlab benytter 60 grader fasemargin for tuning av parametere. Forsterkningsmarginen bør være på minst 6dB. Det betyr at vi skal kunne doble regulatorforsterkningen uten at reg.systemet blir ustabilt.</p>
-			
+
 			<p><em><strong>For å undersøke stabilitet </strong>til et reguleringssystem kan man benytte frekvensrespons. Forklar kort hva det er man undersøker frekvensresponsen til?
 			Anta at du har bestemt en fornuftig regulator i reguleringssystemet og ønsker å simulere hvordan utgangen (prosessverdien) følger setpunktet i Matlab med step-funksjonen.Hvilken funksjon (matematisk uttrykk) må man beregne før man kan benytte step-funksjonen?</em></p>
 			<p>Man må finne systemets åpne sløyfetransferfunksjon A(s). Frekvensresponsen til A(s) vil være utgangspunktet for å finne en «optimal» regulator. For å simulere responsen til hele reguleringssystemet må vi beregne følgeforholdet M(s). Hvis systemet har enhets tilbakekobling blir <span class="katex">M(s) = \frac{A(s)}{1+A(s)}</span>. Matlab beregner dette enkelt, og så kan vi benytte step-funksjonen på M(s).</p>
-			
+
 			<p><strong>Nevn noen prosesser som blir regulert med av/på-regulering. </strong><em>Hvordan varierer pådraget og utgangen (prosessverdien) når av/på-regulering benyttes? Tegn en skisse.</em></p>
 			<p>Av/på-regulering kan benyttes i trege prosesser, og der kravet til nøyaktighet ikke er store. Eksempler: Temperaturregulering i hus og kjøleskap. Nivåregulering i en tank hvor kravet til nivået ikke er stort.</p>
 			<p>Ulempene ved av/på-regulering er at den regulerte prosessverdien ikke stabiliserer seg på settpunktet. Utgangen vil svinge rundt setpunktet, (unøyaktig regulering). I tillegg vil pådragsorganet kjøres hardt fra 0 pådrag til 100% pådrag i en evig syklus. Vil kunne gi stor «slitasje». Skisse av utgang (prosessverdien) og pådraget i en av/på-regulering: </p>
 			<img src="https://i.xdh.no/d31c61b69cfe" alt="Skisse av utgang (prosessverdien) og pådraget i en av/på-regulering">
-			
+
 			<p class="q"><strong>Hvilke forbedringer kan vi oppnå med en PID-regulator?</strong>  Forklar hvorfor en PI-regulator kan gi null stasjonær feil? Hvilken effekt har derivatvirkningen Td i et reguleringssystem?</p>
 			<p class="a">PID-regulatoren lager 3 bidrag til pådraget basert på avviket e(t). De tre bidragene er: Proporsjonalt med avviket – P, Integralet av avviket – I, Deriverte av avviket – D. Summen av bidragene gir et pådrag som kan innta enhver verdi mellom 0 og 100%. Det betyr at vi kan finne det helt riktige pådraget som gjør at utgangen prosessverdien blir lik setpunktet (ønsket verdi). PI-regulatoren integrerer avviket, og da vet vi at så lenge avviket ikke er null (perfekt) så vil det genereres et bidrag til pådraget som driver avviket mot null. Når avviket er null vil det ikke genereres mer bidrag pga av I-delen og vi får null stasjonær feil. Derivatvirkningen gjør at regulatoren følger hvor hurtig avviket endrer seg. Ved raske endringer i avviket vil regulatoren reagerer raskt for å motvirke at det blir et avvik. Fører dermed til raskere regulering.</p>
 			<p class="q">Tegn en skisse som viser hvordan pådraget og utgangen (prosessverdien) nå varierer.</p>
@@ -530,10 +530,10 @@
 
         	<p class="q"><strong>PI-reg:</strong>Det viser seg at P-regulatoren gir for stor stasjonær feil, og en PI-regulatorskal benyttes isteden. Benytt igjen margin(), og bestem en PI-regulator som oppfyller kravene i 2A. Test også ut pidtune(),og finn ut hva slags PI-regulator den anbefaler. Oppgi hvilken K og Ti som bør benyttes gitt data fra margin() funksjonen. Hva blir <span class="katex">\psi</span> og <span class="katex">\Delta K</span> med valgte PI-regulator.</p>
         	<p class="a">Må nå finne Ti. Benytter Wc fra P-reg med K=8.4. (Wc= 0.143 rad/s). Benytter: <span class="katex">\dfrac{1}{T_i} = \dfrac{\omega_c}{5} \rightarrow T_i = \dfrac{5}{\omega_c} = \dfrac{5}{0.143} = 35</span>. <span class="i2">, K = 8.4</span></p>
-        	<p>PI-reg som nå benyttes blir: 
+        	<p>PI-reg som nå benyttes blir:
         		<span class="katex">H_{pi}(s) = K \dfrac{(1+T_is)}{T_is} = 8.4 \dfrac{(1+35s)}{35s} = 0.24 \dfrac{(1+35s)}{s}</span>
 				A(s) med PI-reg blir:
-				<span class="katex">A(s) = \dfrac{0.24(1+35s)}{s(1+4s)(1+50s)(1+s)}</span>	
+				<span class="katex">A(s) = \dfrac{0.24(1+35s)}{s(1+4s)(1+50s)(1+s)}</span>
         	</p>
         	<p class="q"><strong>Oppgave 3: Hva er det som gjør PLS’er</strong> godt egnet i automatiserte systemer? Forklar kort hvilke standardiserte programmeringsspråk som kan benyttes for å programmere PLS’er. Forklar kort hva programmet Codesys er, og hva vi kan benytte det til. Begrepet «POU» dukker opp i forbindelse med programmering av PLS’er. Hva er en POU?</p>
         	<p class="a"><strong>PLS’er</strong> er dedikerte datamaskiner med IO for styring og regulering. Robuste enheter med stor fleksibilitet for å løse styringsoppgaver. Har stor driftsstabilitet, lite feil. Vil kunne fungere 24/7. Finnes i alle formater fra små rimelige enheter til enheter som kan håndtere tusenvis av I/O. Et programmeringsverktøy følger normalt med, slik at en kan utvikle programmene på en PC, og overføre kompilert kode til selve PLS’en. Kan programmeres etter IEC 61131-3 på 5 alternative måter: Instruksjonsliste, Relé/ladder diagram, Funksjonsblokker, Strukturert tekst, Sekvensielle funksjonskart (SFC) </p>
@@ -569,9 +569,9 @@
 					<figcaption>Pumpe</figcaption>
 				</figure>
 			</div>
-			
+
 			<h3>Oblig 3</h3>
-			<p><em><strong>Gitt følgende differensialligning. </strong>(Beskrivelse av et fysisk system). 
+			<p><em><strong>Gitt følgende differensialligning. </strong>(Beskrivelse av et fysisk system).
 				<span class="katex">\ddot{X} + 0.8\dot{X}+4X(t) = 0.1f(t)</span>
 				Anta at alle startbetingelser ved t = 0 er 0.
 				Diskretiser ligning 1 vha Eulers 1-skritts metode. Vis utledningen og svaret.
@@ -601,20 +601,20 @@
 				<span class="i2 katex">f(t) = 50t^4+20t^3-3t^2+4t-10</span>
 				<span class="katex">=\Big[ \frac{50}{4+1}t^{4+1} + \frac{20}{3+1}t^{3+1} - \frac{3}{2+1}t^{2+1}+\frac{4}{1+1}t^{1+1}-\frac{10}{0+1}t^{0+1} \Big]_{0}^{4} = 11448</span>
 			</p>
-			
+
 			<p><strong>Tustins metode</strong> tar utgangspunkt i følgende sammenheng:
 				<span class="katex">y_k = y_{k-1} + \frac{T}{2}(f_k + f_{k-1})</span>
 				Når vi kjenner T og beregner funksjonsverdien ved k og k-1 får vi arealet av en skive.
 				Summerer alle ”skivene” fra start til stopp punktet. Får da totalt areal.
 				Ser at Tustins metode blir mer nøyaktig med økende antall skiver (n). Høyere n -> lavere T -> bedre nøyaktighet.
 			</p>
-			
+
 			<p><strong>Simpsons metode</strong>
 				<span class="katex">y_k = y_{k-1} + \frac{T}{3}(f_{2k} + 4f_{2k+1} + f_{2k+2})</span>
 				<span class="katex"> 0 \leq k \lt \dfrac{n}{2} </span>
 				, n = antall skiver, må være et like tall. Simpsons metode er mer nøyaktig enn Tustin.
 			</p>
-			
+
 			<p><em><strong>Shannon-Nyquist </strong>Forklar kort hva Shannon-Nyquist samplingsteorem beskriver.Anta at man sampler musikk med 20kHz. Hva er den høyeste frekvensen man vil sitte igjen med? Anta at det ligger en tone ved 16kHz når samplingen gjennomføres. Hva skjer med den? Hvilken frekvens «dukker» den opp som? Hvordan unngår man aliasfrekvenser ved sampling?</em>
 			</p>
 			<p>
@@ -628,17 +628,17 @@
         <div class="row">
 			<h1>Page 3 - Section 2</h1>
 			<h3>Greit å vite</h3>
-			<p><strong>Bode-diagram:</strong> 
-				Gm = forsterkningsmargin = <span class="katex">\Delta K</span>, 
+			<p><strong>Bode-diagram:</strong>
+				Gm = forsterkningsmargin = <span class="katex">\Delta K</span>,
 				Pm = Fasemargin = <span class="katex">\psi</span>,
 				K = forsterkning
 			</p>
-			
+
 			<p>Faseforskyvning = <span class="katex">\phi</span></p>
-			
+
 			<p><strong>Ved sprangrespons</strong> må man benytte M(s). <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks oversving burde være på 1.20 (20%)</p>
 
-			<p><strong>Beregning av dB-verdier</strong> <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til at 
+			<p><strong>Beregning av dB-verdier</strong> <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til at
 				<span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
 				<span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
 				<span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
