@@ -141,8 +141,6 @@ hr {
 	display: flex;
 	margin: 10em auto;
 	padding: 5mm;
-	/*padding: 0;*/
-	/*border: 5mm solid red;*/
 	flex-direction: row;
 	justify-content: space-between;
 	color: #222;
@@ -154,6 +152,16 @@ hr {
 	box-shadow: 0 2em 5em -1em rgba(0, 0, 64, 0.1);
 	overflow-y: auto;
 	overflow-x: hidden;
+	/*padding: 0;*/
+	/*border: 5mm solid red;*/
+	position: relative;
+}
+
+.wrapper:after {
+	position: absolute;
+	bottom: 2.5mm;
+	right: 2.5mm;
+	content: attr(page);
 }
 
 /* Make sure print behaves correctly */
