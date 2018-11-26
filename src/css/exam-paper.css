@@ -266,6 +266,12 @@ hr {
 	list-style-type: none;
 }
 
+.row ul.inside,
+.row ol.inside {
+	list-style-position: inside;
+	padding-left: 0;
+}
+
 .row li {
 	line-height: 1;
 }
