@@ -999,9 +999,164 @@
       </section>
     </div>
     <div class="wrapper">
-      <section><div class="row"></div></section>
-      <section><div class="row"></div></section>
-      <section><div class="row"></div></section>
+      <section>
+      	<div class="row">
+      		<h3>Eksamen 2016</h3>
+
+      		<p class="q"><strong>Beskriv (gjerne med en skisse) hvordan et distribuert styringssystem er oppbygd.</strong>
+      		Forklar kort prinsippene slike systemer er bygd etter. 
+      		Hva vil det si at man har redundans i slike systemer? Industri 4.0 er ofte benyttet som et begrep. 
+      		Forklar kort hva dette dreier seg om.</p>
+      		<p class="a">Bør få med at det består av
+      		operatørstasjoner, brukerstasjoner hvor visualisering, brukergrensesnitt kjøres. 
+      		Nettverk som forbinder opartørstasjoner med distribuerte prosessenheter.
+      		Distribuerte prosess-enheter som kan være alt fra PLS’er, intelligente IO-moduler; RTU’er osv. 
+      		Det er her styringsalgoritmer og IO utføres.</p>
+      		<p class="a">Redundans betyr at man bruker ekstra enheter for å øke sikkerheten, påliteligheten i systemene.
+      		Kan for eksempel bruker flere IO-enheter og sensorer som overvåker samme prosessverdi.</p>
+      		<p class="a">ndustri 4.0 dreier seg om at informasjonsteknologi tas i bruk i alle ledd i et produksjonssystem/bedrift.
+      		Fra wiki: Industry 4.0is the current trend of automationand data exchange in manufacturing technologies. 
+      		It includes cyber-physical systems, the Internet of thingsalso cloud computing.</p>
+
+      		<p class="q"><strong>Forklar kort hva en feltbusser,</strong> og hvorfor dette er en viktig del av industriell IT.
+      		Beskriv noen fordeler man kan oppnå med feltbusser. Hva er forklaringen på at det finnes så mange feltbusser?</p>
+      		<p class="a"><strong>Feltbuss</strong> er en digital kommunikasjonslinje som forbinder feltinstrumenter med overordnet overvåking/styring-system. 
+      		Feltbusser gjør oppkobling av distribuerte enheter, sensorer m.m i et styringssystem enklere.</p>
+      		<p class="a"><strong>Fordeler</strong> som ofte nevnes er: Mindre kabling, mindre maskinvare. Mer intelligens ligger i instrumentene. 
+      		En digital kommunikasjon fra sensor til bruker. Kan også gi enklere konfigurasjon og mye mer informasjon 
+      		om instrumenter fungerer som de skal. Kan gi en masse tilleggsinformasjon som tradisjonelle instrumenter 
+      		(analoge) ikke kan gi. </p>
+      		<p>Feltbusser har blitt utviklet av mange selskap over tid. Mange selskap holder på sin teknologi og mener denofte er best. 
+      		Samtidig vil de ikke gi fra seg fordeler de har med etablerte systemer.
+      		I tillegg skal feltbusser dekke mange ulike oppgraver. Alt fra overordnet kommunikasjon som kan være industrielt Ethernet. 
+      		Ned til busser som håndterer distribuerte IO, og helt ned på sensor nivå. Ulike busser kan dermed ha fordeler avhengig av bruksområdet.</p>
+
+      		<p class="q"><strong>Forklar hvordan kan vi finne x(t) med Matlab?</strong></p>
+      		<p class="a">Vi finner x(t) ved å ta invers Laplace av uttrykket X(s).
+      		I Matlab oppgi X(s) og så utføre inversLaplace (ilaplace) på X(s):
+      		Får da x(t) utrykt i tidsplanet. Kan også utføre step()-funksjonen på X(s). Får da plottet x(t).</p>
+
+      		<p class="q"><strong>Forklar og skisser hvordan sprangresponser </strong>på 1. og 2.ordens stabile systemernormalt vil være.</p>
+      		<p class="a">Sprangrespons på et 1.ordens system vil gi en pen innsvingning uten oversving.
+      		Et 2.ordens system kan gi ulik respons avhengig av om systemet har reelle eller komplekse poler.
+      		Reelle poler gir en pen innsvinging uten oversving,Komplekse poler vil gi oversving.(Se figur.)</p>
+      		<img src="https://i.xdh.no/412280934b33" alt="Sprangrespons på 2.ordens system">
+    
+
+      		<p></p>
+    	</div>
+  	</section>
+    <section>
+      	<div class="row">
+      		<p class="q"><strong>Du skal finne gode reguleringsparametere for et tilbakekoblet system. </strong>
+      		Reguleringssystemet skal regulere nivået i en tank med væske. 
+      		Anta at du har funnet en modell som beskriver blokkene som inngår, og at du lar Matlab med margin()-funksjonen 
+      		tegne opp frekvensresponsen til den åpne sløyfetransferfunksjonen A(s) som vist på figur 2.1. 
+      		Du har her benyttet en P-regulator med forsterkning K= 6.</p>
+      		<img src="https://i.xdh.no/58ff06a83566" alt="reguleringssystem, margin">
+      		<p>Det er greiest å avlese hva margin()-funksjonen viser på toppen av figuren:
+      		Der ser vi at fasemargin er 84.1 graderog forsterkningsmargin er uendelig.
+      		Kryssfrekvensen ser vi er: 0.0568 rad/s</p>
+      		<p>Med disse marginene vil systemet være godt stabilt.
+      		Antagelig litt for mye stabilt, noe som går ut over hurtigheten og nøyaktigheten til systemet.
+      		Vi kan øke forsterkningen. F.eks kan vi prøve K lik  8 eller 10.Får da et litt raskere og mer statisk nøyaktig 
+      		regulering.Hvis K økes for mye blir stabilitetsmarginene «spist» opp.Dette system tåler egentlig at 
+      		forsterkning kan økes mot uendelig, men da blir fasemargin tilnærmet 0. Nærmer seg ustabilitet, 
+      		og et system som vil pendle svært mye.</p>
+
+      		<p class="q">P-regulatoren benyttet i oppgave A ønskes forbedret med en PI-regulering.
+      		Forslå verdier som bør testes på K og Ti. Begrunn valget.
+      		Hva blir transferfunksjonen til PI-regulatoren du foreslår?</p>
+      		<p class="a"> Kan beregne Ti ut fra kryssfrekvensen:   1/Ti  = Wc/5 -> Ti= 88.
+			Et alternativ som er OK er å benytte:  1/Ti = Wc/10  -> Ti = 176.
+			Forsterkningen K kan holdes på 6 ettersom fasemargin var 84 grader. Det burde gi et brukbart stabilt system.
+			Kan også ta dette ut av figuren av frekvensresponsen.</p>
+
+			<p class="q">Figur 2.2 viser sprangrespons på reguleringssystemet med en PI-regulator.
+			Hvordan vil du vurdere systemets reguleringssegenskaper?
+			Hva bør vi gjøre for å redusere oversvinget?</p>
+			<img src="https://i.xdh.no/8e779e7efef1" alt="sprangrespons på reg. system">
+			<p class="a">Er en typisk innsvinging. Ser at stasjonær feil er null. (Bra).
+			Systemets hurtighet ser vi på tidsaksen. Tar ca 40 sekunder før systemet roer seg ned.
+			Oversvinget er på ca 30%, og det er i meste laget. Kan redusere oversvinget ved å redusereforsterkningen K.
+			F.eks kan vi prøve å halvere K. Et annet tiltak kan være å øke integrasjonstiden Ti. 
+			Det beste er å gjøre små justeringer og så teste sprangresponsen for å se hva en oppnår.</p>
+
+			<p class="q">Prosessen gitt i oppgave 2A blir koblet opp, og testes med Ziegler-Nichols metode.
+			Følgende verdier ble funnet: Kritisk forsterkning Kkrit= 14 og svingeperioden Tk= 105 sekunder.
+			Hvilke verdier vil du anbefale å benytte for innstilling av en PID-regulator? 
+			Hvilke svakheter har Ziegler-Nichols metode.?
+			Beskriv noen andre metoder som vi kan anvende for praktisk tuning som kan være bedre enn Ziegler-Nichols metode.</p>
+			<p class="a">Dette kan vi beregne rett fra vedlagte tabell: K = 0.65. Kkrit = 0.65 * 14 = 9.1. Ti =0.5*Tk = 0.5 *105 = 52.5.
+			Td = 0.12. Tk = 0.12* 105 = 12.6. Ziegler-Nichols metode krever at prosessen er oppkoblet og utsettes for store pådragsendringer.
+			Systemet kjøres slik at et blir tilnærmet ustabilt. Stående svingninger.
+			Det er ikke akseptabelt formange prosesser, og dermed kan ikke metoden benyttes.
+			Tabellen forslår verdier som skal passe for alle prosesser.Etter en beregning/testing bør man finjustere reguleringsparameterne.
+			Andre metoder som kan benyttes er: 1. Relè-metoden som setter prosessen i en kontrollert svingning. Meget god metode.
+			2. Teste sprangrespons på systemet, og ut fra responsen beregne parametere. Mye benyttet i enkle auto-tunings-algoritmer.
+			3. Andre forslag som er presentert er: Good Gain metoden til Finn Haugen.baserer seg på sprangrespons. 
+			4. I tillegg har en rekke personer kommet med sine «egne» metoders om baserer seg på vurdering av sprangresponsen.</p>
+
+			<p class="q"><strong>Anta at du har en 12 bit A/D-omformer </strong>som dekker området 0 til 5 Volt.
+			Hvilken oppløsning har denne A/D-omformeren i mV.
+			Hvilken nøyaktighet i mV kan vi forvente å ha? Begrunn svaret.
+			Det påsettes en spenning på 2.75 Volt på A/D-omformeren. Hvilken bit-verdi bør A/D-omformeren gi ut?
+			Hvorfor vil 12 bit A/D og D/A-omformere ofte være godt nok å benytte i industrielle styringer?</p>
+			<p class="a">Oppløsningen er gitt av antall bit og er gitt av antall nivåer vi kan dele området i:
+			Kan regnes ut på følgende vis: <span class="katex"> Res_{mv} = \frac{Vref}{2N} = \frac{5}{212}= \frac{5}{4096} = 1.2mV</span></p>
+	   	</div>
+  	</section>
+     <section>
+     	<div class="row">
+     		<p class="a"><strong>Nøyaktighet</strong> er aldri bedre enn antall bit som benyttes for å holde den digitale verdien.
+     			Aldri bedre enn : <span class="katex">\pm</span>0.5 LSB. Vanligvis oppnår en ikke bedre enn 
+     			<span class="katex">\pm</span>1 til 2 LSB. (LSB-minste signifikante bit)
+     		</p>
+     		<p class="a"><strong>Ex </strong>Vi beregner hva  LSB utgjør. Med spenning fra 0-5 volt blir max nøyaktighet:
+     			<span class="katex">\frac{5V}{4096}=1.2mV</span> (1 LSB)  Kan angis som +/- 0.6mV.  (Tilsvarer +/- 0.5 LSB)
+     		</p>
+     		<p class="a">2.75 Volt tilsvarer: <span class="katex">\frac{2.75}{5} \cdot 4096 = 2252</span> 
+     		(Får 2252.8. Må være et heltall. Runder mot null)</p>
+     		<p class="a">Nøyaktigheten til en 12 bit A/D, D/A omformer er såpass god at feilen som ligger 
+     		rundt 0.02% er vesentlig lavere enn feil i sensor/målesystemet (som kan ligge på 0.5% eller høyere).
+     		et svakeste leddet er normalt måle-element/sensor, og da hjelper det ikke stort om en bruker A/D, D/A med flere bit.
+     		I systemer med store krav til nøyaktighet (som f.eks lyd) vil man måtte bruke 16 bit eller høyere.</p>
+
+     		<p class="q"><strong>Forklar hva det vil si å sample et analogt signal. </strong>
+     		Hvordan vil du bestemme hvor ofte et analogt signalet må samples?</p>
+     		<p class="a">Sampling betyr å kvantisere et signal i tid og verdi.
+     		Et analogt signal avleses med en fast takt (samplingsfrekvensen), og verdien omformes fra analog til digital i en A/D-omformer.
+     		Nøyaktig og oppløsning er avhengig av antall bit som benyttes for å holde den digitale verdien.
+     		Samplingsfrekvensen er avhengig av hvor hurtig signalet vi skal sample er.
+     		Nyquist-Shannon har utledet samplingsteoremet som sier at vi må sample minst dobbeltså hurtig som den 
+     		høyeste frekvensen vi ønsker å gjenskape.</p>
+
+     		<p class="q"><strong>Differensialligning</strong> under beskriver dynamikken for et generelt 1.ordens lavpassfilter.
+     		<span class="katex">\dot{X}(t) + \alpha X(t) =\beta U(t)</span> X(t)-er filtrert signal. 
+     		U(t)-er signal som skal filtreres. alpha og beta er en faktor som avgjør hvor kraftig filteret skal filtrere.
+     		Bruk Eulers bakovermetode for diskretisering og finn den programmerbare differensligningen for lavpassfilteret. 
+     		Forklar hva løsningen praktisk innebærer. Anta at β=1. Hva bør α være hvis en ønsker en kraftig filtrering av innkommende signal?</p>
+     		<p class="a">Ved å sette inn EBM som vi finner i vedlegget, og får når vi samler like ledd og Xk på venstre side i ligningen: </p>
+     		<img src="https://i.xdh.no/8bf5e940f2c4" alt="utregning av diff. ligning">
+     		<p class="a">Ser at: (Antar også T er mye mindre enn 1)Når α er tilnærmet null betyr det kraftig filtrering av inngangssignalet Uk.
+     		Det betyr at Uk påvirker Xk lite (kraftig filtrering). Xk tilnærmet  Xk-1</p>
+
+     		<p class="q"><strong>Uttrykket gitt under kan benyttes for numerisk integrasjon. </strong>
+     		Forklar leddene i uttrykket, og hvordan vi kan benytte dette for å integrere en gitt funksjon fra et startpunkt 
+     		a til et sluttpunkt b.</p>
+     		<p class="q"><span class="katex">y_k = y_{k-1} + \frac{T}{2}(f_k + f_{k-1})</span> 
+     		Forklar en annen metode som vil kunne være mer nøyaktig enn denne. Beskriv kort forskjellen på dem.
+     		</p>
+     		<class class="a">Formelen er differensligningen som beskriver trapes integrasjon.
+     		yk er nytt areal som beregnes. yk-1 er arealet før neste «skive» som beregnes. T–samplingstiden (Tiden mellom 2 målinger). 
+   			fk – funksjonsverdien i punktet k. fk-1 – funksjonsverdien i punktet k-1.</class>
+   			<p>Lager en løkke som beregner og summerer hver skive som funksjonen blir delt opp i.
+   			Vi må oppgi start og sluttpunktet a og b. Og hvor mange skiver/intervaller kurven skal deles i.</p>
+   			<p>Trapesmetoden har god nøyaktighet, men Simpsons metode som benytter parabelbuer og 3 funksjonerverdier 
+   			ved hver beregning er mer nøyaktig. Litt mer krevende algoritme, men gir større nøyaktighet.</p>
+
+     	</div>
+     </section>
     </div>
     <div class="wrapper" page="4">
       <section><div class="row"></div></section>
