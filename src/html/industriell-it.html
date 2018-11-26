@@ -844,18 +844,27 @@
             <p><strong>Symboler:</strong></p>
             <div class="cols cols-3">
               <figure class="tc">
-                <img class="centered w6" src="https://i.xdh.no/6218d0bda09e" alt="Varmeveksler" />
+                <img
+                  class="centered w6"
+                  src="https://i.xdh.no/6218d0bda09e"
+                  alt="Varmeveksler"
+                />
                 <figcaption>Varmeveksler</figcaption>
               </figure>
               <figure class="tc">
-                <img class="centered w6"
+                <img
+                  class="centered w6"
                   src="https://i.xdh.no/0e0bbaba4fbf"
                   alt="Regulseringsventil"
                 />
                 <figcaption>Reguleringsventil</figcaption>
               </figure>
               <figure class="tc">
-                <img class="centered w5" src="https://i.xdh.no/fcc62945bf9e" alt="Pumpe" />
+                <img
+                  class="centered w5"
+                  src="https://i.xdh.no/fcc62945bf9e"
+                  alt="Pumpe"
+                />
                 <figcaption>Pumpe</figcaption>
               </figure>
             </div>
@@ -1004,7 +1013,108 @@
       <section><div class="row"></div></section>
     </div>
     <div class="wrapper" page="4">
-      <section><div class="row"></div></section>
+      <section>
+        <div class="row">
+          <div class="cols cols-2">
+            <h2>Codesys</h2>
+
+            <h3>SR</h3>
+            <h4>Hvordan funker blokken?</h4>
+            <ul class="inside">
+              <li>Når SET1 er høy, er Q1 høy.</li>
+              <li>Når SET1 går fra høy til lav, forblir Q1 høy.</li>
+              <li>Når RESET er høy, og SET1 er lav, blir Q1 lav.</li>
+              <li>Når RESET går fra høy til lav, skjer ingenting.</li>
+            </ul>
+            <p>Man har også RS, som er helt lik som SR, men i stedet for at SET1 er dominant (som i SR), er det RESET som er dominant</p>
+            <h4>Eksempel (se figur CS1.1 og CS1.2)</h4>
+            <p>
+              START, STOPP og UTGANG er BOOL.
+            </p>
+            <ul class="inside">
+              <li>Når man trykker på knappen til START, blir den TRUE. Dette fører til at UTGANG blir TRUE.</li>
+              <li>Når man trykker på knappen til STOPP, blir den TRUE. Dette fører til at UTGANG blir FALSE, men bare når START er FALSE!</li>
+            </ul>
+            <figure>
+              <img src="https://i.xdh.no/4052ae0bec62" alt="SR blokk - logikk" />
+              <figcaption>Figur CS1.1</figcaption>
+            </figure>
+            <figure class="w8 centered">
+              <img src="https://i.xdh.no/06f656dd37d6" alt="SR blokk - HMI" />
+              <figcaption>Figur CS1.2 - HMI for flere av eksempelene</figcaption>
+            </figure>
+
+            <h3>F_TRIG/R_TRIG</h3>
+            <h4>Hvordan funker blokken?</h4>
+            <ul class="inside">
+              <li>R_TRIG: Når CLK får inn et signal som går fra lav til høy, blir Q høy, men forblir ikke høy</li>
+              <li>L_TRIG: Når CLK får inn et signal som går fra høy til lav, blir Q høy, men forblir ikke høy</li>
+              <li>Q sender konstant lav. Så i det CLK sender høy, blir Q høy, også blir den umiddelbart lav igjen. Dette gjør at utgangen til en trigger funker bra sammen med tellere.</li>
+            </ul>
+            <!-- <h4>Eksempel (se figur CS1.3 og CS1.2)</h4> -->
+            <figure>
+              <img src="https://i.xdh.no/a222cf271f9b" alt="R_TRIG - logikk">
+              <figcaption>Figur CS1.3</figcaption>
+            </figure>
+
+            <h3>CTU/CDU</h3>
+            <h4>Hvordan funker blokken?</h4>
+            <p>CTU og CDU funker på samme måte, men CTU teller oppover, og CDU teller nedover</p>
+            <ul class="inside">
+              <li>CU inngangen funker som en R_TRIG sin inngang</li>
+              <li>CV er en integer som telles oppover</li>
+              <li>PV er en integer som er "maks" verdi til telleren</li>
+              <li>Når CU blir høy, blir CV plusset med 1. Altså om CV er 1, så blir den 2.</li>
+              <li>Når CV er lavere enn PV, er UTGANG lav.</li>
+              <li>Når CV er lik eller høyere enn PV, er UTGANG høy.</li>
+              <li>Når RESET er høy, er CV 0, som gjør at UTGANG er lav. CV forblir 0 så lenge RESET er høy.</li>
+            </ul>
+            <!-- <h4>Eksempel (se figur CS1.4)</h4> -->
+            <figure>
+              <img src="https://i.xdh.no/15423f1828ce" alt="CTU - CV under PV">
+              <figcaption>Figur CS1.4.1, når CV er under PV</figcaption>
+              <img src="https://i.xdh.no/fefcf47c925e" alt="CTU - CP lik PV">
+              <figcaption>Figur CS1.4.2, når CV er lik eller høyere PV</figcaption>
+              <img src="https://i.xdh.no/02b7befdf96c" alt="CTU - RESET">
+              <figcaption>Figur CS1.4.3, når RESET er høy</figcaption>
+            </figure>
+
+            <h3>TOF</h3>
+            <h4>Hvordan funker blokken?</h4>
+            <ul class="inside">
+              <li>IN ved rising edge: tilbakestiller timeren</li>
+              <li>IN ved falling edge: starter timeren</li>
+              <li>Når IN er får inn høyt signal, blir UTGANG høy.</li>
+              <li>Når det høye signalet blir lavt, startes timeren. UTGANG forblir høy.</li>
+              <li>Når timeren er ferdig (ET lik PT), blir utgang lav.</li>
+              <li>Hvis man sender inn høyt signal mens timeren pågår, så avbrytes den (ET settes til 0). UTGANG forblir altså høy</li>
+              <li>ET er utløpt tid.</li>
+            </ul>
+            <!-- <h4>Eksempel (se figur CS1.5)</h4> -->
+            <figure>
+              <img src="https://i.xdh.no/133016101d6d" alt="TOF - Logikk">
+              <figcaption>Figur CS1.5</figcaption>
+            </figure>
+
+
+            <h3>TON</h3>
+            <h4>Hvordan funker blokken?</h4>
+            <ul class="inside">
+              <li>IN ved rising edge: starter timeren</li>
+              <li>IN ved falling edge: tilbakestiller timeren</li>
+              <li>Når IN er får inn høyt signal, starter timeren. UTGANG er lav.</li>
+              <li>Når det høye signalet blir lavt, tilbakestilles timeren. UTGANG forblir lav.</li>
+              <li>Når timeren er ferdig (ET lik PT), blir utgang høy.</li>
+              <li>ET er utløpt tid.</li>
+            </ul>
+            <!-- <h4>Eksempel (se figur CS1.5)</h4>
+            <figure>
+              <img src="https://i.xdh.no/133016101d6d" alt="TOF - Logikk">
+              <figcaption>Figur CS1.6</figcaption>
+            </figure> -->
+          </div>
+        </div>
+      </section>
       <section><div class="row"></div></section>
       <section><div class="row"></div></section>
     </div>
