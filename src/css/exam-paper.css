@@ -150,6 +150,11 @@ hr {
 	text-align: left !important;
 }
 
+.katex.bigline {
+	margin-top: 1px;
+	display: inline-block;
+}
+
 /* One A4 paper page (landscape) */
 .wrapper {
 	display: flex;
