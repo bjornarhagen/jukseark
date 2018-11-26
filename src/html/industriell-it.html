@@ -1137,7 +1137,19 @@
      		Bruk Eulers bakovermetode for diskretisering og finn den programmerbare differensligningen for lavpassfilteret. 
      		Forklar hva løsningen praktisk innebærer. Anta at β=1. Hva bør α være hvis en ønsker en kraftig filtrering av innkommende signal?</p>
      		<p class="a">Ved å sette inn EBM som vi finner i vedlegget, og får når vi samler like ledd og Xk på venstre side i ligningen: </p>
-     		<img src="https://i.xdh.no/8bf5e940f2c4" alt="utregning av diff. ligning">
+     		<p class="a"><span class="katex bigline">\dot{X} + \alpha X = \beta U
+							\rightarrow \dot{X} = \frac{X_k - X_{k-1}}{T}
+							\rightarrow \frac{X_k - X_{k-1}}{T} + \alpha X_k = \beta U_k
+     					</span>
+     		</p>
+     		<p class="a"><span class="katex">X_k - X_{k-1} + \alpha T X_k = \beta T U_k
+				\rightarrow X_k (1 + \alpha T ) = X_{k-1} + \beta T U_k
+     		</span></p>
+     		<p class="a"><span class="katex">X_k = \dfrac{1}{1 + \alpha T} \cdot X_{k-1} + \dfrac{\beta T}{1 + \alpha T} \cdot U_k</span></p>
+     		<p class="a">
+     			<span class="katex">\beta = 1 \rightarrow X_k = \dfrac{1}{1 + \alpha T} \cdot X_{k-1} + \dfrac{T}{1 + \alpha T} \cdot U_k</span>
+     		</p>
+
      		<p class="a">Ser at: (Antar også T er mye mindre enn 1)Når α er tilnærmet null betyr det kraftig filtrering av inngangssignalet Uk.
      		Det betyr at Uk påvirker Xk lite (kraftig filtrering). Xk tilnærmet  Xk-1</p>
 
