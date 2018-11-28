@@ -1487,6 +1487,8 @@
 
           <p>Faseforskyvning = <span class="katex">\phi</span></p>
 
+          <p><strong>Forsterkningsmarginen</strong> er uendelig, fordi fasen ikke passer -180 grader.</p>
+
           <p>
             <strong>Ved sprangrespons</strong> må man benytte M(s).
             <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
@@ -1501,9 +1503,107 @@
             <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
             <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
           </p>
+        
+        <h3>Eksamen 2017</h3>
+        <p class="q"><strong>Begrepene styring og regulering benyttes ofte med ulik mening.</strong> 
+          	Forklar hva som menes med styring. 
+			Tegn en figur/skisse som viser prinsippet. Beskriv to eksempler på systemer som styres.
+      		Forklar hva som menes med regulering. Tegn en figur/skisse som viser prinsippet. 
+      		Beskriv to eksempler på systemer som reguleres.</p>
+		<p class="a"><strong>Bør få med at styring normalt</strong> ikke benytter tilbakekobling. Påvirker et system. 
+  		Men kan også observere. Trafikklys. Heis. Pakkelinje…… 
+		<strong>Regulering bruker tilbakekobling </strong>for å oppnå ønsket resultat.
+		Regulering av nivået i et kar, Cruisekontroll for å holde hastigheten til en bil, Autopilot for å holde kurs. 
+		Holde temperaturen i et rom…. </p>
+
+		<p class="q"><strong>Segway er et batteridrevet kjøretøy </strong>på 2 hjul som balanserer og kjører en person. 
+		Den regulerer en prosess som virker som en invertert pendel.  
+		Vis med et blokkskjema hvordan du antar reguleringssystemet i Segway’en må virke.  
+		Forklar hva blokkene/enhetene som inngår utfører. 
+		Hvordan vil du karakterisere tidskonstantene/tregheten i denne prosessen, og hvordan vil det påvirke 
+		samplingstiden som bør benyttes i reguleringsalgoritmen? Hva vil skje hvis en velger for lav samplingsfrekvens? </p>
+		<p class="a"><strong>Blokkskjema </strong>bør vise hvor komponentene inngår og tilbakekoblingen. 
+		Regulator – pådragsorgan- prosess- måle-element- summasjonspunktet Tradisjonelt tilbakekoblet system. 
+		<strong>Referansen</strong> blir satt som en vinkel som skal holde personen i en loddrett stilling (slik at han/hun ikke faller). 
+		Benytter en vinkelmåler (kan være gyro etc) som indikerer om personen er loddrett eller ikke. 
+		<strong>Avviket</strong> sendes til en PID-regulator som genererer pådrag til motorer som kjører hjulene for å balansere personen. 
+		Når personen bikker framover vil regulatoren kjøre Segway’en framover for å motvirke et fall, 
+		og dermed beveger den seg i riktig retning. Tilsvarende bakover. I tillegg til å holde en person loddrett, 
+		og dermed kjøre rett fram/eventuelt tilbake kan Seqwayen også styres mot høyre/venstre av personen som står på den. 
+		Det hele fungerer som et system som balanserer en invertert pendel. 
+		Motorene (hjulene) kjøres slik at håndtaket og personen ikke tipper framover eller bakover.
+		Dette er en forholdsvis rask prosess med små tidskonstanter (motorstyring), 
+		og en må sample så hurtig at systemet blir stabilt. Seqway benytter 100Hz for å oppnå dette. 
+		Dermed blir regulering mer nøyaktig, stabil og behagelig. 
+		Hadde det blitt benyttet en lav samplingsfrekvens f.eks 1Hz ville ganske sikkert systemet blitt ustabilt. 
+		Personen ville ha falt framover/bakover før reg.systemet hadde klart å balansere det loddrett. </p>
+
+		<p class="q"><strong>Hvorfor er standard Ethernet </strong>problematisk å benytte som en feltbuss?  
+		Nyere biler benytter CAN-bus og ODB-2 (On Board Diagnostics system). 
+		Forklar/beskriv hva CAN-bus og ODB-2 har som oppgave i en bil.  
+ 		</p>
+ 		<p class="a"><strong>Standard Ethernet</strong> er gir ikke sanntids responser. 
+ 		Kan benyttes på overordnet nivå til HMI, og operatørstasjoner.  
+ 		Hvis man forbedrer Ethernet slik som ProfiNet og Ethernet/IP. EtherCat, 
+ 		Så har de sanntidsegensaker som gjør at disse kan benyttes ut mot felt. </p>
+ 		<p class="a"><strong>CAN bus</strong> (Controller Area Network) is a vehicle bus standard designed to allow 
+ 		microcontrollers and devices to communicate with each other within a vehicle without a host computer.  
+ 		CAN bus is a message-based protocol , designed specifically for automotive applications 
+ 		but now also used in other areas such as aerospace, maritime, industrial automation and medical equipment.
+ 		CAN bus blir benyttet i ODB-II diagnose system for biler. Ble introdusert i biler i 1996. 
+ 		Er nå obligatorisk i alle bensin og diesel biler. Gjør at alle ECU’er i bilen kan snakke sammen. 
+ 		Kan følgelig overvåke sensorer, aktuatorer, motorstyring ++. 
+ 		Diagnose-systemet gjør at feil i motor, styriger m.m kan rapporteres og feilsøkes fra en datamaskin som kjører 
+ 		et diagnose-service program. </p>
+
+ 		<p class="q"><strong>Reduser blokkdiagrammet</strong> og vis at transferfunksjonen mellom inngang og utgang blir.
+ 		<span class="katex">\frac{Y(s)}{R(s)} = M(s) = \frac{K}{50s^2 + s + K}</span> </p>
+ 		<p class="a">Må først sette opp <strong>åpen sløyfetransferfunksjonen</strong> A(S) lik : K/(s*(1+50s)) 
+ 		Regner så ut <strong>følgeforholdet</strong> M(s) lik: A(s)/(1 + A(s)), og da ser vi at svaret blir lik det som er oppgitt. q.e.d </p>
+
+ 		<p class="q"><strong>De fleste regulatorer har auto-tunings funksjoner. </strong>
+ 		Forklar hva slags metoder/prinsipper som normalt anvendes ved auto-tuning? </p>
+ 		<p class="a">1. Bør her kunne forklare kort <strong>rele-metoden </strong>
+ 		som baserer seg på at systemet påtvinges av/på signal i påadraget, og så observeres utgangen. 
+ 		Systemet blir satt i en kontrollert selvsving. Og Kritisk forsterkning og svingetid avleses automatisk. 
+ 		Dermed kan man lage en enkel beregning for P, PI eller PID parametere.
+ 		2. En enklere metode er å <strong>påsette sprang</strong> (på/av) og avlese responstider og forsterkning. 
+ 		Ut fra loggede data kan P, PI, PID parameter anslås. Kalles ofte: <strong>sprangrespons metoden</strong>.</p>
+
+ 		<p class="q">Et lydsignal samples, og resultatet er vist på figur 3.1 Signalet blir testet med en FFT-rutine, og resultatet er vist i figur 3.2.
+ 		Benytt figurene, og forklar/beskriv hva slags signal/signaler som er samplet. 
+ 		Benytt figur 3.2, og sett opp det matematiske uttrykket som beskriver lydsignalet.</p>
+
         </div>
       </section>
-      <section><div class="row"></div></section>
+      <section>
+  		<div class="row">
+ 			<img src="https://i.xdh.no/7fec1be4606d" alt="Et samplet lydsignal">
+ 			<img src="https://i.xdh.no/8ca806034f42" alt="FFT-analyse av signalet">
+ 			<p class="a">Figur 3.1 viser et periodisk signal. Så det ser ut som det er ulike sinus-signaler (lyd-frekvenser) 
+ 			som summeres. Figur 3.2 viser dette klarere. Vi ser tydelig at vi har sinus-frekvenser ved 200, 400, 600 og 800 Hz. 
+ 			Amplituden er gitt av høyden. Det betyr at det er summen av 4 sinus-komponenter. 
+ 			Signalet kan skrives som: x(t) = sin (2*pi*200*t) + 2sin (2*pi*400*t) + 3sin (2*pi*600*t)+ 4sin (2*pi*800*t) </p>
+
+ 			<p class="q"><strong>Nedenfor er listet kode for en diskret PI-regulator:
+ 				<span class="katex">u_k = u_{k1} + k_p \cdot (1.0 + \frac{T_s}{Ti})*avvik - k_p*avvik_1</span>
+ 			</strong></p>
+ 			<p class="q">Forklar hva den utfører og alle variablene som inngår i uttrykket. 
+ 			Hva skjer hvis Ti settes svært stor? Hva vil skje hvis vi setter Ts svært stor?
+ 			Hvorfor må man begrense uk før verdien benyttes mot en prosess?</p>
+ 			<p class="a"><strong>Uttrykket er en typisk numerisk beregning</strong> som kan gjøres av en datamaskin. 
+ 			Framkommer ved å digitalisere den analoge løsningen for en PI-regulator. ( Ikke krav at det vises). 
+ 			Ledd som inngår: Uk  – nytt beregnet pådrag, Uk1  – Pådraget 1 sampling tilbake i tid, 
+ 			Kp  – regulatorforsterkningen, Ts  – samplingstiden, Ti  - Integrasjonstiden, Avvik  – nåværende avvik, 
+ 			Avvik1  – avviket 1 sampling tilbake i tid </p>
+ 			<p>Hvis Ti settes stor vil I-virkningen bli borte. Vil virke som en P-regulator. 
+ 			Stor Ts betyr at vi sampler langsomt. Kan gi svingninger, og til slutt et ustabilt system. 
+ 			Må begrense pådraget Uk til max/min verdi som pådragsorganet kan benytte. 
+ 			Hvis ikke vil systemet fungere dårlig (store oversving), 
+ 			eller at D/A-omformeren ikke takler verdien i det hele tatt. (Anti-wind up) </p>
+
+ 		</div>
+      </section>
       <section><div class="row"></div></section>
       <section><div class="row"></div></section>
     </div>
@@ -1523,3 +1623,4 @@
     <script src="js/app.js"></script>
   </body>
 </html>
+
