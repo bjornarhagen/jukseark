@@ -1453,6 +1453,20 @@
       </section>
       <section>
         <div class="row">
+    	  <p class="q"><strong>Blandetanken har 2 nivåsensorer. </strong>
+    	  	Nivåsensorene gir et logisk høyt (1) signal når nivået ”dekker” sensoren. 
+    	  	Når nivået er lavere enn sensoren gir den logisk 0.  To pumper benyttes for å pumpe væske A og B til tanken. 
+    	  	I tillegg finnes det en motor som styrer en omrører, og en alarmutgang til en alarmlampe.  
+    	  	Det benyttes også en startbryter og en stoppbryter som begge er normalt åpne (logisk 0) når de ikke er berørt, 
+    	  	men som gir logisk 1 når de holdes inne. De går automatisk til logisk 0 når de slippes. 
+    	  	Du skal lage et PLS-program med Ladder og/eller Funksjonsblokker som utfører følgende: 
+    	  	Når startbryteren trykkes, og deretter slippes, skal pumpe 1 starte med å pumpe væske inn, samtidig skal omrøreren starte.
+    	  	Når nivået passerer (høyere) enn nivåsensoren Niv_norm skal pumpe 1 stoppe. 
+    	  	Deretter skal pumpe 2 starte og pumpe væske B inn i tanken i 3 minutter. 
+    	  	Nivåsensorer Niv_hoy skal fungere som sikkerhet mot at tanken overfylles. 
+    	  	Hvis nivået i tanken passerer Niv_hoy skal begge pumpene stoppe, og et alarmsignal Alarm_hoy skal aktiveres.  
+    	  	Hvis stoppbryteren trykkes skal anlegget stoppes (pumpe 1, pumpe 2, omrører og alarm skal  slås av.) 
+ 		</p>
           <img
             class="sl"
             src="https://i.xdh.no/fd4d7e49346f"
