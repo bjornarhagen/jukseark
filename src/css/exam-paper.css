@@ -159,7 +159,7 @@ hr {
 .wrapper {
 	display: flex;
 	margin: 10em auto;
-	padding: 5mm;
+	padding: 6.35mm;
 	flex-direction: row;
 	justify-content: space-between;
 	color: #222;
@@ -190,9 +190,9 @@ hr {
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 5mm;
+		padding: 6.35mm;
 		/*padding: 0;*/
-		/*border: 5mm solid red;*/
+		/*border: 6.35mm solid red;*/
 		margin: 0;
 		transform: none;
 		max-width: 100vw;
@@ -205,7 +205,7 @@ hr {
 .wrapper section {
 	display: flex;
 	flex-direction: column;
-	padding: 0 1mm 0;
+	padding: 0 0.75mm 0;
 	width: 33.33333333333333%;
 	max-width: 100%;
 }
