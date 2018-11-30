@@ -1478,44 +1478,6 @@
           />
 
           <div class="bt"></div>
-          <h3>Greit å vite</h3>
-          <p>
-            <strong>Bode-diagram:</strong> Gm = forsterkningsmargin =
-            <span class="katex">\Delta K</span>, Pm = Fasemargin =
-            <span class="katex">\psi</span>, K = forsterkning
-          </p>
-
-          <p>Faseforskyvning = <span class="katex">\phi</span></p>
-          <p><strong>T </strong>kalles Systemets tidskonstant, hurtighet/treghet.</p>
-          <p><strong>Dødtid/tidsforsinkelse</strong> gjør systemer trege og vanskeligere å regulere. 
-	        Systemer med dødtid vil ha problemer med D-virkning. Vil kunne oscillere mye.
-       	   	Sampling i reguleringssystem:Ved at vi benytter sampling innfører vi en dødtid (tidsforsinkelse) i systemet.
-       		Sampler vi hurtig vil denne dødtiden bli tilnærmet ubetydelig. 
-       		Sampler vi langsomt i forhold til systemets dynamikk vil reguleringssystemet kunne bli ustabilt.
-       	  </p>
-       	  <p>Dødtid er ugunstig i et styringssystem. Det medfører dårligere fasemargin og dermed et mindre stabilt system.</p>
-       	  
-       	  <p><strong>Holdelementet</strong> holder verdien i samplingstiden T sek. Hold-elementer skaper dødtid. Ofte T/2?</p>
-
-          <p>
-            <strong>Forsterkningsmarginen</strong> er uendelig, fordi fasen ikke
-            passer -180 grader.
-          </p>
-
-          <p>
-            <strong>Ved sprangrespons</strong> må man benytte M(s).
-            <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
-            oversving burde være på 1.20 (20%)
-          </p>
-
-          <p>
-            <strong>Beregning av dB-verdier</strong>
-            <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til at
-            <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
-            <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
-            <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
-            <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
-          </p>
         </div>
       </section>
     </div>
@@ -1672,7 +1634,6 @@
       </section>
       <section>
         <div class="row">
-
           <p class="q">
             <strong
               >Nedenfor er listet kode for en diskret PI-regulator:
@@ -1833,6 +1794,56 @@
               den lukker seg igjen.
             </p>
           </div>
+
+          <h3>Greit å vite</h3>
+          <p>
+            <strong>Bode-diagram:</strong> Gm = forsterkningsmargin =
+            <span class="katex">\Delta K</span>, Pm = Fasemargin =
+            <span class="katex">\psi</span>, K = forsterkning
+          </p>
+
+          <p>Faseforskyvning = <span class="katex">\phi</span></p>
+          <p>
+            <strong>T </strong>kalles Systemets tidskonstant, hurtighet/treghet.
+          </p>
+          <p>
+            <strong>Dødtid/tidsforsinkelse</strong> gjør systemer trege og
+            vanskeligere å regulere. Systemer med dødtid vil ha problemer med
+            D-virkning. Vil kunne oscillere mye. Sampling i
+            reguleringssystem:Ved at vi benytter sampling innfører vi en dødtid
+            (tidsforsinkelse) i systemet. Sampler vi hurtig vil denne dødtiden
+            bli tilnærmet ubetydelig. Sampler vi langsomt i forhold til
+            systemets dynamikk vil reguleringssystemet kunne bli ustabilt.
+          </p>
+          <p>
+            Dødtid er ugunstig i et styringssystem. Det medfører dårligere
+            fasemargin og dermed et mindre stabilt system.
+          </p>
+
+          <p>
+            <strong>Holdelementet</strong> holder verdien i samplingstiden T
+            sek. Hold-elementer skaper dødtid. Ofte T/2?
+          </p>
+
+          <p>
+            <strong>Forsterkningsmarginen</strong> er uendelig, fordi fasen ikke
+            passer -180 grader.
+          </p>
+
+          <p>
+            <strong>Ved sprangrespons</strong> må man benytte M(s).
+            <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
+            oversving burde være på 1.20 (20%)
+          </p>
+
+          <p>
+            <strong>Beregning av dB-verdier</strong>
+            <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til at
+            <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
+            <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
+            <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
+            <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
+          </p>
         </div>
       </section>
       <section><div class="row"></div></section>
