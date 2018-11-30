@@ -1159,7 +1159,8 @@
             105 = 12.6. Ziegler-Nichols metode krever at prosessen er oppkoblet
             og utsettes for store pådragsendringer. Systemet kjøres slik at et
             blir tilnærmet ustabilt. Stående svingninger. Det er ikke
-            akseptabelt formange prosesser, og dermed kan ikke metoden benyttes.
+            akseptabelt for mange prosesser, og dermed kan ikke metoden benyttes.
+            Hensikten er å finne de den forsterkning som gir et ustabilt system (Kkritisk). 
             Tabellen forslår verdier som skal passe for alle prosesser.Etter en
             beregning/testing bør man finjustere reguleringsparameterne. Andre
             metoder som kan benyttes er: 1. Relè-metoden som setter prosessen i
@@ -1844,10 +1845,45 @@
             <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
             <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
           </p>
+
+          <p><strong>Nullpunkter, poler og tidskonstanter</strong></p>
+          <img src="https://i.xdh.no/466979f21e42" alt="eks. nullpunkter og poler">
+          <p>Systemet har 1 nullpunkt. Tidskonstant 2 sek. 
+          Systemet har 2 poler (tidskonstanter 10 sek og 50 sek), samt 1 integrator.
+			Systemet har en dødtid/tidsforsinkelse på 20 sekunder
+			NB!: Nullpunkter påvirker dynamikken og responsen til systemet.
+			Polene påvirker dynamikken, men også om systemet skal være stabilt eller ikke. 
+			Dødtid gjør systemer trege og vanskeligere å regulere.
+      		</p>
+
+      		<p><strong>Tidsrespons </strong>Undersøker hvordan et system takler endringer/påvirkninger.
+      		Gir oss informasjon om; Hurtighet, forsterkning, stabilitet, reaksjonsmønster.</p>
+
+
         </div>
       </section>
       <!-- <section><div class="row"></div></section> -->
-      <section><div class="row"></div></section>
+      <section>
+      	<div class="row">
+      		<p><strong>Frekvensrespons </strong> Undersøker hvordan et system takler sinussignaler.
+      		Gir oss informasjon om;
+      		Båndbredde, stabilitet, filteregenskaper. 
+      		Ved å la <span class="katex">\omega</span> variere fra null til uendelig vil vi kunne finne ut hvordan et system overfører sinussignaler. 
+      		Vi vil sitte igjen med informasjon som vi kaller frekvensresponsen til systemet.
+      		Frekvensresponsen til et system (lineært og stabilt) kan finnes direkte fra transferfunksjonen H(s).
+      		Det kan vises at vi finner frekvensresponsen ved å erstatte s med <span class="katex">j\omega</span> i en transferfunksjon.</p>
+
+      		<p><strong>Arbeidspunkt:</strong>. Angir det normale virkeområde(setpunkt/referanse) for en reg.sløyfe.  
+      		Hvis prosessen vi skal regulere er lineær vil reg.parametrene 
+      		Vi må bestemme oss for hvor hva referansennormalt er innstilt på.
+      		vi har funnet ved et arbeidspunkt kunne benyttes når vi endrer arbeidspunkt.
+      		Er prosessen ulineærvil optimale reg.parametre variere med arbeidspunktet som benyttes. 
+      		Vi bør derfor tune systemet på nytt når arbeidspunktet endres.</p>
+
+      		<p>Man kan gjøre et ustabil prosess stabil ved å benytte tilbakekobling.</p>
+      		
+      	</div>
+      </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
     <link
