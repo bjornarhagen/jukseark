@@ -881,29 +881,27 @@
             </div>
           </div>
 
-
           <div class="clear">
-          <div class="w55 fl">
-            <p><strong>noen instrumenter</strong></p>
-            <ul class="i0 nostyle">
-              <li>PC - Presure Control. Trykk regulator</li>
-              <li>PT - PresureTransmitter. (trykkmåle-element/sensor)</li>
-              <li>PV - Presure control valve. (trykk reguleringsventil)</li>
-              <li>LC - Level Control.  Nivå regulator</li>
-              <li>LT - Level transmitter. (nivå måle-element/sensor)</li>
-              <li>LV - Level control valve. Nivå reguleringsventi</li>
-            </ul>
-          </div>
+            <div class="w55 fl">
+              <p><strong>noen instrumenter</strong></p>
+              <ul class="i0 nostyle">
+                <li>PC - Presure Control. Trykk regulator</li>
+                <li>PT - PresureTransmitter. (trykkmåle-element/sensor)</li>
+                <li>PV - Presure control valve. (trykk reguleringsventil)</li>
+                <li>LC - Level Control. Nivå regulator</li>
+                <li>LT - Level transmitter. (nivå måle-element/sensor)</li>
+                <li>LV - Level control valve. Nivå reguleringsventi</li>
+              </ul>
+            </div>
 
-          <div class="w45 fr">
-            <p><strong>eksempel på sløyfer</strong></p>
-            <ul class="i0 nostyle">
-              <li>Nivåregulerings-sløyfe: LC, LT, LV inngår</li>
-              <li>Trykkreguleringssløyfe: PC, PT, PV inngår.</li>
-            </ul>
+            <div class="w45 fr">
+              <p><strong>eksempel på sløyfer</strong></p>
+              <ul class="i0 nostyle">
+                <li>Nivåregulerings-sløyfe: LC, LT, LV inngår</li>
+                <li>Trykkreguleringssløyfe: PC, PT, PV inngår.</li>
+              </ul>
+            </div>
           </div>
-          </div>
-
         </div>
       </section>
       <section>
@@ -1274,17 +1272,34 @@
 
           <div class="bt">
             <strong>diskret PI-regulator</strong>
-              <span class="katex">U_k = U_{k1} + k_p \cdot \dfrac{1+T_S}{T_I} \cdot avvik -k_p \cdot avvik_1</span>
+            <span class="katex"
+              >U_k = U_{k1} + k_p \cdot \dfrac{1+T_S}{T_I} \cdot avvik -k_p
+              \cdot avvik_1</span
+            >
 
-              <ul class="inline2">
-                <li><span class="katex">U_k</span> - nåværende beregnet pådrag</li>
-                <li><span class="katex">U_{k1}</span> - pådraget ved forrige sampling</li>
-                <li><span class="katex">avvik</span> - Feilen.  Setpunkt minus målt verdi akkurat nå</li>
-                <li><span class="katex">avvik_1</span> - avviket en sampling tilbake i tid</li>
-                <li><span class="katex">K_i</span> - regulator forsterkning </li>
-                <li><span class="katex">T_i</span> - integrasjonstien</li>
-                <li><span class="katex">T_s</span> - samplingstiden (hvor hurtig algoritmen kjøres)</li>
-              </ul>
+            <ul class="inline2">
+              <li>
+                <span class="katex">U_k</span> - nåværende beregnet pådrag
+              </li>
+              <li>
+                <span class="katex">U_{k1}</span> - pådraget ved forrige
+                sampling
+              </li>
+              <li>
+                <span class="katex">avvik</span> - Feilen. Setpunkt minus målt
+                verdi akkurat nå
+              </li>
+              <li>
+                <span class="katex">avvik_1</span> - avviket en sampling tilbake
+                i tid
+              </li>
+              <li><span class="katex">K_i</span> - regulator forsterkning</li>
+              <li><span class="katex">T_i</span> - integrasjonstien</li>
+              <li>
+                <span class="katex">T_s</span> - samplingstiden (hvor hurtig
+                algoritmen kjøres)
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -1508,31 +1523,33 @@
       </section>
       <section>
         <div class="row">
-          <p class="q">
-            <strong>Blandetanken har 2 nivåsensorer. </strong> Nivåsensorene gir
-            et logisk høyt (1) signal når nivået ”dekker” sensoren. Når nivået
-            er lavere enn sensoren gir den logisk 0. To pumper benyttes for å
-            pumpe væske A og B til tanken. I tillegg finnes det en motor som
-            styrer en omrører, og en alarmutgang til en alarmlampe. Det benyttes
-            også en startbryter og en stoppbryter som begge er normalt åpne
-            (logisk 0) når de ikke er berørt, men som gir logisk 1 når de holdes
-            inne. De går automatisk til logisk 0 når de slippes. Du skal lage et
-            PLS-program med Ladder og/eller Funksjonsblokker som utfører
-            følgende: Når startbryteren trykkes, og deretter slippes, skal pumpe
-            1 starte med å pumpe væske inn, samtidig skal omrøreren starte. Når
-            nivået passerer (høyere) enn nivåsensoren Niv_norm skal pumpe 1
-            stoppe. Deretter skal pumpe 2 starte og pumpe væske B inn i tanken i
-            3 minutter. Nivåsensorer Niv_hoy skal fungere som sikkerhet mot at
-            tanken overfylles. Hvis nivået i tanken passerer Niv_hoy skal begge
-            pumpene stoppe, og et alarmsignal Alarm_hoy skal aktiveres. Hvis
-            stoppbryteren trykkes skal anlegget stoppes (pumpe 1, pumpe 2,
-            omrører og alarm skal slås av.)
-          </p>
-          <img
-            class="w75 centered"
-            src="https://i.xdh.no/fd4d7e49346f"
-            alt="codesys oppg - eksamen 2016"
-          />
+          <div class="cols cols-2">
+            <p class="q">
+              <strong>Blandetanken har 2 nivåsensorer. </strong> Nivåsensorene
+              gir et logisk høyt (1) signal når nivået ”dekker” sensoren. Når
+              nivået er lavere enn sensoren gir den logisk 0. To pumper benyttes
+              for å pumpe væske A og B til tanken. I tillegg finnes det en motor
+              som styrer en omrører, og en alarmutgang til en alarmlampe. Det
+              benyttes også en startbryter og en stoppbryter som begge er
+              normalt åpne (logisk 0) når de ikke er berørt, men som gir logisk
+              1 når de holdes inne. De går automatisk til logisk 0 når de
+              slippes. Du skal lage et PLS-program med Ladder og/eller
+              Funksjonsblokker som utfører følgende: Når startbryteren trykkes,
+              og deretter slippes, skal pumpe 1 starte med å pumpe væske inn,
+              samtidig skal omrøreren starte. Når nivået passerer (høyere) enn
+              nivåsensoren Niv_norm skal pumpe 1 stoppe. Deretter skal pumpe 2
+              starte og pumpe væske B inn i tanken i 3 minutter. Nivåsensorer
+              Niv_hoy skal fungere som sikkerhet mot at tanken overfylles. Hvis
+              nivået i tanken passerer Niv_hoy skal begge pumpene stoppe, og et
+              alarmsignal Alarm_hoy skal aktiveres. Hvis stoppbryteren trykkes
+              skal anlegget stoppes (pumpe 1, pumpe 2, omrører og alarm skal
+              slås av.)
+            </p>
+            <img
+              src="https://i.xdh.no/fd4d7e49346f"
+              alt="codesys oppg - eksamen 2016"
+            />
+          </div>
 
           <div class="bt"></div>
           <h3>Eksamen 2017</h3>
@@ -1604,13 +1621,6 @@
             Så har de sanntidsegensaker som gjør at disse kan benyttes ut mot
             felt.
           </p>
-        </div>
-      </section>
-    </div>
-    <div class="wrapper" page="4">
-      <section>
-        <div class="row">
-
           <p class="a">
             <strong>CAN bus</strong> (Controller Area Network) is a vehicle bus
             standard designed to allow microcontrollers and devices to
@@ -1658,7 +1668,12 @@
             PID parameter anslås. Kalles ofte:
             <strong>sprangrespons metoden</strong>.
           </p>
-
+        </div>
+      </section>
+    </div>
+    <div class="wrapper" page="4">
+      <section>
+        <div class="row">
           <p class="q">
             Et lydsignal samples, og resultatet er vist på figur 3.1 Signalet
             blir testet med en FFT-rutine, og resultatet er vist i figur 3.2.
@@ -1739,8 +1754,12 @@
           </p>
           <p class="a">
             <span class="katex"> \dfrac{Y(s)}{X(s)} = \dfrac{s}{1+0.5s} </span>
-            <span class="katex">\Rightarrow (1+0.5s) \cdot Y(s) = s \cdot X(s)</span>
-            <span class="katex">s-plan: Y(s)+0.5s \cdot Y(s) = s \cdot X(s)</span>
+            <span class="katex"
+              >\Rightarrow (1+0.5s) \cdot Y(s) = s \cdot X(s)</span
+            >
+            <span class="katex"
+              >s-plan: Y(s)+0.5s \cdot Y(s) = s \cdot X(s)</span
+            >
           </p>
           <p class="a">
             <span class="katex">t-plan: y+0.5 \dot{y} = \dot{x}</span>
@@ -1787,19 +1806,95 @@
             </div>
           </div>
           <p class="a i2 tl">
-            <span class="katex">\Rightarrow y_k + 0.5 \cdot \dfrac{y_k - y_{k-1}}{T} = \dfrac{x_k
-              - x_{k-1}}{T} \cdot T</span>
-            <span class="katex">\Rightarrow Ty_k + 0.5y_k - 0.5y_{k-1} = x_k - x_{k-1}</span>
-            <span class="katex">\Rightarrow y_k(T+0.5) = 0.5y_{k-1} + y_k - y_{k-1}</span>
-            <span class="katex">\Rightarrow \underline{\underline{y_k = \dfrac{0.5}{T+0.5} \cdot
-              y_{k-1} + \dfrac{1}{T+0.5}(y_k - y_{k-1})}}</span>
+            <span class="katex"
+              >\Rightarrow y_k + 0.5 \cdot \dfrac{y_k - y_{k-1}}{T} = \dfrac{x_k
+              - x_{k-1}}{T} \cdot T</span
+            >
+            <span class="katex"
+              >\Rightarrow Ty_k + 0.5y_k - 0.5y_{k-1} = x_k - x_{k-1}</span
+            >
+            <span class="katex"
+              >\Rightarrow y_k(T+0.5) = 0.5y_{k-1} + y_k - y_{k-1}</span
+            >
+            <span class="katex"
+              >\Rightarrow \underline{\underline{y_k = \dfrac{0.5}{T+0.5} \cdot
+              y_{k-1} + \dfrac{1}{T+0.5}(y_k - y_{k-1})}}</span
+            >
+          </p>
+
+          <div class="bt">
+            <p>
+              <strong>Feltbusser</strong>Hvorfor IKKE benytte feltbusser? Mer
+              komplekst utstyr, Mange standarder, Driftere må ha gode
+              IT-kunnskaper, Revisjon av programvare kan gi
+              integrasjonsproblemer, Nytt og gammelt utstyr snakker ikke alltid
+              sammen, Kan «hackes»/forstyrres slik at datamistes eller blir
+              feil.
+            </p>
+            <p>
+              Det finnes en rekke feltbusser. Noen busser er mer rettet mot
+              sensor påbitnivå. (ASI, CAN, IO-link). Noen dekker kommunikasjon
+              mellom PLS’er og instrumenter. (Profibus-DP, Interbus, Modbus,
+              DeviceNet, EtherCat.) Noen er rettet mot prosessautomatisering.
+              (Profibus-PA, Fieldbus H1) Noen er rettet mot overordnede
+              styringssystemer. (ProfiNet, Ethernet/IP, Fieldbus HSE), samt
+              ulike ethernet-typer beregnet for sanntidsoperasjoner.
+            </p>
+          </div>
+
+          <p>
+            <strong>Vanlige feltbusser</strong> ASI: Effektiv når det er enkle
+            digitale signaler mot sensor. IO-Link : Kommunikasjons-Interface.
+            Punkt til punkt tilkobling mellom sensorer,aktuatorer og PLS’er.
+            CAN: Control area Network. Mye brukt i bilindustrien. OBD2 diagnose
+            system for biler. (Seriebus). Profibus-DP: Dekker kommunikasjon
+            mellom Master (eks. PC/PLS) og distribuerte I/O-enheter som da blir
+            slaver. Max 12Mbit/s. Max 32 enheter per segment. Benytter RS 485.
+            Profibus-PA: Benyttes for kommunikasjon motprosessinstrumenter.
+            31.25 kBit/sPA nettet kobles mot en DP-Master via en DP til PA
+            omkobler. Fieldbus Foundation: Konkurrent til Profibus-PA.
+            Kommunikasjon mot prosessinstrumenter. 31.25 kBit/s.
+            Funksjonsmoduler (software) i I/O enhetene. Industrielt Ethernet:
+            Benytter Ethernet med ”programvare/hardware” som sørger for
+            sanntidsegenskaper. Oppdateringstider mindre enn 10
+            0mikrosekunder.Eks. Profinet, Ethernet/IP, EtherCAT, ModbusTCP
+          </p>
+
+          <p>
+            <strong>Måleelement og kalibrering.</strong> Må
+            kalibreremåleelementet slik at vi får mest mulig riktig informasjon
+            om det fysiske signalet. Må kunne stole på at signalet som angir
+            resultatet/målingen er riktig. F.eks må alle bensinpumper kalibreres
+            jevnlig. (Justervesenet.) Veldig viktig ved kjøp og salg av varer.
+            Viktig for skattelegging. Fiskalemålinger, avgifter. Et måleelement
+            kalibreres slik at nedre fysiske verdi gir en utgang lik f.eks 4mA,
+            og høyeste fysiske verdi gir 20mA. Benytte da Zero (angir nullpunkt)
+            og Span (angir område, maks verdi).
+          </p>
+
+          <p>
+            <strong>Digitalisering og sampling. </strong>Analoge signaler må
+            digitaliseres (kvantiseres i tid og verdi) før de kan benyttes av en
+            datamaskin. Kvantisering i tid kalles sampling/punktprøving.
+          </p>
+
+          <p>
+            <strong>Begrensing av pådrag</strong> Pådragsorganer har
+            metningsgrenser. Når disse grensene nås er det uheldig at
+            regulatoren fortsetter å integrere opp pådraget uk. ådraget kan i en
+            algoritme bli uendelig stort eller lite. Slike verdier vil ikke ha
+            noen mening å benytte. NB!!En ventil kan åpnes 100%, det er
+            meningsløst å si at en ventil skal åpnes 200%. Løsningen er å ikke
+            la pådraget bli større enn Umax og ikke bli mindre enn Umin. Dette
+            gjøres enkelt med noen if-setninger. Hvis en slik begrensing (anti
+            wind-up) ikke legges inn vil det gå uforholdsmessig lang tid før
+            pådraget bringes tilbake til normalt område igjen etter endringer.
+            Resultatet vil bli et langvarig oversving.
           </p>
         </div>
       </section>
       <section>
         <div class="row">
-
-
           <h4>Oppgave 4</h4>
           <p class="q">
             <strong>A.</strong> <strong>Timere</strong> er ofte benyttet i PLS -
@@ -1841,185 +1936,161 @@
             </p>
           </div>
 
-          <h3>Greit å vite</h3>
-          <p>
-            <strong>Bode-diagram:</strong> Gm = forsterkningsmargin =
-            <span class="katex">\Delta K</span>, Pm = Fasemargin =
-            <span class="katex">\psi</span>, K = forsterkning
-          </p>
+          <div class="bb">
+            <h3>Greit å vite</h3>
+            <p>
+              <strong>Bode-diagram:</strong> Gm = forsterkningsmargin =
+              <span class="katex">\Delta K</span>, Pm = Fasemargin =
+              <span class="katex">\psi</span>, K = forsterkning
+            </p>
 
-          <p>Faseforskyvning = <span class="katex">\phi</span></p>
-          <p>
-            <strong>T </strong>kalles Systemets <strong>tidskonstant</strong>, hurtighet/treghet. Store tidskonstanter gjør systemet tregt.
-          </p>
-          <p>
-            <strong>Tidsforsinkelse</strong> betyr at det går en viss tid før utgangen reagerer på inngangen.
-            Det er da et delay (<strong>dødtid</strong>) i systemet. Det medfører at vi får målinger forsinket i forhold til pådraget.
-            Vi observerer følgelig ikke momentant virkningen av et pådrag.
-            Dette gjør at et reguleringssystem må tunes mer forsiktig (må sikre marginer).
-            Kan gi treg regulering og utfordringer i forhold til stabilitet.
-          </p>
+            <p>Faseforskyvning = <span class="katex">\phi</span></p>
+            <p>
+              <strong>T </strong>kalles Systemets <strong>tidskonstant</strong>,
+              hurtighet/treghet. Store tidskonstanter gjør systemet tregt.
+            </p>
+            <p>
+              <strong>Tidsforsinkelse</strong> betyr at det går en viss tid før
+              utgangen reagerer på inngangen. Det er da et delay
+              (<strong>dødtid</strong>) i systemet. Det medfører at vi får
+              målinger forsinket i forhold til pådraget. Vi observerer følgelig
+              ikke momentant virkningen av et pådrag. Dette gjør at et
+              reguleringssystem må tunes mer forsiktig (må sikre marginer). Kan
+              gi treg regulering og utfordringer i forhold til stabilitet.
+            </p>
 
-          <p>
-            <strong>Holdelementet</strong> holder verdien i samplingstiden T
-            sek. Hold-elementer skaper dødtid. Ofte T/2?
-          </p>
+            <p>
+              <strong>Holdelementet</strong> holder verdien i samplingstiden T
+              sek. Hold-elementer skaper dødtid. Ofte T/2?
+            </p>
 
-          <p>
-            <strong>Forsterkningsmarginen</strong> er uendelig, fordi fasen ikke
-            passer -180 grader.
-          </p>
+            <p>
+              <strong>Forsterkningsmarginen</strong> er uendelig, fordi fasen
+              ikke passer -180 grader.
+            </p>
 
-          <p>
-            <strong>Ved sprangrespons</strong> må man benytte M(s).
-            <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
-            oversving burde være på 1.20 (20%)
-          </p>
+            <p>
+              <strong>Ved sprangrespons</strong> må man benytte M(s).
+              <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
+              oversving burde være på 1.20 (20%)
+            </p>
 
-          <p>
-            <strong>Beregning av dB-verdier</strong>
-            <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til at
-            <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
-            <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
-            <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
-            <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
-          </p>
+            <p>
+              <strong>Beregning av dB-verdier</strong>
+              <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til
+              at <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
+              <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
+              <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
+              <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
+            </p>
+
+            <ul>
+              <li>
+                Man kan gjøre et ustabil prosess stabil ved å benytte
+                tilbakekobling.
+              </li>
+            </ul>
+          </div>
 
           <p><strong>Nullpunkter, poler og tidskonstanter</strong></p>
           <div class="cols cols-2">
-
             <img
-            class=""
-            src="https://i.xdh.no/f6fd91ff9f09"
-            alt="eks. nullpunkter og poler"
-          />
-          <p>
-            Systemet har 1 nullpunkt. Tidskonstant 2 sek. Systemet har 2 poler
-            (tidskonstanter 10 sek og 50 sek), samt 1 integrator. Systemet har
-            en dødtid/tidsforsinkelse på 20 sekunder NB!: Nullpunkter påvirker
-            dynamikken og responsen til systemet. Polene påvirker dynamikken,
-            men også om systemet skal være stabilt eller ikke. Dødtid gjør
-            systemer trege og vanskeligere å regulere.
-          </p>
-              <p>
-                <strong>Tidsrespons </strong>Undersøker hvordan et system takler
-                endringer/påvirkninger. Gir oss informasjon om; Hurtighet,
-                forsterkning, stabilitet, reaksjonsmønster.
-              </p>
+              class=""
+              src="https://i.xdh.no/f6fd91ff9f09"
+              alt="eks. nullpunkter og poler"
+            />
+            <p>
+              Systemet har 1 nullpunkt. Tidskonstant 2 sek. Systemet har 2 poler
+              (tidskonstanter 10 sek og 50 sek), samt 1 integrator. Systemet har
+              en dødtid/tidsforsinkelse på 20 sekunder NB!: Nullpunkter påvirker
+              dynamikken og responsen til systemet. Polene påvirker dynamikken,
+              men også om systemet skal være stabilt eller ikke. Dødtid gjør
+              systemer trege og vanskeligere å regulere.
+            </p>
+            <p>
+              <strong>Tidsrespons </strong>Undersøker hvordan et system takler
+              endringer/påvirkninger. Gir oss informasjon om; Hurtighet,
+              forsterkning, stabilitet, reaksjonsmønster.
+            </p>
           </div>
 
-              <p>
-                <strong>Frekvensrespons </strong> Undersøker hvordan et system
-                takler sinussignaler. Gir oss informasjon om; Båndbredde,
-                stabilitet, filteregenskaper. Ved å la
-                <span class="katex">\omega</span> variere fra null til uendelig vil
-                vi kunne finne ut hvordan et system overfører sinussignaler. Vi vil
-                sitte igjen med informasjon som vi kaller frekvensresponsen til
-                systemet. Frekvensresponsen til et system (lineært og stabilt) kan
-                finnes direkte fra transferfunksjonen H(s). Det kan vises at vi
-                finner frekvensresponsen ved å erstatte s med
-                <span class="katex">j\omega</span> i en transferfunksjon.
-              </p>
+          <p>
+            <strong>Frekvensrespons </strong> Undersøker hvordan et system
+            takler sinussignaler. Gir oss informasjon om; Båndbredde,
+            stabilitet, filteregenskaper. Ved å la
+            <span class="katex">\omega</span> variere fra null til uendelig vil
+            vi kunne finne ut hvordan et system overfører sinussignaler. Vi vil
+            sitte igjen med informasjon som vi kaller frekvensresponsen til
+            systemet. Frekvensresponsen til et system (lineært og stabilt) kan
+            finnes direkte fra transferfunksjonen H(s). Det kan vises at vi
+            finner frekvensresponsen ved å erstatte s med
+            <span class="katex">j\omega</span> i en transferfunksjon.
+          </p>
 
-              <p>
-                <strong>Arbeidspunkt:</strong>. Angir det normale
-                virkeområde(setpunkt/referanse) for en reg.sløyfe. Hvis prosessen vi
-                skal regulere er lineær vil reg.parametrene Vi må bestemme oss for
-                hvor hva referansennormalt er innstilt på. vi har funnet ved et
-                arbeidspunkt kunne benyttes når vi endrer arbeidspunkt. Er prosessen
-                ulineærvil optimale reg.parametre variere med arbeidspunktet som
-                benyttes. Vi bør derfor tune systemet på nytt når arbeidspunktet
-                endres.
-              </p>
+          <p>
+            <strong>Arbeidspunkt:</strong>. Angir det normale
+            virkeområde(setpunkt/referanse) for en reg.sløyfe. Hvis prosessen vi
+            skal regulere er lineær vil reg.parametrene Vi må bestemme oss for
+            hvor hva referansennormalt er innstilt på. vi har funnet ved et
+            arbeidspunkt kunne benyttes når vi endrer arbeidspunkt. Er prosessen
+            ulineærvil optimale reg.parametre variere med arbeidspunktet som
+            benyttes. Vi bør derfor tune systemet på nytt når arbeidspunktet
+            endres.
+          </p>
 
-              <p>
-                Man kan gjøre et ustabil prosess stabil ved å benytte
-                tilbakekobling.
-              </p>
+          <p>
+            Man kan gjøre et ustabil prosess stabil ved å benytte
+            tilbakekobling.
+          </p>
+
+          <p>
+            <strong>RFID</strong> Radiofrekvensidentifikasjon (engelsk: radio
+            frequency identification, RFID) er en metode for å lagre og hente
+            data ved hjelp av små enheter kalt RFID-brikker. En RFID-brikke er
+            en liten brikke som kan festes til eller bygges inn i et produkt, et
+            dyr eller en person.
+          </p>
+
+          <p>
+            <strong>OPC</strong> Open Platform Communications. OPCer en
+            interoperabilitetsstandardfor sikker og pålitelig datautvekslingi
+            industriell automatisering/nettverk. Den er plattform uavhengig, og
+            sikrer sømløs strøm av informasjonmellom enheter fra flere
+            leverandører. Siste utgave er: OPC-UA (Unified Architecture). Gjør
+            det mulig å lese/skrive PLS-tagger i sanntid. Er basert på en
+            klient/server modell. <strong>OPC Data Access </strong>(OPC Classic)
+            OPC DA sender over realtimeverdier fra PLS’er til HMI/SCADA system.
+            Altså tilgang til realtime prosessdata. Brukes til: Lesing av
+            nåverdier( Måleinstrumenter, Styresignaler, Beregnede verdier). Og
+            skriving av nåverdier (Settpunkt i regulator, Startkriterier i
+            logikk-programmer).
+            <strong>OPC Unified Architecture (UA)</strong> Motivasjon: Samler
+            alle eksisterendespesifikasjoner i enhelhetligmodell. Støtter
+            kompliserte/rike informasjonsmodeller. Fokus på sikkerhet i
+            kommunikasjon mellomklient og server. Er tilgjengelig på andre
+            plattformer enn Win32: Linux, Android, VxWorks, iOS, Android
+          </p>
         </div>
       </section>
       <section>
-      	<div class="row">
-      		<p><strong>Frekvensrespons </strong> Undersøker hvordan et system takler sinussignaler.
-      		Gir oss informasjon om;
-      		Båndbredde, stabilitet, filteregenskaper. 
-      		Ved å la <span class="katex">\omega</span> variere fra null til uendelig vil vi kunne finne ut hvordan et system overfører sinussignaler. 
-      		Vi vil sitte igjen med informasjon som vi kaller frekvensresponsen til systemet.
-      		Frekvensresponsen til et system (lineært og stabilt) kan finnes direkte fra transferfunksjonen H(s).
-      		Det kan vises at vi finner frekvensresponsen ved å erstatte s med <span class="katex">j\omega</span> i en transferfunksjon.</p>
-
-      		<p><strong>Arbeidspunkt:</strong>. Angir det normale virkeområde(setpunkt/referanse) for en reg.sløyfe.  
-      		Hvis prosessen vi skal regulere er lineær vil reg.parametrene 
-      		Vi må bestemme oss for hvor hva referansennormalt er innstilt på.
-      		vi har funnet ved et arbeidspunkt kunne benyttes når vi endrer arbeidspunkt.
-      		Er prosessen ulineærvil optimale reg.parametre variere med arbeidspunktet som benyttes. 
-      		Vi bør derfor tune systemet på nytt når arbeidspunktet endres.</p>
-
-      		<p>Man kan gjøre et ustabil prosess stabil ved å benytte tilbakekobling.</p>
-
-      		<p><strong>Måleelement og kalibrering.</strong> Må kalibreremåleelementet slik at vi får mest mulig riktig informasjon 
-      		om det fysiske signalet. Må kunne stole på at signalet som angir resultatet/målingen er riktig.
-      		F.eks må alle bensinpumper kalibreres jevnlig. (Justervesenet.) Veldig viktig ved kjøp og salg av varer. 
-      		Viktig for skattelegging. Fiskalemålinger, avgifter. Et måleelement kalibreres slik at nedre fysiske verdi 
-      		gir en utgang lik f.eks 4mA, og høyeste fysiske verdi gir 20mA. Benytte da Zero (angir nullpunkt)
-      		og Span (angir område, maks verdi).</p>
-      		
-      		<p><strong>Digitalisering og sampling. </strong>Analoge signaler må digitaliseres (kvantiseres i tid og verdi) før de kan benyttes av en datamaskin.
-      		Kvantisering i tid kalles sampling/punktprøving.</p>
-
-      		<p><strong>Begrensing av pådrag</strong> Pådragsorganer har metningsgrenser. 
-      		Når disse grensene nås er det uheldig at regulatoren fortsetter å integrere opp pådraget uk.
-      		ådraget kan i en algoritme bli uendelig stort eller lite. Slike verdier vil ikke ha noen mening å benytte. 
-      		NB!!En ventil kan åpnes 100%, det er meningsløst å si at en ventil skal åpnes 200%.
-      		Løsningen er å ikke la pådraget bli større enn Umax og ikke bli mindre enn Umin.
-      		Dette gjøres enkelt med noen if-setninger. Hvis en slik begrensing (anti wind-up) ikke legges inn vil det gå 
-      		uforholdsmessig lang tid før pådraget bringes tilbake til normalt område igjen etter endringer.
-      		Resultatet vil bli et langvarig oversving. </p>
-
-      		<p><strong>Feltbusser</strong>Hvorfor IKKE benytte feltbusser?
-      		Mer komplekst utstyr, Mange standarder, Driftere må ha gode IT-kunnskaper, Revisjon av programvare kan gi integrasjonsproblemer,
-      		Nytt og gammelt utstyr snakker ikke alltid sammen, Kan «hackes»/forstyrres slik at datamistes eller blir feil. </p>
-      		<p>Det finnes en rekke feltbusser. Noen busser er mer rettet mot sensor påbitnivå.  (ASI, CAN, IO-link). 
-      		Noen dekker kommunikasjon mellom PLS’er og instrumenter. (Profibus-DP, Interbus, Modbus, DeviceNet, EtherCat.)
-      		Noen er rettet mot prosessautomatisering. (Profibus-PA, Fieldbus H1)
-      		Noen er rettet mot overordnede styringssystemer. (ProfiNet, Ethernet/IP, Fieldbus HSE), 
-      		samt ulike ethernet-typer beregnet for sanntidsoperasjoner.</p>
-      		<p><strong>Vanlige feltbusser</strong> ASI: Effektiv når det er enkle digitale signaler mot sensor.
-      		IO-Link : Kommunikasjons-Interface. Punkt til punkt tilkobling mellom sensorer,aktuatorer og PLS’er.
-      		CAN: Control area Network. Mye brukt i bilindustrien. OBD2 diagnose system for biler. (Seriebus).
-      		Profibus-DP: Dekker kommunikasjon mellom Master (eks. PC/PLS) og distribuerte I/O-enheter som da blir slaver.
-      		Max 12Mbit/s. Max 32 enheter per segment. Benytter RS 485.
-      		Profibus-PA: Benyttes for kommunikasjon motprosessinstrumenter.  
-      		31.25 kBit/sPA nettet kobles mot en DP-Master via en DP til PA omkobler.
-      		Fieldbus Foundation: Konkurrent til Profibus-PA. Kommunikasjon mot prosessinstrumenter. 31.25 kBit/s. 
-      		Funksjonsmoduler (software) i I/O enhetene. 
-      		Industrielt Ethernet: Benytter Ethernet med ”programvare/hardware” som sørger for sanntidsegenskaper.
-      		Oppdateringstider mindre enn 10 0mikrosekunder.Eks. Profinet, Ethernet/IP, EtherCAT, ModbusTCP</p>
-
-      		<p><strong>RFID</strong> Radiofrekvensidentifikasjon (engelsk: radio frequency identification, RFID) 
-      		er en metode for å lagre og hente data ved hjelp av små enheter kalt RFID-brikker. 
-      		En RFID-brikke er en liten brikke som kan festes til eller bygges inn i et produkt, et dyr eller en person.</p>
-
-      		<p><strong>OPC</strong> Open Platform Communications. 
-      		OPCer en interoperabilitetsstandardfor sikker og pålitelig datautvekslingi industriell automatisering/nettverk.
-      		Den er plattform uavhengig, og sikrer sømløs strøm av informasjonmellom enheter fra flere leverandører.
-      		Siste utgave er: OPC-UA (Unified Architecture). Gjør det mulig å lese/skrive PLS-tagger i sanntid. 
-      		Er basert på en klient/server modell. <strong>OPC Data Access </strong>(OPC Classic)
-      		OPC DA sender over realtimeverdier fra PLS’er til HMI/SCADA system. Altså tilgang til realtime prosessdata.
-      		Brukes til: Lesing av nåverdier( Måleinstrumenter, Styresignaler, Beregnede verdier). 
-      		Og skriving av nåverdier (Settpunkt i regulator, Startkriterier i logikk-programmer).
-      		<strong>OPC Unified Architecture (UA)</strong> Motivasjon: Samler alle eksisterendespesifikasjoner i enhelhetligmodell.
-      		Støtter kompliserte/rike informasjonsmodeller. Fokus på sikkerhet i kommunikasjon mellomklient og server.
-      		Er tilgjengelig på andre plattformer enn Win32: Linux, Android, VxWorks, iOS, Android </p>
-
-      		<h3>Eksamen 2014</h3>
-      		<p class="q">Anta at du skal utføre en PID-regulering, og at algoritmen under benyttes
-      			<span class="katex">uk = u_{k-1} + K(1 + \dfrac{T}{T_i})e_k - Ke_{k-1} - \dfrac{KT_d}{T}(y_k - 2y_{k-1} + y_{k-2})</span></p>
-      		<p><strong>Parametere i algoritmer:</strong> uk – beregnet pådrag ved et gitt samplingspunkt, 
-      		uk-1 – pådraget en sampling tilbake (gamle pådraget), ek – nåværende avvikk, 
-      		ek-1 – avviket en sampling tilbake, ek-2 – avviket to sampling tilbake, yk - målt verdi, rk - referanse. Evt. A, B og C er konstanter. </p>
-
-      	</div>
+        <div class="row">
+          <h3>Eksamen 2014</h3>
+          <p class="q">
+            Anta at du skal utføre en PID-regulering, og at algoritmen under
+            benyttes
+            <span class="katex"
+              >uk = u_{k-1} + K(1 + \dfrac{T}{T_i})e_k - Ke_{k-1} -
+              \dfrac{KT_d}{T}(y_k - 2y_{k-1} + y_{k-2})</span
+            >
+          </p>
+          <p>
+            <strong>Parametere i algoritmer:</strong> uk – beregnet pådrag ved
+            et gitt samplingspunkt, uk-1 – pådraget en sampling tilbake (gamle
+            pådraget), ek – nåværende avvikk, ek-1 – avviket en sampling
+            tilbake, ek-2 – avviket to sampling tilbake, yk - målt verdi, rk -
+            referanse. Evt. A, B og C er konstanter.
+          </p>
+        </div>
       </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
