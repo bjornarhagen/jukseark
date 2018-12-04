@@ -2205,6 +2205,58 @@
             diff.ligninger kan vi etablere koblinger mellom inngang og utgang
             som kalles en transferfunksjon.
           </p>
+
+          <div class="bt cols cols-2">
+            <p class="q">
+              <strong>2015 4B</strong>: en liten industriprosess er følgende
+              koblet opp mot en PLS.
+            </p>
+            <ul class="q">
+              <li>
+                En startbryter og en stoppbryter som begge er normalt åpne
+                logisk 0 når de ikke er berørt, men som gir logisk 1 når de
+                holdes inne. De går automatisk til logisk 0 når de slippes,
+                (touch - brytere)
+              </li>
+              <li>To motorer som kan slås av og på</li>
+            </ul>
+            <p class="q">
+              Du skal lage et PLS - program med ladder og/eller funksjonsblokker
+              som gjør følgende: Når startbryteren trykkes (startsignal) skal
+              motor 1 kjøres i 2 minutter før den stoppes. Når motor 1 stopper
+              skal motor 2 kjøres i 4 minutter før den stopper. Hvis
+              stoppbryteren trykkes (stoppsignal) skal begge motorer stoppe
+              umiddelbart. Skriv/tegn programmet som løser oppgaven. Forklar
+              kort hvordan ditt program løser dette. Benytt funksjonsblokker som
+              du mener er nødvendige
+            </p>
+
+            <p class="a">
+              Kan løses på flere måter. Ettersom start - og stoppbryterne er
+              touch - brytere må vi sikre at verdiene holdes med en RS - vippe.
+              Vil benytte en TOF - timer (forsinket utkobling ) blokk som settes
+              til 2 minutter, samt en RS - blokk og en AND - blokk som vist
+              under
+            </p>
+
+            <figure class="a">
+              <img src="https://i.xdh.no/b5b05c7490c8" alt="" />
+              <figcaption>
+                Figuren viser kun hvordan motor 1 kan styres. Må gjøre noe
+                tilsvarende for motor 2
+              </figcaption>
+            </figure>
+            <p class="a">
+              Når startbryteren trykkes og slippes starter TOF, og holder
+              utgangen høy i 2 minutter. (Forsinket utkobling). Så lenge
+              stoppbryteren ikke trykkes løper tiden, og motor en vil gå i 2
+              minutter ettersom både TOF og RS - vippa har høy utgang. AND -
+              blokka gir nå på - signal til motoren. Hvis stopp trykkes vil RS -
+              vippa resettes og AND - blokka vil gi lavt utgangssignal . Motoren
+              stoppes. Det samme vil skje når timertiden på 2 minutte r utløper.
+              AND - blokka vil gå lav og stoppe motoren.
+            </p>
+          </div>
         </div>
       </section>
     </div>
