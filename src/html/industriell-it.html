@@ -1939,8 +1939,87 @@
         </div>
       </section>
       <section>
-        <div class="row">
-        </div>
+      	<div class="row">
+      		<p><strong>Frekvensrespons </strong> Undersøker hvordan et system takler sinussignaler.
+      		Gir oss informasjon om;
+      		Båndbredde, stabilitet, filteregenskaper. 
+      		Ved å la <span class="katex">\omega</span> variere fra null til uendelig vil vi kunne finne ut hvordan et system overfører sinussignaler. 
+      		Vi vil sitte igjen med informasjon som vi kaller frekvensresponsen til systemet.
+      		Frekvensresponsen til et system (lineært og stabilt) kan finnes direkte fra transferfunksjonen H(s).
+      		Det kan vises at vi finner frekvensresponsen ved å erstatte s med <span class="katex">j\omega</span> i en transferfunksjon.</p>
+
+      		<p><strong>Arbeidspunkt:</strong>. Angir det normale virkeområde(setpunkt/referanse) for en reg.sløyfe.  
+      		Hvis prosessen vi skal regulere er lineær vil reg.parametrene 
+      		Vi må bestemme oss for hvor hva referansennormalt er innstilt på.
+      		vi har funnet ved et arbeidspunkt kunne benyttes når vi endrer arbeidspunkt.
+      		Er prosessen ulineærvil optimale reg.parametre variere med arbeidspunktet som benyttes. 
+      		Vi bør derfor tune systemet på nytt når arbeidspunktet endres.</p>
+
+      		<p>Man kan gjøre et ustabil prosess stabil ved å benytte tilbakekobling.</p>
+
+      		<p><strong>Måleelement og kalibrering.</strong> Må kalibreremåleelementet slik at vi får mest mulig riktig informasjon 
+      		om det fysiske signalet. Må kunne stole på at signalet som angir resultatet/målingen er riktig.
+      		F.eks må alle bensinpumper kalibreres jevnlig. (Justervesenet.) Veldig viktig ved kjøp og salg av varer. 
+      		Viktig for skattelegging. Fiskalemålinger, avgifter. Et måleelement kalibreres slik at nedre fysiske verdi 
+      		gir en utgang lik f.eks 4mA, og høyeste fysiske verdi gir 20mA. Benytte da Zero (angir nullpunkt)
+      		og Span (angir område, maks verdi).</p>
+      		
+      		<p><strong>Digitalisering og sampling. </strong>Analoge signaler må digitaliseres (kvantiseres i tid og verdi) før de kan benyttes av en datamaskin.
+      		Kvantisering i tid kalles sampling/punktprøving.</p>
+
+      		<p><strong>Begrensing av pådrag</strong> Pådragsorganer har metningsgrenser. 
+      		Når disse grensene nås er det uheldig at regulatoren fortsetter å integrere opp pådraget uk.
+      		ådraget kan i en algoritme bli uendelig stort eller lite. Slike verdier vil ikke ha noen mening å benytte. 
+      		NB!!En ventil kan åpnes 100%, det er meningsløst å si at en ventil skal åpnes 200%.
+      		Løsningen er å ikke la pådraget bli større enn Umax og ikke bli mindre enn Umin.
+      		Dette gjøres enkelt med noen if-setninger. Hvis en slik begrensing (anti wind-up) ikke legges inn vil det gå 
+      		uforholdsmessig lang tid før pådraget bringes tilbake til normalt område igjen etter endringer.
+      		Resultatet vil bli et langvarig oversving. </p>
+
+      		<p><strong>Feltbusser</strong>Hvorfor IKKE benytte feltbusser?
+      		Mer komplekst utstyr, Mange standarder, Driftere må ha gode IT-kunnskaper, Revisjon av programvare kan gi integrasjonsproblemer,
+      		Nytt og gammelt utstyr snakker ikke alltid sammen, Kan «hackes»/forstyrres slik at datamistes eller blir feil. </p>
+      		<p>Det finnes en rekke feltbusser. Noen busser er mer rettet mot sensor påbitnivå.  (ASI, CAN, IO-link). 
+      		Noen dekker kommunikasjon mellom PLS’er og instrumenter. (Profibus-DP, Interbus, Modbus, DeviceNet, EtherCat.)
+      		Noen er rettet mot prosessautomatisering. (Profibus-PA, Fieldbus H1)
+      		Noen er rettet mot overordnede styringssystemer. (ProfiNet, Ethernet/IP, Fieldbus HSE), 
+      		samt ulike ethernet-typer beregnet for sanntidsoperasjoner.</p>
+      		<p><strong>Vanlige feltbusser</strong> ASI: Effektiv når det er enkle digitale signaler mot sensor.
+      		IO-Link : Kommunikasjons-Interface. Punkt til punkt tilkobling mellom sensorer,aktuatorer og PLS’er.
+      		CAN: Control area Network. Mye brukt i bilindustrien. OBD2 diagnose system for biler. (Seriebus).
+      		Profibus-DP: Dekker kommunikasjon mellom Master (eks. PC/PLS) og distribuerte I/O-enheter som da blir slaver.
+      		Max 12Mbit/s. Max 32 enheter per segment. Benytter RS 485.
+      		Profibus-PA: Benyttes for kommunikasjon motprosessinstrumenter.  
+      		31.25 kBit/sPA nettet kobles mot en DP-Master via en DP til PA omkobler.
+      		Fieldbus Foundation: Konkurrent til Profibus-PA. Kommunikasjon mot prosessinstrumenter. 31.25 kBit/s. 
+      		Funksjonsmoduler (software) i I/O enhetene. 
+      		Industrielt Ethernet: Benytter Ethernet med ”programvare/hardware” som sørger for sanntidsegenskaper.
+      		Oppdateringstider mindre enn 10 0mikrosekunder.Eks. Profinet, Ethernet/IP, EtherCAT, ModbusTCP</p>
+
+      		<p><strong>RFID</strong> Radiofrekvensidentifikasjon (engelsk: radio frequency identification, RFID) 
+      		er en metode for å lagre og hente data ved hjelp av små enheter kalt RFID-brikker. 
+      		En RFID-brikke er en liten brikke som kan festes til eller bygges inn i et produkt, et dyr eller en person.</p>
+
+      		<p><strong>OPC</strong> Open Platform Communications. 
+      		OPCer en interoperabilitetsstandardfor sikker og pålitelig datautvekslingi industriell automatisering/nettverk.
+      		Den er plattform uavhengig, og sikrer sømløs strøm av informasjonmellom enheter fra flere leverandører.
+      		Siste utgave er: OPC-UA (Unified Architecture). Gjør det mulig å lese/skrive PLS-tagger i sanntid. 
+      		Er basert på en klient/server modell. <strong>OPC Data Access </strong>(OPC Classic)
+      		OPC DA sender over realtimeverdier fra PLS’er til HMI/SCADA system. Altså tilgang til realtime prosessdata.
+      		Brukes til: Lesing av nåverdier( Måleinstrumenter, Styresignaler, Beregnede verdier). 
+      		Og skriving av nåverdier (Settpunkt i regulator, Startkriterier i logikk-programmer).
+      		<strong>OPC Unified Architecture (UA)</strong> Motivasjon: Samler alle eksisterendespesifikasjoner i enhelhetligmodell.
+      		Støtter kompliserte/rike informasjonsmodeller. Fokus på sikkerhet i kommunikasjon mellomklient og server.
+      		Er tilgjengelig på andre plattformer enn Win32: Linux, Android, VxWorks, iOS, Android </p>
+
+      		<h3>Eksamen 2014</h3>
+      		<p class="q">Anta at du skal utføre en PID-regulering, og at algoritmen under benyttes
+      			<span class="katex">uk = u_{k-1} + K(1 + \dfrac{T}{T_i})e_k - Ke_{k-1} - \dfrac{KT_d}{T}(y_k - 2y_{k-1} + y_{k-2})</span></p>
+      		<p><strong>Parametere i algoritmer:</strong> uk – beregnet pådrag ved et gitt samplingspunkt, 
+      		uk-1 – pådraget en sampling tilbake (gamle pådraget), ek – nåværende avvikk, 
+      		ek-1 – avviket en sampling tilbake, ek-2 – avviket to sampling tilbake, yk - målt verdi, rk - referanse. Evt. A, B og C er konstanter. </p>
+
+      	</div>
       </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
