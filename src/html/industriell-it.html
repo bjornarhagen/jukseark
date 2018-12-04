@@ -304,8 +304,8 @@
                 på en prosess. <strong>Typiske pådragsorgan</strong>; ventiler,
                 elektriske forsterkere, motorer, pumper.
 
-                <strong>Typisk signalverdier i reguleringssløyfe:</strong> 4-20mA, 0–10Volt,
-                1-5Volt, 3-15PSI
+                <strong>Typisk signalverdier i reguleringssløyfe:</strong>
+                4-20mA, 0–10Volt, 1-5Volt, 3-15PSI
               </span>
             </p>
           </div>
@@ -1968,14 +1968,23 @@
 
             <ul class="inside">
               <li>
-                Man kan gjøre et <strong>ustabil prosess</strong> stabil ved å benytte
-                <strong>tilbakekobling</strong>.
+                Man kan gjøre et <strong>ustabil prosess</strong> stabil ved å
+                benytte <strong>tilbakekobling</strong>.
               </li>
-              <li><strong>Lavpassfilter</strong> fjerner høye signlar (lar kun lave komme gjennom)</li>
-              <li><strong>Høypassfilter</strong> fjerner lave signlar (lar kun høye komme gjennom)</li>
-              <li><strong>Hold</strong>Utgangen holdes på samme verdi i hele samplingstiden inntil en ny verdi kommer fra D/A eller A/D-omformeren.</li>
+              <li>
+                <strong>Lavpassfilter</strong> fjerner høye signlar (lar kun
+                lave komme gjennom)
+              </li>
+              <li>
+                <strong>Høypassfilter</strong> fjerner lave signlar (lar kun
+                høye komme gjennom)
+              </li>
+              <li>
+                <strong>Hold</strong>Utgangen holdes på samme verdi i hele
+                samplingstiden inntil en ny verdi kommer fra D/A eller
+                A/D-omformeren.
+              </li>
             </ul>
-
           </div>
 
           <p><strong>Nullpunkter, poler og tidskonstanter</strong></p>
@@ -2010,20 +2019,24 @@
             systemet. Frekvensresponsen til et system (lineært og stabilt) kan
             finnes direkte fra transferfunksjonen H(s). Det kan vises at vi
             finner frekvensresponsen ved å erstatte s med
-            <span class="katex">j\omega</span> i en transferfunksjon.
-            I Matlab finner man frekvensresponsen enkelt ved å skrive inn transferfunksjonen. Legger inn teller og nevner
-			hver for seg, og benytter deretter tf-funksjonen som lager selve transferfunksjonen.
-			Når den er inne benyttes BODE()-funksjonen for å beregne og plotte frekvensresponsen.
+            <span class="katex">j\omega</span> i en transferfunksjon. I Matlab
+            finner man frekvensresponsen enkelt ved å skrive inn
+            transferfunksjonen. Legger inn teller og nevner hver for seg, og
+            benytter deretter tf-funksjonen som lager selve transferfunksjonen.
+            Når den er inne benyttes BODE()-funksjonen for å beregne og plotte
+            frekvensresponsen.
           </p>
 
           <p>
             <strong>Arbeidspunkt:</strong>. Angir det normale
-            virkeområde(setpunkt/referanse) for en reg.sløyfe. Vi må bestemme oss for
-            hvor hva referansen normalt er innstilt på.
-            Det har betydning for tuning av PID-parametrene.
-            Hvis prosessen vi skal regulere er lineærvil reg.parametrene vi har funnet ved et arbeidspunkt kunne 
-            benyttes når vi endrer arbeidspunkt. Er prosessen ulineærvil optimale reg.parametre variere med arbeidspunktet som benyttes. 
-            Vi bør derfor tune systemet på nytt når arbeidspunktet endres.
+            virkeområde(setpunkt/referanse) for en reg.sløyfe. Vi må bestemme
+            oss for hvor hva referansen normalt er innstilt på. Det har
+            betydning for tuning av PID-parametrene. Hvis prosessen vi skal
+            regulere er lineærvil reg.parametrene vi har funnet ved et
+            arbeidspunkt kunne benyttes når vi endrer arbeidspunkt. Er prosessen
+            ulineærvil optimale reg.parametre variere med arbeidspunktet som
+            benyttes. Vi bør derfor tune systemet på nytt når arbeidspunktet
+            endres.
           </p>
 
           <p>
@@ -2059,52 +2072,71 @@
             plattformer enn Win32: Linux, Android, VxWorks, iOS, Android
           </p>
 
-          <p><strong>Rektangel-integrasjon følger Eulers metode. </strong>
-          	Vi deler området under en funksjon/kurve opp i rektangler.
-			Bredden på en skive er samplingstiden T (i matematikken ofte benyttet delta x).
-			Det blir da lett å beregne arealet av hver rektangel.
-			Lager et program som beregner arealet av hvert rektangel /Skive og som summerer fra
-			startpunkt til endepunkt,
-			Får dermed beregnet det totale (tilnærmede) areal under kurven.
-			På en måten kan vi enkelt integrere bestemte funksjoner.</p>
-
-			<p><strong>Simpsons metode</strong> 
-				benytter parabelbuer istedenfor rektangler. En slik bue kan bede tilpasses en kurve.
-				Dermed vil også arealberegningen bli mer nøyaktig</p>
-
-
-
+          <p>
+            <strong>Rektangel-integrasjon følger Eulers metode. </strong> Vi
+            deler området under en funksjon/kurve opp i rektangler. Bredden på
+            en skive er samplingstiden T (i matematikken ofte benyttet delta x).
+            Det blir da lett å beregne arealet av hver rektangel. Lager et
+            program som beregner arealet av hvert rektangel /Skive og som
+            summerer fra startpunkt til endepunkt, Får dermed beregnet det
+            totale (tilnærmede) areal under kurven. På en måten kan vi enkelt
+            integrere bestemte funksjoner.
+          </p>
         </div>
       </section>
       <section>
         <div class="row">
-			<p><strong>Programbare ligninger fra analoge uttrykk.</strong>
-			Ligningene fremkommer ved å diskretisere analoge uttrykk.
-			Vi må benytte diskrete løsninger (numeriske) for derivasjon og integrasjon.
-			Mange metoder å velge blant.
-			Eulers metoder er enkle.
-			For integrasjon finnes, rektangel og trapesintegrasjon. Simpsons metode og andre.
-			For derivasjon kan Eulers forovermetode benyttes, men også mer avanserte fler-skritts
-			metoder som Runge-Kutta.
-			Ved å erstatte analoge uttrykk med sine diskrete ekvivalenter fremkommer en differensligning
-			som kan programmeres.</p>
+          <p>
+            <strong>Simpsons metode</strong> benytter parabelbuer istedenfor
+            rektangler. En slik bue kan bede tilpasses en kurve. Dermed vil også
+            arealberegningen bli mer nøyaktig
+          </p>
 
-			<p><strong>Eulers midtpunktsmetodeer </strong>en forbedring av Eulers forovermetode.
-			Den går ut på at man beregner den deriverte i punktet (t0+ T/2). 
-			Og benytter den som et estimat av den deriverte i punktet (t0, x0)
-			En enda bedre metode går ut på å beregne den deriverte i flere punkter.
-			<strong>Runge-Kutta </strong>4-skritts metode beregner funksjonsverdien fk i 4 delintervaller mellomt0og t1.
-			Det er en tyngre metode å utføre, men gir vesentlig bedre resultat enn enkle metoder som Eulers metoder.</p>
+          <p>
+            <strong>Programbare ligninger fra analoge uttrykk.</strong>
+            Ligningene fremkommer ved å diskretisere analoge uttrykk. Vi må
+            benytte diskrete løsninger (numeriske) for derivasjon og
+            integrasjon. Mange metoder å velge blant. Eulers metoder er enkle.
+            For integrasjon finnes, rektangel og trapesintegrasjon. Simpsons
+            metode og andre. For derivasjon kan Eulers forovermetode benyttes,
+            men også mer avanserte fler-skritts metoder som Runge-Kutta. Ved å
+            erstatte analoge uttrykk med sine diskrete ekvivalenter fremkommer
+            en differensligning som kan programmeres.
+          </p>
 
-			<h3>Matlab</h3>
-			<p><strong>Runge-Kutta:</strong> ode45()</p>
-			<p><strong>Audioread(): Leser flere lyd-formater</strong></p>
-			<p><strong>Audiowrite(): Skriver flere lyd-formater</strong></p>
-			<p><strong>sound(y, Fs): Spiller av samplingene. Ofte 2 kanaler med lyd. (Stereo)
-			Fs angir samplingsfrekvensen som benyttes.</strong></p>
-			<p><strong>Pause():</strong> Angir at systemet tar en pause på n sekunder. Ved lyd: spiller ingenting.</p>
-			<p><strong>Plot():</strong> plotter valgte feks. samplinger eller annet. Visualisering.</p>
-			<p><strong>Flipud(): </strong> Snur matrisa bak fram. Ved lyd vil den bli spilt inn bakfrem</p>
+          <p>
+            <strong>Eulers midtpunktsmetodeer </strong>en forbedring av Eulers
+            forovermetode. Den går ut på at man beregner den deriverte i punktet
+            (t0+ T/2). Og benytter den som et estimat av den deriverte i punktet
+            (t0, x0) En enda bedre metode går ut på å beregne den deriverte i
+            flere punkter. <strong>Runge-Kutta </strong>4-skritts metode
+            beregner funksjonsverdien fk i 4 delintervaller mellomt0og t1. Det
+            er en tyngre metode å utføre, men gir vesentlig bedre resultat enn
+            enkle metoder som Eulers metoder.
+          </p>
+
+          <h3>Matlab</h3>
+          <p><strong>Runge-Kutta:</strong> ode45()</p>
+          <p><strong>Audioread(): Leser flere lyd-formater</strong></p>
+          <p><strong>Audiowrite(): Skriver flere lyd-formater</strong></p>
+          <p>
+            <strong
+              >sound(y, Fs): Spiller av samplingene. Ofte 2 kanaler med lyd.
+              (Stereo) Fs angir samplingsfrekvensen som benyttes.</strong
+            >
+          </p>
+          <p>
+            <strong>Pause():</strong> Angir at systemet tar en pause på n
+            sekunder. Ved lyd: spiller ingenting.
+          </p>
+          <p>
+            <strong>Plot():</strong> plotter valgte feks. samplinger eller
+            annet. Visualisering.
+          </p>
+          <p>
+            <strong>Flipud(): </strong> Snur matrisa bak fram. Ved lyd vil den
+            bli spilt inn bakfrem
+          </p>
           <h3>Eksamen 2014</h3>
           <p class="q">
             Anta at du skal utføre en PID-regulering, og at algoritmen under
@@ -2122,15 +2154,27 @@
             referanse. Evt. A, B og C er konstanter.
           </p>
 
-          <p><strong>Numeriske løsninger</strong>
-          <strong>Integrasjonsmetoder</strong>:Eulers metoder: Enkle men ikke så nøyaktige. Trapesmetoden_ Mer nøyaktig og enkel å implementere.
-      		Simpsons metode: Meget nøyaktig, men tyngre å implementere.
-      	<strong>Differensialapproksimasjoner</strong>: Eulers metoder, grove mhp nøyaktighet, 1-skritts metoder, rask.
-      	Runge-Kutta metoden: Flerskritts metoder. Mer nøyaktige. Trenger desto flere beregninger. Mye benyttet i simulering.</p>
-      	<p>Viktig: Det er viktig at tidsskrittet T man velger ved numeriske løsninger (simuleringer) er liten i forhold til systemets dynamikk. 
-      	En regel er at man bør velge en skrittlengde T som er minst 10 ganger mindre enn systemets minste tidskonstant.
-      	En annen måte å si dette på er at en bør velge en samplingsfrekvens som er minst 10 ganger raskere en den øverste frekvens som skal gjengis tilnærmet uendret.
-      	Velges tids-skrittet T for stor i en numerisk løsningvilhele simuleringen kunne bli ustabil. Resultatet blir da helt ubrukelig.</p>
+          <p>
+            <strong>Numeriske løsninger</strong>
+            <strong>Integrasjonsmetoder</strong>:Eulers metoder: Enkle men ikke
+            så nøyaktige. Trapesmetoden_ Mer nøyaktig og enkel å implementere.
+            Simpsons metode: Meget nøyaktig, men tyngre å implementere.
+            <strong>Differensialapproksimasjoner</strong>: Eulers metoder, grove
+            mhp nøyaktighet, 1-skritts metoder, rask. Runge-Kutta metoden:
+            Flerskritts metoder. Mer nøyaktige. Trenger desto flere beregninger.
+            Mye benyttet i simulering.
+          </p>
+          <p>
+            Viktig: Det er viktig at tidsskrittet T man velger ved numeriske
+            løsninger (simuleringer) er liten i forhold til systemets dynamikk.
+            En regel er at man bør velge en skrittlengde T som er minst 10
+            ganger mindre enn systemets minste tidskonstant. En annen måte å si
+            dette på er at en bør velge en samplingsfrekvens som er minst 10
+            ganger raskere en den øverste frekvens som skal gjengis tilnærmet
+            uendret. Velges tids-skrittet T for stor i en numerisk
+            løsningvilhele simuleringen kunne bli ustabil. Resultatet blir da
+            helt ubrukelig.
+          </p>
         </div>
       </section>
     </div>
