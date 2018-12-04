@@ -1973,6 +1973,7 @@
               </li>
               <li><strong>Lavpassfilter</strong> fjerner høye signlar (lar kun lave komme gjennom)</li>
               <li><strong>Høypassfilter</strong> fjerner lave signlar (lar kun høye komme gjennom)</li>
+              <li><strong>Hold</strong>Utgangen holdes på samme verdi i hele samplingstiden inntil en ny verdi kommer fra D/A eller A/D-omformeren.</li>
             </ul>
 
           </div>
@@ -2010,6 +2011,9 @@
             finnes direkte fra transferfunksjonen H(s). Det kan vises at vi
             finner frekvensresponsen ved å erstatte s med
             <span class="katex">j\omega</span> i en transferfunksjon.
+            I Matlab finner man frekvensresponsen enkelt ved å skrive inn transferfunksjonen. Legger inn teller og nevner
+			hver for seg, og benytter deretter tf-funksjonen som lager selve transferfunksjonen.
+			Når den er inne benyttes BODE()-funksjonen for å beregne og plotte frekvensresponsen.
           </p>
 
           <p>
@@ -2068,6 +2072,12 @@
 				benytter parabelbuer istedenfor rektangler. En slik bue kan bede tilpasses en kurve.
 				Dermed vil også arealberegningen bli mer nøyaktig</p>
 
+
+
+        </div>
+      </section>
+      <section>
+        <div class="row">
 			<p><strong>Programbare ligninger fra analoge uttrykk.</strong>
 			Ligningene fremkommer ved å diskretisere analoge uttrykk.
 			Vi må benytte diskrete løsninger (numeriske) for derivasjon og integrasjon.
@@ -2079,11 +2089,6 @@
 			Ved å erstatte analoge uttrykk med sine diskrete ekvivalenter fremkommer en differensligning
 			som kan programmeres.</p>
 
-
-        </div>
-      </section>
-      <section>
-        <div class="row">
 			<p><strong>Eulers midtpunktsmetodeer </strong>en forbedring av Eulers forovermetode.
 			Den går ut på at man beregner den deriverte i punktet (t0+ T/2). 
 			Og benytter den som et estimat av den deriverte i punktet (t0, x0)
@@ -2095,6 +2100,11 @@
 			<p><strong>Runge-Kutta:</strong> ode45()</p>
 			<p><strong>Audioread(): Leser flere lyd-formater</strong></p>
 			<p><strong>Audiowrite(): Skriver flere lyd-formater</strong></p>
+			<p><strong>sound(y, Fs): Spiller av samplingene. Ofte 2 kanaler med lyd. (Stereo)
+			Fs angir samplingsfrekvensen som benyttes.</strong></p>
+			<p><strong>Pause():</strong> Angir at systemet tar en pause på n sekunder. Ved lyd: spiller ingenting.</p>
+			<p><strong>Plot():</strong> plotter valgte feks. samplinger eller annet. Visualisering.</p>
+			<p><strong>Flipud(): </strong> Snur matrisa bak fram. Ved lyd vil den bli spilt inn bakfrem</p>
           <h3>Eksamen 2014</h3>
           <p class="q">
             Anta at du skal utføre en PID-regulering, og at algoritmen under
