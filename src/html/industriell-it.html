@@ -517,11 +517,11 @@
             >
           </p>
           <p>
-            Man må finne systemets åpne sløyfetransferfunksjon A(s).
-            Frekvensresponsen til A(s) vil være utgangspunktet for å finne en
-            «optimal» regulator. For å simulere responsen til hele
-            reguleringssystemet må vi beregne følgeforholdet M(s). Hvis systemet
-            har enhets tilbakekobling blir
+            Man må finne systemets
+            <strong>åpne sløyfetransferfunksjon</strong> A(s). Frekvensresponsen
+            til A(s) vil være utgangspunktet for å finne en «optimal» regulator.
+            For å simulere responsen til hele reguleringssystemet må vi beregne
+            følgeforholdet M(s). Hvis systemet har enhets tilbakekobling blir
             <span class="katex">M(s) = \frac{A(s)}{1+A(s)}</span>. Matlab
             beregner dette enkelt, og så kan vi benytte step-funksjonen på M(s).
           </p>
@@ -915,9 +915,10 @@
               av et fysisk system).
               <span class="katex">\ddot{X} + 0.8\dot{X}+4X(t) = 0.1f(t)</span>
               Anta at alle startbetingelser ved t = 0 er 0. Diskretiser ligning
-              1 vha Eulers 1-skritts metode. Vis utledningen og svaret. TIPS!!
-              Erstatt den 2 -deriverte med sin numeriske ekvivalent osv. Anta at
-              f(t) er et enhetssprang ved t=0.<span class="katex"
+              1 vha <strong>Eulers 1-skritts metode</strong>. Vis utledningen og
+              svaret. TIPS!! Erstatt den 2 -deriverte med sin numeriske
+              ekvivalent osv. Anta at f(t) er et enhetssprang ved t=0.<span
+                class="katex"
                 >\rightarrow</span
               >f(t) = 1. Lag et program som beregner (simulerer) systemet for
               verdier av t mellom 0 og 10 sekunder. Test følgende tidskritt T.
@@ -1022,8 +1023,9 @@
               styringssystem er oppbygd.</strong
             >
             Forklar kort prinsippene slike systemer er bygd etter. Hva vil det
-            si at man har redundans i slike systemer? Industri 4.0 er ofte
-            benyttet som et begrep. Forklar kort hva dette dreier seg om.
+            si at man har <strong>redundans</strong> i slike systemer? Industri
+            4.0 er ofte benyttet som et begrep. Forklar kort hva dette dreier
+            seg om.
           </p>
           <p class="a">
             Bør få med at det består av operatørstasjoner, brukerstasjoner hvor
@@ -1046,9 +1048,9 @@
           </p>
 
           <p class="q">
-            <strong>Forklar kort hva en feltbusser,</strong> og hvorfor dette er
-            en viktig del av industriell IT. Beskriv noen fordeler man kan oppnå
-            med feltbusser. Hva er forklaringen på at det finnes så mange
+            <strong>Forklar kort hva en feltbuss er</strong>, og hvorfor dette
+            er en viktig del av industriell IT. Beskriv noen fordeler man kan
+            oppnå med feltbusser. Hva er forklaringen på at det finnes så mange
             feltbusser?
           </p>
           <p class="a">
@@ -1067,7 +1069,7 @@
           </p>
           <p>
             Feltbusser har blitt utviklet av mange selskap over tid. Mange
-            selskap holder på sin teknologi og mener denofte er best. Samtidig
+            selskap holder på sin teknologi og mener den ofte er best. Samtidig
             vil de ikke gi fra seg fordeler de har med etablerte systemer. I
             tillegg skal feltbusser dekke mange ulike oppgraver. Alt fra
             overordnet kommunikasjon som kan være industrielt Ethernet. Ned til
@@ -1139,7 +1141,7 @@
               til systemet. Vi kan øke forsterkningen. F.eks kan vi prøve K lik
               8 eller 10.Får da et litt raskere og mer statisk nøyaktig
               regulering.Hvis K økes for mye blir stabilitetsmarginene «spist»
-              opp.Dette system tåler egentlig at forsterkning kan økes mot
+              opp. Dette system tåler egentlig at forsterkning kan økes mot
               uendelig, men da blir fasemargin tilnærmet 0. Nærmer seg
               ustabilitet, og et system som vil pendle svært mye.
             </p>
@@ -1183,30 +1185,31 @@
 
           <p class="q">
             <strong>Oppgave D</strong> Prosessen gitt i oppgave 2A blir koblet
-            opp, og testes med Ziegler-Nichols metode. Følgende verdier ble
-            funnet: Kritisk forsterkning Kkrit= 14 og svingeperioden Tk= 105
-            sekunder. Hvilke verdier vil du anbefale å benytte for innstilling
-            av en PID-regulator? Hvilke svakheter har Ziegler-Nichols metode.?
-            Beskriv noen andre metoder som vi kan anvende for praktisk tuning
-            som kan være bedre enn Ziegler-Nichols metode.
+            opp, og testes med <strong>Ziegler-Nichols metode</strong>. Følgende
+            verdier ble funnet: Kritisk forsterkning Kkrit= 14 og svingeperioden
+            Tk= 105 sekunder. Hvilke verdier vil du anbefale å benytte for
+            innstilling av en PID-regulator? Hvilke svakheter har
+            Ziegler-Nichols metode.? Beskriv noen andre metoder som vi kan
+            anvende for praktisk tuning som kan være bedre enn Ziegler-Nichols
+            metode.
           </p>
           <p class="a">
             Dette kan vi beregne rett fra vedlagte tabell: K = 0.65. Kkrit =
             0.65 * 14 = 9.1. Ti =0.5*Tk = 0.5 *105 = 52.5. Td = 0.12. Tk = 0.12*
-            105 = 12.6. Ziegler-Nichols metode krever at prosessen er oppkoblet
-            og utsettes for store pådragsendringer. Systemet kjøres slik at et
-            blir tilnærmet ustabilt. Stående svingninger. Det er ikke
-            akseptabelt for mange prosesser, og dermed kan ikke metoden benyttes.
-            Hensikten er å finne de den forsterkning som gir et ustabilt system (Kkritisk). 
-            Tabellen forslår verdier som skal passe for alle prosesser.Etter en
-            beregning/testing bør man finjustere reguleringsparameterne. Andre
-            metoder som kan benyttes er: 1. Relè-metoden som setter prosessen i
-            en kontrollert svingning. Meget god metode. 2. Teste sprangrespons
-            på systemet, og ut fra responsen beregne parametere. Mye benyttet i
-            enkle auto-tunings-algoritmer. 3. Andre forslag som er presentert
-            er: Good Gain metoden til Finn Haugen.baserer seg på sprangrespons.
-            4. I tillegg har en rekke personer kommet med sine «egne» metoders
-            om baserer seg på vurdering av sprangresponsen.
+            105 = 12.6. Ziegler-Nichols metode tester hvor mye systemet tåler.
+            Metoden krever at prosessen er oppkoblet og utsettes for store
+            pådragsendringer. Systemet kjøres slik at et blir tilnærmet
+            ustabilt. Stående svingninger. Det er ikke akseptabelt formange
+            prosesser, og dermed kan ikke metoden benyttes. Tabellen forslår
+            verdier som skal passe for alle prosesser.Etter en beregning/testing
+            bør man finjustere reguleringsparameterne. Andre metoder som kan
+            benyttes er: 1. Relè-metoden som setter prosessen i en kontrollert
+            svingning. Meget god metode. 2. Teste sprangrespons på systemet, og
+            ut fra responsen beregne parametere. Mye benyttet i enkle
+            auto-tunings-algoritmer. 3. Andre forslag som er presentert er: Good
+            Gain metoden til Finn Haugen.baserer seg på sprangrespons. 4. I
+            tillegg har en rekke personer kommet med sine «egne» metoders om
+            baserer seg på vurdering av sprangresponsen.
           </p>
 
           <p class="q">
@@ -1222,7 +1225,7 @@
             Oppløsningen er gitt av antall bit og er gitt av antall nivåer vi
             kan dele området i: Kan regnes ut på følgende vis:
             <span class="katex">
-              Res_{mv} = \frac{Vref}{2N} = \frac{5}{212}= \frac{5}{4096} =
+              Res_{mv} = \frac{Vref}{2^N} = \frac{5}{2^{12}}= \frac{5}{4096} =
               1.2mV</span
             >
           </p>
@@ -1264,10 +1267,11 @@
             omformes fra analog til digital i en A/D-omformer. Nøyaktig og
             oppløsning er avhengig av antall bit som benyttes for å holde den
             digitale verdien. Samplingsfrekvensen er avhengig av hvor hurtig
-            signalet vi skal sample er. Nyquist-Shannon har utledet
+            signalet vi skal sample er. Shannon-Nyquist har utledet
             samplingsteoremet som sier at vi må sample minst dobbeltså hurtig
             som den høyeste frekvensen vi ønsker å gjenskape.
           </p>
+
         </div>
       </section>
       <section>
@@ -1333,13 +1337,14 @@
             Forklar en annen metode som vil kunne være mer nøyaktig enn denne.
             Beskriv kort forskjellen på dem.
           </p>
-          <class class="a"
-            >Formelen er differensligningen som beskriver trapes integrasjon. yk
-            er nytt areal som beregnes. yk-1 er arealet før neste «skive» som
-            beregnes. T–samplingstiden (Tiden mellom 2 målinger). fk –
-            funksjonsverdien i punktet k. fk-1 – funksjonsverdien i punktet
-            k-1.</class
-          >
+          <p class="a">
+            Formelen er differensligningen som beskriver
+            <strong>trapes integrasjon</strong>. yk er nytt areal som beregnes.
+            yk-1 er arealet før neste «skive» som beregnes. T–samplingstiden
+            (Tiden mellom 2 målinger). fk – funksjonsverdien i punktet k. fk-1 –
+            funksjonsverdien i punktet k-1. Trapes integrasjon er det samme som
+            rektangel integrasjon
+          </p>
           <p>
             Lager en løkke som beregner og summerer hver skive som funksjonen
             blir delt opp i. Vi må oppgi start og sluttpunktet a og b. Og hvor
