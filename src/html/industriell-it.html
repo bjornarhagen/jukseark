@@ -1529,18 +1529,12 @@
             omrører og alarm skal slås av.)
           </p>
           <img
-            class="sl"
+            class="w75 centered"
             src="https://i.xdh.no/fd4d7e49346f"
             alt="codesys oppg - eksamen 2016"
           />
 
           <div class="bt"></div>
-        </div>
-      </section>
-    </div>
-    <div class="wrapper" page="4">
-      <section>
-        <div class="row">
           <h3>Eksamen 2017</h3>
           <p class="q">
             <strong
@@ -1597,7 +1591,6 @@
             ville ha falt framover/bakover før reg.systemet hadde klart å
             balansere det loddrett.
           </p>
-
           <p class="q">
             <strong>Hvorfor er standard Ethernet </strong>problematisk å benytte
             som en feltbuss? Nyere biler benytter CAN-bus og ODB-2 (On Board
@@ -1611,6 +1604,13 @@
             Så har de sanntidsegensaker som gjør at disse kan benyttes ut mot
             felt.
           </p>
+        </div>
+      </section>
+    </div>
+    <div class="wrapper" page="4">
+      <section>
+        <div class="row">
+
           <p class="a">
             <strong>CAN bus</strong> (Controller Area Network) is a vehicle bus
             standard designed to allow microcontrollers and devices to
@@ -1719,10 +1719,6 @@
             systemet fungere dårlig (store oversving), eller at D/A-omformeren
             ikke takler verdien i det hele tatt. (Anti-wind up)
           </p>
-        </div>
-      </section>
-      <section>
-        <div class="row">
 
           <h4>Oppgave 3E</h4>
           <p class="q">
@@ -1743,12 +1739,8 @@
           </p>
           <p class="a">
             <span class="katex"> \dfrac{Y(s)}{X(s)} = \dfrac{s}{1+0.5s} </span>
-            <span class="katex"
-              >\Rightarrow (1+0.5s) \cdot Y(s) = s \cdot X(s)</span
-            >
-            <span class="katex"
-              >s-plan: Y(s)+0.5s \cdot Y(s) = s \cdot X(s)</span
-            >
+            <span class="katex">\Rightarrow (1+0.5s) \cdot Y(s) = s \cdot X(s)</span>
+            <span class="katex">s-plan: Y(s)+0.5s \cdot Y(s) = s \cdot X(s)</span>
           </p>
           <p class="a">
             <span class="katex">t-plan: y+0.5 \dot{y} = \dot{x}</span>
@@ -1795,21 +1787,18 @@
             </div>
           </div>
           <p class="a i2 tl">
-            <span class="katex"
-              >\Rightarrow y_k + 0.5 \cdot \dfrac{y_k - y_{k-1}}{T} = \dfrac{x_k
-              - x_{k-1}}{T} \cdot T</span
-            >
-            <span class="katex"
-              >\Rightarrow Ty_k + 0.5y_k - 0.5y_{k-1} = x_k - x_{k-1}</span
-            >
-            <span class="katex"
-              >\Rightarrow y_k(T+0.5) = 0.5y_{k-1} + y_k - y_{k-1}</span
-            >
-            <span class="katex"
-              >\Rightarrow \underline{\underline{y_k = \dfrac{0.5}{T+0.5} \cdot
-              y_{k-1} + \dfrac{1}{T+0.5}(y_k - y_{k-1})}}</span
-            >
+            <span class="katex">\Rightarrow y_k + 0.5 \cdot \dfrac{y_k - y_{k-1}}{T} = \dfrac{x_k
+              - x_{k-1}}{T} \cdot T</span>
+            <span class="katex">\Rightarrow Ty_k + 0.5y_k - 0.5y_{k-1} = x_k - x_{k-1}</span>
+            <span class="katex">\Rightarrow y_k(T+0.5) = 0.5y_{k-1} + y_k - y_{k-1}</span>
+            <span class="katex">\Rightarrow \underline{\underline{y_k = \dfrac{0.5}{T+0.5} \cdot
+              y_{k-1} + \dfrac{1}{T+0.5}(y_k - y_{k-1})}}</span>
           </p>
+        </div>
+      </section>
+      <section>
+        <div class="row">
+
 
           <h4>Oppgave 4</h4>
           <p class="q">
@@ -1861,20 +1850,14 @@
 
           <p>Faseforskyvning = <span class="katex">\phi</span></p>
           <p>
-            <strong>T </strong>kalles Systemets tidskonstant, hurtighet/treghet.
+            <strong>T </strong>kalles Systemets <strong>tidskonstant</strong>, hurtighet/treghet. Store tidskonstanter gjør systemet tregt.
           </p>
           <p>
-            <strong>Dødtid/tidsforsinkelse</strong> gjør systemer trege og
-            vanskeligere å regulere. Systemer med dødtid vil ha problemer med
-            D-virkning. Vil kunne oscillere mye. Sampling i
-            reguleringssystem:Ved at vi benytter sampling innfører vi en dødtid
-            (tidsforsinkelse) i systemet. Sampler vi hurtig vil denne dødtiden
-            bli tilnærmet ubetydelig. Sampler vi langsomt i forhold til
-            systemets dynamikk vil reguleringssystemet kunne bli ustabilt.
-          </p>
-          <p>
-            Dødtid er ugunstig i et styringssystem. Det medfører dårligere
-            fasemargin og dermed et mindre stabilt system.
+            <strong>Tidsforsinkelse</strong> betyr at det går en viss tid før utgangen reagerer på inngangen.
+            Det er da et delay (<strong>dødtid</strong>) i systemet. Det medfører at vi får målinger forsinket i forhold til pådraget.
+            Vi observerer følgelig ikke momentant virkningen av et pådrag.
+            Dette gjør at et reguleringssystem må tunes mer forsiktig (må sikre marginer).
+            Kan gi treg regulering og utfordringer i forhold til stabilitet.
           </p>
 
           <p>
@@ -1903,42 +1886,61 @@
           </p>
 
           <p><strong>Nullpunkter, poler og tidskonstanter</strong></p>
-          <img src="https://i.xdh.no/466979f21e42" alt="eks. nullpunkter og poler">
-          <p>Systemet har 1 nullpunkt. Tidskonstant 2 sek. 
-          Systemet har 2 poler (tidskonstanter 10 sek og 50 sek), samt 1 integrator.
-			Systemet har en dødtid/tidsforsinkelse på 20 sekunder
-			NB!: Nullpunkter påvirker dynamikken og responsen til systemet.
-			Polene påvirker dynamikken, men også om systemet skal være stabilt eller ikke. 
-			Dødtid gjør systemer trege og vanskeligere å regulere.
-      		</p>
+          <div class="cols cols-2">
 
-      		<p><strong>Tidsrespons </strong>Undersøker hvordan et system takler endringer/påvirkninger.
-      		Gir oss informasjon om; Hurtighet, forsterkning, stabilitet, reaksjonsmønster.</p>
+            <img
+            class=""
+            src="https://i.xdh.no/f6fd91ff9f09"
+            alt="eks. nullpunkter og poler"
+          />
+          <p>
+            Systemet har 1 nullpunkt. Tidskonstant 2 sek. Systemet har 2 poler
+            (tidskonstanter 10 sek og 50 sek), samt 1 integrator. Systemet har
+            en dødtid/tidsforsinkelse på 20 sekunder NB!: Nullpunkter påvirker
+            dynamikken og responsen til systemet. Polene påvirker dynamikken,
+            men også om systemet skal være stabilt eller ikke. Dødtid gjør
+            systemer trege og vanskeligere å regulere.
+          </p>
+              <p>
+                <strong>Tidsrespons </strong>Undersøker hvordan et system takler
+                endringer/påvirkninger. Gir oss informasjon om; Hurtighet,
+                forsterkning, stabilitet, reaksjonsmønster.
+              </p>
+          </div>
 
+              <p>
+                <strong>Frekvensrespons </strong> Undersøker hvordan et system
+                takler sinussignaler. Gir oss informasjon om; Båndbredde,
+                stabilitet, filteregenskaper. Ved å la
+                <span class="katex">\omega</span> variere fra null til uendelig vil
+                vi kunne finne ut hvordan et system overfører sinussignaler. Vi vil
+                sitte igjen med informasjon som vi kaller frekvensresponsen til
+                systemet. Frekvensresponsen til et system (lineært og stabilt) kan
+                finnes direkte fra transferfunksjonen H(s). Det kan vises at vi
+                finner frekvensresponsen ved å erstatte s med
+                <span class="katex">j\omega</span> i en transferfunksjon.
+              </p>
 
+              <p>
+                <strong>Arbeidspunkt:</strong>. Angir det normale
+                virkeområde(setpunkt/referanse) for en reg.sløyfe. Hvis prosessen vi
+                skal regulere er lineær vil reg.parametrene Vi må bestemme oss for
+                hvor hva referansennormalt er innstilt på. vi har funnet ved et
+                arbeidspunkt kunne benyttes når vi endrer arbeidspunkt. Er prosessen
+                ulineærvil optimale reg.parametre variere med arbeidspunktet som
+                benyttes. Vi bør derfor tune systemet på nytt når arbeidspunktet
+                endres.
+              </p>
+
+              <p>
+                Man kan gjøre et ustabil prosess stabil ved å benytte
+                tilbakekobling.
+              </p>
         </div>
       </section>
-      <!-- <section><div class="row"></div></section> -->
       <section>
-      	<div class="row">
-      		<p><strong>Frekvensrespons </strong> Undersøker hvordan et system takler sinussignaler.
-      		Gir oss informasjon om;
-      		Båndbredde, stabilitet, filteregenskaper. 
-      		Ved å la <span class="katex">\omega</span> variere fra null til uendelig vil vi kunne finne ut hvordan et system overfører sinussignaler. 
-      		Vi vil sitte igjen med informasjon som vi kaller frekvensresponsen til systemet.
-      		Frekvensresponsen til et system (lineært og stabilt) kan finnes direkte fra transferfunksjonen H(s).
-      		Det kan vises at vi finner frekvensresponsen ved å erstatte s med <span class="katex">j\omega</span> i en transferfunksjon.</p>
-
-      		<p><strong>Arbeidspunkt:</strong>. Angir det normale virkeområde(setpunkt/referanse) for en reg.sløyfe.  
-      		Hvis prosessen vi skal regulere er lineær vil reg.parametrene 
-      		Vi må bestemme oss for hvor hva referansennormalt er innstilt på.
-      		vi har funnet ved et arbeidspunkt kunne benyttes når vi endrer arbeidspunkt.
-      		Er prosessen ulineærvil optimale reg.parametre variere med arbeidspunktet som benyttes. 
-      		Vi bør derfor tune systemet på nytt når arbeidspunktet endres.</p>
-
-      		<p>Man kan gjøre et ustabil prosess stabil ved å benytte tilbakekobling.</p>
-      		
-      	</div>
+        <div class="row">
+        </div>
       </section>
     </div>
     <link rel="stylesheet" href="css/katex.min.css" />
