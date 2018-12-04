@@ -1272,6 +1272,20 @@
             som den høyeste frekvensen vi ønsker å gjenskape.
           </p>
 
+          <div class="bt">
+            <strong>diskret PI-regulator</strong>
+              <span class="katex">U_k = U_{k1} + k_p \cdot \dfrac{1+T_S}{T_I} \cdot avvik -k_p \cdot avvik_1</span>
+
+              <ul class="inline2">
+                <li><span class="katex">U_k</span> - nåværende beregnet pådrag</li>
+                <li><span class="katex">U_{k1}</span> - pådraget ved forrige sampling</li>
+                <li><span class="katex">avvik</span> - Feilen.  Setpunkt minus målt verdi akkurat nå</li>
+                <li><span class="katex">avvik_1</span> - avviket en sampling tilbake i tid</li>
+                <li><span class="katex">K_i</span> - regulator forsterkning </li>
+                <li><span class="katex">T_i</span> - integrasjonstien</li>
+                <li><span class="katex">T_s</span> - samplingstiden (hvor hurtig algoritmen kjøres)</li>
+              </ul>
+          </div>
         </div>
       </section>
       <section>
