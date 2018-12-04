@@ -907,8 +907,8 @@
             >
           </p>
           <p>
-            Benytter <strong>Eulers bakovermetode</strong> og setter inn for den første og andre
-            deriverte.
+            Benytter <strong>Eulers bakovermetode</strong> og setter inn for den
+            første og andre deriverte.
           </p>
           <p>
             <span class="katex">\dot{X} = \frac{X_k - X_{k-1}}{T}</span>
@@ -1683,14 +1683,12 @@
             (2*pi*200*t) + 2sin (2*pi*400*t) + 3sin (2*pi*600*t)+ 4sin
             (2*pi*800*t)
           </p>
-          <p class="q">
-            <strong
-              >Nedenfor er listet kode for en diskret PI-regulator:
-              <span class="katex"
-                >u_k = u_{k1} + k_p \cdot (1.0 + \frac{T_s}{Ti})*avvik -
-                k_p*avvik_1</span
-              >
-            </strong>
+          <p class="q tl">
+            <strong>Kode for en diskret PI-regulator: </strong>
+            <span class="katex"
+              >u_k = u_{k1} + k_p \cdot (1.0 + \dfrac{T_s}{Ti}) \cdot avvik -
+              k_p \cdot avvik_1</span
+            >
           </p>
           <p class="q">
             Forklar hva den utfører og alle variablene som inngår i uttrykket.
@@ -1950,40 +1948,56 @@
               ikke passer -180 grader.
             </p>
 
-            <p>
-              <strong>Ved sprangrespons</strong> må man benytte M(s).
-              <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
-              oversving burde være på 1.20 (20%)
-            </p>
+            <div class="clear">
+              <div class="fl w4 br">
+                <p>
+                  <strong>Ved sprangrespons</strong> må man benytte M(s).
+                  <span class="katex">M(s) = \dfrac{a(s)}{1+a(s)}</span>. Maks
+                  oversving burde være på 1.20 (20%)
+                </p>
+                <p>
+                  <strong>Beregning av dB-verdier</strong>
+                  <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke
+                  til at <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
+                  <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
+                  <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
+                  <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
+                </p>
 
-            <p>
-              <strong>Beregning av dB-verdier</strong>
-              <span class="katex">K(db) = 20log_{10}(K)</span>. Legg merke til
-              at <span class="katex"> X \cdot 2 \rightarrow 6 dB</span>,
-              <span class="i2 katex"> X \cdot 0.5 \rightarrow -6 dB</span>,
-              <span class="i2 katex"> X \cdot 10 \rightarrow 20 dB</span>,
-              <span class="i2 katex"> X \cdot 0.1 \rightarrow -20 dB</span>
-            </p>
-
-            <ul class="inside">
-              <li>
-                Man kan gjøre et <strong>ustabil prosess</strong> stabil ved å
-                benytte <strong>tilbakekobling</strong>.
-              </li>
-              <li>
-                <strong>Lavpassfilter</strong> fjerner høye signlar (lar kun
-                lave komme gjennom)
-              </li>
-              <li>
-                <strong>Høypassfilter</strong> fjerner lave signlar (lar kun
-                høye komme gjennom)
-              </li>
-              <li>
-                <strong>Hold</strong>Utgangen holdes på samme verdi i hele
-                samplingstiden inntil en ny verdi kommer fra D/A eller
-                A/D-omformeren.
-              </li>
-            </ul>
+                <ul class="inside">
+                  <li>
+                    Man kan gjøre et <strong>ustabil prosess</strong> stabil ved
+                    å benytte <strong>tilbakekobling</strong>.
+                  </li>
+                  <li>
+                    <strong>Lavpassfilter</strong> fjerner høye signlar (lar kun
+                    lave komme gjennom)
+                  </li>
+                  <li>
+                    <strong>Høypassfilter</strong> fjerner lave signlar (lar kun
+                    høye komme gjennom)
+                  </li>
+                  <li>
+                    <strong>Hold-element</strong> Utgangen holdes på samme verdi
+                    i hele samplingstiden inntil en ny verdi kommer fra D/A
+                    eller A/D-omformeren.
+                  </li>
+                </ul>
+              </div>
+              <figure class="w6 fr">
+                <img src="https://i.xdh.no/341dc1113fbe" alt="" />
+                <figcaption>
+                  <p>
+                    Lavpassfilter: Ser av frekvensresponsen at lave frekvenser
+                    slipper gjennom, og at høyere frekvenser dempes.
+                  </p>
+                  <p>
+                    Cut - off frekvensen
+                    <span class="katex">\phi = \dfrac{1}{T_F}</span>
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
           </div>
 
           <p><strong>Nullpunkter, poler og tidskonstanter</strong></p>
@@ -2050,7 +2064,10 @@
             en liten brikke som kan festes til eller bygges inn i et produkt, et
             dyr eller en person.
           </p>
-
+        </div>
+      </section>
+      <section>
+        <div class="row">
           <p>
             <strong>OPC</strong> Open Platform Communications. OPCer en
             interoperabilitetsstandardfor sikker og pålitelig datautvekslingi
@@ -2058,11 +2075,14 @@
             sikrer sømløs strøm av informasjonmellom enheter fra flere
             leverandører. Siste utgave er: OPC-UA (Unified Architecture). Gjør
             det mulig å lese/skrive PLS-tagger i sanntid. Er basert på en
-            klient/server modell. <strong>OPC Data Access </strong>(OPC Classic)
-            OPC DA sender over realtimeverdier fra PLS’er til HMI/SCADA system.
-            Altså tilgang til realtime prosessdata. Brukes til: Lesing av
-            nåverdier( Måleinstrumenter, Styresignaler, Beregnede verdier). Og
-            skriving av nåverdier (Settpunkt i regulator, Startkriterier i
+            klient/server modell.
+          </p>
+          <p>
+            <strong>OPC Data Access </strong>(OPC Classic) OPC DA sender over
+            realtimeverdier fra PLS’er til HMI/SCADA system. Altså tilgang til
+            realtime prosessdata. Brukes til: Lesing av nåverdier(
+            Måleinstrumenter, Styresignaler, Beregnede verdier). Og skriving av
+            nåverdier (Settpunkt i regulator, Startkriterier i
             logikk-programmer).
             <strong>OPC Unified Architecture (UA)</strong> Motivasjon: Samler
             alle eksisterendespesifikasjoner i enhelhetligmodell. Støtter
@@ -2081,10 +2101,7 @@
             totale (tilnærmede) areal under kurven. På en måten kan vi enkelt
             integrere bestemte funksjoner.
           </p>
-        </div>
-      </section>
-      <section>
-        <div class="row">
+
           <p>
             <strong>Simpsons metode</strong> benytter parabelbuer istedenfor
             rektangler. En slik bue kan bede tilpasses en kurve. Dermed vil også
@@ -2153,22 +2170,41 @@
             referanse. Evt. A, B og C er konstanter.
           </p>
 
-          <p><strong>Numeriske løsninger</strong>
-          <strong>Integrasjonsmetoder</strong>:Eulers metoder: Enkle men ikke så nøyaktige. Trapesmetoden_ Mer nøyaktig og enkel å implementere.
-      		Simpsons metode: Meget nøyaktig, men tyngre å implementere.
-      	<strong>Differensialapproksimasjoner</strong>: Eulers metoder, grove mhp nøyaktighet, 1-skritts metoder, rask.
-      	Runge-Kutta metoden: Flerskritts metoder. Mer nøyaktige. Trenger desto flere beregninger. Mye benyttet i simulering.</p>
-      	<p>Viktig: Det er viktig at tidsskrittet T man velger ved numeriske løsninger (simuleringer) er liten i forhold til systemets dynamikk. 
-      	En regel er at man bør velge en skrittlengde T som er minst 10 ganger mindre enn systemets minste tidskonstant.
-      	En annen måte å si dette på er at en bør velge en samplingsfrekvens som er minst 10 ganger raskere en den øverste frekvens som skal gjengis tilnærmet uendret.
-      	Velges tids-skrittet T for stor i en numerisk løsningvilhele simuleringen kunne bli ustabil. Resultatet blir da helt ubrukelig.</p>
+          <p>
+            <strong>Numeriske løsninger</strong>
+            <strong>Integrasjonsmetoder</strong>:Eulers metoder: Enkle men ikke
+            så nøyaktige. Trapesmetoden_ Mer nøyaktig og enkel å implementere.
+            Simpsons metode: Meget nøyaktig, men tyngre å implementere.
+            <strong>Differensialapproksimasjoner</strong>: Eulers metoder, grove
+            mhp nøyaktighet, 1-skritts metoder, rask. Runge-Kutta metoden:
+            Flerskritts metoder. Mer nøyaktige. Trenger desto flere beregninger.
+            Mye benyttet i simulering.
+          </p>
+          <p>
+            Viktig: Det er viktig at tidsskrittet T man velger ved numeriske
+            løsninger (simuleringer) er liten i forhold til systemets dynamikk.
+            En regel er at man bør velge en skrittlengde T som er minst 10
+            ganger mindre enn systemets minste tidskonstant. En annen måte å si
+            dette på er at en bør velge en samplingsfrekvens som er minst 10
+            ganger raskere en den øverste frekvens som skal gjengis tilnærmet
+            uendret. Velges tids-skrittet T for stor i en numerisk
+            løsningvilhele simuleringen kunne bli ustabil. Resultatet blir da
+            helt ubrukelig.
+          </p>
 
-      	<p>For å kunne analysere et system/prosess i t-plan trenger vi en <strong>matematisk modell</strong> som beskriver hvordan systemet oppfører seg.
-      	Vi kan benytte forskjellige metoderfor å utføre en slik analyse/simulering. 
-      	1. Simulere løsninger ved å <strong>diskretiser</strong> edifferensialligningene som beskriver systemet. 
-      	Får da programmerbare løsninger (numeriske løsninger). 2. 2. Vi kan benytte Laplacetransformen.
-      	Transformerer modell-ligningene over i s-plan. Blir da lettere å jobbe med ”koblede”systemer.
-      	Hvis systemet/prosessen er beskrevet med lineære diff.ligninger kan vi etablere koblinger mellom inngang og utgang som kalles en transferfunksjon. </p>
+          <p>
+            For å kunne analysere et system/prosess i t-plan trenger vi en
+            <strong>matematisk modell</strong> som beskriver hvordan systemet
+            oppfører seg. Vi kan benytte forskjellige metoderfor å utføre en
+            slik analyse/simulering. 1. Simulere løsninger ved å
+            <strong>diskretiser</strong> edifferensialligningene som beskriver
+            systemet. Får da programmerbare løsninger (numeriske løsninger). 2.
+            2. Vi kan benytte Laplacetransformen. Transformerer
+            modell-ligningene over i s-plan. Blir da lettere å jobbe med
+            ”koblede”systemer. Hvis systemet/prosessen er beskrevet med lineære
+            diff.ligninger kan vi etablere koblinger mellom inngang og utgang
+            som kalles en transferfunksjon.
+          </p>
         </div>
       </section>
     </div>
