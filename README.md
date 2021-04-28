@@ -1,10 +1,10 @@
 # Høgskolen i Østfold - Jukseark
 
-Live version is available at [bjornarhagen.no](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/)
+Live version is available at [bjornarhagen.no](https://bjornarhagen.no/_/skole/hio/2017/eksamensark)
 
-- [Datakommunikasjon](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/matte.html)
-- [Operativsystemer med Linux](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/linux.html)
-- [Matte for IT](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/dist/datakom.html)
+- [Datakommunikasjon](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/matte.html)
+- [Operativsystemer med Linux](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/linux.html)
+- [Matte for IT](https://bjornarhagen.no/_/skole/hio/2017/eksamensark/datakom.html)
 
 ## Setup
 
